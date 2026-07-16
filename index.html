@@ -5,6 +5,7 @@
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 <title>Gestão de Estoque | Comercial Atlântica</title>
+<meta name="app-build" content="2026.07.16.2"/>
 <script src="https://cdn.jsdelivr.net/npm/xlsx@0.18.5/dist/xlsx.full.min.js">
 
     function el(id) {
@@ -7966,7 +7967,10 @@ renderIndicatorTable();renderVolumeTable();renderCards();renderVolumeCards();
       return row[coluna];
     }
 
-    const arquivosEmbutidosTeste = {};
+    const arquivosEmbutidosTeste = {}; // versão web: bases internas removidas
+
+    function base64ParaArrayBuffer(base64) {
+      const binary = atob(base64);
       const len = binary.length;
       const bytes = new Uint8Array(len);
       for (let i = 0; i < len; i++) bytes[i] = binary.charCodeAt(i);
