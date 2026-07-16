@@ -1,0 +1,16 @@
+{
+  "name": "Gestão de Estoque | Comercial Atlântica",
+  "short_name": "Gestão Estoque",
+  "start_url": "./",
+  "display": "standalone",
+  "background_color": "#edf4ff",
+  "theme_color": "#0f2554",
+  "icons": [
+    {
+      "src": "icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}
