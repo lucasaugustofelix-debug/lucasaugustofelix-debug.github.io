@@ -635,6 +635,60 @@ body.sea-carnaval .sky::after{background-image:radial-gradient(circle at 12% 25%
 html.dark .morning{background:linear-gradient(135deg,#16224A,var(--card))}
 html.dark .wphrase{color:#B4C8FF}
 html.dark .bd.off .bi{background:#26332D!important}
+
+/* ===== v3.1 ===== */
+.seg{display:grid!important;grid-template-columns:repeat(4,minmax(0,1fr))}
+.seg button{font-size:.8rem!important;padding:0 4px!important;white-space:nowrap}
+.sect{margin:10px 6px -4px;font-size:.78rem;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+.calgrid{display:grid;grid-template-columns:repeat(7,minmax(0,1fr));gap:6px}
+.calgrid .wdh{text-align:center;font-size:.68rem;font-weight:800;color:var(--muted);padding-bottom:2px}
+.cd{aspect-ratio:1;border:none;border-radius:12px;background:var(--chip);color:var(--text);font:700 .8rem 'Plus Jakarta Sans',system-ui,sans-serif;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;position:relative;padding:0}
+.cd.c1{background:#DCE6FD}.cd.c2{background:#93B4FF}.cd.c3{background:#2F5EF0;color:#fff}
+.cd.cp{background:var(--purple-soft);color:var(--purple)}
+.cd.today{box-shadow:inset 0 0 0 2px var(--text)}
+.cd.fut,.cd.out{opacity:.35}
+.cd.empty{background:transparent}
+.cd em{position:absolute;bottom:3px;width:4px;height:4px;border-radius:50%;background:#FACC15}
+.callegend{display:flex;flex-wrap:wrap;gap:12px;justify-content:center;font-size:.7rem;font-weight:700;color:var(--muted)}
+.callegend span{display:inline-flex;align-items:center;gap:5px}
+.callegend i{width:12px;height:12px;border-radius:4px;display:inline-block;background:var(--chip)}
+.callegend i.c1{background:#DCE6FD}.callegend i.c2{background:#93B4FF}.callegend i.c3{background:#2F5EF0}.callegend i.cp{background:var(--purple-soft)}
+html.dark .cd.c1,html.dark .callegend i.c1{background:#1B2B57}html.dark .cd.c2,html.dark .callegend i.c2{background:#2E4FA8}html.dark .cd.c3,html.dark .callegend i.c3{background:#5B83FF}
+.rflist{display:flex;flex-direction:column}
+.rfi{display:flex;gap:10px;align-items:center;padding:10px 0;border-top:1px solid var(--line);width:100%;background:none;border-left:none;border-right:none;border-bottom:none;text-align:left;font:inherit;color:inherit}
+.rfi:first-child{border-top:none}
+.rfi .cdot{flex-shrink:0}
+.rfi div{flex:1;min-width:0}
+.rfi b{display:block;font-size:.8rem}
+.rfi span{display:block;font-size:.8rem;color:var(--soft);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.rfi img{width:40px;height:40px;border-radius:10px;object-fit:cover}
+.rfi mark{background:var(--yellow-soft);color:inherit;border-radius:4px;padding:0 2px}
+.gal{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:6px}
+.gal button{border:none;padding:0;background:none;position:relative;border-radius:12px;overflow:hidden;aspect-ratio:1}
+.gal img{width:100%;height:100%;object-fit:cover;display:block}
+.gal span{position:absolute;left:6px;bottom:6px;background:rgba(0,0,0,.55);color:#fff;font-size:.62rem;font-weight:800;border-radius:6px;padding:2px 6px}
+.gtrow{display:flex;align-items:center;gap:10px;margin-top:8px}
+.gtrow span{width:110px;font-size:.82rem;font-weight:700;flex-shrink:0}
+.gtrow .tr{flex:1;height:10px;border-radius:999px;background:var(--chip);overflow:hidden}
+.gtrow .tr i{display:block;height:100%;border-radius:999px;background:linear-gradient(90deg,var(--orange),#FDBA74)}
+.gtrow b{width:28px;text-align:right;font-size:.82rem}
+.rclist{display:flex;flex-direction:column;gap:8px}
+.rcm{display:flex;align-items:center;gap:12px;background:var(--bg);border:1px solid var(--line);border-radius:16px;padding:12px 14px;font:inherit;color:inherit;text-align:left;width:100%}
+.rcm .bi{width:42px;height:42px;border-radius:12px;display:flex;align-items:center;justify-content:center;flex-shrink:0;background:linear-gradient(160deg,#3B6CF5,#1E3A8A);color:#fff;font-weight:800;font-size:.8rem}
+.rcm div{flex:1}.rcm b{display:block;font-size:.9rem}.rcm span{font-size:.75rem;color:var(--muted);font-weight:600}
+.pfhead{flex-direction:row;align-items:center;gap:16px;background:var(--ink);color:#fff;border:none;position:relative;overflow:hidden}
+.pfhead .avatar{width:76px;height:76px;font-size:1.4rem;flex-shrink:0;position:relative;cursor:pointer;background:#26332D;color:#fff}
+.pfhead .avatar img{width:100%;height:100%;object-fit:cover;border-radius:50%}
+.pfhead .cam{position:absolute;right:-2px;bottom:-2px;width:26px;height:26px;border-radius:50%;background:var(--blue);display:flex;align-items:center;justify-content:center;border:2px solid var(--ink)}
+.pfhead h2{margin:0;font-size:1.25rem;color:#fff}
+.pfhead p{margin:2px 0 0;font-size:.8rem;color:#B7C2BC;font-weight:600}
+.pfstats2{display:flex;gap:8px;margin-top:10px;flex-wrap:wrap}
+.pfstats2 span{background:rgba(255,255,255,.1);border-radius:999px;padding:5px 10px;font-size:.74rem;font-weight:700;color:#fff;display:inline-flex;align-items:center;gap:5px}
+.pfhead .lvm{position:absolute;right:10px;top:8px;opacity:.95}
+.mtimes{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}
+.mtimes div{background:var(--bg);border-radius:14px;padding:10px 12px}
+.mtimes b{display:block;font-size:.84rem}.mtimes span{font-size:.74rem;color:var(--muted);font-weight:600}
+.chips button.off{opacity:.45;text-decoration:line-through}
 </style>
 </head>
 <body>
@@ -792,22 +846,11 @@ html.dark .bd.off .bi{background:#26332D!important}
     <div class="card" id="suppCard" hidden></div>
     <div class="card chcard" id="chCard"></div>
     <div class="card nudge" id="wNudge" hidden></div>
-    <div class="card insight" id="insightCard" hidden></div>
-
     <div class="card tipcard">
       <div class="ttl"><div class="ic" style="background:var(--yellow-soft)"><i class="ico" data-ic="bulb" style="color:var(--yellow)"></i></div><h2>Dica do dia</h2></div>
       <p id="tipText" style="margin:0;font-size:0.882rem;line-height:1.5;color:var(--soft)"></p>
     </div>
 
-    <!-- Semana -->
-    <div class="card" id="weekCardHoje">
-      <div class="row"><h2>Sua semana</h2><p class="meta">Seg a Dom</p></div>
-      <div class="stats">
-        <div class="stat" style="background:var(--blue-soft)"><b id="stW" style="color:var(--blue)">0/7</b><span style="color:var(--blue-deep)">dias com meta de água</span></div>
-        <div class="stat" style="background:var(--orange-soft)"><b id="stG" style="color:var(--orange)">0/7</b><span style="color:var(--orange-deep)">treinos feitos</span></div>
-        <div class="stat" style="background:var(--chip)"><b id="stF">0</b><span style="color:var(--soft)">refeições verdes</span></div>
-      </div>
-    </div>
   </div>
 
 </section>
@@ -815,7 +858,17 @@ html.dark .bd.off .bi{background:#26332D!important}
 <!-- SEMANA -->
 <section id="semana" class="screen">
   <div class="main">
-    <header><div><p class="date">Seus dias</p><h1>Semana</h1></div></header>
+    <header><div><p class="date">Tudo o que já aconteceu</p><h1>Histórico</h1></div></header>
+    <div class="card" id="calCard">
+      <div class="row">
+        <button class="nav-arrow" id="calPrev" aria-label="Mês anterior"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 6l-6 6 6 6"/></svg></button>
+        <div style="text-align:center"><b id="calLabel" style="font-size:0.941rem"></b><p class="meta" id="calSub" style="margin-top:2px"></p></div>
+        <button class="nav-arrow" id="calNext" aria-label="Próximo mês"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></button>
+      </div>
+      <div class="calgrid" id="calGrid"></div>
+      <div class="callegend"><span><i class="c0"></i>0</span><span><i class="c1"></i>1</span><span><i class="c2"></i>2</span><span><i class="c3"></i>3 missões</span><span><i class="cp"></i>pausa</span></div>
+    </div>
+    <h3 class="sect">Semana</h3>
     <div class="card" id="wkCardNav">
       <div class="row">
         <button class="nav-arrow" id="wkPrev" aria-label="Semana anterior"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 6l-6 6 6 6"/></svg></button>
@@ -832,17 +885,27 @@ html.dark .bd.off .bi{background:#26332D!important}
     <div class="card insight bestday" id="wkBest" hidden></div>
     <p class="meta" style="margin:-4px 4px 0;font-weight:500">Toque num dia para ver o detalhe ou editar.</p>
     <div class="card" style="gap:0;padding:8px 20px" id="wkList"></div>
+    <h3 class="sect">Refeições</h3>
+    <div class="card" id="rfCard">
+      <label class="field" for="rfQ">Buscar no que você comeu<input id="rfQ" type="search" placeholder="Ex.: pizza, salada, frango" autocomplete="off"></label>
+      <div id="rfList" class="rflist"></div>
+    </div>
+    <div class="card" id="galCard" hidden>
+      <div class="row"><h2>Fotos dos pratos</h2><p class="meta" id="galCount"></p></div>
+      <div class="gal" id="galGrid"></div>
+    </div>
   </div>
 </section>
 
 <!-- EVOLUÇÃO -->
 <section id="evo" class="screen">
   <div class="main">
-    <header><div><p class="date">Seu progresso</p><h1>Evolução</h1></div></header>
+    <header><div><p class="date">Sua evolução</p><h1>Progresso</h1></div></header>
     <div class="seg" role="tablist" aria-label="Seções da evolução">
-      <button type="button" role="tab" data-pane="peso" class="on" aria-selected="true">Peso</button>
+      <button type="button" role="tab" data-pane="peso" class="on" aria-selected="true">Corpo</button>
+      <button type="button" role="tab" data-pane="const" aria-selected="false">Hábitos</button>
       <button type="button" role="tab" data-pane="conq" aria-selected="false">Conquistas</button>
-      <button type="button" role="tab" data-pane="const" aria-selected="false">Constância</button>
+      <button type="button" role="tab" data-pane="retro" aria-selected="false">Retrô</button>
     </div>
 
     <div class="card hero" data-pane="peso" style="flex-direction:column;align-items:stretch;gap:14px">
@@ -891,25 +954,35 @@ html.dark .bd.off .bi{background:#26332D!important}
       <div class="acc" id="accNums"></div>
     </div>
     <div class="card" data-pane="const" hidden>
-      <div class="row"><h2>Retrospectiva do mês</h2></div>
-      <div id="evExtra" style="display:flex;flex-direction:column;gap:12px"></div>
-    </div>
-    <div class="card" data-pane="const" hidden>
       <div class="row"><h2>Missões por semana</h2><p class="meta">% cumprido</p></div>
       <div id="constBars"></div>
+    </div>
+    <div class="card" data-pane="const" hidden>
+      <div class="row"><h2>Treinos por tipo</h2><p class="meta" id="gtSub">últimos 30 dias</p></div>
+      <div id="gtStats"></div>
+    </div>
+    <div class="card" data-pane="const" hidden>
+      <div class="row"><h2>Padrões nas refeições</h2><p class="meta">últimos 14 dias</p></div>
+      <div id="habIns" style="display:flex;flex-direction:column;gap:10px"></div>
     </div>
 
     <div class="card" data-pane="conq" hidden>
       <div class="row"><h2>Sua gotinha</h2><p class="meta">evolui com a sequência</p></div>
       <div id="evLevels"></div>
     </div>
-    <div class="card" data-pane="conq" hidden>
-      <div class="row"><h2>Desafios</h2><p class="meta">histórico</p></div>
-      <div id="evCh" style="display:flex;flex-direction:column;gap:10px"></div>
-    </div>
+    <div class="card chcard" data-pane="conq" id="evChAct" hidden></div>
     <div class="card" data-pane="conq" hidden>
       <div class="row"><h2>Conquistas</h2><p class="meta" id="bdCount"></p></div>
       <div class="badges" id="badges"></div>
+    </div>
+    <div class="card" data-pane="conq" hidden>
+      <div class="row"><h2>Desafios anteriores</h2><p class="meta">histórico</p></div>
+      <div id="evCh" style="display:flex;flex-direction:column;gap:10px"></div>
+    </div>
+    <div class="card" data-pane="retro" hidden>
+      <div class="row"><h2>Retrospectiva</h2><p class="meta">seus meses</p></div>
+      <p class="meta" style="margin:0;font-weight:500">Seus números de cada mês em telas no estilo stories, prontas para compartilhar.</p>
+      <div id="evExtra" class="rclist"></div>
     </div>
 
     <div class="card" data-pane="peso" style="gap:0;padding:8px 20px">
@@ -922,11 +995,63 @@ html.dark .bd.off .bi{background:#26332D!important}
 <!-- PERFIL -->
 <section id="perfil" class="screen">
   <div class="main">
-    <header>
-      <div><p class="date">Suas configurações</p><h1>Perfil</h1></div>
-      <div class="avatar js-avatar" role="img" aria-label="Lucas Felix">LF</div>
-    </header>
-
+    <header><div><p class="date">Suas configurações</p><h1>Perfil</h1></div></header>
+    <div class="card pfhead" id="pfHead"></div>
+    <h3 class="sect">Água</h3>
+    <div class="card">
+      <div class="ttl"><div class="ic" style="background:var(--blue-soft)"><i class="ico" data-ic="drop" style="color:var(--blue)"></i></div><h2>Água</h2></div>
+      <div class="field">Tamanho da garrafinha<div class="chips" id="pfBottles"></div></div>
+      <label class="field">Ou outro tamanho (ml)<input id="pfBottle" inputmode="numeric" autocomplete="off"></label>
+      <div class="steps" id="pfTurns"></div>
+      <p class="hint" id="pfGoal"></p>
+    </div>
+    <div class="card">
+      <div class="ttl"><div class="ic" style="background:var(--chip)"><i class="ico" data-ic="clock" style="color:var(--text)"></i></div><h2>Horários dos turnos</h2></div>
+      <div style="display:flex;gap:10px">
+        <label class="field" style="flex:1">Manhã termina às<select id="pfMorning"></select></label>
+        <label class="field" style="flex:1">Tarde termina às<select id="pfAfternoon"></select></label>
+      </div>
+      <p class="hint">As notificações de água seguem esses horários automaticamente.</p>
+    </div>
+    <div class="card">
+      <div class="ttl"><div class="ic" style="background:var(--yellow-soft)"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--yellow)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2.5v2M12 19.5v2M2.5 12h2M19.5 12h2M5.3 5.3l1.4 1.4M17.3 17.3l1.4 1.4M5.3 18.7l1.4-1.4M17.3 6.7l1.4-1.4"/></svg></div><h2>Clima</h2></div>
+      <p class="meta" id="wxStatus" style="margin:0;font-weight:600"></p>
+      <p class="meta" style="margin:0;font-weight:500">Usa a localização do celular para mostrar o clima e ajustar a saudação. Em dias de 30°C ou mais, a meta ganha uma garrafinha extra.</p>
+      <button type="button" class="btn b-ink" id="wxOn" style="flex:none;width:100%">Usar minha localização</button>
+      <button type="button" class="btn b-ghost" id="wxHeat" style="flex:none;width:100%;font-size:.82rem"></button>
+    </div>
+    <h3 class="sect">Alimentação</h3>
+    <div class="card">
+      <div class="ttl"><div class="ic" style="background:var(--green-soft)"><i class="ico" data-ic="food" style="color:var(--green)"></i></div><h2>Horários das refeições</h2></div>
+      <p class="meta" id="pfLearned" style="margin:0;font-weight:600"></p>
+      <div id="pfMealTimes" class="mtimes"></div>
+    </div>
+    <h3 class="sect">Treino</h3>
+    <div class="card">
+      <div class="ttl"><div class="ic" style="background:var(--orange-soft)"><i class="ico" data-ic="gym" style="color:var(--orange)"></i></div><h2>Tipos de treino</h2></div>
+      <p class="meta" style="margin:0;font-weight:500">Escolha os que aparecem no check-in e crie os seus.</p>
+      <div class="chips" id="pfGTypes"></div>
+      <div style="display:flex;gap:8px"><input class="inp" id="pfGtName" placeholder="Ex.: Natação" maxlength="20" style="flex:1" aria-label="Novo tipo de treino"><button type="button" class="btn b-ink" id="pfGtAdd" style="flex:none;width:110px">Criar</button></div>
+    </div>
+    <h3 class="sect">Suplementos</h3>
+    <div class="card">
+      <div class="ttl"><div class="ic" style="background:var(--purple-soft)"><i class="ico" data-ic="pill" style="color:var(--purple)"></i></div><h2>Suplementos e vitaminas</h2></div>
+      <p class="meta" style="margin:0;font-weight:500">Um check na tela Hoje, fora das missões, e um lembrete no horário, só se você ainda não marcou.</p>
+      <div id="pfSupps" style="display:flex;flex-direction:column;gap:8px"></div>
+      <div style="display:flex;gap:8px"><input class="inp" id="pfSuppName" placeholder="Ex.: Creatina" maxlength="30" style="flex:1" aria-label="Nome do suplemento"><input class="inp" id="pfSuppTime" type="time" value="08:00" style="width:118px" aria-label="Horário"></div>
+      <button type="button" class="btn b-ink" id="pfSuppAdd" style="flex:none;width:100%">Adicionar</button>
+    </div>
+    <h3 class="sect">Lembretes</h3>
+    <div class="card">
+      <div class="ttl"><div class="ic" style="background:var(--blue-soft)"><i class="ico" data-ic="bulb" style="color:var(--blue)"></i></div><h2>Notificações</h2></div>
+      <p class="meta" id="nfStatus" style="margin:0;font-weight:600">Verificando…</p>
+      <p class="meta" style="margin:0;font-weight:500">Bom dia no início do dia, avisos só quando estiver atrasado (água, refeição, academia), sequência em risco às 20h, resumo da noite às 22h e resumo da semana no domingo.</p>
+      <label class="field">Lembrete de pesagem<select id="pfWeigh"><option value="0">Desligado</option><option value="7">A cada 7 dias</option><option value="15">A cada 15 dias</option><option value="30">A cada 30 dias</option></select></label>
+      <div style="display:flex;gap:10px"><label class="field" style="flex:1">Silêncio começa às<select id="pfQs"></select></label><label class="field" style="flex:1">Termina às<select id="pfQe"></select></label></div>
+      <button type="button" class="btn b-blue" id="nfOn" style="flex:none;width:100%" hidden>Ativar notificações</button>
+      <div class="btns"><button type="button" class="btn b-ghost" id="nfTest" hidden>Enviar teste</button><button type="button" class="btn b-ghost" id="nfToggle" hidden>Pausar lembretes</button></div>
+    </div>
+    <h3 class="sect">Conta e app</h3>
     <div class="card">
       <div class="ttl"><div class="ic" style="background:var(--purple-soft)"><i class="ico" data-ic="camera" style="color:var(--purple)"></i></div><h2>Foto de perfil</h2></div>
       <div class="pfphoto">
@@ -937,57 +1062,14 @@ html.dark .bd.off .bi{background:#26332D!important}
         </div>
       </div>
     </div>
-
-    <div class="card">
-      <div class="ttl"><div class="ic" style="background:var(--blue-soft)"><i class="ico" data-ic="drop" style="color:var(--blue)"></i></div><h2>Água</h2></div>
-      <div class="field">Tamanho da garrafinha<div class="chips" id="pfBottles"></div></div>
-      <label class="field">Ou outro tamanho (ml)<input id="pfBottle" inputmode="numeric" autocomplete="off"></label>
-      <div class="steps" id="pfTurns"></div>
-      <p class="hint" id="pfGoal"></p>
-    </div>
-
-    <div class="card">
-      <div class="ttl"><div class="ic" style="background:var(--chip)"><i class="ico" data-ic="clock" style="color:var(--text)"></i></div><h2>Horários dos turnos</h2></div>
-      <div style="display:flex;gap:10px">
-        <label class="field" style="flex:1">Manhã termina às<select id="pfMorning"></select></label>
-        <label class="field" style="flex:1">Tarde termina às<select id="pfAfternoon"></select></label>
-      </div>
-      <p class="hint">As notificações de água seguem esses horários automaticamente.</p>
-    </div>
-
-    <div class="card">
-      <div class="ttl"><div class="ic" style="background:var(--yellow-soft)"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--yellow)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2.5v2M12 19.5v2M2.5 12h2M19.5 12h2M5.3 5.3l1.4 1.4M17.3 17.3l1.4 1.4M5.3 18.7l1.4-1.4M17.3 6.7l1.4-1.4"/></svg></div><h2>Clima</h2></div>
-      <p class="meta" id="wxStatus" style="margin:0;font-weight:600"></p>
-      <p class="meta" style="margin:0;font-weight:500">Usa a localização do celular para mostrar o clima e ajustar a saudação. Em dias de 30°C ou mais, a meta ganha uma garrafinha extra.</p>
-      <button type="button" class="btn b-ink" id="wxOn" style="flex:none;width:100%">Usar minha localização</button>
-      <button type="button" class="btn b-ghost" id="wxHeat" style="flex:none;width:100%;font-size:.82rem"></button>
-    </div>
-
-    <div class="card">
-      <div class="ttl"><div class="ic" style="background:var(--blue-soft)"><i class="ico" data-ic="bulb" style="color:var(--blue)"></i></div><h2>Notificações</h2></div>
-      <p class="meta" id="nfStatus" style="margin:0;font-weight:600">Verificando…</p>
-      <p class="meta" style="margin:0;font-weight:500">Bom dia às 7h, avisos só quando estiver atrasado (água, refeição, academia), sequência em risco às 20h, resumo da noite às 22h e resumo da semana no domingo.</p>
-      <p class="meta" id="pfLearned" style="margin:0;font-weight:600;color:var(--blue)"></p>
-      <label class="field">Lembrete de pesagem<select id="pfWeigh"><option value="0">Desligado</option><option value="7">A cada 7 dias</option><option value="15">A cada 15 dias</option><option value="30">A cada 30 dias</option></select></label>
-      <button type="button" class="btn b-blue" id="nfOn" style="flex:none;width:100%" hidden>Ativar notificações</button>
-      <div class="btns"><button type="button" class="btn b-ghost" id="nfTest" hidden>Enviar teste</button><button type="button" class="btn b-ghost" id="nfToggle" hidden>Pausar lembretes</button></div>
-    </div>
-
-    <div class="card">
-      <div class="ttl"><div class="ic" style="background:var(--purple-soft)"><i class="ico" data-ic="pill" style="color:var(--purple)"></i></div><h2>Suplementos e vitaminas</h2></div>
-      <p class="meta" style="margin:0;font-weight:500">Um check na tela Hoje, fora das missões, e um lembrete no horário, só se você ainda não marcou.</p>
-      <div id="pfSupps" style="display:flex;flex-direction:column;gap:8px"></div>
-      <div style="display:flex;gap:8px"><input class="inp" id="pfSuppName" placeholder="Ex.: Creatina" maxlength="30" style="flex:1" aria-label="Nome do suplemento"><input class="inp" id="pfSuppTime" type="time" value="08:00" style="width:118px" aria-label="Horário"></div>
-      <button type="button" class="btn b-ink" id="pfSuppAdd" style="flex:none;width:100%">Adicionar</button>
-    </div>
-    <div class="card">
-      <div class="ttl"><div class="ic" style="background:var(--purple-soft)"><i class="ico" data-ic="pause" style="color:var(--purple)"></i></div><h2>Modo pausa</h2></div>
-      <div id="pfPause" style="display:flex;flex-direction:column;gap:10px"></div>
-    </div>
     <div class="card">
       <div class="ttl"><div class="ic" style="background:var(--chip)"><i class="ico" data-ic="moon" style="color:var(--text)"></i></div><h2>Aparência e som</h2></div>
       <div class="field">Tema<div class="chips" id="pfTheme"></div></div>
       <button type="button" class="btn b-ghost" id="pfSound" style="flex:none;width:100%;font-size:.82rem"></button>
+    </div>
+    <div class="card">
+      <div class="ttl"><div class="ic" style="background:var(--purple-soft)"><i class="ico" data-ic="pause" style="color:var(--purple)"></i></div><h2>Modo pausa</h2></div>
+      <div id="pfPause" style="display:flex;flex-direction:column;gap:10px"></div>
     </div>
     <div class="card">
       <div class="ttl"><div class="ic" style="background:var(--chip)"><i class="ico" data-ic="phone" style="color:var(--text)"></i></div><h2>Novo Eu na tela de início</h2></div>
@@ -998,23 +1080,21 @@ html.dark .bd.off .bi{background:#26332D!important}
         <li>Abra pelo ícone novo e ative as notificações aqui no Perfil.</li>
       </ol>
     </div>
-
     <div class="card">
       <div class="ttl"><div class="ic" style="background:var(--green-soft)"><i class="ico" data-ic="cal" style="color:var(--green)"></i></div><h2>Importar do app antigo</h2></div>
       <p class="meta" style="margin:0;font-weight:500">No app antigo (dentro do Claude), vá em Perfil → <b>Copiar meus dados</b> e cole aqui.</p>
       <label class="field" for="imText">Dados copiados<textarea id="imText" rows="3" placeholder="Cole aqui"></textarea></label>
       <button type="button" class="btn b-ink" id="imBtn" style="flex:none;width:100%">Importar dados</button>
     </div>
-
     <button type="button" class="btn b-ghost" id="logoutBtn" style="flex:none;width:100%">Sair da conta</button>
   </div>
 </section>
 
 <nav id="tabs" aria-label="Navegação principal" hidden><div class="in">
   <button data-tab="today"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 11l9-8 9 8"/><path d="M5 10v10h14V10"/></svg>Hoje</button>
-  <button data-tab="semana"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4"/></svg>Semana</button>
+  <button data-tab="semana"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4"/></svg>Histórico</button>
   <button type="button" class="fabwrap" id="fab" aria-label="Lançar algo rápido"><span class="fab"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.6" stroke-linecap="round" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg></span></button>
-  <button data-tab="evo"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 20V11M10 20V5M16 20v-6M2 20h20"/></svg>Evolução</button>
+  <button data-tab="evo"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 20V11M10 20V5M16 20v-6M2 20h20"/></svg>Progresso</button>
   <button data-tab="perfil"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M4 21c1.5-4 4.5-6 8-6s6.5 2 8 6"/></svg>Perfil</button>
 </div></nav>
 
@@ -1332,13 +1412,12 @@ window.addEventListener('error', function(e){
   function nBottles(){ var t = S().turns; return (t.m||0) + (t.t||0) + (t.n||0) + heatExtra(); }
 
   // ================= v3: pausa, tema, som, versão =================
-  var APP_VERSION = '3.0';
+  var APP_VERSION = '3.1';
   var WHATS_NEW = [
-    ['flag', 'Desafios: escolha um pronto ou crie o seu, com 7, 15 ou 30 dias.'],
-    ['cal', 'Edite qualquer dia dos últimos 30 dias tocando nele na Semana.'],
-    ['camera', 'Foto do prato nas refeições e tipo de treino no check-in.'],
-    ['drop', 'Garrafinha animada, metas que se ajustam e a gotinha que evolui com a sua sequência.'],
-    ['moon', 'Modo pausa para viagens, tema escuro por horário e retrospectiva do mês.']
+    ['star', 'App reorganizado por assunto: Hoje, Histórico, Progresso e Perfil.'],
+    ['cal', 'Histórico: calendário do mês, semana, busca no que você comeu e galeria dos pratos.'],
+    ['trophy', 'Progresso: Corpo, Hábitos (com treinos por tipo), Conquistas com desafios e Retrospectiva.'],
+    ['bulb', 'Perfil organizado por assunto, com cabeçalho novo, tipos de treino e horário de silêncio.']
   ];
   function pauseInfo(){ var tk = todayKey(); return (S().pauses || []).filter(function(p){ return p.until >= tk; })[0] || null; }
   function paused(k){ return (S().pauses || []).some(function(p){ return k >= p.from && k <= p.until; }); }
@@ -1369,7 +1448,9 @@ window.addEventListener('error', function(e){
     }catch(e){}
   }
   var GYM_TYPES = [{k:'musc', n:'Musculação', e:'🏋️'}, {k:'volei', n:'Vôlei', e:'🏐'}, {k:'corrida', n:'Corrida', e:'🏃'}, {k:'caminhada', n:'Caminhada', e:'🚶'}, {k:'outro', n:'Outro', e:'⭐'}];
-  var GYM_TYPE_BY = {}; GYM_TYPES.forEach(function(g){ GYM_TYPE_BY[g.k] = g; });
+  function gymTypesAll(){ return GYM_TYPES.concat((S().gymCustom || []).map(function(g){ return {k:g.k, n:g.n, e:'⭐', custom:true}; })); }
+  function gymTypesOn(){ var off = S().gymOff || []; return gymTypesAll().filter(function(g){ return off.indexOf(g.k) < 0; }); }
+  function gtBy(k){ if(!k) return null; var all = gymTypesAll(); for(var i=0;i<all.length;i++) if(all[i].k === k) return all[i]; return null; }
 
   function blank(){ return {water:{m:0,t:0,n:0}, hist:[], gym:false, meals:{}, cel:{}}; }
   function dayData(k){ return mem.days[k] || blank(); }
@@ -2051,8 +2132,8 @@ window.addEventListener('error', function(e){
     // Academia
     var gb = $('gym'), gj = $('gymJust');
     var gt = $('gymTypes');
-    if(d.gym){ gb.className='btn b-dark'; gb.innerHTML = CHECK_BIG + 'Check-in feito hoje' + (d.gymType && GYM_TYPE_BY[d.gymType] ? ' · ' + GYM_TYPE_BY[d.gymType].e : ''); gj.hidden = true;
-      gt.hidden = false; gt.innerHTML = '<span>Qual treino? (opcional)</span><div>' + GYM_TYPES.map(function(g){ return '<button type="button" data-gt="'+g.k+'" class="'+(d.gymType===g.k?'sel':'')+'">'+g.e+' '+g.n+'</button>'; }).join('') + '</div>'; }
+    if(d.gym){ gb.className='btn b-dark'; gb.innerHTML = CHECK_BIG + 'Check-in feito hoje' + (d.gymType && gtBy(d.gymType) ? ' · ' + gtBy(d.gymType).e : ''); gj.hidden = true;
+      gt.hidden = false; gt.innerHTML = '<span>Qual treino? (opcional)</span><div>' + gymTypesOn().map(function(g){ return '<button type="button" data-gt="'+g.k+'" class="'+(d.gymType===g.k?'sel':'')+'">'+g.e+' '+g.n+'</button>'; }).join('') + '</div>'; }
     else gt.hidden = true;
     if(d.gym){}
     else if(d.gymJust){
@@ -2108,9 +2189,6 @@ window.addEventListener('error', function(e){
     countTo($('pct'), Math.round(p*100), function(v){ return Math.round(v) + '%'; });
     $('metas').textContent = metas+' de 3 completas';
     $('heroHint').textContent = metas===3 ? 'Dia completo. Orgulho, Lucas!' : 'Água, treino e alimentação';
-    countTo($('stW'), wDays, function(v){ return Math.round(v)+'/7'; });
-    countTo($('stG'), gDays, function(v){ return Math.round(v)+'/7'; });
-    countTo($('stF'), fDays);
 
     // Mini-missões no topo
     var mini = {
@@ -2153,7 +2231,7 @@ window.addEventListener('error', function(e){
       var tot = totalOf(d), B = bottle(), nb = Math.round(dayGoal(d)/B);
       var wo = !fut && waterOk(d), comp = !fut && complete(d);
       if(wo) w++; if(!fut && d.gym) g++; if(comp) cc++;
-      var gCls = !fut && d.gym ? ' on' : (!fut && d.gymJust ? ' just' : ''), gTxt = !fut && d.gym ? (d.gymType && GYM_TYPE_BY[d.gymType] ? GYM_TYPE_BY[d.gymType].e : 'Ok') : (!fut && d.gymJust ? 'Just.' : (!fut && paused(k) ? 'Pausa' : '—'));
+      var gCls = !fut && d.gym ? ' on' : (!fut && d.gymJust ? ' just' : ''), gTxt = !fut && d.gym ? (d.gymType && gtBy(d.gymType) ? gtBy(d.gymType).e : 'Ok') : (!fut && d.gymJust ? 'Just.' : (!fut && paused(k) ? 'Pausa' : '—'));
       html += '<button type="button" class="wd'+(fut?' future':'')+(isT?' today':'')+(best && best.k === k ? ' best' : '')+(paused(k) && !fut ? ' pz' : '')+'" data-day="'+k+'"'+(fut?' disabled':'')+'>'+
         '<div class="dl"><b>'+WEEKDAYS[i]+(best && best.k === k ? ' ⭐' : '')+'</b><span>'+dt.getDate()+'/'+pad(dt.getMonth()+1)+(d.edited ? ' '+ico('pencil',12,'var(--muted)') : '')+'</span></div>'+
         '<div class="ms">'+
@@ -2168,6 +2246,7 @@ window.addEventListener('error', function(e){
     var bl = $('wkBest'); if(best){ bl.hidden = false; bl.innerHTML = '<span class="bi" style="background:var(--yellow-soft)">'+ico('star',20,'var(--yellow)')+'</span><div><small>Melhor dia da semana</small><b>'+WEEKDAYS[best.i]+', '+fromKey(best.k).getDate()+'/'+pad(fromKey(best.k).getMonth()+1)+'</b><p>'+esc(best.why.charAt(0).toUpperCase() + best.why.slice(1))+'.</p></div>'; } else bl.hidden = true;
     $('wkW').textContent = w; $('wkG').textContent = g; $('wkC').textContent = cc;
     $('wkSum').innerHTML = weekSummaryHTML(monday, 'Resumo da semana');
+    renderCal(); renderMeals();
   }
 
   // Detalhe do dia
@@ -2176,7 +2255,7 @@ window.addEventListener('error', function(e){
     var ds = dt.toLocaleDateString('pt-BR',{weekday:'long', day:'numeric', month:'long'});
     $('dTitle').textContent = ds.charAt(0).toUpperCase() + ds.slice(1);
     var tot = totalOf(d), nb = Math.round(dayGoal(d)/B);
-    var gtype = d.gymType && GYM_TYPE_BY[d.gymType] ? ' · ' + GYM_TYPE_BY[d.gymType].e + ' ' + GYM_TYPE_BY[d.gymType].n : '';
+    var gtype = d.gymType && gtBy(d.gymType) ? ' · ' + gtBy(d.gymType).e + ' ' + gtBy(d.gymType).n : '';
     var gymTxt = d.gym ? 'Treino feito' + gtype + '.' : (d.gymJust ? 'Justificado: ' + esc(d.gymJust.reason) + (d.gymJust.note ? ' · "' + esc(d.gymJust.note) + '"' : '') : (paused(k) ? 'Dia de pausa.' : 'Sem check-in.'));
     var meals = MEALS.map(function(x){
       var r = mealsOf(d)[x.k];
@@ -2283,13 +2362,11 @@ window.addEventListener('error', function(e){
     $('bdCount').textContent = (got + (cb?1:0)) + ' de ' + (BADGES.length + 1);
     // Níveis da gotinha
     var sn = streakNE(), lv = mascotLevel(), nx = LEVELS[lv + 1];
-    $('evLevels').innerHTML = '<div class="lvhead"><div class="mascot">'+mascotSVG('happy', 64, true)+'</div><div><small>Nível atual</small><b>'+LEVELS[lv].n+'</b><span>'+sn+' dia'+(sn===1?'':'s')+' seguidos com 2+ missões'+(nx ? ' · faltam ' + (nx.d - sn) + ' para o próximo' : ' · nível máximo!')+'</span></div></div>' +
+    $('evLevels').innerHTML = '<div class="lvhead"><div class="mascot">'+mascotSVG('happy', 64, true)+'</div><div><small>Nível atual</small><b>'+LEVELS[lv].n+'</b><span>'+sn+(sn===1?' dia seguido':' dias seguidos')+' com 2+ missões'+(nx ? ' · faltam ' + (nx.d - sn) + ' para o próximo' : ' · nível máximo!')+'</span></div></div>' +
       '<div class="lvlist">' + LEVELS.map(function(L, i){ return '<div class="lv'+(i<=lv?' on':'')+'"><i>'+(i<=lv ? CHECK : (i+1))+'</i><div><b>'+L.n+'</b><span>'+L.t+'</span></div></div>'; }).join('') + '</div>';
     // Desafios concluídos
     var hist = mem.meta.ch.hist;
     $('evCh').innerHTML = hist.length ? hist.slice(0, 12).map(function(c){ return '<div class="chh'+(c.ok?' ok':'')+'"><span class="bi" style="background:'+(c.ok?'var(--yellow-soft)':'var(--chip)')+'">'+ico(c.ok?'trophy':'flag', 20, c.ok?'var(--yellow)':'var(--muted)')+'</span><div><b>'+esc(c.name)+'</b><span>'+(c.ok ? 'Concluído · ' + c.days + ' dias' : 'Encerrado · ' + c.got + ' de ' + c.days + ' dias')+' · '+shortDate(fromKey(c.end))+'</span></div></div>'; }).join('') : '<p class="meta" style="margin:0;font-weight:500">Seus desafios concluídos aparecem aqui. Crie um na tela Hoje.</p>';
-    var n0 = now0();
-    $('evExtra').innerHTML = '<p class="meta" style="margin:0;font-weight:500">Seus números do mês em telas no estilo stories, prontas para compartilhar.</p><div class="btns">' + (keyOf(new Date(n0.getFullYear(), n0.getMonth(), 0)) >= mem.meta.start ? '<button type="button" class="btn b-ghost" id="rcOpen">'+MONTHS[(n0.getMonth()+11)%12].charAt(0).toUpperCase()+MONTHS[(n0.getMonth()+11)%12].slice(1)+'</button>' : '') + '<button type="button" class="btn b-ink" id="rcOpenNow">'+MONTHS[n0.getMonth()].charAt(0).toUpperCase()+MONTHS[n0.getMonth()].slice(1)+' até agora</button></div>';
 
     // Histórico
     var rev = ws.slice().reverse();
@@ -2302,7 +2379,7 @@ window.addEventListener('error', function(e){
         '<span class="df" style="color:'+dfColor+'">'+dfTxt+'</span>'+
         '<button class="rm'+(confirmIdx===idx?' confirm':'')+'" data-rm="'+idx+'" aria-label="Remover pesagem">'+(confirmIdx===idx?'Remover?':'×')+'</button></div>';
     }).join('') : '<div class="emptyill">'+mascotSVG('sleepy', 56)+'<p class="empty">Nenhuma pesagem ainda. Use o botão + quando quiser.</p></div>';
-    renderAcc();
+    renderAcc(); renderHabits(); renderRetroList(); renderChallenges();
   }
 
   function compressImage(file){
@@ -2346,8 +2423,8 @@ window.addEventListener('error', function(e){
       : '<p class="meta" style="margin:0;font-weight:500">Para viagem, feriado ou dias de folga: missões e lembretes param, e a sequência fica congelada. Quantos dias, começando hoje?</p><div class="chips">' + [1,2,3,4,5,6,7].map(function(n){ return '<button type="button" data-pz="'+n+'">'+n+' dia'+(n>1?'s':'')+'</button>'; }).join('') + '</div>';
     $('pfSupps').innerHTML = (s.supps || []).map(function(x){ return '<div class="srow">'+ico('pill',18,'var(--purple)')+'<b>'+esc(x.name)+'</b><span>'+esc(x.time)+'</span><button type="button" class="rm" data-rmsupp="'+x.id+'" aria-label="Remover '+esc(x.name)+'">×</button></div>'; }).join('') || '<p class="meta" style="margin:0;font-weight:500">Nenhum cadastrado.</p>';
     var ld = learnedDue(), lt = MEALS.filter(function(x){ return ld[x.k]; }).map(function(x){ return MEAL_POSS[x.k] + ' às ' + fmtH(ld[x.k]); });
-    $('pfLearned').textContent = lt.length ? 'Aprendi seu ritmo: aviso de ' + lt.join(', ') + '.' : 'Com alguns dias de uso, o app aprende seus horários de refeição e ajusta os avisos.';
-    renderAvatars(); refreshPushStatus(); renderWeatherCard();
+    $('pfLearned').textContent = lt.length ? 'O app aprendeu seu ritmo e ajusta os avisos de refeição atrasada.' : 'Com alguns dias de uso, o app aprende seus horários de refeição e ajusta os avisos.';
+    renderAvatars(); refreshPushStatus(); renderWeatherCard(); renderPfHead(); renderPfExtra();
   }
 
   // ================= Sheets =================
@@ -2527,6 +2604,7 @@ window.addEventListener('error', function(e){
       else el.textContent = 'LF';
     });
     var rm = $('pfPhotoRm'); if(rm) rm.hidden = !p;
+    if(current === 'perfil' && $('pfHead')) renderPfHead();
   }
 
   // ================= Números acumulados =================
@@ -2580,7 +2658,7 @@ window.addEventListener('error', function(e){
       return '<div class="step"><div><b>'+names[t]+'</b><span>'+fmtL(d.water[t]||0)+'</span></div><div class="stepper"><button type="button" data-ed="w" data-t="'+t+'" data-d="-1" aria-label="Menos uma garrafinha na '+names[t]+'">−</button><output>'+n+'</output><button type="button" data-ed="w" data-t="'+t+'" data-d="1" aria-label="Mais uma garrafinha na '+names[t]+'">+</button></div></div>';
     }).join('');
     var gymSel = d.gym ? 'yes' : (d.gymJust ? 'just' : 'no');
-    var types = d.gym ? '<div class="gtypes" style="margin-top:4px"><div>' + GYM_TYPES.map(function(g){ return '<button type="button" data-ed="gt" data-v="'+g.k+'" class="'+(d.gymType===g.k?'sel':'')+'">'+g.e+' '+g.n+'</button>'; }).join('') + '</div></div>' : '';
+    var types = d.gym ? '<div class="gtypes" style="margin-top:4px"><div>' + gymTypesOn().map(function(g){ return '<button type="button" data-ed="gt" data-v="'+g.k+'" class="'+(d.gymType===g.k?'sel':'')+'">'+g.e+' '+g.n+'</button>'; }).join('') + '</div></div>' : '';
     var meals = MEALS.map(function(x){
       var r = d.meals[x.k], cur = r ? (r.skip ? 'skip' : r.color) : '';
       var opt = function(v, lbl, dot){ return '<button type="button" data-ed="m" data-m="'+x.k+'" data-v="'+v+'" class="'+(cur===v?'sel':'')+'">'+(dot?'<i class="cdot '+v+'"></i>':'')+lbl+'</button>'; };
@@ -2680,7 +2758,7 @@ window.addEventListener('error', function(e){
     return out;
   }
   function renderInsight(){
-    var el = $('insightCard'), ins = mealInsights();
+    var el = $('insightCard'); if(!el) return; var ins = mealInsights();
     if(!ins.length){ el.hidden = true; return; }
     var it = ins[doy() % ins.length], good = it.tone === 'good';
     el.hidden = false;
@@ -2879,17 +2957,28 @@ window.addEventListener('error', function(e){
     } else { saveMeta(); if(c.done[k]) toast('Desafio: ' + chDone(c) + ' de ' + c.days + ' dias'); }
     renderChallenges(); if(current === 'evo') renderEvo();
   }
-  function renderChallenges(){
-    var el = $('chCard'); if(!el) return;
-    var tk = todayKey(), act = mem.meta.ch.active;
-    var list = act.map(function(c){
+  function chListHTML(){
+    var tk = todayKey();
+    return mem.meta.ch.active.map(function(c){
       var n = chDone(c), pct = Math.round(n / c.days * 100), on = c.done && c.done[tk], dayN = Math.min(c.days, daysBetween(c.start, tk) + 1);
       return '<div class="chrow"><div class="chinfo"><b>'+esc(c.name)+'</b><span>Dia '+dayN+' de '+c.days+' · '+n+' marcado'+(n===1?'':'s')+'</span><div class="chbar"><i style="width:'+pct+'%"></i></div></div>' +
         '<button type="button" class="chchk'+(on?' on':'')+'" data-ch="'+c.id+'" aria-label="'+(on?'Desmarcar hoje':'Marcar hoje')+'">'+(on ? CHECK_BIG : '')+'</button></div>';
     }).join('');
-    el.innerHTML = '<div class="row"><div class="ttl"><div class="ic" style="background:var(--yellow-soft)">'+ico('flag',24,'var(--yellow)')+'</div><h2>Desafios</h2></div>'+(act.length ? '<p class="meta">'+act.length+' ativo'+(act.length>1?'s':'')+'</p>' : '')+'</div>' +
-      (list || '<p class="meta" style="margin:0;font-weight:500">Um desafio extra, no seu ritmo. Escolha um pronto ou crie o seu.</p>') +
-      '<button type="button" class="btn b-ghost" id="chAdd" style="flex:none;width:100%">+ Incluir desafio</button>';
+  }
+  function renderChallenges(){
+    var act = mem.meta.ch.active, head = function(sub){ return '<div class="row"><div class="ttl"><div class="ic" style="background:var(--yellow-soft)">'+ico('flag',24,'var(--yellow)')+'</div><h2>Desafios</h2></div>'+sub+'</div>'; };
+    var el = $('chCard');
+    if(el){
+      if(!act.length) el.hidden = true;
+      else { el.hidden = false; el.innerHTML = head('<button type="button" class="linkbtn" data-goch="1" style="height:32px">Gerenciar ›</button>') + chListHTML(); }
+    }
+    var ev = $('evChAct');
+    if(ev){
+      ev.innerHTML = head(act.length ? '<p class="meta">'+act.length+' ativo'+(act.length>1?'s':'')+' · até 3</p>' : '') +
+        (act.length ? chListHTML() : '<p class="meta" style="margin:0;font-weight:500">Um desafio extra, no seu ritmo. Escolha um pronto ou crie o seu, e marque cada dia na tela Hoje.</p>') +
+        '<button type="button" class="btn b-ghost" id="chAdd" style="flex:none;width:100%">+ Incluir desafio</button>';
+      if(current === 'evo') ev.hidden = currentPane !== 'conq';
+    }
   }
   var chDays = 7, chPick = null;
   function openChSheet(){
@@ -2965,8 +3054,8 @@ window.addEventListener('error', function(e){
     if(!best || missionCount(best.d) < 1) return null;
     var d = best.d, why = [], mc = missionCount(d);
     why.push(mc === 3 ? '3 missões' : mc + ' de 3 missões');
-    if(foodOk(d)) why.push('todas as refeições verdes'); else if(greenCount(d)) why.push(greenCount(d) + ' refeição' + (greenCount(d)>1?'ões':'') + ' verde' + (greenCount(d)>1?'s':''));
-    if(d.gym && d.gymType && GYM_TYPE_BY[d.gymType]) why.push(GYM_TYPE_BY[d.gymType].n.toLowerCase());
+    if(foodOk(d)) why.push('todas as refeições verdes'); else if(greenCount(d)) why.push(greenCount(d) + (greenCount(d)>1 ? ' refeições verdes' : ' refeição verde'));
+    if(d.gym && d.gymType && gtBy(d.gymType)) why.push(gtBy(d.gymType).n.toLowerCase());
     best.why = why.length > 1 ? why.slice(0, -1).join(', ') + ' e ' + why[why.length-1] : why[0];
     return best;
   }
@@ -3046,7 +3135,7 @@ window.addEventListener('error', function(e){
     var badges = Object.keys(mem.meta.badges).filter(function(id){ var dt = mem.meta.badges[id]; return dt >= fk && dt <= lk; }).map(function(id){ var b = BADGES.filter(function(x){ return x.id === id; })[0]; return b ? b.n : null; }).filter(Boolean);
     var chs = mem.meta.ch.hist.filter(function(c){ return c.ok && c.end >= fk && c.end <= lk; }).map(function(c){ return c.name; });
     var topType = Object.keys(types).sort(function(a,b){ return types[b]-types[a]; })[0];
-    return {y:y, m:m, name: MONTHS[m], ml:ml, gyms:gyms, greens:greens, greenPct: logged ? Math.round(greens/logged*100) : null, comp:comp, best:best, active:active, wd:wd, badges:badges.concat(chs), topType: topType ? GYM_TYPE_BY[topType] : null};
+    return {y:y, m:m, name: MONTHS[m], ml:ml, gyms:gyms, greens:greens, greenPct: logged ? Math.round(greens/logged*100) : null, comp:comp, best:best, active:active, wd:wd, badges:badges.concat(chs), topType: topType ? gtBy(topType) : null};
   }
   var recap = null, recapIdx = 0, recapT = null;
   function recapSlides(r){
@@ -3096,7 +3185,7 @@ window.addEventListener('error', function(e){
     var S3 = SHARE_STYLES[st], d = dayData(k), W = 1080, H = 1350, F = 'Helvetica, Arial, sans-serif';
     var dt = fromKey(k), ds = dt.toLocaleDateString('pt-BR',{weekday:'long', day:'numeric', month:'long'}); ds = ds.charAt(0).toUpperCase() + ds.slice(1);
     var dn = Math.round((dt - fromKey(mem.meta.start)) / 86400000) + 1, mc = missionCount(d), B = bottle();
-    var gt = d.gym ? (d.gymType && GYM_TYPE_BY[d.gymType] ? GYM_TYPE_BY[d.gymType].n : 'Treino feito') : (d.gymJust ? 'Justificado' : 'Sem treino');
+    var gt = d.gym ? (d.gymType && gtBy(d.gymType) ? gtBy(d.gymType).n : 'Treino feito') : (d.gymJust ? 'Justificado' : 'Sem treino');
     var rows = [['ÁGUA', fmtL(totalOf(d)) + ' · ' + fmtN(totalOf(d)/B, 1) + ' garrafinhas', waterOk(d)], ['TREINO', gt, !!d.gym], ['REFEIÇÕES', greenCount(d) + ' verde' + (greenCount(d)===1?'':'s') + ' de ' + (4 - skipCount(d)), foodOk(d)]];
     var bg = S3.bg === 'grad' ? '<defs><radialGradient id="g" cx="50%" cy="20%" r="90%"><stop offset="0" stop-color="#3B6CF5"/><stop offset=".6" stop-color="#1E3A8A"/><stop offset="1" stop-color="#0E1512"/></radialGradient></defs><rect width="'+W+'" height="'+H+'" fill="url(#g)"/>' : '<rect width="'+W+'" height="'+H+'" fill="'+S3.bg+'"/>';
     var y0 = 610, rh = 170, body = rows.map(function(r, i){
@@ -3146,7 +3235,7 @@ window.addEventListener('error', function(e){
     var x0 = null, y0 = null, t0 = 0, block = false;
     document.addEventListener('touchstart', function(e){
       x0 = null; if(openSheets.length || !$('recap').hidden || TAB_ORDER.indexOf(current) < 0) return;
-      var t = e.target; block = !!(t.closest('input,textarea,select,.sheet,#wkCardNav,#wkList,.photos,.supps,.reasons,[data-noswipe]'));
+      var t = e.target; block = !!(t.closest('input,textarea,select,.sheet,#wkCardNav,#wkList,#calCard,.gal,.photos,.supps,.reasons,.seg,.chips,[data-noswipe]'));
       if(block) return;
       x0 = e.touches[0].clientX; y0 = e.touches[0].clientY; t0 = Date.now();
     }, {passive:true});
@@ -3158,6 +3247,88 @@ window.addEventListener('error', function(e){
       if(j < 0 || j >= TAB_ORDER.length) return;
       show(TAB_ORDER[j], dx < 0 ? 'l' : 'r');
     }, {passive:true});
+  }
+
+  // ================= v3.1: calendário =================
+  var calOff = 0;
+  function renderCal(){
+    var n = now0(), first = new Date(n.getFullYear(), n.getMonth() + calOff, 1), last = new Date(first.getFullYear(), first.getMonth() + 1, 0), tk = todayKey();
+    var nm = MONTHS[first.getMonth()]; $('calLabel').textContent = nm.charAt(0).toUpperCase() + nm.slice(1) + ' de ' + first.getFullYear();
+    var comp = 0, act = 0;
+    var html = ['S','T','Q','Q','S','S','D'].map(function(l){ return '<span class="wdh">'+l+'</span>'; }).join('');
+    var lead = (first.getDay() + 6) % 7; for(var i=0;i<lead;i++) html += '<span class="cd empty"></span>';
+    for(var d = new Date(first); d <= last; d = addDays(d, 1)){
+      var k = keyOf(d), fut = k > tk, out = k < mem.meta.start, dd = dayData(k), mc = missionCount(dd), pz = paused(k) && !hasData(dd);
+      if(!fut && !out){ if(mc === 3) comp++; if(hasData(dd)) act++; }
+      var cls = 'cd' + (fut ? ' fut' : '') + (out ? ' out' : '') + (k === tk ? ' today' : '') + (!fut && !out ? (pz ? ' cp' : (mc ? ' c' + mc : '')) : '');
+      var chs = mem.meta.ch.active.concat(mem.meta.ch.hist).some(function(c){ return c.done && c.done[k]; });
+      html += '<button type="button" class="'+cls+'" data-cal="'+k+'"'+(fut || out ? ' disabled' : '')+' aria-label="'+d.getDate()+': '+mc+' missões">'+d.getDate()+(chs ? '<em></em>' : '')+'</button>';
+    }
+    $('calGrid').innerHTML = html;
+    $('calSub').textContent = act ? comp + ' dia' + (comp===1?'':'s') + ' completo' + (comp===1?'':'s') + ' · ' + act + ' com registro' : 'Sem registros neste mês';
+    $('calNext').disabled = calOff >= 0;
+    $('calPrev').disabled = keyOf(new Date(first.getFullYear(), first.getMonth(), 0)) < mem.meta.start;
+  }
+
+  // ================= v3.1: refeições (busca e galeria) =================
+  function allMeals(){
+    var out = [];
+    sortedDayKeys().slice().reverse().forEach(function(k){ var d = mem.days[k]; MEALS.forEach(function(x){ var r = mealsOf(d)[x.k]; if(r && !r.skip && r.text && r.text !== 'Lançado depois') out.push({k:k, m:x, r:r}); }); });
+    return out;
+  }
+  function renderMeals(){
+    var q = norm($('rfQ').value || ''), list = allMeals(), res = q ? list.filter(function(x){ return norm(x.r.text).indexOf(q) >= 0; }) : list.slice(0, 6);
+    var hl = function(t){ if(!q) return esc(t); var nt = norm(t), i = nt.indexOf(q); if(i < 0) return esc(t); return esc(t.slice(0, i)) + '<mark>' + esc(t.slice(i, i + q.length)) + '</mark>' + esc(t.slice(i + q.length)); };
+    var head = q ? '<p class="meta" style="margin:0 0 4px;font-weight:700">' + (res.length ? res.length + ' vez' + (res.length>1?'es':'') + ' · ' + res.filter(function(x){ return x.r.color === 'verde'; }).length + ' verde' + (res.filter(function(x){ return x.r.color === 'verde'; }).length===1?'':'s') : 'Nada encontrado com "' + esc($('rfQ').value.trim()) + '"') + '</p>' : '<p class="meta" style="margin:0 0 4px;font-weight:700">Últimas refeições</p>';
+    var more = res.length > 15 ? '<p class="meta" style="margin:8px 0 0;font-weight:600">e mais ' + (res.length - 15) + ' resultado' + (res.length - 15 > 1 ? 's' : '') + '. Refine a busca para ver.</p>' : '';
+    $('rfList').innerHTML = head + res.slice(0, 15).map(function(x){
+      var dt = fromKey(x.k);
+      return '<button type="button" class="rfi" data-day="'+x.k+'"><i class="cdot '+x.r.color+'"></i><div><b>'+WEEKDAYS[(dt.getDay()+6)%7]+', '+dt.getDate()+'/'+pad(dt.getMonth()+1)+' · '+x.m.n+'</b><span>'+hl(x.r.text)+'</span></div>'+(x.r.photo && mem.photos[x.r.photo] ? '<img src="'+mem.photos[x.r.photo]+'" alt="">' : '')+'</button>';
+    }).join('') + more;
+    var ph = list.filter(function(x){ return x.r.photo && mem.photos[x.r.photo]; });
+    $('galCard').hidden = !ph.length;
+    $('galCount').textContent = ph.length + ' foto' + (ph.length>1?'s':'');
+    $('galGrid').innerHTML = ph.slice(0, 30).map(function(x){ var dt = fromKey(x.k); return '<button type="button" data-day="'+x.k+'"><img src="'+mem.photos[x.r.photo]+'" alt="'+esc(x.m.n)+' de '+dt.getDate()+'/'+pad(dt.getMonth()+1)+'"><span>'+dt.getDate()+'/'+pad(dt.getMonth()+1)+'</span></button>'; }).join('');
+  }
+
+  // ================= v3.1: hábitos =================
+  function renderHabits(){
+    var tk = todayKey(), cnt = {}, total = 0, weeks = [];
+    for(var i=0;i<30;i++){ var k = keyOf(addDays(fromKey(tk), -i)); if(k < mem.meta.start) break; var d = mem.days[k]; if(d && d.gym){ total++; var t = d.gymType && gtBy(d.gymType) ? d.gymType : '_'; cnt[t] = (cnt[t]||0) + 1; } }
+    var keys = Object.keys(cnt).sort(function(a,b){ return cnt[b]-cnt[a]; }), mx = keys.length ? cnt[keys[0]] : 1;
+    $('gtSub').textContent = total + ' treino' + (total===1?'':'s') + ' em 30 dias';
+    $('gtStats').innerHTML = total ? keys.map(function(k){ var g = gtBy(k); return '<div class="gtrow"><span>'+(g ? g.e + ' ' + esc(g.n) : 'Sem tipo')+'</span><div class="tr"><i style="width:'+Math.round(cnt[k]/mx*100)+'%"></i></div><b>'+cnt[k]+'</b></div>'; }).join('') +
+      '<p class="meta" style="margin:10px 0 0;font-weight:500">Média de ' + fmtN(total/30*7, 1) + ' treinos por semana.</p>' : '<p class="meta" style="margin:0;font-weight:500">Seus treinos aparecem aqui por tipo. Escolha o tipo depois do check-in.</p>';
+    var ins = mealInsights();
+    $('habIns').innerHTML = ins.length ? ins.map(function(it){ var good = it.tone === 'good'; return '<div class="chh ok"><span class="bi" style="background:'+(good?'var(--green-soft)':'var(--yellow-soft)')+'">'+ico(good?'star':'food', 20, good?'var(--green)':'var(--yellow)')+'</span><div><span style="color:var(--text);font-size:.86rem;line-height:1.4">'+esc(it.t)+'</span></div></div>'; }).join('') : '<p class="meta" style="margin:0;font-weight:500">Com alguns dias de refeições lançadas, os padrões aparecem aqui.</p>';
+  }
+  function renderRetroList(){
+    var n = now0(), items = [];
+    for(var i=0;i<12;i++){
+      var m = new Date(n.getFullYear(), n.getMonth() - i, 1), endK = keyOf(new Date(m.getFullYear(), m.getMonth() + 1, 0));
+      if(endK < mem.meta.start) break;
+      var r = recapData(m.getFullYear(), m.getMonth()), nm = MONTHS[m.getMonth()];
+      items.push('<button type="button" class="rcm" data-rc="'+m.getFullYear()+'-'+m.getMonth()+'"><span class="bi">'+nm.slice(0,3).toUpperCase()+'</span><div><b>'+nm.charAt(0).toUpperCase()+nm.slice(1)+' de '+m.getFullYear()+(i===0?' · até agora':'')+'</b><span>'+r.comp+' dia'+(r.comp===1?'':'s')+' completo'+(r.comp===1?'':'s')+' · '+r.gyms+' treino'+(r.gyms===1?'':'s')+' · '+fmtN(r.ml/1000,1)+' L</span></div>'+ico('star',18,'var(--muted)')+'</button>');
+    }
+    $('evExtra').innerHTML = items.join('');
+  }
+
+  // ================= v3.1: perfil =================
+  function renderPfHead(){
+    var ws = sortedWeights(), lv = mascotLevel(), sn = streakNE(), p = mem.photos.avatar;
+    var w = ws.length ? fmtKg(ws[ws.length-1].kg) + (ws.length > 1 ? ' · ' + (ws[ws.length-1].kg - ws[0].kg <= 0 ? '−' : '+') + fmtN(Math.abs(ws[ws.length-1].kg - ws[0].kg), 1) + ' kg' : '') : 'Sem pesagem';
+    $('pfHead').innerHTML = '<label class="avatar" for="pfPhoto" aria-label="Trocar foto">'+(p ? '<img src="'+p+'" alt="">' : 'LF')+'<span class="cam">'+ico('camera',14,'#fff')+'</span></label>' +
+      '<div style="flex:1;min-width:0"><h2>Lucas Felix</h2><p>Dia '+dayNumber()+' do seu Novo Eu</p><div class="pfstats2"><span>'+ico('drop',13,'#9DBBFF')+LEVELS[lv].n+'</span><span>'+ico('flag',13,'#FACC15')+sn+(sn===1?' dia seguido':' dias seguidos')+'</span><span>'+ico('scale',13,'#C4B5FD')+w+'</span></div></div>' +
+      '<div class="lvm">'+mascotSVG('happy', 44, true)+'</div>';
+  }
+  function renderPfExtra(){
+    var s = S(), qs = s.quietStart || 22.5, qe = s.quietEnd || 7;
+    $('pfQs').innerHTML = [20,21,22,22.5,23].map(function(h){ return '<option value="'+h+'"'+(h===qs?' selected':'')+'>'+fmtH(h)+'</option>'; }).join('');
+    $('pfQe').innerHTML = [6,6.5,7,7.5,8,9].map(function(h){ return '<option value="'+h+'"'+(h===qe?' selected':'')+'>'+fmtH(h)+'</option>'; }).join('');
+    var ld = learnedDue();
+    $('pfMealTimes').innerHTML = MEALS.map(function(x){ var l = ld[x.k]; return '<div><b>'+x.n+'</b><span>Aviso às '+fmtH(l || x.due)+(l ? ' · aprendido' : ' · padrão')+'</span></div>'; }).join('');
+    var off = s.gymOff || [];
+    $('pfGTypes').innerHTML = gymTypesAll().map(function(g){ return '<button type="button" data-gtk="'+g.k+'" class="'+(off.indexOf(g.k) >= 0 ? 'off' : 'sel')+'">'+g.e+' '+esc(g.n)+(g.custom ? ' ×' : '')+'</button>'; }).join('');
   }
 
   // ================= Navegação =================
@@ -3501,7 +3672,7 @@ window.addEventListener('error', function(e){
   $('gymTypes').addEventListener('click', function(e){
     var b = e.target.closest('[data-gt]'); if(!b) return;
     var d = today(), v = b.getAttribute('data-gt'); d.gymType = d.gymType === v ? null : v; save(); renderToday();
-    if(d.gymType) toast(GYM_TYPE_BY[v].e + ' ' + GYM_TYPE_BY[v].n + ' anotado');
+    if(d.gymType) toast(gtBy(v).e + ' ' + gtBy(v).n + ' anotado');
   });
   $('shPhoto').addEventListener('change', function(){
     var f = $('shPhoto').files && $('shPhoto').files[0]; if(!f) return;
@@ -3522,7 +3693,7 @@ window.addEventListener('error', function(e){
     var sp = e.target.closest('[data-supp]');
     if(sp){ var d = today(), id = sp.getAttribute('data-supp'); d.supp = d.supp || {}; if(d.supp[id]) delete d.supp[id]; else { d.supp[id] = 1; toast('Anotado!'); } save(); renderSupps(); return; }
     var ck = e.target.closest('[data-ch]'); if(ck){ chToggle(ck.getAttribute('data-ch'), todayKey()); return; }
-    if(e.target.closest('#chAdd')){ openChSheet(); return; }
+    if(e.target.closest('[data-goch]')){ show('evo'); setPane('conq'); renderEvo(); return; }
     var aj = e.target.closest('[data-adj]');
     if(aj){ if(aj.getAttribute('data-adj') === 'yes') applyAdj(+$('adjCard').getAttribute('data-dir')); else { mem.meta.adjSkip = keyOf(addDays(now0(), 7)); saveMeta(); renderAdj(); toast('Combinado. Mantemos a meta atual.'); } return; }
     if(e.target.closest('#pauseEnd')){ endPause(); return; }
@@ -3546,10 +3717,6 @@ window.addEventListener('error', function(e){
   $('shrOpts').addEventListener('click', function(e){ var b = e.target.closest('[data-st]'); if(!b) return; shareSt = b.getAttribute('data-st'); document.querySelectorAll('#shrOpts button').forEach(function(x){ x.classList.toggle('sel', x === b); }); });
   $('shrClose').addEventListener('click', function(){ closeSheetEl('shrSheet'); });
   $('shrGo').addEventListener('click', doShareDay);
-  $('evExtra').addEventListener('click', function(e){
-    if(e.target.closest('#rcOpen')){ var n = now0(), pm = new Date(n.getFullYear(), n.getMonth() - 1, 1); showRecap(pm.getFullYear(), pm.getMonth()); }
-    else if(e.target.closest('#rcOpenNow')){ var n2 = now0(); showRecap(n2.getFullYear(), n2.getMonth()); }
-  });
   // Perfil v3
   $('pfTheme').addEventListener('click', function(e){ var b = e.target.closest('[data-theme]'); if(!b) return; S().theme = b.getAttribute('data-theme'); saveSettings(); applyTheme(); renderPerfil(); });
   $('pfSound').addEventListener('click', function(){ S().sound = S().sound === false; saveSettings(); renderPerfil(); if(S().sound !== false) dropSound(); });
@@ -3577,6 +3744,30 @@ window.addEventListener('error', function(e){
     toast('Garrafinha de ' + (v >= 1000 ? fmtN(v/1000,1) + ' L' : v + ' ml') + ' · meta ' + fmtL(goal()));
   }
 
+  $('calPrev').addEventListener('click', function(){ calOff--; renderCal(); });
+  $('calNext').addEventListener('click', function(){ if(calOff < 0){ calOff++; renderCal(); } });
+  $('calGrid').addEventListener('click', function(e){ var b = e.target.closest('[data-cal]'); if(b && !b.disabled) openDay(b.getAttribute('data-cal')); });
+  $('rfQ').addEventListener('input', function(){ clearTimeout(this._t); this._t = setTimeout(renderMeals, 150); });
+  $('rfList').addEventListener('click', function(e){ var b = e.target.closest('[data-day]'); if(b) openDay(b.getAttribute('data-day')); });
+  $('galGrid').addEventListener('click', function(e){ var b = e.target.closest('[data-day]'); if(b) openDay(b.getAttribute('data-day')); });
+  $('evo').addEventListener('click', function(e){
+    var ck = e.target.closest('[data-ch]'); if(ck){ chToggle(ck.getAttribute('data-ch'), todayKey()); renderToday(); return; }
+    if(e.target.closest('#chAdd')){ openChSheet(); return; }
+    var rc = e.target.closest('[data-rc]'); if(rc){ var p = rc.getAttribute('data-rc').split('-'); showRecap(+p[0], +p[1]); }
+  });
+  $('pfQs').addEventListener('change', function(){ S().quietStart = +$('pfQs').value; saveSettings(); toast('Silêncio a partir das ' + fmtH(S().quietStart)); });
+  $('pfQe').addEventListener('change', function(){ S().quietEnd = +$('pfQe').value; saveSettings(); toast('Notificações voltam às ' + fmtH(S().quietEnd)); });
+  $('pfGTypes').addEventListener('click', function(e){
+    var b = e.target.closest('[data-gtk]'); if(!b) return;
+    var k = b.getAttribute('data-gtk'), g = gtBy(k), s2 = S();
+    if(g && g.custom){ s2.gymCustom = (s2.gymCustom || []).filter(function(x){ return x.k !== k; }); toast(g.n + ' removido'); }
+    else { s2.gymOff = s2.gymOff || []; var i = s2.gymOff.indexOf(k); if(i >= 0) s2.gymOff.splice(i, 1); else s2.gymOff.push(k); }
+    saveSettings(); renderPfExtra(); renderToday();
+  });
+  $('pfGtAdd').addEventListener('click', function(){
+    var n = ($('pfGtName').value || '').trim().slice(0, 20); if(!n){ toast('Escreva o nome, ex.: Natação'); return; }
+    S().gymCustom = S().gymCustom || []; S().gymCustom.push({k: 'c' + Date.now(), n: n}); saveSettings(); $('pfGtName').value = ''; renderPfExtra(); renderToday(); toast(n + ' criado');
+  });
   function handleHash(){
     var h = (location.hash || '').slice(1); if(!h || !sbUser) return;
     if(h.indexOf('access_token=') >= 0 || h.indexOf('error=') >= 0) return;
