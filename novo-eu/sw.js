@@ -1,0 +1,84 @@
+// Novo Eu — service worker: offline + notificações
+const CACHE = 'novo-eu-v1';
+const CORE = [
+  './',
+  './index.html',
+  './manifest.webmanifest',
+  './icons/apple-touch-icon.png',
+  './icons/icon-192.png',
+  './icons/badge-96.png'
+];
+
+self.addEventListener('install', (event) => {
+  event.waitUntil(
+    caches.open(CACHE)
+      .then((cache) => Promise.all(CORE.map((u) => cache.add(u).catch(() => null))))
+      .then(() => self.skipWaiting())
+  );
+});
+
+self.addEventListener('activate', (event) => {
+  event.waitUntil(
+    caches.keys()
+      .then((keys) => Promise.all(keys.filter((k) => k.startsWith('novo-eu-') && k !== CACHE).map((k) => caches.delete(k))))
+      .then(() => self.clients.claim())
+  );
+});
+
+self.addEventListener('fetch', (event) => {
+  const req = event.request;
+  if (req.method !== 'GET') return;
+  const url = new URL(req.url);
+  // Nunca guardar respostas da API (dados e login)
+  if (url.hostname.endsWith('supabase.co')) return;
+  if (req.mode === 'navigate') {
+    event.respondWith(
+      fetch(req).then((res) => {
+        const copy = res.clone();
+        caches.open(CACHE).then((c) => c.put('./index.html', copy));
+        return res;
+      }).catch(() => caches.match('./index.html'))
+    );
+    return;
+  }
+  event.respondWith(
+    caches.match(req).then((cached) => {
+      const net = fetch(req).then((res) => {
+        if (res && res.ok) { const copy = res.clone(); caches.open(CACHE).then((c) => c.put(req, copy)); }
+        return res;
+      }).catch(() => cached);
+      return cached || net;
+    })
+  );
+});
+
+self.addEventListener('push', (event) => {
+  let data = {};
+  try { data = event.data ? event.data.json() : {}; } catch (e) { data = { title: 'Novo Eu', body: event.data ? event.data.text() : '' }; }
+  const title = data.title || 'Novo Eu';
+  const opts = {
+    body: data.body || '',
+    icon: './icons/icon-192.png',
+    badge: './icons/badge-96.png',
+    tag: data.tag || 'novo-eu',
+    renotify: true,
+    data: { url: data.url || './' }
+  };
+  event.waitUntil(self.registration.showNotification(title, opts));
+});
+
+self.addEventListener('notificationclick', (event) => {
+  event.notification.close();
+  const target = new URL(event.notification.data && event.notification.data.url || './', self.registration.scope).href;
+  event.waitUntil(
+    self.clients.matchAll({ type: 'window', includeUncontrolled: true }).then((list) => {
+      for (const c of list) {
+        if (c.url.startsWith(self.registration.scope)) {
+          c.postMessage({ type: 'open', url: target });
+          return c.focus();
+        }
+      }
+      return self.clients.openWindow(target);
+    })
+  );
+});

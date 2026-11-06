@@ -1,0 +1,18 @@
+{
+  "name": "Novo Eu",
+  "short_name": "Novo Eu",
+  "description": "Água, treino e alimentação no seu ritmo.",
+  "id": "/novo-eu/",
+  "start_url": "/novo-eu/",
+  "scope": "/novo-eu/",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#0E1512",
+  "theme_color": "#0E1512",
+  "lang": "pt-BR",
+  "icons": [
+    { "src": "icons/icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any" },
+    { "src": "icons/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any" },
+    { "src": "icons/maskable-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" }
+  ]
+}
