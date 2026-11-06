@@ -1,5 +1,5 @@
 // Novo Eu — service worker: offline + notificações
-const CACHE = 'novo-eu-v2';
+const CACHE = 'novo-eu-v3';
 const CORE = [
   './',
   './index.html',
