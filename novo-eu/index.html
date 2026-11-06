@@ -504,6 +504,17 @@ body.focus #today .tipcard,body.focus #weekCardHoje,body.focus #insightCard{disp
 .lgerr{margin:0;background:rgba(220,38,38,.18);color:#FCA5A5;border-radius:12px;padding:10px 12px;font-size:.85rem;font-weight:600}
 #login .glow{position:absolute;width:420px;height:420px;border-radius:50%;background:radial-gradient(circle,rgba(29,78,216,.35),rgba(29,78,216,0) 70%);top:-120px;right:-160px;pointer-events:none}
 #login .glow.two{background:radial-gradient(circle,rgba(194,65,12,.22),rgba(194,65,12,0) 70%);top:auto;bottom:-160px;left:-180px;right:auto}
+
+.hdrow{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin-top:8px}
+.hdrow .nextact{margin-top:0}
+.wxchip{display:inline-flex;align-items:center;gap:6px;border:none;background:var(--raise);color:var(--text);border-radius:999px;padding:8px 12px;font:800 .82rem 'Plus Jakarta Sans',system-ui,sans-serif;box-shadow:0 1px 3px rgba(14,21,18,.08)}
+.wxchip span{font-weight:600;color:var(--muted)}
+.lglink{border:none;background:transparent;color:#9DBBFF;font:700 .9rem 'Plus Jakarta Sans',system-ui,sans-serif;height:44px}
+.lgok{margin:0;background:rgba(52,211,153,.16);color:#86EFAC;border-radius:12px;padding:10px 12px;font-size:.85rem;font-weight:600;line-height:1.45}
+.updbar{position:fixed;left:12px;right:12px;bottom:calc(92px + env(safe-area-inset-bottom));z-index:34;max-width:480px;margin:0 auto;background:var(--blue);color:#fff;border-radius:16px;padding:10px 10px 10px 16px;display:flex;align-items:center;justify-content:space-between;gap:10px;font-size:.85rem;font-weight:700;box-shadow:0 10px 30px rgba(29,78,216,.35)}
+.updbar button{border:none;background:#fff;color:#1D4ED8;border-radius:12px;height:40px;padding:0 14px;font:800 .85rem 'Plus Jakarta Sans',system-ui,sans-serif}
+.bd:not(.off){cursor:pointer}
+@media (prefers-color-scheme: dark){ .wxchip{box-shadow:none} }
 </style>
 </head>
 <body>
@@ -530,9 +541,18 @@ body.focus #today .tipcard,body.focus #weekCardHoje,body.focus #insightCard{disp
       <label>Senha<input id="lgPass" type="password" autocomplete="current-password" required></label>
       <p class="lgerr" id="lgErr" hidden role="alert"></p>
       <button type="submit" class="cta" id="lgBtn" style="opacity:1;animation:none">Entrar</button>
+      <button type="button" class="lglink" id="fgLink">Esqueci minha senha</button>
+    </form>
+    <form id="fgForm" class="lgform" hidden>
+      <p class="sp-sub" style="margin:0">Digite seu e-mail e eu envio um link para você criar uma senha nova.</p>
+      <label>E-mail<input id="fgEmail" type="email" autocomplete="username" required></label>
+      <p class="lgerr" id="fgErr" hidden role="alert"></p>
+      <p class="lgok" id="fgOk" hidden role="status">Pronto! Confira seu e-mail (e o spam) e toque no link para criar a senha nova.</p>
+      <button type="submit" class="cta" id="fgBtn" style="opacity:1;animation:none">Enviar link</button>
+      <button type="button" class="lglink" id="fgBack">Voltar para o login</button>
     </form>
     <form id="pwForm" class="lgform" hidden>
-      <p class="sp-sub" style="margin:0">Primeiro acesso: crie a sua senha pessoal.</p>
+      <p class="sp-sub" style="margin:0" id="pwIntro">Primeiro acesso: crie a sua senha pessoal.</p>
       <label>Nova senha<input id="pwNew" type="password" autocomplete="new-password" minlength="6" required></label>
       <label>Repita a senha<input id="pwNew2" type="password" autocomplete="new-password" minlength="6" required></label>
       <p class="lgerr" id="pwErr" hidden role="alert"></p>
@@ -570,7 +590,7 @@ body.focus #today .tipcard,body.focus #weekCardHoje,body.focus #insightCard{disp
       <div>
         <p class="date" id="date"></p>
         <h1><span class="js-greet">Bom dia</span>, Lucas</h1>
-        <button type="button" class="nextact" id="nextAct"></button>
+        <div class="hdrow"><button type="button" class="wxchip" id="wxChip" hidden></button><button type="button" class="nextact" id="nextAct"></button></div>
       </div>
       <div class="hdr-actions">
         <button type="button" class="focusbtn" id="focusBtn" aria-pressed="false" aria-label="Modo foco"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="8.5"/><circle cx="12" cy="12" r="4.5"/><circle cx="12" cy="12" r="1" fill="currentColor"/></svg></button>
@@ -796,9 +816,17 @@ body.focus #today .tipcard,body.focus #weekCardHoje,body.focus #insightCard{disp
     </div>
 
     <div class="card">
+      <div class="ttl"><div class="ic" style="background:var(--yellow-soft)"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--yellow)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2.5v2M12 19.5v2M2.5 12h2M19.5 12h2M5.3 5.3l1.4 1.4M17.3 17.3l1.4 1.4M5.3 18.7l1.4-1.4M17.3 6.7l1.4-1.4"/></svg></div><h2>Clima</h2></div>
+      <p class="meta" id="wxStatus" style="margin:0;font-weight:600"></p>
+      <p class="meta" style="margin:0;font-weight:500">Usa a localização do celular para mostrar o clima e ajustar a saudação. Em dias de 30°C ou mais, a meta ganha uma garrafinha extra.</p>
+      <button type="button" class="btn b-ink" id="wxOn" style="flex:none;width:100%">Usar minha localização</button>
+      <button type="button" class="btn b-ghost" id="wxHeat" style="flex:none;width:100%;font-size:.82rem"></button>
+    </div>
+
+    <div class="card">
       <div class="ttl"><div class="ic" style="background:var(--blue-soft)"><i class="ico" data-ic="bulb" style="color:var(--blue)"></i></div><h2>Notificações</h2></div>
       <p class="meta" id="nfStatus" style="margin:0;font-weight:600">Verificando…</p>
-      <p class="meta" style="margin:0;font-weight:500">Aviso só quando estiver atrasado: água perto do fim do turno, refeição passou da hora e academia às 21h30.</p>
+      <p class="meta" style="margin:0;font-weight:500">Bom dia às 7h, avisos só quando estiver atrasado (água, refeição, academia), sequência em risco às 20h, resumo da noite às 22h e resumo da semana no domingo.</p>
       <button type="button" class="btn b-blue" id="nfOn" style="flex:none;width:100%" hidden>Ativar notificações</button>
       <div class="btns"><button type="button" class="btn b-ghost" id="nfTest" hidden>Enviar teste</button><button type="button" class="btn b-ghost" id="nfToggle" hidden>Pausar lembretes</button></div>
     </div>
@@ -904,11 +932,13 @@ body.focus #today .tipcard,body.focus #weekCardHoje,body.focus #insightCard{disp
     <h2 id="pfTitle">Semana perfeita!</h2>
     <p id="pfSub"></p>
     <div class="pfstats" id="pfStats"></div>
+    <button type="button" class="btn" id="pfShare" style="flex:none;width:100%;background:rgba(255,255,255,.12);color:#fff;border:1px solid rgba(255,255,255,.2)">Compartilhar</button>
     <button type="button" class="btn b-blue" id="pfClose" style="flex:none;width:100%">Bora pra próxima!</button>
   </div>
 </div>
 
 <div class="sync" id="sync" hidden role="status"></div>
+<div class="updbar" id="updBar" hidden role="status"><span>Nova versão do Novo Eu disponível</span><button type="button" id="updBtn">Atualizar</button></div>
 <canvas id="fx" aria-hidden="true"></canvas>
 <div class="party" id="party" role="status"><div><b id="partyT">Dia completo!</b><span id="partyS">As 3 missões de hoje foram cumpridas.</span></div></div>
 <div class="toast" id="toast" role="status" aria-live="polite"></div>
@@ -1094,9 +1124,10 @@ window.addEventListener('error', function(e){
 
   function S(){ return mem.settings; }
   function bottle(){ return S().bottle || 800; }
-  function turnGoal(k){ return (S().turns[k] || 0) * bottle(); }
-  function goal(){ var t = S().turns; return ((t.m||0) + (t.t||0) + (t.n||0)) * bottle(); }
-  function nBottles(){ var t = S().turns; return (t.m||0) + (t.t||0) + (t.n||0); }
+  function heatExtra(){ var w = mem.meta && mem.meta.weather; if(!w || w.day !== todayKey() || S().heatBoost === false) return 0; return w.max >= 30 ? 1 : 0; }
+  function turnGoal(k){ return ((S().turns[k] || 0) + (k === 't' ? heatExtra() : 0)) * bottle(); }
+  function goal(){ var t = S().turns; return ((t.m||0) + (t.t||0) + (t.n||0) + heatExtra()) * bottle(); }
+  function nBottles(){ var t = S().turns; return (t.m||0) + (t.t||0) + (t.n||0) + heatExtra(); }
 
   function blank(){ return {water:{m:0,t:0,n:0}, hist:[], gym:false, meals:{}, cel:{}}; }
   function dayData(k){ return mem.days[k] || blank(); }
@@ -1169,6 +1200,8 @@ window.addEventListener('error', function(e){
       signInWithPassword: function(c){ return jfetch('/auth/v1/token?grant_type=password', {method:'POST', body: JSON.stringify({email:c.email, password:c.password})}).then(function(r){ if(r.error) return {data:{}, error:r.error}; var s = toSess(r.data); writeSess(s); return {data:{user:s.user, session:s}, error:null}; }); },
       getSession: function(){ return session().then(function(s){ return {data:{session:s}, error:null}; }); },
       updateUser: function(attrs){ return session().then(function(s){ if(!s) return {data:{}, error:{message:'Sessão expirada'}}; return jfetch('/auth/v1/user', {method:'PUT', headers:{'Authorization':'Bearer ' + s.access_token}, body: JSON.stringify(attrs)}).then(function(r){ if(r.error) return {data:{}, error:r.error}; s.user = r.data; writeSess(s); return {data:{user:r.data}, error:null}; }); }); },
+      recover: function(email, redirect){ return jfetch('/auth/v1/recover' + (redirect ? '?redirect_to=' + encodeURIComponent(redirect) : ''), {method:'POST', body: JSON.stringify({email: email})}); },
+      fromHash: function(h){ var p = {}; h.replace(/^#/, '').split('&').forEach(function(kv){ var i = kv.indexOf('='); if(i > 0) p[decodeURIComponent(kv.slice(0,i))] = decodeURIComponent(kv.slice(i+1)); }); if(!p.access_token) return Promise.resolve(null); var sess = {access_token:p.access_token, refresh_token:p.refresh_token, expires_at: Math.floor(Date.now()/1000) + (+p.expires_in || 3600), user:null}; return jfetch('/auth/v1/user', {headers:{'Authorization':'Bearer ' + sess.access_token}}).then(function(r){ if(r.error) return null; sess.user = r.data; writeSess(sess); return {session:sess, type:p.type}; }); },
       signOut: function(){ var s = readSess(); writeSess(null); if(!s) return Promise.resolve({error:null}); return jfetch('/auth/v1/logout', {method:'POST', headers:{'Authorization':'Bearer ' + s.access_token}}).catch(function(){ return {error:null}; }); }
     };
     function authed(path, opts){ return session().then(function(s){ opts = opts || {}; opts.headers = Object.assign({}, opts.headers || {}, s ? {'Authorization':'Bearer ' + s.access_token} : {}); return jfetch(path, opts); }); }
@@ -1247,11 +1280,120 @@ window.addEventListener('error', function(e){
       Object.keys(mem.days).forEach(function(k){ if(!seen[k] && mem.days[k].u) pending[k] = true; });
       ['settings','weights','meta'].forEach(function(k){ if(!seen[k] && mem[k] && mem[k].u) pending[k] = true; });
       Object.keys(mem.photos).forEach(function(id){ if(!seen['photo_'+id]) pending['photo_'+id] = true; });
-      normalize(); persist(); cloudReady = true;
+      normalize(); persist(); cloudReady = true; lastPull = new Date(Date.now() - 5000).toISOString();
       renderAll(); renderQuote(); if(current !== 'splash' && current !== 'login') checkBadges(); flush(); endLoading();
       setTimeout(refreshPushStatus, 300);
     }).catch(function(){ syncFail = true; setSync(); endLoading(); clearTimeout(retryT); retryT = setTimeout(initCloud, 20000); });
   }
+
+  // ================= Sincronização contínua =================
+  var lastPull = null, pulling = false;
+  function pullChanges(){
+    if(!col || pulling || !lastPull || document.hidden) return;
+    pulling = true; var since = lastPull, startedAt = new Date(Date.now() - 3000).toISOString();
+    authedGet('/rest/v1/user_data?select=key,body,updated_at&user_id=eq.' + sbUser.id + '&updated_at=gt.' + encodeURIComponent(since)).then(function(r){
+      pulling = false; if(r.error || !r.data) return;
+      lastPull = startedAt;
+      var changed = false;
+      r.data.forEach(function(row){
+        var id = row.key, remote = row.body; if(pending[id]) return;
+        if(id.indexOf('photo_') === 0){ if(remote && remote.data && mem.photos[id.slice(6)] !== remote.data){ mem.photos[id.slice(6)] = remote.data; changed = true; } return; }
+        var isDay = /^\d{4}-\d{2}-\d{2}$/.test(id); if(!isDay && id !== 'settings' && id !== 'weights' && id !== 'meta') return;
+        var local = bodyFor(id);
+        if(!local || (remote.u||0) > (local.u||0)){ if(isDay) mem.days[id] = remote; else mem[id] = remote; changed = true; }
+      });
+      if(changed){ normalize(); persist(); renderAll(); }
+    }, function(){ pulling = false; });
+  }
+  function authedGet(path){ return sbc.auth.getSession().then(function(r){ var s = r.data && r.data.session; return fetch(SB_URL + path, {headers:{'apikey': SB_KEY, 'Authorization': 'Bearer ' + (s ? s.access_token : '')}}).then(function(res){ return res.json().then(function(j){ return res.ok ? {data:j} : {error:j}; }); }); }); }
+  setInterval(pullChanges, 30000);
+  document.addEventListener('visibilitychange', function(){ if(!document.hidden){ pullChanges(); checkSWUpdate(); } });
+  window.addEventListener('focus', pullChanges);
+
+  // ================= Número no ícone =================
+  function updateBadge(n){
+    try{ if('setAppBadge' in navigator){ if(n > 0) navigator.setAppBadge(n); else navigator.clearAppBadge(); } }catch(e){}
+  }
+
+  // ================= Clima =================
+  var WX_CODES = {0:['Céu limpo','sun'],1:['Poucas nuvens','sun'],2:['Parcialmente nublado','cloud'],3:['Nublado','cloud'],45:['Neblina','cloud'],48:['Neblina','cloud'],51:['Garoa','rain'],53:['Garoa','rain'],55:['Garoa','rain'],61:['Chuva fraca','rain'],63:['Chuva','rain'],65:['Chuva forte','rain'],80:['Pancadas','rain'],81:['Pancadas','rain'],82:['Temporal','rain'],95:['Trovoadas','storm'],96:['Trovoadas','storm'],99:['Trovoadas','storm']};
+  var WX_ICONS = {sun:'<circle cx="12" cy="12" r="4"/><path d="M12 2.5v2M12 19.5v2M2.5 12h2M19.5 12h2M5.3 5.3l1.4 1.4M17.3 17.3l1.4 1.4M5.3 18.7l1.4-1.4M17.3 6.7l1.4-1.4"/>', cloud:'<path d="M7 18h10a4 4 0 0 0 .6-7.95A6 6 0 0 0 6.2 9.3 4.4 4.4 0 0 0 7 18z"/>', rain:'<path d="M7 15h10a4 4 0 0 0 .6-7.95A6 6 0 0 0 6.2 6.3 4.4 4.4 0 0 0 7 15z"/><path d="M9 18l-1 2.5M13 18l-1 2.5M17 18l-1 2.5"/>', storm:'<path d="M7 15h10a4 4 0 0 0 .6-7.95A6 6 0 0 0 6.2 6.3 4.4 4.4 0 0 0 7 15z"/><path d="M12.5 15l-2 3.5h3l-2 3.5"/>'};
+  function renderWeatherChip(){
+    var el = $('wxChip'), w = mem.meta.weather; if(!el) return;
+    if(!w || w.day !== todayKey()){ el.hidden = true; return; }
+    var info = WX_CODES[w.code] || ['', 'cloud'];
+    el.hidden = false;
+    el.innerHTML = '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">' + WX_ICONS[info[1]] + '</svg>' + Math.round(w.temp) + '° <span>máx ' + Math.round(w.max) + '°</span>';
+    el.setAttribute('aria-label', info[0] + ', ' + Math.round(w.temp) + ' graus, máxima de ' + Math.round(w.max));
+  }
+  function fetchWeather(lat, lon){
+    var u = 'https://api.open-meteo.com/v1/forecast?latitude=' + lat.toFixed(3) + '&longitude=' + lon.toFixed(3) + '&current=temperature_2m,weather_code&daily=temperature_2m_max&timezone=America%2FSao_Paulo&forecast_days=1';
+    return fetch(u).then(function(r){ return r.json(); }).then(function(j){
+      if(!j || !j.current) return;
+      var prevHot = heatExtra();
+      mem.meta.weather = {day: todayKey(), at: Date.now(), temp: j.current.temperature_2m, code: j.current.weather_code, max: j.daily && j.daily.temperature_2m_max ? j.daily.temperature_2m_max[0] : j.current.temperature_2m, lat: lat, lon: lon};
+      saveMeta(); var d = mem.days[todayKey()]; if(d){ d.goal = goal(); save(); }
+      renderToday(); if(current === 'perfil') renderPerfil();
+      if(!prevHot && heatExtra()) toast('Dia quente! Meta de hoje ganhou +1 garrafinha.');
+    }).catch(function(){});
+  }
+  function updateWeather(force){
+    if(!S().weatherOn || !('geolocation' in navigator)) return;
+    var w = mem.meta.weather;
+    if(!force && w && w.day === todayKey() && Date.now() - w.at < 3*3600000){ renderWeatherChip(); return; }
+    navigator.geolocation.getCurrentPosition(function(p){ fetchWeather(p.coords.latitude, p.coords.longitude); },
+      function(err){ if(err && err.code === 1){ S().weatherOn = false; saveSettings(); if(current === 'perfil') renderPerfil(); toast('Localização não permitida'); } else if(w && w.lat){ fetchWeather(w.lat, w.lon); } },
+      {maximumAge: 3600000, timeout: 15000, enableHighAccuracy: false});
+  }
+  function renderWeatherCard(){
+    var st = $('wxStatus'); if(!st) return;
+    var w = mem.meta.weather;
+    if(!S().weatherOn){ st.textContent = 'Clima desligado.'; $('wxOn').hidden = false; $('wxOn').textContent = 'Usar minha localização'; }
+    else { st.textContent = w && w.day === todayKey() ? ('Agora: ' + Math.round(w.temp) + '°, máxima de ' + Math.round(w.max) + '° · ' + ((WX_CODES[w.code]||['—'])[0])) : 'Buscando o clima…'; $('wxOn').hidden = false; $('wxOn').textContent = 'Desligar clima'; }
+    $('wxHeat').textContent = S().heatBoost === false ? 'Garrafinha extra em dias quentes: desligada' : 'Garrafinha extra em dias quentes (30°C+): ligada';
+  }
+
+  // ================= Compartilhar conquista =================
+  function shareCard(title, line, sub){
+    var W = 1080, H = 1350;
+    var svg = '<svg xmlns="http://www.w3.org/2000/svg" width="'+W+'" height="'+H+'" viewBox="0 0 '+W+' '+H+'"><defs><radialGradient id="g" cx="50%" cy="30%" r="80%"><stop offset="0" stop-color="#3B6CF5"/><stop offset=".55" stop-color="#1E3A8A"/><stop offset="1" stop-color="#0E1512"/></radialGradient></defs>' +
+      '<rect width="'+W+'" height="'+H+'" fill="url(#g)"/>' +
+      '<g transform="translate(390 230) scale(4.6)">' + mascotSVG('party', 64).replace(/^<svg[^>]*>/, '').replace(/<\/svg>$/, '') + '</g>' +
+      '<text x="540" y="700" text-anchor="middle" font-family="Helvetica, Arial, sans-serif" font-size="44" font-weight="800" fill="#FDBA74" letter-spacing="4">' + esc(sub.toUpperCase()) + '</text>' +
+      '<text x="540" y="800" text-anchor="middle" font-family="Helvetica, Arial, sans-serif" font-size="92" font-weight="800" fill="#fff">' + esc(title) + '</text>' +
+      '<text x="540" y="890" text-anchor="middle" font-family="Helvetica, Arial, sans-serif" font-size="46" font-weight="600" fill="#C9D3CD">' + esc(line) + '</text>' +
+      '<text x="540" y="1230" text-anchor="middle" font-family="Helvetica, Arial, sans-serif" font-size="40" font-weight="800" fill="#fff">Novo Eu · Dia ' + dayNumber() + '</text></svg>';
+    return new Promise(function(resolve){
+      var img = new Image();
+      img.onload = function(){ var c = document.createElement('canvas'); c.width = W; c.height = H; c.getContext('2d').drawImage(img, 0, 0); c.toBlob(function(b){ resolve(b); }, 'image/png'); };
+      img.onerror = function(){ resolve(null); };
+      img.src = 'data:image/svg+xml;charset=utf-8,' + encodeURIComponent(svg);
+    });
+  }
+  function shareAchievement(title, line, sub){
+    var text = title + ' — ' + line + ' #NovoEu';
+    if(!navigator.share){ toast('Compartilhar não é suportado aqui'); return; }
+    shareCard(title, line, sub).then(function(blob){
+      var file = blob ? new File([blob], 'novo-eu-conquista.png', {type:'image/png'}) : null;
+      var data = file && navigator.canShare && navigator.canShare({files:[file]}) ? {files:[file], text:text} : {title:'Novo Eu', text:text};
+      return navigator.share(data);
+    }).catch(function(){});
+  }
+
+  // ================= Aviso de nova versão =================
+  var swWaiting = null;
+  function watchSW(reg){
+    if(!reg) return;
+    function onWaiting(w){ swWaiting = w; $('updBar').hidden = false; }
+    if(reg.waiting && navigator.serviceWorker.controller) onWaiting(reg.waiting);
+    reg.addEventListener('updatefound', function(){
+      var nw = reg.installing; if(!nw) return;
+      nw.addEventListener('statechange', function(){ if(nw.state === 'installed' && navigator.serviceWorker.controller) onWaiting(nw); });
+    });
+  }
+  function checkSWUpdate(){ if(swReg) swReg.update().catch(function(){}); }
+  var wantReload = false;
+  if('serviceWorker' in navigator){ var reloading = false; navigator.serviceWorker.addEventListener('controllerchange', function(){ if(!wantReload || reloading) return; reloading = true; location.reload(); }); }
 
   // ================= Notificações push =================
   function isStandalone(){ return (window.navigator.standalone === true) || (window.matchMedia && window.matchMedia('(display-mode: standalone)').matches); }
@@ -1259,7 +1401,7 @@ window.addEventListener('error', function(e){
   var swReg = null;
   function registerSW(){
     if(!('serviceWorker' in navigator)) return Promise.resolve(null);
-    return navigator.serviceWorker.register('./sw.js', {scope: './'}).then(function(r){ swReg = r; return r; }).catch(function(){ return null; });
+    return navigator.serviceWorker.register('./sw.js', {scope: './'}).then(function(r){ swReg = r; watchSW(r); return r; }).catch(function(){ return null; });
   }
   function pushSupported(){ return 'serviceWorker' in navigator && 'PushManager' in window && 'Notification' in window; }
   function refreshPushStatus(){
@@ -1316,7 +1458,7 @@ window.addEventListener('error', function(e){
     renderQuote();
     show(started ? 'today' : 'splash');
     if(started){ setTimeout(checkBadges, 600); setTimeout(checkWelcome, 300); setTimeout(checkPerfectWeek, 900); }
-    handleHash();
+    handleHash(); setTimeout(function(){ updateWeather(false); }, 1500);
   }
   function ctx(){
     var n = new Date(Date.now()), h = n.getHours(); if(h < 4) h += 24; var hf = h + n.getMinutes()/60;
@@ -1598,6 +1740,7 @@ window.addEventListener('error', function(e){
     var c = ctx(), d = today(), B = bottle(), G = goal(), NB = nBottles();
     document.querySelectorAll('.js-greet').forEach(function(el){ el.textContent = c.wknd ? weekendGreet(c) : c.greet; });
     $('date').textContent = dateLong() + ' · Dia ' + dayNumber();
+    renderWeatherChip();
 
     // Fim do dia
     var eod = $('eodCard');
@@ -1625,7 +1768,7 @@ window.addEventListener('error', function(e){
 
     // Água
     var total = totalOf(d);
-    $('waterMeta').textContent = 'Meta ' + fmtL(G) + ' · ' + NB + ' garrafa' + (NB>1?'s':'');
+    $('waterMeta').textContent = 'Meta ' + fmtL(G) + ' · ' + NB + ' garrafa' + (NB>1?'s':'') + (heatExtra() ? ' · +1 pelo calor' : '');
     $('wBottles').textContent = fmtN(total/B, 2) + ' de ' + NB;
     $('wSub').textContent = 'garrafas · ' + fmtL(total) + (total >= G ? ' · meta batida!' : '');
     $('addBottle').lastChild.textContent = ' +' + B + ' ml · 1 garrafinha';
@@ -1727,7 +1870,7 @@ window.addEventListener('error', function(e){
       el.classList.toggle('done', m[k]);
       el.classList.toggle('collapsed', m[k] && !expanded[k]);
     });
-    renderMascot(); renderNextAct(); renderSpecial(); renderAvatars(); renderInsight(); renderNudge();
+    renderMascot(); renderNextAct(); renderSpecial(); renderAvatars(); renderInsight(); renderNudge(); updateBadge(3 - metas);
     document.body.classList.toggle('focus', !!S().focus); $('focusBtn').setAttribute('aria-pressed', S().focus ? 'true' : 'false');
   }
 
@@ -1906,7 +2049,7 @@ window.addEventListener('error', function(e){
     for(var h=9; h<=14; h++) mo += '<option value="'+h+'"'+(h===s.morningEnd?' selected':'')+'>'+h+'h</option>';
     for(var h2=15; h2<=20; h2++) af += '<option value="'+h2+'"'+(h2===s.afternoonEnd?' selected':'')+'>'+h2+'h</option>';
     $('pfMorning').innerHTML = mo; $('pfAfternoon').innerHTML = af;
-    renderAvatars(); refreshPushStatus();
+    renderAvatars(); refreshPushStatus(); renderWeatherCard();
   }
 
   // ================= Sheets =================
@@ -2001,7 +2144,8 @@ window.addEventListener('error', function(e){
   function renderMascot(){
     var mood = computeMood(), el = $('mascot'); if(!el) return;
     if(el.getAttribute('data-mood') !== mood){ el.innerHTML = mascotSVG(mood, 60); el.setAttribute('data-mood', mood); }
-    var c = ctx(), lines = c.wknd && mood === 'neutral' ? MASCOT_LINES.wk : MASCOT_LINES[mood];
+    var c = ctx(), wx = mem.meta.weather, hot = wx && wx.day === todayKey() && wx.max >= 30;
+    var lines = hot && (mood === 'neutral' || mood === 'happy') ? ['Dia quente hoje, Lucas! Capricha na água.', 'Calorão de ' + Math.round(wx.max) + '°! Garrafinha sempre por perto.'] : (c.wknd && mood === 'neutral' ? MASCOT_LINES.wk : MASCOT_LINES[mood]);
     var line = lines[doy() % lines.length].replace('{t}', {m:'manhã',t:'tarde',n:'noite'}[c.turn]);
     $('heroHint').textContent = line;
     if(mascotMood === 'party' && !mascotT){ mascotT = setTimeout(function(){ mascotMood = null; mascotT = null; renderMascot(); }, 4500); }
@@ -2545,6 +2689,27 @@ window.addEventListener('error', function(e){
       sbUser = r.data.user; toast('Senha criada. Bem-vindo, Lucas!'); afterLogin();
     });
   });
+  $('fgLink').addEventListener('click', function(){ $('lgForm').hidden = true; $('fgForm').hidden = false; $('fgEmail').value = $('lgEmail').value; showLoginError('fgErr', ''); $('fgOk').hidden = true; });
+  $('fgBack').addEventListener('click', function(){ $('fgForm').hidden = true; $('lgForm').hidden = false; });
+  $('fgForm').addEventListener('submit', function(e){
+    e.preventDefault();
+    var email = ($('fgEmail').value || '').trim(); if(!email){ showLoginError('fgErr', 'Digite seu e-mail.'); return; }
+    var btn = $('fgBtn'); btn.disabled = true; btn.textContent = 'Enviando…';
+    sbc.auth.recover(email, location.origin + location.pathname).then(function(r){
+      btn.disabled = false; btn.textContent = 'Enviar link';
+      if(r.error){ showLoginError('fgErr', r.error.status === 429 ? 'Muitas tentativas. Aguarde alguns minutos.' : 'Não consegui enviar: ' + r.error.message); return; }
+      showLoginError('fgErr', ''); $('fgOk').hidden = false;
+    }).catch(function(){ btn.disabled = false; btn.textContent = 'Enviar link'; showLoginError('fgErr', 'Sem conexão.'); });
+  });
+  $('wxOn').addEventListener('click', function(){ S().weatherOn = !S().weatherOn; saveSettings(); renderWeatherCard(); if(S().weatherOn) updateWeather(true); else { delete mem.meta.weather; saveMeta(); renderToday(); } });
+  $('wxHeat').addEventListener('click', function(){ S().heatBoost = S().heatBoost === false; saveSettings(); var d = mem.days[todayKey()]; if(d){ d.goal = goal(); save(); } renderWeatherCard(); renderToday(); });
+  $('wxChip').addEventListener('click', function(){ updateWeather(true); toast('Atualizando o clima…'); });
+  $('updBtn').addEventListener('click', function(){ wantReload = true; $('updBtn').textContent = 'Atualizando…'; if(swWaiting) swWaiting.postMessage({type:'skip'}); else location.reload(); setTimeout(function(){ location.reload(); }, 2500); });
+  $('badges').addEventListener('click', function(e){
+    var el = e.target.closest('.bd'); if(!el || el.classList.contains('off')) return;
+    shareAchievement(el.querySelector('b').textContent, 'Conquista desbloqueada no Novo Eu', 'Nova conquista');
+  });
+  $('pfShare').addEventListener('click', function(){ shareAchievement('Semana perfeita!', '7 de 7 dias completos', 'Novo Eu'); });
   $('nfOn').addEventListener('click', enablePush);
   $('nfTest').addEventListener('click', sendTestPush);
   $('nfToggle').addEventListener('click', function(){ S().notif = S().notif === false; saveSettings(); refreshPushStatus(); toast(S().notif === false ? 'Lembretes pausados' : 'Lembretes retomados'); });
@@ -2567,6 +2732,8 @@ window.addEventListener('error', function(e){
   });
   function handleHash(){
     var h = (location.hash || '').slice(1); if(!h || !sbUser) return;
+    if(h.indexOf('access_token=') >= 0 || h.indexOf('error=') >= 0) return;
+    if(h === 'semana'){ show('semana'); try{ history.replaceState(null, '', location.pathname); }catch(e){} return; }
     if(current === 'splash' || current === 'login') show('today');
     setTimeout(function(){
       if(h.indexOf('meal-') === 0 && MEAL_BY[h.slice(5)]) openMeal(h.slice(5));
@@ -2588,6 +2755,14 @@ window.addEventListener('error', function(e){
         // sem biblioteca (offline na primeira abertura): usa os dados locais
         renderQuote(); show(hadLocal ? 'today' : 'login');
         if(!hadLocal) showLoginError('lgErr', 'Sem conexão. Conecte-se à internet para entrar pela primeira vez.');
+        return;
+      }
+      var hh = location.hash || '';
+      if(hh.indexOf('error_description=') >= 0){ show('login'); showLoginError('lgErr', 'O link de recuperação expirou ou já foi usado. Peça um novo.'); try{ history.replaceState(null, '', location.pathname); }catch(e){} return; }
+      if(hh.indexOf('access_token=') >= 0){
+        sbc.auth.fromHash(hh).then(function(res){ try{ history.replaceState(null, '', location.pathname); }catch(e){}
+          if(res && res.session){ sbUser = res.session.user; show('login'); $('lgForm').hidden = true; $('fgForm').hidden = true; $('pwForm').hidden = false; $('pwIntro').textContent = 'Crie uma nova senha para a sua conta.'; }
+          else { show('login'); showLoginError('lgErr', 'Não consegui validar o link. Peça um novo.'); } });
         return;
       }
       sbc.auth.getSession().then(function(r){

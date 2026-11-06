@@ -1,5 +1,5 @@
 // Novo Eu — service worker: offline + notificações
-const CACHE = 'novo-eu-v1';
+const CACHE = 'novo-eu-v2';
 const CORE = [
   './',
   './index.html',
@@ -13,9 +13,10 @@ self.addEventListener('install', (event) => {
   event.waitUntil(
     caches.open(CACHE)
       .then((cache) => Promise.all(CORE.map((u) => cache.add(u).catch(() => null))))
-      .then(() => self.skipWaiting())
   );
 });
+
+self.addEventListener('message', (event) => { if (event.data && event.data.type === 'skip') self.skipWaiting(); });
 
 self.addEventListener('activate', (event) => {
   event.waitUntil(
@@ -29,8 +30,8 @@ self.addEventListener('fetch', (event) => {
   const req = event.request;
   if (req.method !== 'GET') return;
   const url = new URL(req.url);
-  // Nunca guardar respostas da API (dados e login)
-  if (url.hostname.endsWith('supabase.co')) return;
+  // Nunca guardar respostas da API (dados, login e clima)
+  if (url.hostname.endsWith('supabase.co') || url.hostname.endsWith('open-meteo.com')) return;
   if (req.mode === 'navigate') {
     event.respondWith(
       fetch(req).then((res) => {
@@ -64,7 +65,9 @@ self.addEventListener('push', (event) => {
     renotify: true,
     data: { url: data.url || './' }
   };
-  event.waitUntil(self.registration.showNotification(title, opts));
+  const jobs = [self.registration.showNotification(title, opts)];
+  if (typeof data.badge === 'number' && self.navigator && 'setAppBadge' in self.navigator) jobs.push(data.badge > 0 ? self.navigator.setAppBadge(data.badge) : self.navigator.clearAppBadge());
+  event.waitUntil(Promise.all(jobs).catch(() => null));
 });
 
 self.addEventListener('notificationclick', (event) => {
