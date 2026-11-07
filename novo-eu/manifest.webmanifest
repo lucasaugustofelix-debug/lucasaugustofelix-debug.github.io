@@ -6,7 +6,7 @@
   "start_url": "/novo-eu/",
   "scope": "/novo-eu/",
   "display": "standalone",
-  "orientation": "portrait",
+  "orientation": "any",
   "background_color": "#0E1512",
   "theme_color": "#0E1512",
   "lang": "pt-BR",
