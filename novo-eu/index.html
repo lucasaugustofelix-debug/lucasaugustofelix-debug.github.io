@@ -1249,6 +1249,9 @@ nav#tabs .fab svg{stroke:var(--bg)!important;width:22px;height:22px}
 /* v3.7: abertura mergulho */
 #boot{z-index:9999!important;background:linear-gradient(180deg,#47545D 0%,#47545D 50%,#1B242B 50%,#1B242B 100%)!important;padding:0!important;gap:0!important}
 #boot .bvid{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;background:transparent}
+#splash .logo{width:72px!important;height:72px!important;border-radius:20px!important;overflow:hidden;padding:0!important;border:0!important;background:#0E1110!important;box-shadow:0 10px 30px rgba(0,0,0,.35)}
+#splash .logo svg{display:block;width:100%;height:100%}
+body.touring .rvl{display:none!important}
 
 </style>
 </head>
@@ -1302,9 +1305,7 @@ nav#tabs .fab svg{stroke:var(--bg)!important;width:22px;height:22px}
 <section id="splash" class="screen on">
   <div class="glow"></div><div class="glow two"></div>
   <div class="wrap">
-    <div class="logo">
-      <svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" role="img" aria-label="Logo Novo Eu"><path d="M12 2.5s7 7.2 7 12.2a7 7 0 0 1-14 0c0-5 7-12.2 7-12.2z"/><path d="M8.8 14.5l2.2 2.2 4.2-4.4"/></svg>
-    </div>
+    <div class="logo"><svg viewBox="0 0 120 120" width="100%" height="100%" role="img" aria-label="Logo Novo Eu"><defs><linearGradient id="spbg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#1C201E"/><stop offset="1" stop-color="#080A09"/></linearGradient></defs><rect width="120" height="120" fill="url(#spbg)"/><circle cx="60" cy="60" r="38" fill="none" stroke="#3C403E" stroke-width="4.5"/><circle cx="60" cy="60" r="38" fill="none" stroke="#3B82F6" stroke-width="4.5" stroke-linecap="round" stroke-dasharray="180 239" transform="rotate(-90 60 60)"/><g transform="translate(34 32.5) scale(.82)"><g><defs><linearGradient id="sppb" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#3A3D40"/><stop offset=".45" stop-color="#16181A"/><stop offset="1" stop-color="#050506"/></linearGradient><linearGradient id="sppw" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#FFFFFF"/><stop offset="1" stop-color="#E6E8EA"/></linearGradient></defs><path d="M21.5 60h7.5l-1 3.2h-6.5zM35 60h7.5l-.2 3.2H36z" fill="#F08A1C"/><path d="M15.3 31q-6.5 10-4 20.5l5-3z" fill="url(#sppb)"/><path d="M48.7 31q6.5 10 4 20.5l-5-3z" fill="url(#sppb)"/><path d="M32 6c-12 0-18 10-18 24v12c0 12 8 19 18 19s18-7 18-19V30C50 16 44 6 32 6z" fill="url(#sppb)"/><path d="M32 19.5c-3.2 0-5 1.6-7.4 1.8-4.2.4-5.8 4.2-5.8 8.8V41c0 10.2 5.2 15.8 13.2 15.8S45.2 51.2 45.2 41V30.1c0-4.6-1.6-8.4-5.8-8.8-2.4-.2-4.2-1.8-7.4-1.8z" fill="url(#sppw)"/><ellipse cx="25" cy="12" rx="2.6" ry="5" fill="#fff" opacity=".12" transform="rotate(30 25 12)"/><circle cx="26" cy="24.5" r="2.6" fill="#0A0A0A"/><circle cx="38" cy="24.5" r="2.6" fill="#0A0A0A"/><circle cx="26.9" cy="23.6" r=".85" fill="#fff"/><circle cx="38.9" cy="23.6" r=".85" fill="#fff"/><path d="M28.6 29h6.8l-3.4 4.6z" fill="#F08A1C"/><path d="M28.6 29h6.8l-3.4 1.6z" fill="#C2410C" opacity=".5"/></g></g></svg></div>
     <div>
       <span class="daychip" id="spDay"></span><p class="sp-date" id="spDate"></p>
       <h2 class="sp-title">Bem-vindo, Lucas,<br><em>vamos começar o dia?</em></h2>
@@ -2123,7 +2124,7 @@ window.addEventListener('error', function(e){
     ['star', 'Novo mascote: o pinguim, que também está no ícone, com anel em 3 arcos, sons próprios e busca no histórico.'],
     ['star', 'Visual mais maduro: cartões editoriais com foto, painel no Progresso, tela Hoje enxuta e Modo Foco.'],
     ['star', 'Medalhas no estilo Pokémon GO (Bronze, Prata, Ouro e Platina), esportes com pódio, conquistas secretas, recordes, álbum de figurinhas e temporadas.'],
-    ['spark', 'Nível 1 a 50 com XP, missões do dia, carimbos e caixa surpresa. A gotinha evolui, tem humor, cenários, poses e brincadeiras escondidas.'],
+    ['spark', 'Nível 1 a 50 com XP, missões do dia, carimbos e caixa surpresa. O pinguim evolui, tem humor, cenários, poses e brincadeiras escondidas.'],
     ['share', 'Central de compartilhar: story do dia, semana, selfie do treino com selos, antes e depois, vídeo animado, prato do dia e retrospectivas.'],
     ['bell', 'Atalhos da Siri, relatório em PDF, gráficos interativos, layout para iPad e ícone sazonal.']
   ];
@@ -6630,6 +6631,12 @@ window.addEventListener('error', function(e){
     v.addEventListener('error', function(){ if(!(v.currentTime > .1)) bootT0 = Date.now() - 2800; });
     b.innerHTML = ''; b.appendChild(v);
     var p = v.play(); if(p && p.catch) p.catch(function(){ bootT0 = Date.now() - 2800; });
+  }
+  function checkWhatsNew(){
+    if(mem.meta.seenVersion === APP_VERSION) return;
+    var first = !mem.meta.seenVersion; mem.meta.seenVersion = APP_VERSION; saveMeta();
+    if(first) return;
+    whenIdle(function(){ if(!$('tour') || $('tour').hidden) openWhatsNew(); }, 1500);
   }
 
   // ================= Navegação =================
