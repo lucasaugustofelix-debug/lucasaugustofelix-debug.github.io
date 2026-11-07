@@ -689,6 +689,58 @@ html.dark .cd.c1,html.dark .callegend i.c1{background:#1B2B57}html.dark .cd.c2,h
 .mtimes div{background:var(--bg);border-radius:14px;padding:10px 12px}
 .mtimes b{display:block;font-size:.84rem}.mtimes span{font-size:.74rem;color:var(--muted);font-weight:600}
 .chips button.off{opacity:.45;text-decoration:line-through}
+
+/* ===== v3.2 ===== */
+.shquick{display:flex;flex-direction:column;gap:8px}
+.shquick > span{font-size:.75rem;font-weight:800;color:var(--muted)}
+.shquick > div{display:flex;flex-direction:column;gap:6px}
+.shquick button{display:flex;align-items:center;gap:10px;min-height:46px;padding:8px 14px;border-radius:14px;border:1.5px solid var(--line);background:var(--raise);color:var(--text);font:inherit;text-align:left}
+.shquick button b{flex:1;font-size:.86rem;font-weight:700;line-height:1.3}
+.shquick button em{font-style:normal;font-size:.72rem;font-weight:800;color:var(--muted)}
+.phcard{gap:12px}
+.phtime{display:flex;justify-content:space-between;font-size:.78rem;font-weight:700;color:var(--muted)}
+.phg{display:flex;flex-direction:column;gap:6px}
+.phg > div:first-child{display:flex;justify-content:space-between;gap:8px}
+.phg b{font-size:.86rem}.phg span{font-size:.78rem;color:var(--muted);font-weight:700}
+.phg .tr{height:8px;border-radius:999px;background:var(--chip);overflow:hidden}
+.phg .tr i{display:block;height:100%;border-radius:999px;background:linear-gradient(90deg,#F59E0B,#FACC15)}
+.phg .tr i.ok{background:linear-gradient(90deg,#16A34A,#4ADE80)}
+.phdone{background:var(--bg);border-radius:16px;padding:14px;display:flex;flex-direction:column;gap:10px}
+.phdone small{font-size:.7rem;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:var(--green)}
+.phdone b{font-size:1.05rem}.phdone > span{font-size:.8rem;color:var(--muted);font-weight:600;margin-top:-6px}
+.phhist summary{cursor:pointer;font-size:.84rem;font-weight:800;color:var(--soft);padding:4px 0}
+.phhist .chh{margin-top:10px}
+.plcard{gap:12px;border:1.5px solid var(--purple)}
+.pltips{display:flex;flex-direction:column;gap:10px}
+.pltips div{display:flex;gap:10px;align-items:flex-start;background:var(--purple-soft);border-radius:14px;padding:10px 12px;font-size:.84rem;line-height:1.45;font-weight:600}
+.pltips svg{flex-shrink:0;margin-top:1px}
+.memcard{gap:14px;background:linear-gradient(160deg,var(--yellow-soft),var(--card) 60%)}
+.kick{display:block;font-size:.7rem;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:var(--yellow)}
+.memph{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.memph figure{margin:0;position:relative}
+.memph img{width:100%;aspect-ratio:3/4;object-fit:cover;border-radius:14px;display:block}
+.memph figcaption{position:absolute;left:8px;bottom:8px;background:rgba(0,0,0,.55);color:#fff;font-size:.7rem;font-weight:800;border-radius:8px;padding:2px 8px}
+.memtab{display:flex;flex-direction:column}
+.memtab > div{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:8px;padding:9px 0;border-top:1px solid var(--line);align-items:center;font-size:.84rem}
+.memtab > div:first-child{border-top:none}
+.memtab .mh b{font-size:.7rem;font-weight:800;color:var(--muted);text-transform:uppercase;letter-spacing:.05em}
+.memtab span{font-weight:700}.memtab em{font-style:normal;color:var(--muted);font-weight:600}.memtab strong{font-weight:800;color:var(--blue)}
+.yeargrid{display:flex;flex-direction:column;gap:3px}
+.yrow{display:flex;align-items:center;gap:6px}
+.yrow span{width:26px;font-size:.62rem;font-weight:800;color:var(--muted);text-transform:capitalize}
+.yrow div{flex:1;display:grid;grid-template-columns:repeat(31,minmax(0,1fr));gap:2px}
+.yrow i{display:block;aspect-ratio:1;border-radius:2px;background:var(--chip)}
+.yrow i.yx{background:transparent}.yrow i.yo{opacity:.35}
+.yrow i.y1{background:#DCE6FD}.yrow i.y2{background:#93B4FF}.yrow i.y3{background:#2F5EF0}.yrow i.yp{background:var(--purple-soft)}
+html.dark .yrow i.y1{background:#1B2B57}html.dark .yrow i.y2{background:#2E4FA8}html.dark .yrow i.y3{background:#5B83FF}
+.yeartot{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:6px}
+.yeartot div{background:var(--bg);border-radius:12px;padding:8px;text-align:center}
+.yeartot b{display:block;font-size:.92rem}.yeartot span{font-size:.64rem;color:var(--muted);font-weight:700}
+.clprev{display:flex;justify-content:center;padding:6px 0;background:var(--bg);border-radius:18px}
+.chips.look button{display:inline-flex;align-items:center;gap:6px}
+.chips.look .sw{width:16px;height:16px;border-radius:50%;display:inline-block}
+.chips.look button.lock{opacity:.55;border-style:dashed}
+.chips.look button small{font-size:.66rem;font-weight:800;color:var(--muted)}
 </style>
 </head>
 <body>
@@ -774,6 +826,7 @@ html.dark .cd.c1,html.dark .callegend i.c1{background:#1B2B57}html.dark .cd.c2,h
 
     <div class="card pausecard" id="pauseCard" hidden></div>
     <button type="button" class="card morning" id="morningCard" hidden></button>
+    <div class="card memcard" id="memCard" hidden></div>
     <div class="card special" id="special" hidden></div>
 
     <div class="card hero" id="hero">
@@ -868,6 +921,15 @@ html.dark .cd.c1,html.dark .callegend i.c1{background:#1B2B57}html.dark .cd.c2,h
       <div class="calgrid" id="calGrid"></div>
       <div class="callegend"><span><i class="c0"></i>0</span><span><i class="c1"></i>1</span><span><i class="c2"></i>2</span><span><i class="c3"></i>3 missões</span><span><i class="cp"></i>pausa</span></div>
     </div>
+    <div class="card" id="yearCard">
+      <div class="row">
+        <button class="nav-arrow" id="yearPrev" aria-label="Ano anterior"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 6l-6 6 6 6"/></svg></button>
+        <div style="text-align:center"><b id="yearLabel" style="font-size:0.941rem"></b><p class="meta" id="yearSub" style="margin-top:2px"></p></div>
+        <button class="nav-arrow" id="yearNext" aria-label="Próximo ano"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></button>
+      </div>
+      <div class="yeargrid" id="yearGrid"></div>
+      <div class="yeartot" id="yearTot"></div>
+    </div>
     <h3 class="sect">Semana</h3>
     <div class="card" id="wkCardNav">
       <div class="row">
@@ -930,6 +992,7 @@ html.dark .cd.c1,html.dark .callegend i.c1{background:#1B2B57}html.dark .cd.c2,h
       </form>
     </div>
 
+    <div class="card plcard" id="plCard" data-pane="peso" hidden data-off="1"></div>
     <div class="card" id="photoCard" data-pane="peso" hidden>
       <div class="row"><h2>Antes e agora</h2><p class="meta" id="phCount"></p></div>
       <div class="photos" id="photos"></div>
@@ -940,6 +1003,7 @@ html.dark .cd.c1,html.dark .callegend i.c1{background:#1B2B57}html.dark .cd.c2,h
       <div id="evChart"></div>
     </div>
 
+    <div class="card phcard" data-pane="const" id="phCard" hidden></div>
     <div class="card" data-pane="const" hidden>
       <h2>Constância desde o início</h2>
       <div class="stats" style="grid-template-columns:repeat(2,minmax(0,1fr))">
@@ -970,6 +1034,10 @@ html.dark .cd.c1,html.dark .callegend i.c1{background:#1B2B57}html.dark .cd.c2,h
       <div class="row"><h2>Sua gotinha</h2><p class="meta">evolui com a sequência</p></div>
       <div id="evLevels"></div>
     </div>
+    <div class="card" data-pane="conq" hidden>
+      <div class="row"><h2>Armário da gotinha</h2><p class="meta">personalize</p></div>
+      <div id="closet" style="display:flex;flex-direction:column;gap:14px"></div>
+    </div>
     <div class="card chcard" data-pane="conq" id="evChAct" hidden></div>
     <div class="card" data-pane="conq" hidden>
       <div class="row"><h2>Conquistas</h2><p class="meta" id="bdCount"></p></div>
@@ -983,6 +1051,11 @@ html.dark .cd.c1,html.dark .callegend i.c1{background:#1B2B57}html.dark .cd.c2,h
       <div class="row"><h2>Retrospectiva</h2><p class="meta">seus meses</p></div>
       <p class="meta" style="margin:0;font-weight:500">Seus números de cada mês em telas no estilo stories, prontas para compartilhar.</p>
       <div id="evExtra" class="rclist"></div>
+    </div>
+    <div class="card" data-pane="retro" hidden>
+      <div class="row"><h2>Relatório do trimestre</h2><p class="meta">a cada 3 meses</p></div>
+      <p class="meta" style="margin:0;font-weight:500">Comparação com o trimestre anterior: o que melhorou e o que merece atenção.</p>
+      <div id="evQ" class="rclist"></div>
     </div>
 
     <div class="card" data-pane="peso" style="gap:0;padding:8px 20px">
@@ -1102,6 +1175,7 @@ html.dark .cd.c1,html.dark .callegend i.c1{background:#1B2B57}html.dark .cd.c2,h
 <div class="sheet" id="sheet" hidden role="dialog" aria-modal="true" aria-labelledby="shTitle">
   <div class="grab" aria-hidden="true"></div>
   <div class="row"><h2 id="shTitle">Refeição</h2><button type="button" class="x" id="shClose" aria-label="Fechar">×</button></div>
+  <div class="shquick" id="shQuick" hidden></div>
   <label class="field" for="shText">O que você comeu?<textarea id="shText" rows="3" placeholder="Ex.: arroz, feijão, frango grelhado e salada"></textarea></label>
   <div class="shphoto"><label class="photo-in"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 8h3l2-3h6l2 3h3v11H4z"/><circle cx="12" cy="13" r="3.5"/></svg><span id="shPhotoLbl">Foto do prato (opcional)</span><input type="file" accept="image/*" id="shPhoto" class="sr"></label><div class="shprev" id="shPhotoPrev" hidden></div></div>
   <button type="button" class="btn b-blue" id="shEval" style="flex:none;width:100%">Avaliar refeição</button>
@@ -1184,6 +1258,19 @@ html.dark .cd.c1,html.dark .callegend i.c1{background:#1B2B57}html.dark .cd.c2,h
   <div class="shropts" id="shrOpts"></div>
   <button type="button" class="btn b-ink" id="shrGo" style="flex:none;width:100%">Compartilhar</button>
 </div>
+<div class="sheet" id="phSheet" hidden role="dialog" aria-modal="true" aria-labelledby="phTitle">
+  <div class="grab" aria-hidden="true"></div>
+  <div class="row"><h2 id="phTitle">Nova fase</h2><button type="button" class="x" id="phClose" aria-label="Fechar">×</button></div>
+  <label class="field" for="phName">Nome da fase<input id="phName" maxlength="40" autocomplete="off"></label>
+  <div class="field">Duração<div class="chips" id="phDur"><button type="button" data-dur="14">14 dias</button><button type="button" data-dur="30">30 dias</button><button type="button" data-dur="60">60 dias</button><button type="button" data-dur="90">90 dias</button></div></div>
+  <div class="field">Metas da fase</div>
+  <div class="steps">
+    <div class="step"><div><b>Dias com meta de água</b><span>do total de dias</span></div><div class="stepper"><button type="button" data-phs="agua" data-d="-1" aria-label="Menos">−</button><output id="phAgua"></output><button type="button" data-phs="agua" data-d="1" aria-label="Mais">+</button></div></div>
+    <div class="step"><div><b>Treinos por semana</b><span>média</span></div><div class="stepper"><button type="button" data-phs="gym" data-d="-1" aria-label="Menos">−</button><output id="phGym"></output><button type="button" data-phs="gym" data-d="1" aria-label="Mais">+</button></div></div>
+    <div class="step"><div><b>Refeições verdes</b><span>do que você lançar</span></div><div class="stepper"><button type="button" data-phs="green" data-d="-1" aria-label="Menos">−</button><output id="phGreen"></output><button type="button" data-phs="green" data-d="1" aria-label="Mais">+</button></div></div>
+  </div>
+  <button type="button" class="btn b-ink" id="phSave" style="flex:none;width:100%">Salvar fase</button>
+</div>
 <div class="recap" id="recap" hidden role="dialog" aria-modal="true" aria-label="Retrospectiva do mês">
   <div class="rcin" id="rcIn">
     <div class="rcbars" id="rcBars"></div>
@@ -1227,39 +1314,8 @@ window.addEventListener('error', function(e){
   var KEY = 'vidanova_v1';
 
   // ================= Conteúdo =================
-  var FRASES = [
-    'Disciplina é lembrar o que você quer de verdade.',
-    'Um dia de cada vez. Hoje é o dia que importa.',
-    'Você não precisa ser perfeito, só precisa continuar.',
-    'Pequenas escolhas, todos os dias, viram grandes resultados.',
-    'O corpo alcança o que a mente acredita.',
-    'Comece onde você está. Use o que você tem.',
-    'Constância vence intensidade.',
-    'Cada garrafinha, cada treino, cada escolha conta.',
-    'A melhor versão de você está sendo construída hoje.',
-    'Não pare quando cansar. Pare quando terminar.',
-    'Feito é melhor que perfeito.',
-    'Seu único adversário é quem você era ontem.',
-    'Motivação te faz começar. Hábito te faz continuar.',
-    'Um novo eu se faz com atitudes novas.',
-    'O progresso é silencioso. Continue mesmo assim.',
-    'Cuidar de você também é responsabilidade.',
-    'Quem planta hoje colhe amanhã.',
-    'Você já venceu dias difíceis antes. Hoje não é diferente.',
-    'Devagar também é caminho, desde que não pare.',
-    'O resultado que você quer está do outro lado da rotina.',
-    'Faça hoje o que seu eu do futuro vai agradecer.',
-    'Grandes mudanças começam com um primeiro passo.',
-    'Saúde não é destino, é o caminho de todo dia.',
-    'Acredite no processo e respeite o seu ritmo.',
-    'Hoje é mais um tijolo da sua nova vida.',
-    'Força não vem do que você consegue, vem do que você supera.',
-    'Cada dia é uma nova chance de fazer diferente.',
-    'Sua decisão de hoje vale mais que a desculpa de ontem.',
-    'Coragem é continuar quando ninguém está vendo.',
-    'Você está mais perto do que imagina.',
-    'Orgulhe-se de cada pequena vitória.'
-  ];
+  var FRASES = ["Disciplina é lembrar o que você quer de verdade.", "Um dia de cada vez. Hoje é o dia que importa.", "Você não precisa ser perfeito, só precisa continuar.", "Pequenas escolhas, todos os dias, viram grandes resultados.", "O corpo alcança o que a mente acredita.", "Comece onde você está. Use o que você tem.", "Constância vence intensidade.", "Cada garrafinha, cada treino, cada escolha conta.", "A melhor versão de você está sendo construída hoje.", "Não pare quando cansar. Pare quando terminar.", "Feito é melhor que perfeito.", "Seu único adversário é quem você era ontem.", "Motivação te faz começar. Hábito te faz continuar.", "Um novo eu se faz com atitudes novas.", "O progresso é silencioso. Continue mesmo assim.", "Cuidar de você também é responsabilidade.", "Quem planta hoje colhe amanhã.", "Você já venceu dias difíceis antes. Hoje não é diferente.", "Devagar também é caminho, desde que não pare.", "O resultado que você quer está do outro lado da rotina.", "Faça hoje o que seu eu do futuro vai agradecer.", "Grandes mudanças começam com um primeiro passo.", "Saúde não é destino, é o caminho de todo dia.", "Acredite no processo e respeite o seu ritmo.", "Hoje é mais um tijolo da sua nova vida.", "Força não vem do que você consegue, vem do que você supera.", "Cada dia é uma nova chance de fazer diferente.", "Sua decisão de hoje vale mais que a desculpa de ontem.", "Coragem é continuar quando ninguém está vendo.", "Você está mais perto do que imagina.", "Orgulhe-se de cada pequena vitória.", "Não é sobre ser o melhor. É sobre ser melhor que ontem.", "A dor do treino passa. O orgulho fica.", "Seu corpo ouve tudo o que sua mente diz.", "Água, treino e prato bom: o básico bem feito muda tudo.", "Quem tem um porquê enfrenta qualquer como.", "Não espere vontade. Comece, e ela aparece.", "O hábito de hoje é o resultado de amanhã.", "Você não chegou até aqui para parar agora.", "Resultados gostam de rotina.", "Um passo pequeno ainda é um passo para frente.", "O segredo é não quebrar a corrente.", "Vá no seu ritmo, mas vá.", "Escolher bem uma refeição já é vencer o dia.", "Cansaço passa. Arrependimento demora.", "Seja a pessoa que você queria ter por perto.", "A disciplina é a ponte entre metas e conquistas.", "Hoje conta. Todo dia conta.", "Persistência transforma o difícil em normal.", "Não compare seu começo com o meio de ninguém.", "Bebe uma água e segue o jogo.", "O que você faz todo dia importa mais do que o que faz de vez em quando.", "Quando der vontade de desistir, lembre por que começou.", "Você é mais forte do que a sua preguiça.", "O melhor momento para começar foi ontem. O segundo melhor é agora.", "Ninguém vê o esforço, mas todo mundo vai ver o resultado.", "Cuide do corpo. É o único lugar onde você vai morar a vida toda.", "Uma escolha boa puxa a outra.", "Progresso, não perfeição.", "Treino ruim é melhor que treino nenhum.", "A balança é só um número. A constância é o que transforma.", "Faça por você. Os aplausos são bônus.", "Você está escrevendo uma história de superação.", "Comer bem é um ato de respeito com você mesmo.", "Seu futuro agradece cada garrafinha de hoje.", "Recomeçar não é fracassar. É insistir.", "Grandes resultados são pequenas vitórias somadas.", "Mais um dia, mais uma chance de cuidar de você.", "Quem cuida de si cuida melhor de tudo.", "A rotina que parece chata é a que mais transforma.", "Força de vontade acaba. Hábito não.", "Você não precisa de pressa, precisa de direção.", "Um dia ruim não apaga uma semana boa.", "Seu esforço de hoje é a sua vitória de amanhã.", "Faça o simples todos os dias.", "O corpo muda devagar. A mente muda primeiro.", "Não deixe para amanhã a garrafinha de agora.", "Quem não desiste, chega.", "O orgulho de cumprir vale mais que a preguiça de faltar.", "Você é a prova de que dá para mudar.", "Cada refeição verde é um voto no seu novo eu.", "Dormir bem, beber água e treinar: a base de tudo.", "Hoje você vai fazer o que precisa ser feito.", "Tem gente torcendo por você. Inclusive o seu eu do futuro.", "Siga firme. O caminho já está dando resultado.", "Sua jornada é sua. Respeite cada fase dela.", "Leve é a vida de quem cuida de si.", "O impossível de ontem virou o normal de hoje.", "Seja constante, mesmo quando ninguém estiver olhando.", "Bora, Lucas! Hoje é dia de fazer acontecer.", "Disciplina hoje, liberdade amanhã.", "Cada dia cumprido é uma promessa que você honrou.", "Você não está começando do zero. Está começando da experiência.", "Coloque a garrafinha à vista e o resto acontece.", "Seu melhor investimento é a sua saúde.", "Faça hoje um pouco melhor do que ontem.", "Quem se prepara não depende de sorte.", "Ser constante é mais bonito que ser perfeito.", "A vitória mora nos dias comuns.", "Tranquilo e firme: assim se vai longe."];
+  var FRASES_D = [["ml", "Você já bebeu {L} desde o início. Bora somar mais hoje!"], ["gyms", "São {gyms} treinos até aqui. O próximo é hoje?"], ["days", "Dia {days} do seu Novo Eu. Olha onde você chegou!"], ["greens", "{greens} refeições verdes desde o começo. Isso é escolha consciente!"], ["comp", "Você já teve {comp} dias completos. Que tal mais um hoje?"], ["kg", "Já são {kg} a menos desde a primeira pesagem. Segue firme!"], ["best", "Sua melhor sequência foi de {best} dias. Dá para bater esse recorde!"], ["bottles", "{bottles} garrafinhas bebidas até hoje. Cada uma contou."], ["months", "Há {months} você começou essa jornada. Orgulho do caminho!"], ["gymweek", "Você treina em média {gymweek} vezes por semana. Mantém o ritmo!"], ["waterdays", "Em {waterdays} dias você bateu a meta de água. Hidratação virou hábito!"], ["greenpct", "{greenpct} das suas refeições são verdes. Seu prato mudou!"], ["ml", "{L} de água no corpo desde o primeiro dia. Que hidratação!"], ["gyms", "{gyms} vezes você escolheu treinar. Hoje escolhe de novo?"], ["days", "{days} dias cuidando de você. Isso já é estilo de vida."], ["comp", "{comp} dias com as 3 missões. Você sabe fazer, bora repetir!"], ["kg", "{kg} mais leve e muito mais forte por dentro."], ["greens", "Mais de {greens} escolhas verdes no prato. Seu corpo agradece!"]];
   var FRASES_PARABENS = [
     'Ontem foi dia completo. Hoje, bora repetir a dose!',
     'Dia completo ontem! É assim que o novo eu se constrói.',
@@ -1400,6 +1456,7 @@ window.addEventListener('error', function(e){
     normalize();
   }
   function persist(){
+    dataVer++;
     try{ localStorage.setItem(KEY, JSON.stringify(mem)); }
     catch(e){ try{ var c = JSON.parse(JSON.stringify(mem)); c.photos = {}; localStorage.setItem(KEY, JSON.stringify(c)); }catch(x){} }
   }
@@ -1412,12 +1469,13 @@ window.addEventListener('error', function(e){
   function nBottles(){ var t = S().turns; return (t.m||0) + (t.t||0) + (t.n||0) + heatExtra(); }
 
   // ================= v3: pausa, tema, som, versão =================
-  var APP_VERSION = '3.1';
+  var APP_VERSION = '3.2';
   var WHATS_NEW = [
-    ['star', 'App reorganizado por assunto: Hoje, Histórico, Progresso e Perfil.'],
-    ['cal', 'Histórico: calendário do mês, semana, busca no que você comeu e galeria dos pratos.'],
-    ['trophy', 'Progresso: Corpo, Hábitos (com treinos por tipo), Conquistas com desafios e Retrospectiva.'],
-    ['bulb', 'Perfil organizado por assunto, com cabeçalho novo, tipos de treino e horário de silêncio.']
+    ['food', 'Refeições: repita as que você mais come com um toque.'],
+    ['flag', 'Fases do projeto, com metas próprias e comemoração no fim (Progresso › Hábitos).'],
+    ['drop', 'Personalize sua gotinha com cores e acessórios (Progresso › Conquistas).'],
+    ['cal', 'Visão do ano no Histórico e relatório do trimestre na aba Retrô.'],
+    ['spark', '118 frases do dia, algumas com os seus números.']
   ];
   function pauseInfo(){ var tk = todayKey(); return (S().pauses || []).filter(function(p){ return p.until >= tk; })[0] || null; }
   function paused(k){ return (S().pauses || []).some(function(p){ return k >= p.from && k <= p.until; }); }
@@ -1803,7 +1861,7 @@ window.addEventListener('error', function(e){
     var yk = keyOf(addDays(now0(), -1)), y = mem.days[yk], frase, lbl = 'Frase do dia';
     if(y && yk >= mem.meta.start && complete(y)){ frase = FRASES_PARABENS[doy() % FRASES_PARABENS.length]; lbl = 'Ontem foi dia completo'; }
     else if(y && yk >= mem.meta.start && hasData(y) && missionCount(y) <= 1){ frase = FRASES_LEVANTA[doy() % FRASES_LEVANTA.length]; lbl = 'Bora virar o jogo'; }
-    else frase = FRASES[doy() % FRASES.length];
+    else frase = fraseDoDia();
     $('quoteLbl').textContent = lbl;
     $('quote').innerHTML = frase.split(' ').map(function(w,i){ return '<span style="animation-delay:'+(0.5 + i*0.09).toFixed(2)+'s">'+esc(w)+'</span>'; }).join(' ');
     $('start').style.animationDelay = (0.7 + frase.split(' ').length*0.09).toFixed(2)+'s';
@@ -2210,7 +2268,7 @@ window.addEventListener('error', function(e){
       el.classList.toggle('collapsed', m[k] && !expanded[k]);
     });
     renderMascot(); renderNextAct(); renderSpecial(); renderAvatars(); renderInsight(); renderNudge();
-    renderPause(); renderMorning(); renderAdj(); renderChallenges(); renderSupps();
+    renderPause(); renderMorning(); renderMemo(); renderAdj(); renderChallenges(); renderSupps();
     updateBadge(paused(todayKey()) ? 0 : 3 - metas);
     document.body.classList.toggle('focus', !!S().focus); $('focusBtn').setAttribute('aria-pressed', S().focus ? 'true' : 'false');
   }
@@ -2246,7 +2304,7 @@ window.addEventListener('error', function(e){
     var bl = $('wkBest'); if(best){ bl.hidden = false; bl.innerHTML = '<span class="bi" style="background:var(--yellow-soft)">'+ico('star',20,'var(--yellow)')+'</span><div><small>Melhor dia da semana</small><b>'+WEEKDAYS[best.i]+', '+fromKey(best.k).getDate()+'/'+pad(fromKey(best.k).getMonth()+1)+'</b><p>'+esc(best.why.charAt(0).toUpperCase() + best.why.slice(1))+'.</p></div>'; } else bl.hidden = true;
     $('wkW').textContent = w; $('wkG').textContent = g; $('wkC').textContent = cc;
     $('wkSum').innerHTML = weekSummaryHTML(monday, 'Resumo da semana');
-    renderCal(); renderMeals();
+    renderCal(); renderYear(); renderMeals();
   }
 
   // Detalhe do dia
@@ -2379,7 +2437,7 @@ window.addEventListener('error', function(e){
         '<span class="df" style="color:'+dfColor+'">'+dfTxt+'</span>'+
         '<button class="rm'+(confirmIdx===idx?' confirm':'')+'" data-rm="'+idx+'" aria-label="Remover pesagem">'+(confirmIdx===idx?'Remover?':'×')+'</button></div>';
     }).join('') : '<div class="emptyill">'+mascotSVG('sleepy', 56)+'<p class="empty">Nenhuma pesagem ainda. Use o botão + quando quiser.</p></div>';
-    renderAcc(); renderHabits(); renderRetroList(); renderChallenges();
+    renderAcc(); renderHabits(); renderRetroList(); renderChallenges(); renderPhase(); renderPlateau(); renderCloset(); renderQuarterList();
   }
 
   function compressImage(file){
@@ -2452,8 +2510,9 @@ window.addEventListener('error', function(e){
     $('shEval').textContent = r && !r.skip ? 'Avaliar de novo' : 'Avaliar refeição'; $('shEval').disabled = false;
     $('shSkip').textContent = r && r.skip ? 'Justificado: ' + r.reason + ' · editar' : 'Não fiz essa refeição · justificar';
     showResult(r && !r.skip ? r : null);
+    var hasQ = renderQuick(k, r);
     openSheetEl('sheet');
-    if(!r) setTimeout(function(){ try{ $('shText').focus(); }catch(e){} }, 280);
+    if(!r && !hasQ) setTimeout(function(){ try{ $('shText').focus(); }catch(e){} }, 280);
   }
   function closeMeal(){ closeSheetEl('sheet'); var back = sheetDay; sheetMeal = null; sheetDay = null; renderToday(); if(current === 'semana') renderWeek(); if(back) setTimeout(function(){ editDay(back); }, 280); }
   function renderMealPhoto(){
@@ -2511,8 +2570,11 @@ window.addEventListener('error', function(e){
     else if(mood === 'happy'){ eyes = '<circle cx="25" cy="39" r="3.2" fill="#0E1512"/><circle cx="39" cy="39" r="3.2" fill="#0E1512"/><circle cx="26.2" cy="37.8" r="1" fill="#fff"/><circle cx="40.2" cy="37.8" r="1" fill="#fff"/>'; mouth = '<path d="M26 46q6 5.5 12 0" stroke="#0E1512" stroke-width="2.4" fill="none" stroke-linecap="round"/>'; }
     else { eyes = '<circle cx="25" cy="39" r="3.2" fill="#0E1512"/><circle cx="39" cy="39" r="3.2" fill="#0E1512"/><circle cx="26.2" cy="37.8" r="1" fill="#fff"/><circle cx="40.2" cy="37.8" r="1" fill="#fff"/>'; mouth = '<path d="M27.5 47q4.5 2.5 9 0" stroke="#0E1512" stroke-width="2.2" fill="none" stroke-linecap="round"/>'; }
     var back = '', front = '', gid = 'mg' + mood + (++mascotSeq);
-    if(deco){ var lv = mascotLevel(), sea = seasonal(); back = decoBack(lv); front = decoFront(lv, sea); }
-    return '<svg width="'+size+'" height="'+size+'" viewBox="0 0 64 64" style="overflow:visible"><defs><linearGradient id="'+gid+'" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#93B4FF"/><stop offset="1" stop-color="#3B6CF5"/></linearGradient></defs>' + back +
+    var c1 = '#93B4FF', c2 = '#3B6CF5';
+    if(deco){ var lv = mascotLevel(), sea = seasonal(), lk = look(); back = decoBack(lv); c1 = LOOK_COLORS[lk.c].c[0]; c2 = LOOK_COLORS[lk.c].c[1];
+      if(lk.a === 'auto') front = decoFront(lv, sea);
+      else { var head = lk.a === 'cap' || lk.a === 'crown' || lk.a === 'phones'; front = (sea && head ? '' : accSVG(lk.a)) + decoFront(0, sea); } }
+    return '<svg width="'+size+'" height="'+size+'" viewBox="0 0 64 64" style="overflow:visible"><defs><linearGradient id="'+gid+'" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="'+c1+'"/><stop offset="1" stop-color="'+c2+'"/></linearGradient></defs>' + back +
       '<path d="M32 5C32 5 52 27 52 41a20 20 0 0 1-40 0C12 27 32 5 32 5z" fill="url(#'+gid+')"/>' +
       '<ellipse cx="23" cy="26" rx="4" ry="7" fill="#fff" opacity=".35" transform="rotate(25 23 26)"/>' + cheeks + eyes + mouth + extra + front + '</svg>';
   }
@@ -2536,7 +2598,7 @@ window.addEventListener('error', function(e){
   }
   function renderMascot(){
     var mood = computeMood(), el = $('mascot'); if(!el) return;
-    var deco = mood + '|' + mascotLevel() + '|' + (seasonal() || ''); if(el.getAttribute('data-mood') !== deco){ el.innerHTML = mascotSVG(mood, 60, true); el.setAttribute('data-mood', deco); }
+    var deco = mood + '|' + mascotLevel() + '|' + (seasonal() || '') + '|' + look().c + look().a; if(el.getAttribute('data-mood') !== deco){ el.innerHTML = mascotSVG(mood, 60, true); el.setAttribute('data-mood', deco); }
     var c = ctx(), wx = mem.meta.weather, hot = wx && wx.day === todayKey() && wx.max >= 30;
     var lines = hot && (mood === 'neutral' || mood === 'happy') ? ['Dia quente hoje, Lucas! Capricha na água.', 'Calorão de ' + Math.round(wx.max) + '°! Garrafinha sempre por perto.'] : (c.wknd && mood === 'neutral' ? MASCOT_LINES.wk : MASCOT_LINES[mood]);
     var line = lines[doy() % lines.length].replace('{t}', {m:'manhã',t:'tarde',n:'noite'}[c.turn]);
@@ -3121,8 +3183,9 @@ window.addEventListener('error', function(e){
 
   // ================= v3: retrospectiva do mês =================
   var MONTHS = ['janeiro','fevereiro','março','abril','maio','junho','julho','agosto','setembro','outubro','novembro','dezembro'];
-  function recapData(y, m){
-    var first = new Date(y, m, 1), last = new Date(y, m + 1, 0), fk = keyOf(first), lk = keyOf(last);
+  function recapData(y, m){ var r = recapRange(new Date(y, m, 1), new Date(y, m + 1, 0)); r.y = y; r.m = m; r.name = MONTHS[m]; return r; }
+  function recapRange(first, last){
+    var fk = keyOf(first), lk = keyOf(last);
     var ml = 0, gyms = 0, greens = 0, logged = 0, comp = 0, best = 0, run = 0, active = 0, types = {};
     for(var d = first; d <= last; d = addDays(d, 1)){
       var k = keyOf(d); if(k < mem.meta.start || k > todayKey()) continue;
@@ -3135,7 +3198,7 @@ window.addEventListener('error', function(e){
     var badges = Object.keys(mem.meta.badges).filter(function(id){ var dt = mem.meta.badges[id]; return dt >= fk && dt <= lk; }).map(function(id){ var b = BADGES.filter(function(x){ return x.id === id; })[0]; return b ? b.n : null; }).filter(Boolean);
     var chs = mem.meta.ch.hist.filter(function(c){ return c.ok && c.end >= fk && c.end <= lk; }).map(function(c){ return c.name; });
     var topType = Object.keys(types).sort(function(a,b){ return types[b]-types[a]; })[0];
-    return {y:y, m:m, name: MONTHS[m], ml:ml, gyms:gyms, greens:greens, greenPct: logged ? Math.round(greens/logged*100) : null, comp:comp, best:best, active:active, wd:wd, badges:badges.concat(chs), topType: topType ? gtBy(topType) : null};
+    return {ml:ml, gyms:gyms, greens:greens, greenPct: logged ? Math.round(greens/logged*100) : null, comp:comp, best:best, active:active, wd:wd, badges:badges.concat(chs), topType: topType ? gtBy(topType) : null};
   }
   var recap = null, recapIdx = 0, recapT = null;
   function recapSlides(r){
@@ -3196,7 +3259,7 @@ window.addEventListener('error', function(e){
         '<text x="270" y="'+(y+124)+'" font-family="'+F+'" font-size="46" font-weight="800" fill="'+S3.ink+'">'+esc(r[1])+'</text>';
     }).join('');
     return '<svg xmlns="http://www.w3.org/2000/svg" width="'+W+'" height="'+H+'" viewBox="0 0 '+W+' '+H+'">' + bg +
-      '<g transform="translate(90 110) scale(2.2)">' + mascotSVG(mc === 3 ? 'party' : 'happy', 64).replace(/^<svg[^>]*>/, '').replace(/<\/svg>$/, '') + '</g>' +
+      '<g transform="translate(90 110) scale(2.2)">' + mascotSVG(mc === 3 ? 'party' : 'happy', 64, true).replace(/^<svg[^>]*>/, '').replace(/<\/svg>$/, '') + '</g>' +
       '<text x="270" y="190" font-family="'+F+'" font-size="34" font-weight="800" fill="'+S3.acc+'" letter-spacing="3">NOVO EU · DIA '+dn+'</text>' +
       '<text x="270" y="250" font-family="'+F+'" font-size="40" font-weight="600" fill="'+S3.sub+'">'+esc(ds)+'</text>' +
       '<text x="90" y="440" font-family="'+F+'" font-size="120" font-weight="800" fill="'+S3.ink+'">'+(mc === 3 ? 'Dia completo!' : mc + ' de 3 missões')+'</text>' +
@@ -3331,6 +3394,288 @@ window.addEventListener('error', function(e){
     $('pfGTypes').innerHTML = gymTypesAll().map(function(g){ return '<button type="button" data-gtk="'+g.k+'" class="'+(off.indexOf(g.k) >= 0 ? 'off' : 'sel')+'">'+g.e+' '+esc(g.n)+(g.custom ? ' ×' : '')+'</button>'; }).join('');
   }
 
+  // ================= v3.2: cache de dados (app rápido com muito histórico) =================
+  var dataVer = 0, memoC = {v:-1, t:'', c:{}};
+  function memo(name, fn){
+    var tk = todayKey();
+    if(memoC.v !== dataVer || memoC.t !== tk){ memoC = {v:dataVer, t:tk, c:{}}; }
+    if(!(name in memoC.c)) memoC.c[name] = fn();
+    return memoC.c[name];
+  }
+  function compactOld(){
+    var lim = keyOf(addDays(now0(), -90)), n = 0;
+    Object.keys(mem.days).forEach(function(k){
+      if(k >= lim) return; var d = mem.days[k];
+      if(d.hist && d.hist.length){ d.hist = []; n++; }
+      if(d.gymAt){ delete d.gymAt; n++; }
+      MEALS.forEach(function(x){ var r = d.meals && d.meals[x.k]; if(r && r.tip && r.tip.length > 90){ r.tip = r.tip.slice(0, 88) + '…'; n++; } });
+    });
+    if(n) persist();
+  }
+
+  // ================= v3.2: números da vida toda =================
+  function lifeStats(){
+    return memo('life', function(){
+      var st = {ml:0, gyms:0, greens:0, logged:0, comp:0, waterdays:0, best:0, bestNE:0}, run = 0, runNE = 0, tk = todayKey();
+      for(var d = fromKey(mem.meta.start); keyOf(d) <= tk; d = addDays(d, 1)){
+        var k = keyOf(d), x = mem.days[k], pz = paused(k);
+        if(!x){ if(!pz){ run = 0; runNE = 0; } continue; }
+        st.ml += totalOf(x); if(x.gym) st.gyms++; st.greens += greenCount(x); st.logged += loggedCount(x); if(waterOk(x)) st.waterdays++;
+        if(complete(x)){ st.comp++; run++; if(run > st.best) st.best = run; } else if(!pz && k !== tk) run = 0;
+        if(missionCount(x) >= 2){ runNE++; if(runNE > st.bestNE) st.bestNE = runNE; } else if(!pz && k !== tk) runNE = 0;
+      }
+      st.days = dayNumber();
+      var ws = sortedWeights(); st.kg = ws.length > 1 ? ws[0].kg - ws[ws.length-1].kg : 0;
+      return st;
+    });
+  }
+  function dynVal(key, st){
+    var B = bottle();
+    switch(key){
+      case 'ml': return st.ml >= 10000 ? fmtN(st.ml/1000, 0) + ' litros' : null;
+      case 'gyms': return st.gyms >= 5 ? String(st.gyms) : null;
+      case 'days': return st.days >= 10 ? String(st.days) : null;
+      case 'greens': return st.greens >= 10 ? String(st.greens) : null;
+      case 'comp': return st.comp >= 3 ? String(st.comp) : null;
+      case 'kg': return st.kg >= 1 ? fmtN(st.kg, 1) + ' kg' : null;
+      case 'best': return st.best >= 5 ? String(st.best) : null;
+      case 'bottles': var b = Math.round(st.ml / B); return b >= 20 ? String(b) : null;
+      case 'months': var m = Math.floor(st.days / 30); return m >= 2 ? m + ' meses' : null;
+      case 'gymweek': return st.days >= 21 && st.gyms >= 6 ? fmtN(st.gyms / (st.days / 7), 1) : null;
+      case 'waterdays': return st.waterdays >= 7 ? String(st.waterdays) : null;
+      case 'greenpct': return st.logged >= 20 ? Math.round(st.greens / st.logged * 100) + '%' : null;
+    }
+    return null;
+  }
+  function fraseDoDia(){
+    var i = doy();
+    if(i % 4 === 3){
+      var st = lifeStats(), ok = FRASES_D.filter(function(t){ return dynVal(t[0], st) !== null; });
+      if(ok.length){ var t = ok[Math.floor(i / 4) % ok.length], v = dynVal(t[0], st);
+        return t[1].replace(/\{(\w+)\}/g, function(_, k){ return k === 'L' ? dynVal('ml', st) : (dynVal(k, st) || v); }); }
+    }
+    return FRASES[i % FRASES.length];
+  }
+
+  // ================= v3.2: repetir refeição =================
+  function quickMeals(k){
+    var cnt = {}, last = {};
+    sortedDayKeys().slice(-60).forEach(function(dk){
+      var r = mealsOf(mem.days[dk])[k];
+      if(r && !r.skip && r.text && r.text !== 'Lançado depois'){ var n = norm(r.text); cnt[n] = (cnt[n]||0) + 1; last[n] = r; }
+    });
+    return Object.keys(cnt).filter(function(n){ return cnt[n] >= 2; }).sort(function(a,b){ return cnt[b]-cnt[a]; }).slice(0, 3).map(function(n){ return {r:last[n], c:cnt[n]}; });
+  }
+  var quickList = [];
+  function renderQuick(k, r){
+    var el = $('shQuick'); quickList = r ? [] : quickMeals(k);
+    el.hidden = !quickList.length;
+    el.innerHTML = quickList.length ? '<span>Repetir com um toque</span><div>' + quickList.map(function(q, i){ return '<button type="button" data-q="'+i+'"><i class="cdot '+q.r.color+'"></i><b>'+esc(q.r.text)+'</b><em>'+q.c+'×</em></button>'; }).join('') + '</div>' : '';
+    return quickList.length > 0;
+  }
+
+  // ================= v3.2: fases do projeto =================
+  function phaseEnd(p){ return keyOf(addDays(fromKey(p.start), p.days - 1)); }
+  function phaseStats(p){
+    var tk = todayKey(), end = phaseEnd(p), last = end < tk ? end : tk, n = 0, w = 0, g = 0, gl = 0, lg = 0;
+    for(var d = fromKey(p.start); keyOf(d) <= last; d = addDays(d, 1)){ var k = keyOf(d); if(paused(k)) continue; var x = dayData(k); n++; if(waterOk(x)) w++; if(x.gym) g++; gl += greenCount(x); lg += loggedCount(x); }
+    return {n:n, agua: n ? Math.round(w/n*100) : 0, gym: n ? Math.round(g/(n/7)*10)/10 : 0, green: lg ? Math.round(gl/lg*100) : 0};
+  }
+  function phaseGoalsHTML(p, st){
+    var row = function(lbl, v, goal, unit, ok){ var pct = Math.min(100, Math.round(v / goal * 100)); return '<div class="phg"><div><b>'+lbl+'</b><span>'+fmtN(v, unit === '/sem' ? 1 : 0)+(unit === '%' ? '%' : ' ' + unit)+' de '+goal+(unit === '%' ? '%' : ' ' + unit)+'</span></div><div class="tr"><i class="'+(ok?'ok':'')+'" style="width:'+pct+'%"></i></div></div>'; };
+    return row('Dias com água', st.agua, p.g.agua, '%', st.agua >= p.g.agua) + row('Treinos por semana', st.gym, p.g.gym, '/sem', st.gym >= p.g.gym) + row('Refeições verdes', st.green, p.g.green, '%', st.green >= p.g.green);
+  }
+  function phaseSweep(){
+    var p = mem.meta.phase; if(!p) return;
+    if(phaseEnd(p) >= todayKey()) return;
+    var st = phaseStats(p), hits = (st.agua >= p.g.agua ? 1 : 0) + (st.gym >= p.g.gym ? 1 : 0) + (st.green >= p.g.green ? 1 : 0);
+    mem.meta.phaseHist = mem.meta.phaseHist || [];
+    mem.meta.phaseHist.unshift({name:p.name, start:p.start, end:phaseEnd(p), days:p.days, g:p.g, st:st, hits:hits});
+    mem.meta.phase = null; mem.meta.phaseNew = 1; saveMeta();
+    party('Fase concluída: ' + p.name, hits + ' de 3 metas batidas · ' + p.days + ' dias', hits >= 2, 'badge');
+  }
+  function renderPhase(){
+    var el = $('phCard'); if(!el) return;
+    var p = mem.meta.phase, hist = mem.meta.phaseHist || [], tk = todayKey(), html = '';
+    var head = '<div class="row"><div class="ttl"><div class="ic" style="background:var(--blue-soft)">'+ico('flag',24,'var(--blue)')+'</div><h2>'+(p ? esc(p.name) : 'Fases do projeto')+'</h2></div>'+(p ? '<p class="meta">fase atual</p>' : '')+'</div>';
+    if(p){
+      var dn = Math.min(p.days, daysBetween(p.start, tk) + 1), st = phaseStats(p);
+      html = head + '<div class="phtime"><span>Dia '+dn+' de '+p.days+'</span><span>termina '+shortDate(fromKey(phaseEnd(p)))+'</span></div><div class="chbar"><i style="width:'+Math.round(dn/p.days*100)+'%;background:linear-gradient(90deg,#3B6CF5,#7FA6FF)"></i></div>' +
+        phaseGoalsHTML(p, st) + '<div class="btns"><button type="button" class="btn b-ghost" data-ph="end">Encerrar</button><button type="button" class="btn b-ink" data-ph="edit">Editar</button></div>';
+    } else {
+      var last = hist[0];
+      html = head + (last && mem.meta.phaseNew ? '<div class="phdone"><small>Fase concluída</small><b>'+esc(last.name)+'</b><span>'+last.hits+' de 3 metas batidas em '+last.days+' dias</span>'+phaseGoalsHTML(last, last.st)+'</div>' : '<p class="meta" style="margin:0;font-weight:500">Divida sua jornada em fases, como "criar o hábito" ou "acelerar", com metas próprias e uma comemoração no fim.</p>') +
+        '<button type="button" class="btn b-blue" data-ph="new" style="flex:none;width:100%">'+(hist.length ? 'Começar próxima fase' : 'Criar primeira fase')+'</button>';
+    }
+    if(hist.length) html += '<details class="phhist"><summary>Fases anteriores ('+hist.length+')</summary>' + hist.map(function(h){ return '<div class="chh'+(h.hits>=2?' ok':'')+'"><span class="bi" style="background:'+(h.hits>=2?'var(--yellow-soft)':'var(--chip)')+'">'+ico(h.hits>=2?'trophy':'flag',20,h.hits>=2?'var(--yellow)':'var(--muted)')+'</span><div><b>'+esc(h.name)+'</b><span>'+shortDate(fromKey(h.start))+' a '+shortDate(fromKey(h.end))+' · '+h.hits+' de 3 metas</span></div></div>'; }).join('') + '</details>';
+    el.innerHTML = html;
+  }
+  var phDraft = null;
+  function openPhSheet(edit){
+    var p = edit && mem.meta.phase;
+    var n = (mem.meta.phaseHist || []).length + 1;
+    phDraft = p ? {name:p.name, days:p.days, g:{agua:p.g.agua, gym:p.g.gym, green:p.g.green}} : {name:'', days:30, g:{agua:80, gym:3, green:70}};
+    $('phName').value = phDraft.name; $('phName').placeholder = 'Ex.: Fase ' + n + ': ' + (n === 1 ? 'criar o hábito' : 'acelerar');
+    $('phTitle').textContent = p ? 'Editar fase' : 'Nova fase';
+    paintPhSheet(); openSheetEl('phSheet');
+  }
+  function paintPhSheet(){
+    document.querySelectorAll('#phDur button').forEach(function(b){ b.classList.toggle('sel', +b.getAttribute('data-dur') === phDraft.days); });
+    $('phAgua').textContent = phDraft.g.agua + '%'; $('phGym').textContent = phDraft.g.gym + 'x'; $('phGreen').textContent = phDraft.g.green + '%';
+  }
+
+  // ================= v3.2: platô do peso =================
+  function plateau(){
+    var ws = sortedWeights(); if(ws.length < 3) return null;
+    var tk = todayKey(), from = keyOf(addDays(fromKey(tk), -21)), win = ws.filter(function(w){ return w.date >= from; });
+    if(win.length < 3 || daysBetween(win[0].date, win[win.length-1].date) < 14) return null;
+    var before = ws.filter(function(w){ return w.date < from; }); if(!before.length) return null;
+    var kgs = win.map(function(w){ return w.kg; }), delta = Math.abs(win[win.length-1].kg - win[0].kg), spread = Math.max.apply(null, kgs) - Math.min.apply(null, kgs);
+    if(delta >= 0.3 || spread > 0.8) return null;
+    var tips = [], w = 0, n = 0, g = 0, bad = {}, lg = 0;
+    for(var i=0;i<21;i++){ var k = keyOf(addDays(fromKey(tk), -i)); if(k < mem.meta.start) break; var d = mem.days[k]; if(!d || paused(k)) continue; n++; if(waterOk(d)) w++; if(d.gym) g++; MEALS.forEach(function(x){ var r = mealsOf(d)[x.k]; if(r && !r.skip && r.color){ lg++; if(r.color !== 'verde') bad[x.k] = (bad[x.k]||0) + 1; } }); }
+    if(n && w/n < 0.8) tips.push(['drop', 'Bata a água em mais dias: foram ' + w + ' de ' + n + ' nas últimas 3 semanas.']);
+    var worst = Object.keys(bad).sort(function(a,b){ return bad[b]-bad[a]; })[0];
+    if(worst && bad[worst] >= 4) tips.push(['food', 'Capriche no ' + MEAL_BY[worst].n.toLowerCase() + ': ' + bad[worst] + ' vezes ficou amarelo ou vermelho.']);
+    if(n && g/(n/7) < 3.5) tips.push(['gym', 'Um treino a mais por semana ajuda a destravar: hoje a média é ' + fmtN(g/(n/7), 1) + '.']);
+    if(tips.length < 2) tips.push(['spark', 'Varie o treino ou aumente um pouco a intensidade. O corpo se acostuma com a rotina.']);
+    if(tips.length < 3) tips.push(['moon', 'Dormir bem também conta: o descanso ajuda o corpo a responder.']);
+    return {kg: win[win.length-1].kg, days: daysBetween(win[0].date, win[win.length-1].date), tips: tips.slice(0, 3)};
+  }
+  function renderPlateau(){
+    var el = $('plCard'); if(!el) return;
+    var p = plateau(), tk = todayKey();
+    if(!p || (mem.meta.plSkip && mem.meta.plSkip > tk)){ el.hidden = true; el.setAttribute('data-off', '1'); return; }
+    el.setAttribute('data-off', '0'); el.hidden = currentPane !== 'peso';
+    el.innerHTML = '<div class="row"><div class="ttl"><div class="ic" style="background:var(--purple-soft)">'+ico('scale',24,'var(--purple)')+'</div><h2>Peso estabilizou</h2></div></div>' +
+      '<p style="margin:0;font-size:.88rem;line-height:1.5;color:var(--soft)">Seu peso ficou perto de <b>'+fmtKg(p.kg)+'</b> nos últimos '+p.days+' dias. Isso é normal: o corpo se adapta. É o momento de não desistir e fazer pequenos ajustes:</p>' +
+      '<div class="pltips">' + p.tips.map(function(t){ return '<div>'+ico(t[0],18,'var(--purple)')+'<span>'+esc(t[1])+'</span></div>'; }).join('') + '</div>' +
+      '<button type="button" class="btn b-ghost" id="plOk" style="flex:none;width:100%">Entendi, bora ajustar</button>';
+  }
+
+  // ================= v3.2: lembrança "há X dias" =================
+  var MEMOS = [30, 90, 180, 365];
+  function memoWindow(a, b){
+    var n = 0, w = 0, g = 0, gl = 0, lg = 0;
+    for(var d = fromKey(a); keyOf(d) <= b; d = addDays(d, 1)){ var k = keyOf(d); if(k < mem.meta.start || paused(k)) continue; var x = dayData(k); n++; if(waterOk(x)) w++; if(x.gym) g++; gl += greenCount(x); lg += loggedCount(x); }
+    return {gymw: n ? g/(n/7) : 0, agua: n ? Math.round(w/n*100) : 0, green: lg ? Math.round(gl/lg*100) : null};
+  }
+  function renderMemo(){
+    var el = $('memCard'); if(!el) return;
+    var dn = dayNumber(), m = MEMOS.filter(function(x){ return dn >= x && dn <= x + 6 && !(mem.meta.memo && mem.meta.memo[x]); }).pop();
+    if(!m){ el.hidden = true; return; }
+    var span = m === 30 ? 7 : 14, st = mem.meta.start, tk = todayKey();
+    var A = memoWindow(st, keyOf(addDays(fromKey(st), span - 1))), B = memoWindow(keyOf(addDays(fromKey(tk), -span)), keyOf(addDays(fromKey(tk), -1)));
+    var ws = sortedWeights(), ph = ws.filter(function(w){ return w.photo && mem.photos[w.photo]; });
+    var rows = [];
+    if(ws.length > 1) rows.push(['Peso', fmtKg(ws[0].kg), fmtKg(ws[ws.length-1].kg)]);
+    rows.push(['Treinos por semana', fmtN(A.gymw, 1), fmtN(B.gymw, 1)]);
+    rows.push(['Dias com água', A.agua + '%', B.agua + '%']);
+    if(A.green !== null && B.green !== null) rows.push(['Refeições verdes', A.green + '%', B.green + '%']);
+    var label = m === 365 ? '1 ano' : (m >= 60 ? (m/30) + ' meses' : m + ' dias');
+    el.hidden = false;
+    el.innerHTML = '<div class="row"><div class="ttl"><div class="ic" style="background:var(--yellow-soft)">'+ico('star',24,'var(--yellow)')+'</div><div><small class="kick">Há '+label+'</small><h2 style="margin:0">Olha o quanto você mudou</h2></div></div></div>' +
+      (ph.length > 1 ? '<div class="memph"><figure><img src="'+mem.photos[ph[0].photo]+'" alt="Antes"><figcaption>'+shortDate(fromKey(ph[0].date))+'</figcaption></figure><figure><img src="'+mem.photos[ph[ph.length-1].photo]+'" alt="Agora"><figcaption>Agora</figcaption></figure></div>' : '') +
+      '<div class="memtab"><div class="mh"><span></span><b>No começo</b><b>Agora</b></div>' + rows.map(function(r){ return '<div><span>'+r[0]+'</span><em>'+r[1]+'</em><strong>'+r[2]+'</strong></div>'; }).join('') + '</div>' +
+      '<button type="button" class="btn b-ghost" data-memo="'+m+'" style="flex:none;width:100%">Que orgulho! Fechar</button>';
+  }
+
+  // ================= v3.2: visão do ano =================
+  var yearOff = 0;
+  function renderYear(){
+    var el = $('yearGrid'); if(!el) return;
+    var y = now0().getFullYear() + yearOff, tk = todayKey(), html = '', ml = 0, gyms = 0, comp = 0, act = 0;
+    $('yearLabel').textContent = String(y);
+    for(var m = 0; m < 12; m++){
+      var dim = new Date(y, m + 1, 0).getDate(), cells = '';
+      for(var dd = 1; dd <= 31; dd++){
+        if(dd > dim){ cells += '<i class="yx"></i>'; continue; }
+        var k = y + '-' + pad(m+1) + '-' + pad(dd);
+        if(k > tk || k < mem.meta.start){ cells += '<i class="yo"></i>'; continue; }
+        var x = mem.days[k], mc = x ? missionCount(x) : 0;
+        if(x){ ml += totalOf(x); if(x.gym) gyms++; if(mc === 3) comp++; if(hasData(x)) act++; }
+        cells += '<i class="y'+(paused(k) && !(x && hasData(x)) ? 'p' : mc)+'" data-yd="'+k+'"></i>';
+      }
+      html += '<div class="yrow"><span>'+MONTHS[m].slice(0,3)+'</span><div>'+cells+'</div></div>';
+    }
+    el.innerHTML = html;
+    var ws = sortedWeights().filter(function(w){ return w.date.slice(0,4) === String(y); });
+    var kg = ws.length > 1 ? ws[ws.length-1].kg - ws[0].kg : null;
+    $('yearTot').innerHTML = '<div><b>'+fmtN(ml/1000, 0)+' L</b><span>de água</span></div><div><b>'+gyms+'</b><span>treinos</span></div><div><b>'+comp+'</b><span>dias completos</span></div><div><b>'+(kg === null ? '—' : (kg <= 0 ? '−' : '+') + fmtN(Math.abs(kg), 1) + ' kg')+'</b><span>no peso</span></div>';
+    $('yearSub').textContent = act + ' dia' + (act===1?'':'s') + ' com registro';
+    $('yearNext').disabled = yearOff >= 0; $('yearPrev').disabled = String(y - 1) < mem.meta.start.slice(0, 4);
+  }
+
+  // ================= v3.2: relatório do trimestre =================
+  function quarterOf(d){ return Math.floor(d.getMonth() / 3); }
+  function qRange(y, q){ return {a: new Date(y, q*3, 1), b: new Date(y, q*3 + 3, 0)}; }
+  function qLabel(y, q){ return (q+1) + 'º trimestre de ' + y; }
+  function qMonths(q){ return MONTHS[q*3].slice(0,3) + '–' + MONTHS[q*3+2].slice(0,3); }
+  function showQuarter(y, q){
+    var r = qRange(y, q), cur = recapRange(r.a, r.b), py = q === 0 ? y - 1 : y, pq = q === 0 ? 3 : q - 1, pr = qRange(py, pq);
+    var prev = keyOf(pr.b) >= mem.meta.start ? recapRange(pr.a, pr.b) : null;
+    var dlt = function(a, b, unit, dec){ if(b === null || b === undefined || a === null) return ''; var d = a - b; if(Math.abs(d) < (dec ? 0.05 : 0.5)) return ' Igual ao trimestre anterior.'; return ' ' + (d > 0 ? '+' : '−') + fmtN(Math.abs(d), dec || 0) + (unit || '') + ' vs. trimestre anterior.'; };
+    var better = [], worse = [];
+    if(prev){
+      [['água', cur.ml/Math.max(1,cur.active), prev.ml/Math.max(1,prev.active)], ['treinos', cur.gyms/Math.max(1,cur.active), prev.gyms/Math.max(1,prev.active)], ['refeições verdes', cur.greenPct, prev.greenPct], ['dias completos', cur.comp/Math.max(1,cur.active), prev.comp/Math.max(1,prev.active)]].forEach(function(x){ if(x[1] === null || x[2] === null) return; if(x[1] > x[2] * 1.05) better.push(x[0]); else if(x[1] < x[2] * 0.95) worse.push(x[0]); });
+    }
+    var S2 = [];
+    S2.push({bg:'linear-gradient(160deg,#0E1512,#1E3A8A)', k:'Relatório do trimestre', big: qMonths(q), sub: qLabel(y, q) + ' · ' + cur.active + ' dias de Novo Eu.', m:'party'});
+    S2.push({bg:'linear-gradient(160deg,#1D4ED8,#0B1F5C)', k:'Água', big: fmtN(cur.ml/1000, 0) + ' L', sub: 'bebidos no trimestre.' + (prev ? dlt(cur.ml/1000, prev.ml/1000, ' L') : ''), m:'happy'});
+    S2.push({bg:'linear-gradient(160deg,#F97316,#7C2D12)', k:'Treinos', big: cur.gyms + '', sub: 'treinos feitos.' + (prev ? dlt(cur.gyms, prev.gyms) : ''), m:'happy'});
+    S2.push({bg:'linear-gradient(160deg,#16A34A,#14532D)', k:'Alimentação', big: cur.greenPct !== null ? cur.greenPct + '%' : '—', sub: 'das refeições foram verdes.' + (prev && cur.greenPct !== null ? dlt(cur.greenPct, prev.greenPct, ' pontos') : ''), m:'happy'});
+    if(cur.wd !== null) S2.push({bg:'linear-gradient(160deg,#7C3AED,#3B0764)', k:'Peso', big: (cur.wd > 0 ? '+' : (cur.wd < 0 ? '−' : '')) + fmtN(Math.abs(cur.wd), 1) + ' kg', sub: cur.wd < 0 ? 'a menos no trimestre.' : 'O que importa é a tendência. Segue firme.', m: cur.wd < 0 ? 'party' : 'happy'});
+    S2.push({bg:'linear-gradient(160deg,#0E1512,#1F2A25)', k:'Constância', big: cur.comp + ' dia' + (cur.comp===1?'':'s'), sub: 'completos' + (cur.best > 1 ? ' · melhor sequência de ' + cur.best + ' dias' : '') + '.' + (prev ? dlt(cur.comp, prev.comp) : ''), m:'happy'});
+    if(prev) S2.push({bg:'linear-gradient(160deg,#0F766E,#134E4A)', k:'Balanço', big: better.length ? 'Melhorou' : 'Mantenha o foco', sub: (better.length ? 'Evoluiu em ' + better.join(', ') + '.' : 'Nenhuma área subiu mais de 5%.') + (worse.length ? ' Atenção a ' + worse.join(', ') + '.' : ' Nada caiu. Muito bem!'), m: better.length ? 'party' : 'happy'});
+    S2.push({bg:'linear-gradient(160deg,#CA8A04,#713F12)', k:'Conquistas', big: cur.badges.length ? cur.badges.length + '' : '—', sub: cur.badges.length ? cur.badges.slice(0, 3).join(' · ') + (cur.badges.length > 3 ? '…' : '') : 'As próximas conquistas estão chegando.', m:'party', share:true});
+    recap = {r: cur, s: S2, q: {y:y, q:q}}; recapIdx = 0;
+    $('recap').hidden = false; document.body.style.overflow = 'hidden';
+    $('rcBars').innerHTML = S2.map(function(){ return '<i><b></b></i>'; }).join('');
+    paintRecap();
+  }
+  function checkQuarter(){
+    var n = now0(); if(n.getMonth() % 3 !== 0 || n.getDate() > 7) return;
+    var pq = qRange(n.getFullYear(), quarterOf(n)).a, prev = addDays(pq, -1), y = prev.getFullYear(), q = quarterOf(prev), id = y + '-Q' + (q + 1);
+    if(mem.meta.qrecap === id) return;
+    if(keyOf(prev) < mem.meta.start || daysBetween(mem.meta.start, keyOf(prev)) < 30) return;
+    mem.meta.qrecap = id; saveMeta();
+    whenIdle(function(){ showQuarter(y, q); }, 2200);
+  }
+
+  // ================= v3.2: personalizar a gotinha =================
+  var LOOK_COLORS = {blue:{n:'Azul', c:['#93B4FF','#3B6CF5'], req:null}, green:{n:'Verde', c:['#86EFAC','#16A34A'], req:['greens',50,'50 refeições verdes']}, orange:{n:'Laranja', c:['#FDBA74','#EA580C'], req:['gyms',20,'20 treinos']}, purple:{n:'Roxo', c:['#C4B5FD','#7C3AED'], req:['bestNE',7,'7 dias seguidos com 2+ missões']}, gold:{n:'Dourado', c:['#FDE68A','#CA8A04'], req:['comp',10,'10 dias completos']}};
+  var LOOK_ACC = {auto:{n:'Do nível', req:null}, none:{n:'Nenhum', req:null}, cap:{n:'Boné', req:['gyms',10,'10 treinos']}, shades:{n:'Óculos', req:['waterdays',14,'14 dias com meta de água']}, phones:{n:'Fone', req:['gyms',30,'30 treinos']}, band:{n:'Faixa', req:['bestNE',15,'15 dias seguidos com 2+ missões']}, crown:{n:'Coroa', req:['bestNE',30,'30 dias seguidos com 2+ missões']}};
+  function lookOpen(item){ if(!item.req) return true; var st = lifeStats(); return (st[item.req[0]] || 0) >= item.req[1]; }
+  function look(){ var l = mem.meta.look || {}; var c = LOOK_COLORS[l.c] && lookOpen(LOOK_COLORS[l.c]) ? l.c : 'blue', a = LOOK_ACC[l.a] && lookOpen(LOOK_ACC[l.a]) ? l.a : 'auto'; return {c:c, a:a}; }
+  function accSVG(a){
+    if(a === 'cap') return '<path d="M20.6 21Q20.8 8.5 32 8.2 43.2 8.5 43.4 21z" fill="#EF4444"/><path d="M41.5 19.6h9.2a2 2 0 0 1 0 3.4H40.6z" fill="#B91C1C"/><circle cx="32" cy="8.6" r="1.6" fill="#B91C1C"/>';
+    if(a === 'shades') return '<rect x="18.8" y="34.4" width="12.2" height="7.6" rx="3.4" fill="#111827"/><rect x="33" y="34.4" width="12.2" height="7.6" rx="3.4" fill="#111827"/><path d="M31 37h2" stroke="#111827" stroke-width="2"/><path d="M21 36.2l3-.9" stroke="#fff" stroke-width="1.2" opacity=".6" stroke-linecap="round"/>';
+    if(a === 'phones') return '<path d="M16.5 33Q16 11 32 11T47.5 33" stroke="#1F2937" stroke-width="3.2" fill="none" stroke-linecap="round"/><rect x="12" y="29" width="7.5" height="12" rx="3.5" fill="#1F2937"/><rect x="44.5" y="29" width="7.5" height="12" rx="3.5" fill="#1F2937"/><rect x="13.5" y="31" width="4.5" height="8" rx="2" fill="#3B6CF5"/><rect x="46" y="31" width="4.5" height="8" rx="2" fill="#3B6CF5"/>';
+    if(a === 'band') return '<path d="M20.5 24.5Q32 19 43.5 24.5" stroke="#F97316" stroke-width="4" fill="none" stroke-linecap="round"/><path d="M43 24l5 3.5M43 24.5l4.5 5.5" stroke="#F97316" stroke-width="2.4" stroke-linecap="round"/>';
+    if(a === 'crown') return '<path d="M23 15.5l-1.6-10 6.1 5.2L32 2.5l4.5 8.2 6.1-5.2-1.6 10z" fill="#FACC15" stroke="#CA8A04" stroke-width="1.1" stroke-linejoin="round"/><circle cx="32" cy="11.5" r="1.6" fill="#F97316"/>';
+    return '';
+  }
+  var LOCK = '<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></svg>';
+  function renderCloset(){
+    var el = $('closet'); if(!el) return;
+    var l = look(), st = lifeStats();
+    var opt = function(group, id, item){ var open = lookOpen(item), sel = (group === 'c' ? l.c : l.a) === id; var sw = group === 'c' ? '<i class="sw" style="background:linear-gradient(180deg,'+item.c[0]+','+item.c[1]+')"></i>' : ''; return '<button type="button" data-look="'+group+':'+id+'" class="'+(sel?'sel':'')+(open?'':' lock')+'"'+(open?'':' aria-label="'+item.n+': bloqueado, falta '+item.req[2]+'"')+'>'+sw+(open ? '' : LOCK)+'<span>'+item.n+'</span>'+(open ? '' : '<small>'+Math.min(st[item.req[0]]||0, item.req[1])+'/'+item.req[1]+'</small>')+'</button>'; };
+    el.innerHTML = '<div class="clprev">'+mascotSVG('happy', 96, true)+'</div>' +
+      '<div class="field">Cor<div class="chips look">' + Object.keys(LOOK_COLORS).map(function(id){ return opt('c', id, LOOK_COLORS[id]); }).join('') + '</div></div>' +
+      '<div class="field">Acessório<div class="chips look">' + Object.keys(LOOK_ACC).map(function(id){ return opt('a', id, LOOK_ACC[id]); }).join('') + '</div></div>' +
+      '<p class="meta" style="margin:0;font-weight:500">Itens com cadeado desbloqueiam com treinos, refeições verdes e sequências. Nas datas especiais, a gotinha ganha o enfeite da época.</p>';
+  }
+
+  function renderQuarterList(){
+    var el = $('evQ'); if(!el) return;
+    var n = now0(), y = n.getFullYear(), q = quarterOf(n), items = [];
+    for(var i=0;i<6;i++){
+      var r = qRange(y, q); if(keyOf(r.b) < mem.meta.start && i > 0) break;
+      if(keyOf(r.b) >= mem.meta.start){ var d = recapRange(r.a, r.b); items.push('<button type="button" class="rcm" data-qr="'+y+'-'+q+'"><span class="bi" style="background:linear-gradient(160deg,#0E1512,#1E3A8A)">'+(q+1)+'T</span><div><b>'+qMonths(q).charAt(0).toUpperCase()+qMonths(q).slice(1)+' de '+y+(i===0?' · até agora':'')+'</b><span>'+d.comp+' dia'+(d.comp===1?'':'s')+' completo'+(d.comp===1?'':'s')+' · '+d.gyms+' treinos · '+fmtN(d.ml/1000,0)+' L</span></div>'+ico('star',18,'var(--muted)')+'</button>'); }
+      q--; if(q < 0){ q = 3; y--; }
+    }
+    el.innerHTML = items.join('') || '<p class="meta" style="margin:0;font-weight:500">Seu primeiro relatório aparece ao fim do trimestre.</p>';
+  }
   // ================= Navegação =================
   var current = 'splash';
   function renderAll(){ renderToday(); if(current==='semana') renderWeek(); if(current==='evo') renderEvo(); if(current==='perfil') renderPerfil(); }
@@ -3345,7 +3690,7 @@ window.addEventListener('error', function(e){
   }
 
   // ================= Eventos =================
-  function afterStart(){ chSweep(); setTimeout(checkBadges, 400); setTimeout(checkWelcome, 300); setTimeout(checkPerfectWeek, 900); setTimeout(checkWhatsNew, 700); setTimeout(checkRecap, 800); setTimeout(focusPending, 650); }
+  function afterStart(){ chSweep(); phaseSweep(); compactOld(); setTimeout(checkQuarter, 900); setTimeout(checkBadges, 400); setTimeout(checkWelcome, 300); setTimeout(checkPerfectWeek, 900); setTimeout(checkWhatsNew, 700); setTimeout(checkRecap, 800); setTimeout(focusPending, 650); }
   $('start').addEventListener('click', function(){ try{ sessionStorage.setItem('vn_started', todayKey()); }catch(e){} show('today'); afterStart(); });
   document.querySelectorAll('#tabs button').forEach(function(b){ b.addEventListener('click', function(){ show(b.getAttribute('data-tab')); }); });
 
@@ -3504,7 +3849,7 @@ window.addEventListener('error', function(e){
     document.querySelectorAll('.seg button').forEach(function(b){ var on = b.getAttribute('data-pane') === p; b.classList.toggle('on', on); b.setAttribute('aria-selected', on ? 'true' : 'false'); });
     currentPane = p;
     document.querySelectorAll('#evo .card[data-pane]').forEach(function(c){
-      c.hidden = c.getAttribute('data-pane') !== p || (c.id === 'photoCard' && !hasPhotos());
+      c.hidden = c.getAttribute('data-pane') !== p || (c.id === 'photoCard' && !hasPhotos()) || (c.id === 'plCard' && !c.innerHTML) || c.getAttribute('data-off') === '1';
     });
     window.scrollTo(0,0);
   }
@@ -3597,7 +3942,7 @@ window.addEventListener('error', function(e){
   setInterval(function(){ if(current==='today') renderToday(); }, 60000);
 
   hydrateIcons();
-  ['sheet','jSheet','dSheet','qSheet','tSheet','wSheet','chSheet','wnSheet','shrSheet'].forEach(function(id){ enableSheetDrag($(id)); });
+  ['sheet','jSheet','dSheet','qSheet','tSheet','wSheet','chSheet','wnSheet','shrSheet','phSheet'].forEach(function(id){ enableSheetDrag($(id)); });
   enableWeekSwipe(); enableTabSwipe();
   setInterval(function(){ if((S().theme || 'auto') === 'time') applyTheme(); }, 60000);
   function hideBoot(){ var b = $('boot'); if(!b) return; b.classList.add('gone'); setTimeout(function(){ if(b.parentNode) b.parentNode.removeChild(b); }, 500); }
@@ -3711,7 +4056,7 @@ window.addEventListener('error', function(e){
   $('wnClose').addEventListener('click', function(){ closeSheetEl('wnSheet'); });
   $('recap').addEventListener('click', function(e){
     if(e.target.closest('#rcX')){ closeRecap(); return; }
-    if(e.target.closest('#rcShare')){ var r = recap.r; shareAchievement(r.name.charAt(0).toUpperCase() + r.name.slice(1) + ' no Novo Eu', fmtN(r.ml/1000,1) + ' L · ' + r.gyms + ' treinos · ' + r.greens + ' verdes', 'Retrospectiva'); return; }
+    if(e.target.closest('#rcShare')){ var r = recap.r, ttl = recap.q ? qLabel(recap.q.y, recap.q.q) : r.name.charAt(0).toUpperCase() + r.name.slice(1); shareAchievement(ttl + ' no Novo Eu', fmtN(r.ml/1000,1) + ' L · ' + r.gyms + ' treinos · ' + r.greens + ' verdes', 'Retrospectiva'); return; }
     var x = e.clientX / window.innerWidth; stepRecap(x < 0.3 ? -1 : 1);
   });
   $('shrOpts').addEventListener('click', function(e){ var b = e.target.closest('[data-st]'); if(!b) return; shareSt = b.getAttribute('data-st'); document.querySelectorAll('#shrOpts button').forEach(function(x){ x.classList.toggle('sel', x === b); }); });
@@ -3768,6 +4113,49 @@ window.addEventListener('error', function(e){
     var n = ($('pfGtName').value || '').trim().slice(0, 20); if(!n){ toast('Escreva o nome, ex.: Natação'); return; }
     S().gymCustom = S().gymCustom || []; S().gymCustom.push({k: 'c' + Date.now(), n: n}); saveSettings(); $('pfGtName').value = ''; renderPfExtra(); renderToday(); toast(n + ' criado');
   });
+  // Eventos v3.2
+  $('shQuick').addEventListener('click', function(e){
+    var b = e.target.closest('[data-q]'); if(!b) return; var q = quickList[+b.getAttribute('data-q')]; if(!q) return;
+    var k = sheetMeal, rec = {text:q.r.text, color:q.r.color, tip:q.r.tip || '', ai:!!q.r.ai, t:Date.now(), quick:true};
+    $('shText').value = rec.text; setMeal(k, rec); showResult(rec); renderQuick(k, rec);
+    $('shEval').textContent = 'Avaliar de novo'; toast('Repetido: ' + COLOR_LABEL[rec.color].toLowerCase());
+  });
+  $('evo').addEventListener('click', function(e){
+    var ph = e.target.closest('[data-ph]');
+    if(ph){ var a = ph.getAttribute('data-ph');
+      if(a === 'new'){ mem.meta.phaseNew = 0; openPhSheet(false); }
+      else if(a === 'edit') openPhSheet(true);
+      else if(a === 'end'){ var p = mem.meta.phase; if(p){ var nd = daysBetween(p.start, todayKey()); if(nd < 1){ mem.meta.phase = null; saveMeta(); toast('Fase cancelada'); } else { p.days = nd; saveMeta(); phaseSweep(); } renderPhase(); } }
+      return; }
+    if(e.target.closest('#plOk')){ mem.meta.plSkip = keyOf(addDays(now0(), 14)); saveMeta(); renderPlateau(); toast('Bora! Pequenos ajustes fazem diferença.'); return; }
+    var lk = e.target.closest('[data-look]');
+    if(lk){ if(lk.classList.contains('lock')){ toast('Bloqueado: ' + (lk.getAttribute('aria-label') || '').split('falta ')[1]); return; } var pr = lk.getAttribute('data-look').split(':'); mem.meta.look = mem.meta.look || {}; mem.meta.look[pr[0]] = pr[1]; saveMeta(); renderCloset(); renderMascot(); return; }
+    var qr = e.target.closest('[data-qr]'); if(qr){ var x = qr.getAttribute('data-qr').split('-'); showQuarter(+x[0], +x[1]); }
+  });
+  $('phDur').addEventListener('click', function(e){ var b = e.target.closest('[data-dur]'); if(!b) return; phDraft.days = +b.getAttribute('data-dur'); paintPhSheet(); });
+  $('phSheet').addEventListener('click', function(e){
+    var st = e.target.closest('[data-phs]'); if(!st) return;
+    var f = st.getAttribute('data-phs'), d = +st.getAttribute('data-d');
+    if(f === 'agua') phDraft.g.agua = Math.max(50, Math.min(100, phDraft.g.agua + d * 10));
+    if(f === 'gym') phDraft.g.gym = Math.max(1, Math.min(7, phDraft.g.gym + d));
+    if(f === 'green') phDraft.g.green = Math.max(40, Math.min(100, phDraft.g.green + d * 10));
+    paintPhSheet();
+  });
+  $('phClose').addEventListener('click', function(){ closeSheetEl('phSheet'); });
+  $('phSave').addEventListener('click', function(){
+    var name = ($('phName').value || '').trim().slice(0, 40) || $('phName').placeholder.replace('Ex.: ', '');
+    var p = mem.meta.phase;
+    if(p && $('phTitle').textContent === 'Editar fase'){ p.name = name; p.days = phDraft.days; p.g = phDraft.g; }
+    else mem.meta.phase = {id:'p' + Date.now(), name:name, days:phDraft.days, start:todayKey(), g:phDraft.g};
+    mem.meta.phaseNew = 0; saveMeta(); closeSheetEl('phSheet'); renderPhase(); toast(name + ' · ' + phDraft.days + ' dias. Bora!');
+  });
+  $('today').addEventListener('click', function(e){
+    var mb = e.target.closest('[data-memo]'); if(!mb) return;
+    mem.meta.memo = mem.meta.memo || {}; mem.meta.memo[mb.getAttribute('data-memo')] = 1; saveMeta(); renderMemo();
+  });
+  $('yearPrev').addEventListener('click', function(){ yearOff--; renderYear(); });
+  $('yearNext').addEventListener('click', function(){ if(yearOff < 0){ yearOff++; renderYear(); } });
+  $('yearGrid').addEventListener('click', function(e){ var c = e.target.closest('[data-yd]'); if(c) openDay(c.getAttribute('data-yd')); });
   function handleHash(){
     var h = (location.hash || '').slice(1); if(!h || !sbUser) return;
     if(h.indexOf('access_token=') >= 0 || h.indexOf('error=') >= 0) return;
