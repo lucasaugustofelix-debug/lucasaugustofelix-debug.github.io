@@ -1,5 +1,5 @@
 // Novo Eu — service worker: offline + notificações
-const CACHE = 'novo-eu-v10';
+const CACHE = 'novo-eu-v11';
 const CORE = [
   './',
   './index.html',
@@ -7,6 +7,7 @@ const CORE = [
   './icons/apple-touch-icon.png',
   './icons/icon-192.png',
   './icons/badge-96.png',
+  './intro-poster.jpg',
   './fonts/BarlowCondensed-Bold.ttf',
   './fonts/BarlowCondensed-SemiBold.ttf'
 ];
@@ -34,6 +35,8 @@ self.addEventListener('fetch', (event) => {
   const url = new URL(req.url);
   // Nunca guardar respostas da API (dados, login e clima)
   if (url.hostname.endsWith('supabase.co') || url.hostname.endsWith('open-meteo.com')) return;
+  // vídeo da abertura: o Safari precisa de respostas parciais, então vai direto pela rede
+  if (url.pathname.endsWith('.mp4')) return;
   if (req.mode === 'navigate') {
     event.respondWith(
       fetch(req).then((res) => {
