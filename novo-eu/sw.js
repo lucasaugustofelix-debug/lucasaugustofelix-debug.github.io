@@ -1,12 +1,14 @@
 // Novo Eu — service worker: offline + notificações
-const CACHE = 'novo-eu-v8';
+const CACHE = 'novo-eu-v9';
 const CORE = [
   './',
   './index.html',
   './manifest.webmanifest',
   './icons/apple-touch-icon.png',
   './icons/icon-192.png',
-  './icons/badge-96.png'
+  './icons/badge-96.png',
+  './fonts/BarlowCondensed-Bold.ttf',
+  './fonts/BarlowCondensed-SemiBold.ttf'
 ];
 
 self.addEventListener('install', (event) => {
@@ -61,6 +63,8 @@ self.addEventListener('push', (event) => {
     body: data.body || '',
     icon: './icons/icon-192.png',
     badge: './icons/badge-96.png',
+  './fonts/BarlowCondensed-Bold.ttf',
+  './fonts/BarlowCondensed-SemiBold.ttf',
     tag: data.tag || 'novo-eu',
     renotify: true,
     data: { url: data.url || './' }
