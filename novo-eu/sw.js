@@ -1,5 +1,5 @@
 // Novo Eu — service worker: offline + notificações
-const CACHE = 'novo-eu-v12';
+const CACHE = 'novo-eu-v13';
 const CORE = [
   './',
   './index.html',
@@ -8,6 +8,7 @@ const CORE = [
   './icons/icon-192.png',
   './icons/badge-96.png',
   './intro-poster.jpg',
+  './intro.webp',
   './fonts/BarlowCondensed-Bold.ttf',
   './fonts/BarlowCondensed-SemiBold.ttf'
 ];
