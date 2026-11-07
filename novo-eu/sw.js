@@ -1,5 +1,5 @@
 // Novo Eu — service worker: offline + notificações
-const CACHE = 'novo-eu-v13';
+const CACHE = 'novo-eu-v14';
 const CORE = [
   './',
   './index.html',
@@ -36,11 +36,10 @@ self.addEventListener('fetch', (event) => {
   const url = new URL(req.url);
   // Nunca guardar respostas da API (dados, login e clima)
   if (url.hostname.endsWith('supabase.co') || url.hostname.endsWith('open-meteo.com')) return;
-  // vídeo da abertura: o Safari precisa de respostas parciais, então vai direto pela rede
-  if (url.pathname.endsWith('.mp4')) return;
   if (req.mode === 'navigate') {
     event.respondWith(
-      fetch(req).then((res) => {
+      fetch(new Request(req.url, { cache: 'no-store', credentials: 'same-origin' })).then((res) => {
+        if (!res || !res.ok) throw new Error('nav');
         const copy = res.clone();
         caches.open(CACHE).then((c) => c.put('./index.html', copy));
         return res;
