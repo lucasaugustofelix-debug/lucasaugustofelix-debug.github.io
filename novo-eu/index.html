@@ -1359,6 +1359,58 @@ html.dark .screen .card:not(.hero){box-shadow:0 1px 2px rgba(0,0,0,.3)}
 #tabs svg,#today header .focusbtn svg{stroke-width:1.8}
 .hero .doneseal svg{color:#3B2A05}
 
+/* ================= v3.9 ================= */
+/* Barra de abas sem o "+" */
+#tabs #fab{display:none!important}
+#tabs .in{display:grid!important;grid-template-columns:repeat(4,1fr)!important}
+/* Hoje: cartão do topo enxuto */
+#minis,#heroQuote{display:none!important}
+#hero .heroTop{margin-bottom:0}
+/* Água compacta */
+#cardAgua.wcompact #turns,#cardAgua.wcompact #turnHint{display:none!important}
+#cardAgua.wcompact.turns-open #turns{display:flex!important;flex-direction:column}
+#cardAgua.wcompact.turns-open #turnHint{display:block!important}
+.turntgl{margin-left:auto;border:0;background:var(--chip);color:var(--soft);font:700 .76rem 'Plus Jakarta Sans',system-ui,sans-serif;border-radius:999px;padding:6px 10px;display:inline-flex;align-items:center;gap:4px}
+.turntgl i{font-style:normal;transition:transform .2s}
+.turns-open .turntgl i{transform:rotate(90deg)}
+#cardAgua .row .donepill{order:2}
+#cardAgua .row #waterMeta{display:none}
+/* Refeições em linha curta */
+#meals .mtext.mdue{font-variant-numeric:tabular-nums;color:var(--muted);font-size:.84rem;white-space:nowrap}
+#meals .meal .mname em{display:none}
+#meals .meal.now .mname::after{content:'';display:inline-block;width:6px;height:6px;border-radius:50%;background:var(--blue);margin-left:6px;vertical-align:middle}
+/* Estados vazios em uma linha */
+.empty3{display:flex;align-items:center;gap:12px;padding:6px 2px}
+.empty3 .e3i{flex:none;width:36px;height:36px;border-radius:12px;background:var(--chip);display:flex;align-items:center;justify-content:center;color:var(--muted)}
+.empty3>div{flex:1;min-width:0}
+.empty3 b{display:block;font-size:.9rem}
+.empty3 p{margin:2px 0 0;font-size:.8rem;color:var(--muted);line-height:1.35}
+.empty3 .e3b{flex:none;border:0;background:none;color:var(--blue);font:700 .84rem 'Plus Jakarta Sans',system-ui,sans-serif;padding:6px 2px}
+/* Janelas: título à esquerda e × pequeno e redondo */
+.sheet>.row{align-items:center}
+.sheet>.row h2{text-align:left;margin-right:auto}
+.sheet .x{width:32px!important;height:32px!important;min-height:32px!important;border-radius:50%!important;border:0!important;background:var(--chip)!important;color:var(--soft)!important;font-size:1.15rem!important;line-height:1!important;padding:0!important;display:flex!important;align-items:center;justify-content:center;box-shadow:none!important}
+.sheet .incard{box-shadow:none!important;border:1px solid var(--line);background:var(--card)}
+/* Avisos curtos no topo */
+.toast{top:calc(10px + env(safe-area-inset-top))!important;bottom:auto!important;transform:translateX(-50%) translateY(-16px)!important;font-size:.78rem!important;padding:9px 14px!important;border-radius:999px!important;box-shadow:0 8px 24px rgba(0,0,0,.18);z-index:90!important;max-width:calc(100% - 40px);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.toast.show{transform:translateX(-50%) translateY(0)!important}
+/* Perfil: cartão sem o pinguim repetido; seções aninhadas */
+#pfHead .lvm{display:none!important}
+.pfsec .pfnest{margin-top:10px;box-shadow:none;border:1px solid var(--line)}
+/* Histórico: lupa no cabeçalho, sem faixa vazia; link para refeições */
+#wkScore{display:none!important}
+#semana header{display:flex;align-items:flex-end;justify-content:space-between;gap:12px}
+.linkrow{flex-direction:row!important;align-items:center;justify-content:space-between;text-align:left;color:var(--text);font:inherit;padding:16px 18px!important;cursor:pointer;border:0}
+.linkrow span{display:grid;grid-template-columns:auto 1fr;column-gap:12px;align-items:center}
+.linkrow span svg{grid-row:span 2;color:var(--blue)}
+.linkrow small{color:var(--muted);font-size:.8rem}
+.linkrow em{font-style:normal;color:var(--muted);font-size:1.2rem}
+/* Conquistas */
+.seeall{align-self:center;margin-top:4px}
+.pgbtn{font-weight:700}
+.gal .empty3,.gal>.empty2{grid-column:1/-1}
+.gal:has(.empty3){display:block!important}.gal .empty3 .e3i{position:static!important}
+
 </style>
 </head>
 <body>
@@ -2225,8 +2277,9 @@ window.addEventListener('error', function(e){
   function nBottles(){ var t = S().turns; return (t.m||0) + (t.t||0) + (t.n||0) + heatExtra(); }
 
   // ================= v3: pausa, tema, som, versão =================
-  var APP_VERSION = '3.8';
+  var APP_VERSION = '3.9';
   var WHATS_NEW = [
+    ['star', 'App mais simples: barra de abas sem o botão +, Hoje mais enxuto, Água compacta, refeições em uma linha, Histórico e Perfil mais curtos e uma tela própria para o pinguim e o armário.'],
     ['star', 'Tela Hoje mais limpa, com a próxima ação no topo, a garrafa que enche e o dia completo em dourado. Novos selos mensais, a medalha Presença, presentes de datas especiais no armário, recorte da foto de perfil e a página Sobre.'],
     ['star', 'Pinguim de verdade, preto e branco, em todo o app. As cores do armário agora vão no cachecol e na faixa. Abertura nova com o pinguim mergulhando.'],
     ['star', 'Novo mascote: o pinguim, que também está no ícone, com anel em 3 arcos, sons próprios e busca no histórico.'],
@@ -2894,7 +2947,7 @@ window.addEventListener('error', function(e){
   function skyClass(h){ return h < 10 ? 'dawn' : (h < 17 ? 'day' : (h < 19 ? 'dusk' : 'night')); }
   function missionOrder(h){ return h < 12 ? ['agua','food','gym'] : (h < 18 ? ['food','agua','gym'] : ['gym','food','agua']); }
   function renderToday(){
-    renderMissionsCard(); renderSunShare(); renderGymPhoto(); Promise.resolve().then(function(){ tidyToday(); v36Today(); v38Today(); });
+    renderMissionsCard(); renderSunShare(); renderGymPhoto(); Promise.resolve().then(function(){ tidyToday(); v36Today(); v38Today(); v39Today(); });
     var c = ctx(), d = today(), B = bottle(), G = goal(), NB = nBottles();
     document.querySelectorAll('.js-greet').forEach(function(el){ el.textContent = c.wknd ? weekendGreet(c) : c.greet; });
     $('date').textContent = dateLong() + (daysToStart() ? ' · começa em ' + daysToStart() + (daysToStart() === 1 ? ' dia' : ' dias') : ' · Dia ' + dayNumber());
@@ -6982,6 +7035,96 @@ window.addEventListener('error', function(e){
   });
 
   setTimeout(tryResume, 900);
+  // ================= v3.9: mais simples e mais limpo =================
+  // ---- Estados vazios compactos: uma linha ----
+  function emptyHTML(mood, title, text, btn, act){
+    var ic = /peso|pesagem/i.test(title + act) ? 'scale' : (/refei|prato|meal/i.test(title + act) ? 'food' : (/foto|cart/i.test(title + act) ? 'camera' : (/desafio|ch/i.test(title + act) ? 'flag' : 'cal')));
+    return '<div class="empty3"><span class="e3i">' + ico(ic, 18) + '</span><div><b>' + esc(title) + '</b>' + (text ? '<p>' + esc(text) + '</p>' : '') + '</div>' + (btn ? '<button type="button" class="e3b" data-empty="' + act + '">' + esc(btn) + '</button>' : '') + '</div>';
+  }
+  // ---- Janelas novas: Pinguim e Refeições ----
+  function mkSheet(id, title){
+    if($(id)) return $(id);
+    var s = document.createElement('div'); s.className = 'sheet'; s.id = id; s.hidden = true; s.setAttribute('role', 'dialog'); s.setAttribute('aria-modal', 'true');
+    s.innerHTML = '<div class="grab" aria-hidden="true"></div><div class="row"><h2>' + title + '</h2><button type="button" class="x" aria-label="Fechar">×</button></div><div class="sbody" style="display:flex;flex-direction:column;gap:14px"></div>';
+    $('tlSheet').parentNode.insertBefore(s, $('tlSheet').nextSibling);
+    s.querySelector('.x').addEventListener('click', function(){ closeSheetEl(id); });
+    return s;
+  }
+  (function(){
+    var pg = mkSheet('pgSheet', 'Pinguim'), body = pg.querySelector('.sbody');
+    ['szCard','closetCard','evChAct'].forEach(function(id){ var el = $(id); if(el){ el.removeAttribute('data-pane'); el.classList.add('incard'); body.appendChild(el); } });
+    var ev = $('evCh'); if(ev && ev.parentNode && ev.parentNode.classList.contains('card')){ var c = ev.parentNode; c.removeAttribute('data-pane'); c.classList.add('incard'); c.hidden = false; body.appendChild(c); }
+    var rf = mkSheet('rfSheet', 'Refeições'), rb = rf.querySelector('.sbody');
+    var sect = document.querySelector('#semana h3.sect'); if(sect) sect.remove();
+    ['rfCard','galCard'].forEach(function(id){ var el = $(id); if(el){ el.classList.add('incard'); rb.appendChild(el); } });
+    var list = $('wkList');
+    if(list && !$('rfOpen')){ var b = document.createElement('button'); b.type = 'button'; b.id = 'rfOpen'; b.className = 'card linkrow'; b.innerHTML = '<span>' + ico('food', 20) + '<b>Ver refeições</b><small>busca e fotos dos pratos</small></span><em>›</em>'; list.parentNode.appendChild(b); b.onclick = function(){ openSheetEl('rfSheet'); try{ renderMeals(); }catch(e){} }; }
+    var hd = document.querySelector('#semana header');
+    if(hd && !$('srchTop')){ var sb = document.createElement('button'); sb.type = 'button'; sb.id = 'srchTop'; sb.className = 'prsh'; sb.setAttribute('aria-label', 'Buscar'); sb.innerHTML = ico('search', 20); hd.appendChild(sb); sb.onclick = function(){ openSearch(); }; }
+  })();
+  function openPenguin(){
+    var cl = $('closetCard'); if(cl) cl.hidden = false;
+    var ph = $('evCh'); if(ph && ph.parentNode) ph.parentNode.hidden = false;
+    try{ renderCloset(); }catch(e){} try{ renderSeasonCard(); }catch(e){} try{ renderChallenges(); }catch(e){}
+    openSheetEl('pgSheet');
+  }
+  // ---- Progresso: cartão do nível com o botão Pinguim; Conquistas mostra só as conquistadas ----
+  var _reOld = renderEvo;
+  renderEvo = function(){
+    _reOld.apply(this, arguments);
+    var lv = $('lvCard'); if(lv && !lv.querySelector('.pgbtn')){ var row = (lv.querySelector('[data-cq=forms]') || {}).parentNode || lv; var b = document.createElement('button'); b.type = 'button'; b.className = 'pill pgbtn'; b.innerHTML = ico('star', 14) + ' Pinguim'; b.onclick = openPenguin; row.appendChild(b); }
+  };
+  cqFilter = 'got';
+  var _rc39 = renderConq;
+  renderConq = function(){
+    _rc39.apply(this, arguments);
+    var hub = $('cqHub'); if(!hub || cqTab !== 'med') return;
+    var chips = hub.querySelector('.cqf'); if(chips) chips.hidden = true;
+    if(!hub.querySelector('.seeall')){
+      var b = document.createElement('button'); b.type = 'button'; b.className = 'btn b-ghost seeall';
+      b.textContent = cqFilter === 'all' ? 'Mostrar só as conquistadas' : 'Ver todas as medalhas';
+      b.onclick = function(){ cqFilter = cqFilter === 'all' ? 'got' : 'all'; renderConq(); };
+      hub.appendChild(b);
+    }
+  };
+  // ---- Perfil em 4 grupos: Rotina, Notificações, Aparência, Conta ----
+  var _rp39 = renderPerfil;
+  renderPerfil = function(){
+    _rp39.apply(this, arguments);
+    var main = document.querySelector('#perfil .main'); if(!main || main.getAttribute('data-v39')) return;
+    main.setAttribute('data-v39', '1');
+    var secs = Array.prototype.slice.call(main.querySelectorAll(':scope > details.pfsec'));
+    var by = function(re){ return secs.filter(function(d){ var s = d.querySelector('summary'); return s && re.test(s.textContent); })[0]; };
+    var grp = function(t){ return Array.prototype.slice.call(main.querySelectorAll(':scope > p.pfgrp')).filter(function(p){ return p.textContent.trim().toLowerCase() === t; })[0]; };
+    var g1 = grp('lembretes'); if(g1) g1.textContent = 'Notificações';
+    var g2 = grp('preferências'); if(g2) g2.textContent = 'Aparência';
+    var adv = by(/^\s*Avançado/), siri = by(/Siri/), share = by(/Compartilhamento/), help = by(/Ajuda/);
+    var ga = grp('avançado'); if(ga) ga.remove();
+    var conta = by(/Conta e app/);
+    if(adv){
+      var body = adv.querySelector('.pfbody');
+      [siri, share, help].forEach(function(d){ if(d && body){ d.classList.add('pfnest'); body.appendChild(d); } });
+      if(conta && conta.nextSibling) main.insertBefore(adv, conta.nextSibling);
+      var sm = adv.querySelector('summary small, summary .meta, summary em'); if(sm) sm.textContent = 'ícone, Siri, compartilhamento, importar e ajuda';
+    }
+  };
+  // ---- Hoje: Água compacta (turnos ao tocar) e refeições em linha curta ----
+  function hhmm(h){ var H = Math.floor(h), M = Math.round((h - H) * 60); return pad(H) + ':' + pad(M); }
+  function v39Today(){
+    var ca = $('cardAgua');
+    ['cardAgua','cardFood','cardGym'].forEach(function(id, i){ var el = $(id); if(el) el.style.order = i; });
+    if(ca) ca.classList.add('wcompact');
+    if(ca && !ca.getAttribute('data-v39')){
+      ca.setAttribute('data-v39', '1');
+      var row = ca.querySelector('.row'); if(row){ var t = document.createElement('button'); t.type = 'button'; t.className = 'turntgl'; t.setAttribute('aria-expanded', 'false'); t.innerHTML = 'Turnos <i>›</i>'; row.appendChild(t);
+        t.addEventListener('click', function(e){ e.stopPropagation(); var on = ca.classList.toggle('turns-open'); t.setAttribute('aria-expanded', on ? 'true' : 'false'); }); }
+    }
+    document.querySelectorAll('#meals .meal').forEach(function(b){
+      var mk = b.getAttribute('data-meal') || b.getAttribute('data-mk'), m = mk && MEAL_BY[mk], tx = b.querySelector('.mtext.muted');
+      if(m && tx){ tx.textContent = 'até ' + hhmm(mealDue(mk)); tx.classList.add('mdue'); }
+    });
+  }
+
   // ================= Navegação =================
   var current = 'splash';
   function renderAll(){ renderToday(); if(current==='semana') renderWeek(); if(current==='evo') renderEvo(); if(current==='perfil') renderPerfil(); }
