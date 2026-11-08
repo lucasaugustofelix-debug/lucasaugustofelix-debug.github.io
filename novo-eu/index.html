@@ -1257,7 +1257,7 @@ body.touring .rvl{display:none!important}
 </head>
 <body>
 <div id="boot" aria-hidden="true"></div>
-<script>setTimeout(function(){var b=document.getElementById("boot");if(b&&b.parentNode)b.parentNode.removeChild(b);},11500);document.getElementById("boot").addEventListener("click",function(){this.style.display="none";});</script>
+<script>setTimeout(function(){var b=document.getElementById("boot");if(b&&b.parentNode)b.parentNode.removeChild(b);},12500);document.getElementById("boot").addEventListener("click",function(){this.style.display="none";});</script>
 
 <!-- LOGIN -->
 <section id="login" class="screen">
@@ -6910,7 +6910,7 @@ window.addEventListener('error', function(e){
   ['sheet','jSheet','dSheet','qSheet','tSheet','wSheet','chSheet','wnSheet','shrSheet','phSheet'].forEach(function(id){ enableSheetDrag($(id)); });
   enableWeekSwipe(); enableTabSwipe(); enablePTR(); checkUpdated(); initPhotoStore();
   setInterval(function(){ if((S().theme || 'auto') === 'time') applyTheme(); }, 60000);
-  function hideBoot(){ var b = $('boot'); if(!b) return; var left = 4300 - (Date.now() - bootT0); if(left > 0 && bootT0){ clearTimeout(b._ht); b._ht = setTimeout(hideBoot, left); return; } b.classList.add('gone'); setTimeout(function(){ if(b.parentNode) b.parentNode.removeChild(b); }, 500); }
+  function hideBoot(){ var b = $('boot'); if(!b) return; var left = 5300 - (Date.now() - bootT0); if(left > 0 && bootT0){ clearTimeout(b._ht); b._ht = setTimeout(hideBoot, left); return; } b.classList.add('gone'); setTimeout(function(){ if(b.parentNode) b.parentNode.removeChild(b); }, 500); }
   setTimeout(hideBoot, reduceMotion ? 0 : 1350);
   // ================= Eventos do app próprio =================
   $('lgForm').addEventListener('submit', function(e){
