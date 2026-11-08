@@ -1493,6 +1493,14 @@ html:not(.dark) .pfhead .vitrine small{color:var(--muted)!important}
 /* Destaque ao chegar pela notificação */
 .flash2{animation:flash2 2.2s ease}
 @keyframes flash2{0%,100%{box-shadow:0 1px 2px rgba(14,21,18,.04),0 6px 20px rgba(14,21,18,.04)}20%,60%{box-shadow:0 0 0 3px rgba(59,130,246,.45),0 10px 30px rgba(59,130,246,.18)}}
+/* v4.0.1 · card Próxima ação em grade: texto com largura total, clima no canto, botão embaixo */
+#today .hdrow{display:grid!important;grid-template-columns:1fr auto;grid-template-areas:"act wx" "go go";align-items:start;gap:10px 12px;padding:14px 14px 14px 16px;border-radius:20px}
+#today .hdrow .nextact{grid-area:act;font-size:1rem;font-weight:800;line-height:1.3;letter-spacing:-.01em}
+#today .nextact::before{margin-bottom:4px}
+#today .hdrow .wxchip{grid-area:wx;padding:5px 10px;font-size:.78rem;gap:4px;min-height:0;align-self:start}
+#today .hdrow .wxchip svg{width:15px;height:15px}
+#today .hdrow .nextgo{grid-area:go;width:100%;min-height:44px;border-radius:14px;font-size:.88rem}
+#today .hdrow .wxchip[hidden]+.nextact{grid-column:1/-1}
 
 </style>
 </head>
