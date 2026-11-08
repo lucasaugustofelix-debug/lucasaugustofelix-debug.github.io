@@ -1504,6 +1504,20 @@ html:not(.dark) .pfhead .vitrine small{color:var(--muted)!important}
 #today .hdrow[hidden]{display:none!important}
 .shcgrid.shc3{grid-template-columns:repeat(3,minmax(0,1fr))}
 
+/* v4.1 */
+#heroHint .petn{font-weight:800;color:var(--text);margin-right:2px}
+#heroHint .petn::after{content:':'}
+.kgms{display:grid;grid-template-columns:repeat(auto-fill,minmax(64px,1fr));gap:8px;margin-top:8px}
+.kgm{display:flex;flex-direction:column;align-items:center;gap:4px;padding:10px 4px;border-radius:14px;background:var(--raise);border:1px dashed var(--line);opacity:.6}
+.kgm.on{opacity:1;border:1px solid rgba(234,179,8,.45);background:linear-gradient(160deg,rgba(253,230,138,.22),rgba(161,98,7,.12))}
+.kgm span{font:800 1.05rem 'Plus Jakarta Sans',system-ui,sans-serif;font-variant-numeric:tabular-nums;color:var(--text)}
+.kgm span small{font-size:.62rem;font-weight:700;margin-left:1px}
+.kgm.on span{color:#B45309}
+html.dark .kgm.on span{color:#FCD34D}
+.kgm em{font-style:normal;font-size:.66rem;font-weight:700;color:var(--muted)}
+.kgbox{margin-top:14px}
+.petcard input{margin-top:6px}
+
 </style>
 </head>
 <body>
@@ -2370,8 +2384,9 @@ window.addEventListener('error', function(e){
   function nBottles(){ var t = S().turns; return (t.m||0) + (t.t||0) + (t.n||0) + heatExtra(); }
 
   // ================= v3: pausa, tema, som, versão =================
-  var APP_VERSION = '4.0';
+  var APP_VERSION = '4.1';
   var WHATS_NEW = [
+    ['star', 'O pinguim agora tem nome: Pingo (dá para trocar na tela dele). Medalha a cada quilo a menos em Conquistas › Especiais, e o resumo da semana mostra a refeição que mais escapou do verde e a mais verde.'],
     ['star', 'Acabamento: cartões mais limpos, dia completo num bloco dourado, cartão de missões e perfil claros no tema claro, Histórico com um cartão só para a semana, notificações sem emoji e a abertura levando o anel até o cartão de missões.'],
     ['star', 'App mais simples: barra de abas sem o botão +, Hoje mais enxuto, Água compacta, refeições em uma linha, Histórico e Perfil mais curtos e uma tela própria para o pinguim e o armário.'],
     ['star', 'Tela Hoje mais limpa, com a próxima ação no topo, a garrafa que enche e o dia completo em dourado. Novos selos mensais, a medalha Presença, presentes de datas especiais no armário, recorte da foto de perfil e a página Sobre.'],
@@ -7351,6 +7366,86 @@ window.addEventListener('error', function(e){
     openSheetEl('shxSheet');
     list.forEach(function(k, i){ setTimeout(function(){ var o = Object.assign({st:'dark', acc: mem.meta.shareAcc || '#3B82F6'}, k === 'marco' ? marcoAuto() : {}); buildCard(k, o, 0.12).then(function(cv3){ var el = $('shcp_' + k); if(el){ el.innerHTML = ''; el.appendChild(cv3); } }); }, 120 + i * 140); });
   }
+
+  // ================= v4.1 =================
+  // ---- 314 · Nome do pinguim (padrão: Pingo) ----
+  function petName(){ var n = (S().petName || '').trim(); return n || 'Pingo'; }
+  var _bs41 = bubbleSay;
+  bubbleSay = function(t){ return _bs41.call(this, String(t).replace('tontinha', 'tontinho')); };
+  var _rm41 = renderMascot;
+  renderMascot = function(){
+    _rm41.apply(this, arguments);
+    var h = $('heroHint'); if(h && h.textContent && !h.querySelector('.petn')){ var t = h.textContent; h.innerHTML = '<b class="petn">' + esc(petName()) + '</b> ' + esc(t); }
+  };
+  function petPaint(){
+    var pg = $('pgSheet'); if(pg){ var h2 = pg.querySelector('h2'); if(h2) h2.textContent = petName(); }
+    document.querySelectorAll('.pgbtn').forEach(function(b){ b.innerHTML = ico('star', 14) + ' ' + esc(petName()); });
+    var body = pg && pg.querySelector('.sbody');
+    if(body && !$('petNameIn')){
+      var c = document.createElement('div'); c.className = 'card incard petcard';
+      c.innerHTML = '<label class="field" style="margin:0">Nome do pinguim<input id="petNameIn" type="text" maxlength="14" autocomplete="off" placeholder="Pingo"></label><p class="meta" style="margin:6px 0 0;font-weight:500">Aparece nas falas e nas notificações.</p>';
+      body.insertBefore(c, body.firstChild);
+      $('petNameIn').addEventListener('change', function(){ var v = this.value.trim().slice(0, 14); if(v && v !== 'Pingo') S().petName = v; else delete S().petName; saveSettings(); petPaint(); renderMascot(); toast('Agora ele se chama ' + petName() + '.'); });
+    }
+    var inp = $('petNameIn'); if(inp && document.activeElement !== inp) inp.value = S().petName || '';
+  }
+  var _op41 = openPenguin;
+  openPenguin = function(){ petPaint(); return _op41.apply(this, arguments); };
+  var _re41 = renderEvo;
+  renderEvo = function(){ _re41.apply(this, arguments); petPaint(); };
+
+  // ---- 318 · Quilo a quilo: uma medalha a cada 1 kg perdido ----
+  function kgLoss(){ var ws = sortedWeights(); if(ws.length < 2) return 0; return ws[0].kg - ws[ws.length - 1].kg; }
+  function checkKgMedals(){
+    var m = mem.meta.kgm || (mem.meta.kgm = {}), init = !mem.meta.kgmInit, n = Math.floor(kgLoss() + 0.001), fresh = [];
+    for(var i = 1; i <= Math.min(n, 150); i++) if(!m[i]){ m[i] = todayKey(); fresh.push(i); }
+    if(init){ mem.meta.kgmInit = 1; saveMeta(); return; }
+    if(!fresh.length) return;
+    saveMeta();
+    var top = fresh[fresh.length - 1];
+    if(top === 5 || top === 10) return; // marcos de −5 e −10 kg já comemoram sozinhos
+    try{ fireworks(true, 'all'); }catch(e){}
+    try{ mascotMood = 'party'; renderMascot(); }catch(e){}
+    milestonePrompt('−' + top + ' kg', top === 1 ? 'Primeiro quilo a menos. É assim que começa.' : top + ' quilos a menos desde a primeira pesagem.', 'Quilo a quilo');
+  }
+  var _sw41 = saveWeights;
+  saveWeights = function(){ _sw41.apply(this, arguments); setTimeout(function(){ try{ checkKgMedals(); renderConq(); }catch(e){} }, 900); };
+  function kgMedalsHTML(){
+    var m = mem.meta.kgm || {}, ks = Object.keys(m).map(Number).sort(function(a, b){ return a - b; }), nxt = (ks.length ? ks[ks.length - 1] : 0) + 1;
+    var falta = Math.max(0, nxt - kgLoss());
+    return '<h3 class="cqh">Quilo a quilo</h3><p class="meta">Uma medalha a cada quilo a menos desde a primeira pesagem. ' + (ks.length ? ks.length + (ks.length === 1 ? ' medalha.' : ' medalhas.') : 'A primeira vem com o primeiro quilo.') + ' Próxima: −' + nxt + ' kg' + (falta > 0 && falta < nxt ? ' (faltam ' + fmtN(falta, 1) + ' kg)' : '') + '.</p><div class="kgms">' +
+      ks.map(function(k){ var d = fromKey(m[k]); return '<div class="kgm on"><span>−' + k + '<small>kg</small></span><em>' + d.getDate() + '/' + (d.getMonth() + 1) + '</em></div>'; }).join('') +
+      '<div class="kgm"><span>−' + nxt + '<small>kg</small></span><em>próxima</em></div></div>';
+  }
+  var _rc41 = renderConq;
+  renderConq = function(){
+    _rc41.apply(this, arguments);
+    if(cqTab !== 'esp') return;
+    var hub = $('cqHub'); if(!hub || hub.querySelector('.kgbox')) return;
+    var box = document.createElement('div'); box.className = 'kgbox'; box.innerHTML = kgMedalsHTML();
+    var after = hub.querySelector('.sealbox') || hub.querySelector('.cqseg');
+    if(after && after.nextSibling) after.parentNode.insertBefore(box, after.nextSibling); else hub.appendChild(box);
+  };
+  setTimeout(function(){ try{ checkKgMedals(); }catch(e){} }, 1500);
+
+  // ---- 304 · Resumo da semana: refeição que mais escapou e a mais verde ----
+  var _ws41 = weekSummaryHTML;
+  weekSummaryHTML = function(monday, title){
+    var html = _ws41.apply(this, arguments), cnt = {};
+    MEALS.forEach(function(x){ cnt[x.k] = {g:0, b:0, l:0}; });
+    for(var i = 0; i < 7; i++){
+      var k = keyOf(addDays(monday, i)), d = mem.days[k]; if(!d) continue;
+      MEALS.forEach(function(x){ var r = mealsOf(d)[x.k]; if(!r || r.skip || !r.color) return; cnt[x.k].l++; if(r.color === 'verde') cnt[x.k].g++; else cnt[x.k].b++; });
+    }
+    var worst = MEALS.slice().sort(function(a, b){ return cnt[b.k].b - cnt[a.k].b; })[0], best = MEALS.slice().sort(function(a, b){ return (cnt[b.k].g - cnt[a.k].g) || (cnt[a.k].b - cnt[b.k].b); })[0];
+    var rows = '';
+    if(cnt[worst.k].b >= 2) rows += '<div><span>Mais escapou do verde</span><b>' + esc(worst.n) + ' <span class="down">· ' + cnt[worst.k].b + 'x</span></b></div>';
+    if(cnt[best.k].g >= 2 && best.k !== worst.k) rows += '<div><span>Mais verde</span><b>' + esc(best.n) + ' <span class="up">· ' + cnt[best.k].g + ' de ' + cnt[best.k].l + '</span></b></div>';
+    if(!rows) return html;
+    var i2 = html.indexOf('<div class="cmp">'); if(i2 < 0) return html;
+    var j = html.indexOf('</div></div>', i2); if(j < 0) return html;
+    return html.slice(0, j + 6) + rows + html.slice(j + 6);
+  };
 
   // ================= Navegação =================
   var current = 'splash';
