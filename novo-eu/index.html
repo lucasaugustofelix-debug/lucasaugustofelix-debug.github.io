@@ -6630,7 +6630,7 @@ window.addEventListener('error', function(e){
     var done = false;
     im.onload = function(){ if(done) return; done = true; b.innerHTML = ''; b.appendChild(im); bootT0 = Date.now(); hideBoot(); };
     im.onerror = function(){ done = true; bootT0 = 0; hideBoot(); };
-    setTimeout(function(){ if(!done){ done = true; bootT0 = 0; hideBoot(); } }, 4000);
+    setTimeout(function(){ if(!done){ done = true; bootT0 = 0; hideBoot(); } }, 5000);
     im.src = 'intro.webp';
   }
   function checkWhatsNew(){
