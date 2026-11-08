@@ -1502,6 +1502,7 @@ html:not(.dark) .pfhead .vitrine small{color:var(--muted)!important}
 #today .hdrow .nextgo{grid-area:go;width:100%;min-height:44px;border-radius:14px;font-size:.88rem}
 #today .hdrow .wxchip[hidden]+.nextact{grid-column:1/-1}
 #today .hdrow[hidden]{display:none!important}
+.shcgrid.shc3{grid-template-columns:repeat(3,minmax(0,1fr))}
 
 </style>
 </head>
@@ -7327,6 +7328,29 @@ window.addEventListener('error', function(e){
     }
     return _hh40.apply(this, arguments);
   };
+
+  // ---- 280 · Central de compartilhar enxuta: Marco, Dia e Frase ----
+  function marcoAuto(){
+    var md = mem.meta.md || {}, best = null;
+    Object.keys(md).forEach(function(id){ var l = md[id] || [], dt = l[l.length - 1]; if(dt && (!best || dt > best.dt)) best = {id:id, dt:dt, t:l.length}; });
+    var m = best && medalById(best.id);
+    if(m) return {medal:m, tier:best.t, title:m.n + ' · ' + tierName(m, best.t), line:fmtMV(m, m.v(agg())) + ' ' + m.u + ' no Novo Eu', sub:'Medalha ' + tierName(m, best.t)};
+    var L = playerLevel(); return {title:'Nível ' + L, line:lvlTitle(L) + ' · ' + FORMS[formByLevel(L)].n, sub:'Meu nível atual'};
+  }
+  var _os40 = openShare;
+  openShare = function(kind, o){
+    if(kind === 'marco' && !(o && o.title)) o = Object.assign(marcoAuto(), o || {});
+    return _os40.call(this, kind, o);
+  };
+  TPL_IC.marco = 'trophy';
+  function openCentral(){
+    $('shxTitle').textContent = 'Compartilhar'; $('shxActs').hidden = true;
+    var list = ['marco', 'dia', 'frase'];
+    var desc = {marco:'Sua conquista mais recente', dia:'Resumo de hoje', frase:'A frase do dia'};
+    $('shxBody').innerHTML = '<div class="shcgrid shc3">' + list.map(function(k){ var t = TPL[k]; return '<button type="button" class="shct" data-tpl="' + k + '"><span class="shcp" id="shcp_' + k + '">' + ico(TPL_IC[k] || 'star', 34) + '</span><b>' + (k === 'marco' ? 'Conquista' : t.n) + '</b><span>' + esc(desc[k]) + '</span></button>'; }).join('') + '</div><button type="button" class="btn b-soft" data-cq="gallery" style="flex:none;width:100%;margin-top:6px">' + ico('camera', 18) + ' Cartões criados</button>';
+    openSheetEl('shxSheet');
+    list.forEach(function(k, i){ setTimeout(function(){ var o = Object.assign({st:'dark', acc: mem.meta.shareAcc || '#3B82F6'}, k === 'marco' ? marcoAuto() : {}); buildCard(k, o, 0.12).then(function(cv3){ var el = $('shcp_' + k); if(el){ el.innerHTML = ''; el.appendChild(cv3); } }); }, 120 + i * 140); });
+  }
 
   // ================= Navegação =================
   var current = 'splash';
