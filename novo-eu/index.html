@@ -1253,6 +1253,112 @@ nav#tabs .fab svg{stroke:var(--bg)!important;width:22px;height:22px}
 #splash .logo svg{display:block;width:100%;height:100%}
 body.touring .rvl{display:none!important}
 
+/* ================= v3.8 ================= */
+/* Início: selo discreto e botão de postar como ícone */
+.daychip{background:none!important;color:rgba(255,255,255,.72)!important;padding:0!important;font-size:.72rem!important;letter-spacing:.12em!important;font-weight:700!important;gap:8px!important}
+.daychip::before{content:'';width:6px;height:6px;border-radius:50%;background:#60A5FA;box-shadow:0 0 0 3px rgba(96,165,250,.18)}
+.quote .qshare{position:absolute;top:14px;right:14px;margin:0;width:36px;height:36px;padding:0;justify-content:center;border-radius:50%;background:rgba(255,255,255,.08)}
+.quote .qshare svg{width:17px;height:17px}
+.quote small{padding-right:44px}
+/* Hoje: cartão "Próxima ação" */
+#today .hdrow{flex-wrap:nowrap;margin-left:0;margin-right:0;background:var(--card);border:1px solid var(--line);border-radius:18px;padding:10px 10px 10px 14px;margin-top:14px;box-shadow:0 1px 2px rgba(14,21,18,.04),0 6px 20px rgba(14,21,18,.05)}
+#today .hdrow .wxchip{flex:none}
+#today .nextact{flex:1;min-width:0;background:none!important;box-shadow:none!important;padding:0!important;display:block!important;font-size:.9rem;line-height:1.3;white-space:normal}
+#today .nextact::before{content:'Próxima ação';display:block;font-size:.66rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);font-weight:800;margin-bottom:2px}
+#today .nextact .pulse,#today .nextact span[aria-hidden]{display:none}
+#today .nextgo{flex:none;margin-top:0!important;min-height:36px;border-radius:12px;padding:0 14px;box-shadow:none}
+/* Dia completo dourado */
+.hero.gold{box-shadow:0 0 0 1px rgba(234,179,8,.45),0 10px 40px rgba(234,179,8,.18)!important}
+.hero .doneseal,.doneseal{align-self:flex-start;display:inline-flex;opacity:1!important;align-items:center;gap:6px;background:linear-gradient(135deg,#FDE68A,#EAB308);color:#3B2A05!important;font:800 .72rem 'Plus Jakarta Sans',system-ui,sans-serif;letter-spacing:.06em;text-transform:uppercase;border-radius:999px;padding:5px 11px;animation:sealin .5s cubic-bezier(.2,1.4,.4,1) both}
+@keyframes sealin{from{opacity:0;transform:scale(.7)}to{opacity:1;transform:none}}
+/* Garrafa que enche */
+.wbrow{display:flex;align-items:center;gap:16px}
+.wbottle{flex:none;width:40px;height:72px}
+.wbottle svg{display:block;overflow:visible}
+.wbbg{fill:var(--blue-soft)}
+.wbw{transition:transform 1s cubic-bezier(.3,1.3,.5,1)}
+.wbwave{fill:#3B82F6;animation:wave 2.4s linear infinite}
+@keyframes wave{to{transform:translateX(20px)}}
+.wbo{fill:none;stroke:var(--blue);stroke-width:2;stroke-linejoin:round;stroke-linecap:round}
+.wbg{stroke:#fff;stroke-width:2.4;stroke-linecap:round;opacity:.5}
+.wbottle.full .wbwave{fill:#22C55E}
+@media (prefers-reduced-motion:reduce){.wbwave{animation:none}.wbw{transition:none}}
+/* Linha do tempo enxuta */
+.dtl2{margin-top:14px}
+.dtl2>small{display:block;font-size:.7rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);font-weight:800;margin-bottom:8px}
+.dtlg{display:flex;flex-wrap:wrap;gap:8px}
+.dtc{display:inline-flex;align-items:center;gap:6px;border:1px solid var(--line);background:var(--card);color:var(--text);border-radius:12px;padding:7px 10px;font:700 .8rem 'Plus Jakarta Sans',system-ui,sans-serif}
+.dtc svg{color:var(--blue)}
+.dtc.on{border-color:var(--blue);background:var(--blue-soft)}
+.dtc time{font-variant-numeric:tabular-nums}
+.dtlx{margin-top:8px;font-size:.86rem;color:var(--soft);background:var(--chip);border-radius:12px;padding:10px 12px}
+/* Pinguim reagindo */
+.preact{position:fixed;left:50%;bottom:calc(96px + env(safe-area-inset-bottom));z-index:60;pointer-events:none;opacity:0;transform:translate(-50%,30px) scale(.6)}
+.preact.on{animation:preact 1.5s cubic-bezier(.2,1.2,.4,1) both}
+.preact svg{filter:drop-shadow(0 8px 18px rgba(0,0,0,.25))}
+@keyframes preact{0%{opacity:0;transform:translate(-50%,30px) scale(.6)}18%{opacity:1;transform:translate(-50%,0) scale(1.05)}28%{transform:translate(-50%,0) scale(1)}80%{opacity:1;transform:translate(-50%,-4px) scale(1)}100%{opacity:0;transform:translate(-50%,-16px) scale(.95)}}
+.preact .rprop{animation:rprop .6s ease .15s both}
+@keyframes rprop{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+/* Abertura: anel de carregamento e entrada suave do app */
+#boot .bload{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%)}
+#boot .bring{animation:bring 1.6s ease-in-out infinite;transform-origin:24px 24px;transform:rotate(-90deg)}
+@keyframes bring{0%{stroke-dashoffset:126}60%{stroke-dashoffset:20}100%{stroke-dashoffset:126;transform:rotate(270deg)}}
+#boot{transition:opacity .7s ease!important}
+body.appin .screen.on .wrap>*,body.appin .screen.on .main>*{animation:appin .7s cubic-bezier(.2,.8,.3,1) both}
+body.appin .screen.on .wrap>*:nth-child(2),body.appin .screen.on .main>*:nth-child(2){animation-delay:.06s}
+body.appin .screen.on .wrap>*:nth-child(3),body.appin .screen.on .main>*:nth-child(3){animation-delay:.12s}
+body.appin .screen.on .wrap>*:nth-child(n+4),body.appin .screen.on .main>*:nth-child(n+4){animation-delay:.18s}
+@keyframes appin{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
+/* Puxar para atualizar com o pinguim */
+.ptr .ptrp{display:block;line-height:0}
+.ptr.spin{animation:none!important}
+.ptr.spin .ptrp{animation:ptrw .6s ease-in-out infinite alternate}
+@keyframes ptrw{from{transform:rotate(-12deg)}to{transform:rotate(12deg)}}
+/* Recorte da foto */
+.crop{position:relative;width:280px;height:280px;margin:6px auto 14px;border-radius:24px;overflow:hidden;background:#000;touch-action:none;cursor:grab}
+.crop img{position:absolute;left:50%;top:50%;max-width:none;user-select:none;-webkit-user-drag:none;pointer-events:none}
+.crop .cropmask{position:absolute;inset:0;pointer-events:none;background:radial-gradient(circle at center,transparent 139px,rgba(0,0,0,.55) 140px);box-shadow:inset 0 0 0 1px rgba(255,255,255,.15)}
+.cropz{display:flex;align-items:center;gap:10px;max-width:280px;margin:0 auto;color:var(--muted)}
+.cropz input{flex:1;accent-color:var(--blue)}
+/* Selos mensais */
+.seals{display:grid;grid-template-columns:repeat(auto-fill,minmax(76px,1fr));gap:12px;margin:6px 0 18px}
+.seal{display:flex;flex-direction:column;align-items:center;gap:4px;text-align:center}
+.seal b{font-size:.84rem;text-transform:capitalize}
+.seal span{font-size:.7rem;color:var(--muted)}
+.seal .sbg{fill:var(--chip);stroke:var(--line);stroke-width:3}
+.seal .sfg{fill:none;stroke:#94A3B8;stroke-width:3;stroke-linecap:round}
+.seal.on .sbg{fill:#FEF3C7;stroke:#FDE68A}
+.seal.on .sfg{stroke:#EAB308}
+.seal .sck{fill:none;stroke:#A16207;stroke-width:3;stroke-linecap:round;stroke-linejoin:round}
+.seal .stx{font:800 11px 'Plus Jakarta Sans',system-ui,sans-serif;fill:var(--muted)}
+.seal.open .sfg{stroke:var(--blue)}
+html.dark .seal.on .sbg{fill:#3A2E08;stroke:#7A5D0E}
+html.dark .seal .sck{stroke:#FDE68A}
+/* Sobre */
+.aboutrow{flex-direction:row!important;align-items:center;justify-content:space-between;text-align:left;color:var(--text);font:inherit;padding:16px 18px!important;cursor:pointer}
+.aboutrow span{display:flex;align-items:center;gap:10px}
+.aboutrow em{font-style:normal;color:var(--muted);font-size:.84rem}
+.about .abhead{display:flex;align-items:center;gap:14px;margin-bottom:14px}
+.about .abhead img{border-radius:16px}
+.about .abhead b{display:block;font-size:1.1rem}
+.about .abhead span{color:var(--muted);font-size:.86rem}
+.about details{border-top:1px solid var(--line);padding:12px 0}
+.about summary{font-weight:800;cursor:pointer;list-style:none;display:flex;justify-content:space-between}
+.about summary::after{content:'+';color:var(--muted)}
+.about details[open] summary::after{content:'–'}
+.about details p,.about details li{font-size:.9rem;line-height:1.5;color:var(--soft);margin-top:8px}
+.about ul{padding-left:18px}
+/* Fundo com textura de gelo bem sutil */
+body{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='240' height='240'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.012 .05' numOctaves='3' seed='7'/%3E%3CfeColorMatrix values='0 0 0 0 .55 0 0 0 0 .7 0 0 0 0 .85 0 0 0 .3 -.13'/%3E%3C/filter%3E%3Crect width='240' height='240' filter='url(%23n)'/%3E%3C/svg%3E");background-size:240px 240px}
+html.dark body{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='240' height='240'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.012 .05' numOctaves='3' seed='7'/%3E%3CfeColorMatrix values='0 0 0 0 .6 0 0 0 0 .75 0 0 0 0 .95 0 0 0 .12 -.06'/%3E%3C/filter%3E%3Crect width='240' height='240' filter='url(%23n)'/%3E%3C/svg%3E")}
+/* Cartões e ícones padronizados */
+.screen .card{border-radius:24px}
+.screen .card:not(.hero):not(.aboutrow){box-shadow:0 1px 2px rgba(14,21,18,.04),0 6px 20px rgba(14,21,18,.04)}
+html.dark .screen .card:not(.hero){box-shadow:0 1px 2px rgba(0,0,0,.3)}
+#tabs svg [stroke],#today header svg [stroke],.qshare svg [stroke],.focusbtn svg [stroke]{stroke-width:1.8}
+#tabs svg,#today header .focusbtn svg{stroke-width:1.8}
+.hero .doneseal svg{color:#3B2A05}
+
 </style>
 </head>
 <body>
@@ -1312,7 +1418,7 @@ body.touring .rvl{display:none!important}
       <h2 class="sp-title">Bem-vindo, Lucas,<br><em>vamos começar o dia?</em></h2>
     </div>
     <div class="quote">
-      <small><i></i><span id="quoteLbl">Frase do dia</span><button type="button" class="qshare" id="quoteShare" aria-label="Compartilhar a frase">↗ Postar</button></small>
+      <small><i></i><span id="quoteLbl">Frase do dia</span><button type="button" class="qshare" id="quoteShare" aria-label="Compartilhar a frase"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 15V3.5M7.5 8L12 3.5 16.5 8"/><path d="M5 12.5v6A2.5 2.5 0 0 0 7.5 21h9a2.5 2.5 0 0 0 2.5-2.5v-6"/></svg></button></small>
       <p id="quote"></p>
     </div>
     <button class="cta" id="start">Iniciar
@@ -1814,11 +1920,11 @@ body.touring .rvl{display:none!important}
   <div class="grab" aria-hidden="true"></div>
   <div class="wb">
     <div class="mascot lg" id="wMascot" aria-hidden="true"></div>
-    <h2 id="wTitle">Que bom te ver, Lucas!</h2>
+    <h2 id="wTitle">Que bom te ver, Lucas.</h2>
     <p id="wText" class="meta" style="margin:0;font-weight:500;text-align:center;line-height:1.5"></p>
   </div>
   <div id="wDays" style="display:flex;flex-direction:column;gap:8px"></div>
-  <button type="button" class="btn b-blue" id="wGo" style="flex:none;width:100%">Bora retomar!</button>
+  <button type="button" class="btn b-blue" id="wGo" style="flex:none;width:100%">Bora retomar.</button>
 </div>
 
 <div class="sheet" id="chSheet" hidden role="dialog" aria-modal="true" aria-labelledby="chTitle">
@@ -1834,7 +1940,7 @@ body.touring .rvl{display:none!important}
   <div class="grab" aria-hidden="true"></div>
   <div class="row"><h2 id="wnTitle">O que há de novo</h2></div>
   <ul class="wnlist" id="wnList"></ul>
-  <button type="button" class="btn b-blue" id="wnClose" style="flex:none;width:100%">Bora usar!</button>
+  <button type="button" class="btn b-blue" id="wnClose" style="flex:none;width:100%">Bora usar.</button>
 </div>
 <div class="sheet" id="shrSheet" hidden role="dialog" aria-modal="true" aria-labelledby="shrTitle">
   <div class="grab" aria-hidden="true"></div>
@@ -1926,24 +2032,24 @@ body.touring .rvl{display:none!important}
     <p class="rchint">Toque para avançar</p>
   </div>
 </div>
-<div class="firstwin" id="firstWin" hidden role="status"><div class="fwm" id="fwMascot"></div><b>Bom começo, Lucas!</b><span id="fwText">Primeira vitória do dia.</span></div>
+<div class="firstwin" id="firstWin" hidden role="status"><div class="fwm" id="fwMascot"></div><b>Bom começo, Lucas.</b><span id="fwText">Primeira vitória do dia.</span></div>
 
 <div class="perfect" id="perfect" hidden role="dialog" aria-modal="true" aria-labelledby="pfTitle">
   <div class="pfin">
     <div class="mascot lg" id="pfMascot" aria-hidden="true"></div>
     <small>7 de 7 dias completos</small>
-    <h2 id="pfTitle">Semana perfeita!</h2>
+    <h2 id="pfTitle">Semana perfeita.</h2>
     <p id="pfSub"></p>
     <div class="pfstats" id="pfStats"></div>
     <button type="button" class="btn" id="pfShare" style="flex:none;width:100%;background:rgba(255,255,255,.12);color:#fff;border:1px solid rgba(255,255,255,.2)">Compartilhar</button>
-    <button type="button" class="btn b-blue" id="pfClose" style="flex:none;width:100%">Bora pra próxima!</button>
+    <button type="button" class="btn b-blue" id="pfClose" style="flex:none;width:100%">Bora pra próxima.</button>
   </div>
 </div>
 
 <div class="sync" id="sync" hidden role="status"></div>
 <div class="updbar" id="updBar" hidden role="status"><span>Nova versão do Novo Eu disponível</span><button type="button" id="updBtn">Atualizar</button></div>
 <canvas id="fx" aria-hidden="true"></canvas>
-<div class="party" id="party" role="status"><div><b id="partyT">Dia completo!</b><span id="partyS">As 3 missões de hoje foram cumpridas.</span></div></div>
+<div class="party" id="party" role="status"><div><b id="partyT">Dia completo.</b><span id="partyS">As 3 missões de hoje foram cumpridas.</span></div></div>
 <div class="toast" id="toast" role="status" aria-live="polite"></div>
 
 <script>
@@ -1961,14 +2067,14 @@ window.addEventListener('error', function(e){
   var KEY = 'vidanova_v1';
 
   // ================= Conteúdo =================
-  var FRASES = ["Disciplina é lembrar o que você quer de verdade.", "Um dia de cada vez. Hoje é o dia que importa.", "Você não precisa ser perfeito, só precisa continuar.", "Pequenas escolhas, todos os dias, viram grandes resultados.", "O corpo alcança o que a mente acredita.", "Comece onde você está. Use o que você tem.", "Constância vence intensidade.", "Cada garrafinha, cada treino, cada escolha conta.", "A melhor versão de você está sendo construída hoje.", "Não pare quando cansar. Pare quando terminar.", "Feito é melhor que perfeito.", "Seu único adversário é quem você era ontem.", "Motivação te faz começar. Hábito te faz continuar.", "Um novo eu se faz com atitudes novas.", "O progresso é silencioso. Continue mesmo assim.", "Cuidar de você também é responsabilidade.", "Quem planta hoje colhe amanhã.", "Você já venceu dias difíceis antes. Hoje não é diferente.", "Devagar também é caminho, desde que não pare.", "O resultado que você quer está do outro lado da rotina.", "Faça hoje o que seu eu do futuro vai agradecer.", "Grandes mudanças começam com um primeiro passo.", "Saúde não é destino, é o caminho de todo dia.", "Acredite no processo e respeite o seu ritmo.", "Hoje é mais um tijolo da sua nova vida.", "Força não vem do que você consegue, vem do que você supera.", "Cada dia é uma nova chance de fazer diferente.", "Sua decisão de hoje vale mais que a desculpa de ontem.", "Coragem é continuar quando ninguém está vendo.", "Você está mais perto do que imagina.", "Orgulhe-se de cada pequena vitória.", "Não é sobre ser o melhor. É sobre ser melhor que ontem.", "A dor do treino passa. O orgulho fica.", "Seu corpo ouve tudo o que sua mente diz.", "Água, treino e prato bom: o básico bem feito muda tudo.", "Quem tem um porquê enfrenta qualquer como.", "Não espere vontade. Comece, e ela aparece.", "O hábito de hoje é o resultado de amanhã.", "Você não chegou até aqui para parar agora.", "Resultados gostam de rotina.", "Um passo pequeno ainda é um passo para frente.", "O segredo é não quebrar a corrente.", "Vá no seu ritmo, mas vá.", "Escolher bem uma refeição já é vencer o dia.", "Cansaço passa. Arrependimento demora.", "Seja a pessoa que você queria ter por perto.", "A disciplina é a ponte entre metas e conquistas.", "Hoje conta. Todo dia conta.", "Persistência transforma o difícil em normal.", "Não compare seu começo com o meio de ninguém.", "Bebe uma água e segue o jogo.", "O que você faz todo dia importa mais do que o que faz de vez em quando.", "Quando der vontade de desistir, lembre por que começou.", "Você é mais forte do que a sua preguiça.", "O melhor momento para começar foi ontem. O segundo melhor é agora.", "Ninguém vê o esforço, mas todo mundo vai ver o resultado.", "Cuide do corpo. É o único lugar onde você vai morar a vida toda.", "Uma escolha boa puxa a outra.", "Progresso, não perfeição.", "Treino ruim é melhor que treino nenhum.", "A balança é só um número. A constância é o que transforma.", "Faça por você. Os aplausos são bônus.", "Você está escrevendo uma história de superação.", "Comer bem é um ato de respeito com você mesmo.", "Seu futuro agradece cada garrafinha de hoje.", "Recomeçar não é fracassar. É insistir.", "Grandes resultados são pequenas vitórias somadas.", "Mais um dia, mais uma chance de cuidar de você.", "Quem cuida de si cuida melhor de tudo.", "A rotina que parece chata é a que mais transforma.", "Força de vontade acaba. Hábito não.", "Você não precisa de pressa, precisa de direção.", "Um dia ruim não apaga uma semana boa.", "Seu esforço de hoje é a sua vitória de amanhã.", "Faça o simples todos os dias.", "O corpo muda devagar. A mente muda primeiro.", "Não deixe para amanhã a garrafinha de agora.", "Quem não desiste, chega.", "O orgulho de cumprir vale mais que a preguiça de faltar.", "Você é a prova de que dá para mudar.", "Cada refeição verde é um voto no seu novo eu.", "Dormir bem, beber água e treinar: a base de tudo.", "Hoje você vai fazer o que precisa ser feito.", "Tem gente torcendo por você. Inclusive o seu eu do futuro.", "Siga firme. O caminho já está dando resultado.", "Sua jornada é sua. Respeite cada fase dela.", "Leve é a vida de quem cuida de si.", "O impossível de ontem virou o normal de hoje.", "Seja constante, mesmo quando ninguém estiver olhando.", "Bora, Lucas! Hoje é dia de fazer acontecer.", "Disciplina hoje, liberdade amanhã.", "Cada dia cumprido é uma promessa que você honrou.", "Você não está começando do zero. Está começando da experiência.", "Coloque a garrafinha à vista e o resto acontece.", "Seu melhor investimento é a sua saúde.", "Faça hoje um pouco melhor do que ontem.", "Quem se prepara não depende de sorte.", "Ser constante é mais bonito que ser perfeito.", "A vitória mora nos dias comuns.", "Tranquilo e firme: assim se vai longe."];
-  var FRASES_D = [["ml", "Você já bebeu {L} desde o início. Bora somar mais hoje!"], ["gyms", "São {gyms} treinos até aqui. O próximo é hoje?"], ["days", "Dia {days} do seu Novo Eu. Olha onde você chegou!"], ["greens", "{greens} refeições verdes desde o começo. Isso é escolha consciente!"], ["comp", "Você já teve {comp} dias completos. Que tal mais um hoje?"], ["kg", "Já são {kg} a menos desde a primeira pesagem. Segue firme!"], ["best", "Sua melhor sequência foi de {best} dias. Dá para bater esse recorde!"], ["bottles", "{bottles} garrafinhas bebidas até hoje. Cada uma contou."], ["months", "Há {months} você começou essa jornada. Orgulho do caminho!"], ["gymweek", "Você treina em média {gymweek} vezes por semana. Mantém o ritmo!"], ["waterdays", "Em {waterdays} dias você bateu a meta de água. Hidratação virou hábito!"], ["greenpct", "{greenpct} das suas refeições são verdes. Seu prato mudou!"], ["ml", "{L} de água no corpo desde o primeiro dia. Que hidratação!"], ["gyms", "{gyms} vezes você escolheu treinar. Hoje escolhe de novo?"], ["days", "{days} dias cuidando de você. Isso já é estilo de vida."], ["comp", "{comp} dias com as 3 missões. Você sabe fazer, bora repetir!"], ["kg", "{kg} mais leve e muito mais forte por dentro."], ["greens", "Mais de {greens} escolhas verdes no prato. Seu corpo agradece!"]];
+  var FRASES = ["Disciplina é lembrar o que você quer de verdade.", "Um dia de cada vez. Hoje é o dia que importa.", "Você não precisa ser perfeito, só precisa continuar.", "Pequenas escolhas, todos os dias, viram grandes resultados.", "O corpo alcança o que a mente acredita.", "Comece onde você está. Use o que você tem.", "Constância vence intensidade.", "Cada garrafinha, cada treino, cada escolha conta.", "A melhor versão de você está sendo construída hoje.", "Não pare quando cansar. Pare quando terminar.", "Feito é melhor que perfeito.", "Seu único adversário é quem você era ontem.", "Motivação te faz começar. Hábito te faz continuar.", "Um novo eu se faz com atitudes novas.", "O progresso é silencioso. Continue mesmo assim.", "Cuidar de você também é responsabilidade.", "Quem planta hoje colhe amanhã.", "Você já venceu dias difíceis antes. Hoje não é diferente.", "Devagar também é caminho, desde que não pare.", "O resultado que você quer está do outro lado da rotina.", "Faça hoje o que seu eu do futuro vai agradecer.", "Grandes mudanças começam com um primeiro passo.", "Saúde não é destino, é o caminho de todo dia.", "Acredite no processo e respeite o seu ritmo.", "Hoje é mais um tijolo da sua nova vida.", "Força não vem do que você consegue, vem do que você supera.", "Cada dia é uma nova chance de fazer diferente.", "Sua decisão de hoje vale mais que a desculpa de ontem.", "Coragem é continuar quando ninguém está vendo.", "Você está mais perto do que imagina.", "Orgulhe-se de cada pequena vitória.", "Não é sobre ser o melhor. É sobre ser melhor que ontem.", "A dor do treino passa. O orgulho fica.", "Seu corpo ouve tudo o que sua mente diz.", "Água, treino e prato bom: o básico bem feito muda tudo.", "Quem tem um porquê enfrenta qualquer como.", "Não espere vontade. Comece, e ela aparece.", "O hábito de hoje é o resultado de amanhã.", "Você não chegou até aqui para parar agora.", "Resultados gostam de rotina.", "Um passo pequeno ainda é um passo para frente.", "O segredo é não quebrar a corrente.", "Vá no seu ritmo, mas vá.", "Escolher bem uma refeição já é vencer o dia.", "Cansaço passa. Arrependimento demora.", "Seja a pessoa que você queria ter por perto.", "A disciplina é a ponte entre metas e conquistas.", "Hoje conta. Todo dia conta.", "Persistência transforma o difícil em normal.", "Não compare seu começo com o meio de ninguém.", "Bebe uma água e segue o jogo.", "O que você faz todo dia importa mais do que o que faz de vez em quando.", "Quando der vontade de desistir, lembre por que começou.", "Você é mais forte do que a sua preguiça.", "O melhor momento para começar foi ontem. O segundo melhor é agora.", "Ninguém vê o esforço, mas todo mundo vai ver o resultado.", "Cuide do corpo. É o único lugar onde você vai morar a vida toda.", "Uma escolha boa puxa a outra.", "Progresso, não perfeição.", "Treino ruim é melhor que treino nenhum.", "A balança é só um número. A constância é o que transforma.", "Faça por você. Os aplausos são bônus.", "Você está escrevendo uma história de superação.", "Comer bem é um ato de respeito com você mesmo.", "Seu futuro agradece cada garrafinha de hoje.", "Recomeçar não é fracassar. É insistir.", "Grandes resultados são pequenas vitórias somadas.", "Mais um dia, mais uma chance de cuidar de você.", "Quem cuida de si cuida melhor de tudo.", "A rotina que parece chata é a que mais transforma.", "Força de vontade acaba. Hábito não.", "Você não precisa de pressa, precisa de direção.", "Um dia ruim não apaga uma semana boa.", "Seu esforço de hoje é a sua vitória de amanhã.", "Faça o simples todos os dias.", "O corpo muda devagar. A mente muda primeiro.", "Não deixe para amanhã a garrafinha de agora.", "Quem não desiste, chega.", "O orgulho de cumprir vale mais que a preguiça de faltar.", "Você é a prova de que dá para mudar.", "Cada refeição verde é um voto no seu novo eu.", "Dormir bem, beber água e treinar: a base de tudo.", "Hoje você vai fazer o que precisa ser feito.", "Tem gente torcendo por você. Inclusive o seu eu do futuro.", "Siga firme. O caminho já está dando resultado.", "Sua jornada é sua. Respeite cada fase dela.", "Leve é a vida de quem cuida de si.", "O impossível de ontem virou o normal de hoje.", "Seja constante, mesmo quando ninguém estiver olhando.", "Bora, Lucas. Hoje é dia de fazer acontecer.", "Disciplina hoje, liberdade amanhã.", "Cada dia cumprido é uma promessa que você honrou.", "Você não está começando do zero. Está começando da experiência.", "Coloque a garrafinha à vista e o resto acontece.", "Seu melhor investimento é a sua saúde.", "Faça hoje um pouco melhor do que ontem.", "Quem se prepara não depende de sorte.", "Ser constante é mais bonito que ser perfeito.", "A vitória mora nos dias comuns.", "Tranquilo e firme: assim se vai longe."];
+  var FRASES_D = [["ml", "Você já bebeu {L} desde o início. Bora somar mais hoje."], ["gyms", "São {gyms} treinos até aqui. O próximo é hoje?"], ["days", "Dia {days} do seu Novo Eu. Olha onde você chegou."], ["greens", "{greens} refeições verdes desde o começo. Isso é escolha consciente."], ["comp", "Você já teve {comp} dias completos. Que tal mais um hoje?"], ["kg", "Já são {kg} a menos desde a primeira pesagem. Segue firme."], ["best", "Sua melhor sequência foi de {best} dias. Dá para bater esse recorde."], ["bottles", "{bottles} garrafinhas bebidas até hoje. Cada uma contou."], ["months", "Há {months} você começou essa jornada. Orgulho do caminho."], ["gymweek", "Você treina em média {gymweek} vezes por semana. Mantém o ritmo."], ["waterdays", "Em {waterdays} dias você bateu a meta de água. Hidratação virou hábito."], ["greenpct", "{greenpct} das suas refeições são verdes. Seu prato mudou."], ["ml", "{L} de água no corpo desde o primeiro dia. Que hidratação."], ["gyms", "{gyms} vezes você escolheu treinar. Hoje escolhe de novo?"], ["days", "{days} dias cuidando de você. Isso já é estilo de vida."], ["comp", "{comp} dias com as 3 missões. Você sabe fazer, bora repetir."], ["kg", "{kg} mais leve e muito mais forte por dentro."], ["greens", "Mais de {greens} escolhas verdes no prato. Seu corpo agradece."]];
   var FRASES_PARABENS = [
-    'Ontem foi dia completo. Hoje, bora repetir a dose!',
-    'Dia completo ontem! É assim que o novo eu se constrói.',
+    'Ontem foi dia completo. Hoje, bora repetir a dose.',
+    'Dia completo ontem. É assim que o novo eu se constrói.',
     'Você fechou tudo ontem. Esse é o Lucas que não para.',
     'Ontem você mostrou do que é capaz. Hoje é mais um.',
-    'Missão cumprida ontem. Mantém o ritmo que está lindo!'
+    'Missão cumprida ontem. Mantém o ritmo que está lindo.'
   ];
   var FRASES_LEVANTA = [
     'Ontem não foi como você queria. Hoje é página nova.',
@@ -2119,8 +2225,9 @@ window.addEventListener('error', function(e){
   function nBottles(){ var t = S().turns; return (t.m||0) + (t.t||0) + (t.n||0) + heatExtra(); }
 
   // ================= v3: pausa, tema, som, versão =================
-  var APP_VERSION = '3.7';
+  var APP_VERSION = '3.8';
   var WHATS_NEW = [
+    ['star', 'Tela Hoje mais limpa, com a próxima ação no topo, a garrafa que enche e o dia completo em dourado. Novos selos mensais, a medalha Presença, presentes de datas especiais no armário, recorte da foto de perfil e a página Sobre.'],
     ['star', 'Pinguim de verdade, preto e branco, em todo o app. As cores do armário agora vão no cachecol e na faixa. Abertura nova com o pinguim mergulhando.'],
     ['star', 'Novo mascote: o pinguim, que também está no ícone, com anel em 3 arcos, sons próprios e busca no histórico.'],
     ['star', 'Visual mais maduro: cartões editoriais com foto, painel no Progresso, tela Hoje enxuta e Modo Foco.'],
@@ -2374,7 +2481,7 @@ window.addEventListener('error', function(e){
       mem.meta.weather = {day: todayKey(), at: Date.now(), temp: j.current.temperature_2m, code: j.current.weather_code, max: j.daily && j.daily.temperature_2m_max ? j.daily.temperature_2m_max[0] : j.current.temperature_2m, lat: lat, lon: lon};
       saveMeta(); var d = mem.days[todayKey()]; if(d){ d.goal = goal(); save(); }
       renderToday(); if(current === 'perfil') renderPerfil();
-      if(!prevHot && heatExtra()) toast('Dia quente! Meta de hoje ganhou +1 garrafinha.');
+      if(!prevHot && heatExtra()) toast('Dia quente. Meta de hoje ganhou +1 garrafinha.');
     }).catch(function(){});
   }
   function updateWeather(force){
@@ -2479,7 +2586,7 @@ window.addEventListener('error', function(e){
       }).then(function(sub){
         if(!sub) return;
         if(S().notif === false){ S().notif = true; saveSettings(); }
-        return saveSubscription(sub).then(function(){ toast('Notificações ligadas! Pode deixar que eu te lembro 🔔'); refreshPushStatus(); setTimeout(sendTestPush, 600); });
+        return saveSubscription(sub).then(function(){ toast('Notificações ligadas. Pode deixar que eu te lembro 🔔'); refreshPushStatus(); setTimeout(sendTestPush, 600); });
       });
     }).catch(function(e){ toast('Ops, as notificações não ligaram. Tenta de novo?'); console.warn(e); refreshPushStatus(); });
   }
@@ -2488,7 +2595,7 @@ window.addEventListener('error', function(e){
     sbc.auth.getSession().then(function(r){
       var tok = r.data && r.data.session && r.data.session.access_token; if(!tok) return;
       return fetch(SB_URL + '/functions/v1/push-cron', {method:'POST', headers:{'Authorization':'Bearer ' + tok, 'apikey': SB_KEY, 'Content-Type':'application/json'}, body:'{}'})
-        .then(function(res){ return res.json(); }).then(function(j){ toast(j && j.sent ? 'Notificação de teste enviada!' : 'Não encontrei este aparelho. Toque em ativar de novo.'); });
+        .then(function(res){ return res.json(); }).then(function(j){ toast(j && j.sent ? 'Notificação de teste enviada.' : 'Não encontrei este aparelho. Toque em ativar de novo.'); });
     }).catch(function(){ toast('Sem internet agora. Tenta o teste daqui a pouco 📡'); });
   }
 
@@ -2530,19 +2637,19 @@ window.addEventListener('error', function(e){
     $('start').style.animationDelay = (0.7 + frase.split(' ').length*0.09).toFixed(2)+'s';
     $('spDate').textContent = dateLong();
     var sp = specialDay();
-    $('spDay').textContent = sp ? sp.t : (daysToStart() ? 'Seu Novo Eu começa em ' + daysToStart() + (daysToStart() === 1 ? ' dia' : ' dias') : 'Dia ' + dayNumber() + ' do seu Novo Eu');
+    $('spDay').textContent = sp ? sp.t : (daysToStart() ? 'Começa em ' + daysToStart() + (daysToStart() === 1 ? ' dia' : ' dias') : 'Dia ' + dayNumber() + ' do seu Novo Eu');
     $('spDay').classList.toggle('sp', !!sp);
   }
 
 
   // ================= Mensagens variadas =================
   var MSG = {
-    agua: ['+1 garrafinha. Hidratado!', 'Mais uma! Bora, Lucas!', 'Água em dia. Isso aí!', 'Garrafinha registrada. Seu corpo agradece.', 'Gole a gole, meta chegando!', 'Boa! Hidratação no ritmo.'],
-    aguaWk: ['+1 garrafinha. Fim de semana hidratado!', 'Sábado, domingo e água em dia!', 'Garrafinha no fim de semana vale dobrado!'],
-    gym: ['Check-in feito. Boa, Lucas!', 'Treino pago! Orgulho.', 'Mais um treino na conta!', 'Treino em dia. É isso!', 'Corpo em movimento. Boa!'],
-    gymWk: ['Treino no fim de semana? Monstro!', 'Check-in de fim de semana. Que disciplina!'],
-    verde: ['Refeição verde!', 'Prato caprichado. Verde!', 'Isso! Refeição saudável.', 'Verde de novo. Tá voando!'],
-    peso: ['Peso registrado', 'Pesagem anotada. Bora acompanhar!', 'Registrado. O que importa é a tendência.'],
+    agua: ['+1 garrafinha. Hidratado.', 'Mais uma. Bora, Lucas.', 'Água em dia. Isso aí.', 'Garrafinha registrada. Seu corpo agradece.', 'Gole a gole, meta chegando.', 'Boa. Hidratação no ritmo.'],
+    aguaWk: ['+1 garrafinha. Fim de semana hidratado.', 'Sábado, domingo e água em dia.', 'Garrafinha no fim de semana vale dobrado.'],
+    gym: ['Check-in feito. Boa, Lucas.', 'Treino pago. Orgulho.', 'Mais um treino na conta.', 'Treino em dia. É isso.', 'Corpo em movimento. Boa.'],
+    gymWk: ['Treino no fim de semana? Monstro.', 'Check-in de fim de semana. Que disciplina.'],
+    verde: ['Refeição verde.', 'Prato caprichado. Verde.', 'Isso. Refeição saudável.', 'Verde de novo. Tá voando.'],
+    peso: ['Peso registrado', 'Pesagem anotada. Bora acompanhar.', 'Registrado. O que importa é a tendência.'],
     just: ['Justificado. A sequência continua.', 'Anotado. Descanso também faz parte.', 'Tudo certo. Amanhã a gente volta.'],
     skip: ['Refeição justificada', 'Anotado. Sem culpa.', 'Ok, essa refeição sai da conta de hoje.']
   };
@@ -2683,9 +2790,9 @@ window.addEventListener('error', function(e){
     var t = norm(text), r = 0, g = 0;
     RED.forEach(function(w){ if(t.indexOf(w) >= 0) r++; });
     GREEN.forEach(function(w){ if(t.indexOf(w) >= 0) g++; });
-    if(r >= 2 || (r >= 1 && g === 0)) return {color:'vermelho', tip:'Essa refeição fugiu um pouco da linha. A próxima compensa!'};
+    if(r >= 2 || (r >= 1 && g === 0)) return {color:'vermelho', tip:'Essa refeição fugiu um pouco da linha. A próxima compensa.'};
     if(r === 1) return {color:'amarelo', tip:'Tem coisa boa aqui, mas um item pesou. Tente trocar na próxima.'};
-    if(g >= 2) return {color:'verde', tip:'Refeição equilibrada. Continue assim!'};
+    if(g >= 2) return {color:'verde', tip:'Refeição equilibrada. Continue assim.'};
     return {color:'amarelo', tip:'Refeição ok. Que tal incluir uma proteína ou um legume?'};
   }
   var sampleP = null;
@@ -2742,13 +2849,13 @@ window.addEventListener('error', function(e){
     while(m < monday){ past.push(weekStats(m)); m = addDays(m, 7); }
     var bestGym = past.length && s.gym > 0 && past.every(function(x){ return s.gym > x.gym; });
     var bestWater = past.length && s.water > 0 && past.every(function(x){ return s.water > x.water; });
-    if(s.days && s.complete === s.days && s.days === 7) hl = 'Semana perfeita: todos os dias completos!';
-    else if(bestGym) hl = 'Melhor semana de treino até agora!';
-    else if(bestWater) hl = 'Melhor semana de água até agora!';
-    else if(p && s.complete > p.complete) hl = 'Mais dias completos que a semana passada!';
+    if(s.days && s.complete === s.days && s.days === 7) hl = 'Semana perfeita: todos os dias completos.';
+    else if(bestGym) hl = 'Melhor semana de treino até agora.';
+    else if(bestWater) hl = 'Melhor semana de água até agora.';
+    else if(p && s.complete > p.complete) hl = 'Mais dias completos que a semana passada.';
     else if(s.days){
       var r = [{n:'Água', v:s.water/s.days}, {n:'Treino', v:s.gym/s.days}, {n:'Alimentação', v:(s.greenPct||0)/100}].sort(function(a,b){ return b.v - a.v; });
-      hl = r[0].v > 0 ? r[0].n + ' foi seu ponto forte nesta semana.' : 'Semana começando. Cada missão conta!';
+      hl = r[0].v > 0 ? r[0].n + ' foi seu ponto forte nesta semana.' : 'Semana começando. Cada missão conta.';
     }
     var topReason = Object.keys(s.reasons).sort(function(a,b){ return s.reasons[b]-s.reasons[a]; })[0];
     var rows = [
@@ -2787,7 +2894,7 @@ window.addEventListener('error', function(e){
   function skyClass(h){ return h < 10 ? 'dawn' : (h < 17 ? 'day' : (h < 19 ? 'dusk' : 'night')); }
   function missionOrder(h){ return h < 12 ? ['agua','food','gym'] : (h < 18 ? ['food','agua','gym'] : ['gym','food','agua']); }
   function renderToday(){
-    renderMissionsCard(); renderSunShare(); renderGymPhoto(); Promise.resolve().then(function(){ tidyToday(); v36Today(); });
+    renderMissionsCard(); renderSunShare(); renderGymPhoto(); Promise.resolve().then(function(){ tidyToday(); v36Today(); v38Today(); });
     var c = ctx(), d = today(), B = bottle(), G = goal(), NB = nBottles();
     document.querySelectorAll('.js-greet').forEach(function(el){ el.textContent = c.wknd ? weekendGreet(c) : c.greet; });
     $('date').textContent = dateLong() + (daysToStart() ? ' · começa em ' + daysToStart() + (daysToStart() === 1 ? ' dia' : ' dias') : ' · Dia ' + dayNumber());
@@ -2805,8 +2912,8 @@ window.addEventListener('error', function(e){
       var notGreen = MEALS.filter(function(x){ var r = mealsOf(d)[x.k]; return r && !r.skip && r.color !== 'verde'; }).length;
       if(pendM) miss.push(pendM === 1 ? 'lançar 1 refeição' : 'lançar ' + pendM + ' refeições');
       var title, text;
-      if(complete(d)){ title = 'Dia completo! Descansa, que amanhã tem mais.'; text = 'Você cumpriu as 3 missões hoje. Orgulho, Lucas.'; }
-      else if(miss.length === 1 && !notGreen && (d.gym || !d.gymJust)){ title = 'Faltou só ' + miss[0] + ' para o dia completo.'; text = 'Ainda dá tempo. Bora fechar o dia!'; }
+      if(complete(d)){ title = 'Dia completo. Descansa, que amanhã tem mais.'; text = 'Você cumpriu as 3 missões hoje. Orgulho, Lucas.'; }
+      else if(miss.length === 1 && !notGreen && (d.gym || !d.gymJust)){ title = 'Faltou só ' + miss[0] + ' para o dia completo.'; text = 'Ainda dá tempo. Bora fechar o dia.'; }
       else if(!miss.length){ title = 'Dia encerrado com esforço.'; text = notGreen ? 'Algumas refeições não ficaram verdes, mas amanhã é nova chance.' : (d.gymJust ? 'Treino justificado hoje. Amanhã a gente volta.' : 'Amanhã é nova chance.'); }
       else { title = 'Hoje faltou: ' + miss.join(', ') + '.'; text = 'Sem culpa. Amanhã é mais um dia do seu Novo Eu.'; }
       eod.innerHTML = '<small>Fechamento do dia</small><b>'+esc(title)+'</b><p>'+esc(text)+'</p>';
@@ -2821,7 +2928,7 @@ window.addEventListener('error', function(e){
     var total = totalOf(d);
     $('waterMeta').textContent = 'Meta ' + fmtL(G) + ' · ' + NB + ' garrafinha' + (NB>1?'s':'') + (heatExtra() ? ' · +1 pelo calor' : '');
     $('wBottles').textContent = fmtN(total/B, 2) + ' de ' + NB;
-    $('wSub').textContent = 'garrafinhas · ' + fmtL(total) + (total >= G ? ' · meta batida!' : '');
+    $('wSub').textContent = 'garrafinhas · ' + fmtL(total) + (total >= G ? ' · meta batida.' : '');
     $('addBottle').lastChild.textContent = ' +' + B + ' ml · 1 garrafinha';
     var me = S().morningEnd, ae = S().afternoonEnd;
     var defs = [['m','Manhã','até '+me+'h'],['t','Tarde',me+'h–'+ae+'h'],['n','Noite','após '+ae+'h']];
@@ -2840,7 +2947,7 @@ window.addEventListener('error', function(e){
     var tn = {m:'manhã',t:'tarde',n:'noite'}[c.turn];
     var faltaB = Math.max(0, Math.ceil((turnGoal(c.turn) - d.water[c.turn]) / B - 0.001));
     $('turnHint').textContent = turnGoal(c.turn) === 0 ? 'Sem meta de água para a ' + tn + '.'
-      : (faltaB > 0 ? 'Falta' + (faltaB>1?'m ':' ') + faltaB + ' garrafinha' + (faltaB>1?'s':'') + ' para fechar a ' + tn + '.' : 'Meta da ' + tn + ' batida. Mantenha o ritmo!');
+      : (faltaB > 0 ? 'Falta' + (faltaB>1?'m ':' ') + faltaB + ' garrafinha' + (faltaB>1?'s':'') + ' para fechar a ' + tn + '.' : 'Meta da ' + tn + ' batida. Mantenha o ritmo.');
 
     // Academia
     var gb = $('gym'), gj = $('gymJust');
@@ -2889,7 +2996,7 @@ window.addEventListener('error', function(e){
       return '<button type="button" class="meal '+cls+(now2 && !r ? ' now' : '')+'" data-meal="'+x.k+'"><span class="mname">'+x.s+(now2 && !r && !late ?'<em>agora</em>':'')+'</span>'+body+'</button>';
     }).join('');
     var lc = loggedCount(d);
-    $('foodHint').textContent = foodOk(d) ? 'Todas as refeições verdes hoje. Que dia!'
+    $('foodHint').textContent = foodOk(d) ? 'Todas as refeições verdes hoje. Que dia.'
       : (lc === 0 && !sk ? 'Depois de comer, toque na refeição e conte o que você comeu.' : 'Missão completa quando todas as refeições feitas forem verdes.');
 
     // Dica
@@ -2980,7 +3087,7 @@ window.addEventListener('error', function(e){
     var chs = mem.meta.ch.active.concat(mem.meta.ch.hist).filter(function(c){ return c.done ? c.done[k] : false; }).map(function(c){ return esc(c.name); });
     var canEdit = daysBetween(k, tk) <= 30 && k >= mem.meta.start;
     $('dBody').innerHTML =
-      (complete(d) ? '<div class="highlight">'+ico('star',20,'var(--yellow)')+'<span>Dia completo!</span></div>' : '') +
+      (complete(d) ? '<div class="highlight">'+ico('star',20,'var(--yellow)')+'<span>Dia completo.</span></div>' : '') +
       (d.edited ? '<p class="meta" style="margin:0;font-weight:600;display:flex;align-items:center;gap:6px">'+ico('pencil',14,'var(--muted)')+'<span>Dia ajustado depois</span></p>' : '') +
       '<div class="dsec"><h3>Água</h3><p>'+fmtN(tot/B,1)+' de '+nb+' garrafinhas · '+fmtL(tot)+(waterOk(d) ? ' · meta batida' : '')+'</p></div>' +
       '<div class="dsec"><h3>Treino</h3><p>'+gymTxt+'</p></div>' +
@@ -3198,7 +3305,7 @@ window.addEventListener('error', function(e){
   function renderNextAct(){
     var c = ctx(), d = today(), B = bottle(), el = $('nextAct'), txt = '', tgt = null;
     if(paused(todayKey())){ txt = 'Modo pausa: aproveite, sua sequência está guardada'; }
-    else if(complete(d)){ txt = 'Tudo feito hoje. Descansa!'; }
+    else if(complete(d)){ txt = 'Tudo feito hoje. Descansa.'; }
     else {
       var overdue = MEALS.filter(function(x){ return !mealsOf(d)[x.k] && c.h >= mealDue(x.k); })[0];
       var behindB = Math.max(0, Math.ceil((turnGoal(c.turn) - d.water[c.turn])/B - 0.001));
@@ -3210,7 +3317,7 @@ window.addEventListener('error', function(e){
       else if(!d.gym && !d.gymJust && c.h >= 17){ txt = 'Treino de hoje: faça o check-in ou justifique'; tgt = 'gym'; }
       else if(behindB > 0){ txt = 'Próxima: ' + behindB + ' garrafinha' + (behindB>1?'s':'') + ' até as ' + end + 'h'; tgt = 'agua'; }
       else if(!d.gym && !d.gymJust){ txt = 'Treino pendente hoje'; tgt = 'gym'; }
-      else txt = 'Siga o plano. Você está no caminho!';
+      else txt = 'Siga o plano. Você está no caminho.';
     }
     el.innerHTML = '<i class="pulse"></i>' + esc(txt) + (tgt ? ' <span aria-hidden="true">›</span>' : '');
     el.disabled = !tgt; nextTarget = tgt;
@@ -3220,13 +3327,13 @@ window.addEventListener('error', function(e){
   // ================= Datas especiais e fim de semana =================
   function specialDay(){
     var d = now0(), md = pad(d.getMonth()+1) + '-' + pad(d.getDate());
-    if(md === '07-24') return {k:'bday', t:'Feliz aniversário, Lucas!', m:(d.getFullYear()-1995) + ' anos, e um Novo Eu em construção. Hoje o dia é seu!'};
-    if(md === '12-24' || md === '12-25') return {k:'xmas', t:'Feliz Natal, Lucas!', m:'Aproveite a ceia com equilíbrio e muito carinho. Uma garrafinha entre um prato e outro ajuda!'};
-    if(md === '12-31') return {k:'ny', t:'Último dia do ano!', m:'Feche o ano orgulhoso de cada passo que você deu.'};
-    if(md === '01-01') return {k:'ny', t:'Feliz Ano Novo, Lucas!', m:'Ano novo, Novo Eu. Bora com tudo!'};
+    if(md === '07-24') return {k:'bday', t:'Feliz aniversário, Lucas.', m:(d.getFullYear()-1995) + ' anos, e um Novo Eu em construção. Hoje o dia é seu.'};
+    if(md === '12-24' || md === '12-25') return {k:'xmas', t:'Feliz Natal, Lucas.', m:'Aproveite a ceia com equilíbrio e muito carinho. Uma garrafinha entre um prato e outro ajuda.'};
+    if(md === '12-31') return {k:'ny', t:'Último dia do ano.', m:'Feche o ano orgulhoso de cada passo que você deu.'};
+    if(md === '01-01') return {k:'ny', t:'Feliz Ano Novo, Lucas.', m:'Ano novo, Novo Eu. Bora com tudo.'};
     if(md === '07-24') return null;
     var tue = addDays(easterOf(d.getFullYear()), -47), kk = keyOf(d);
-    if(kk >= keyOf(addDays(tue, -3)) && kk <= keyOf(tue)) return {k:'carnaval', t:'Bom Carnaval, Lucas!', m:'Curta a folia com água por perto. Uma garrafinha entre um bloco e outro faz diferença!'};
+    if(kk >= keyOf(addDays(tue, -3)) && kk <= keyOf(tue)) return {k:'carnaval', t:'Bom Carnaval, Lucas.', m:'Curta a folia com água por perto. Uma garrafinha entre um bloco e outro faz diferença.'};
     return null;
   }
   function renderSpecial(){
@@ -3283,7 +3390,7 @@ window.addEventListener('error', function(e){
     var gap = daysBetween(last, tk) - 1, missed = [];
     for(var i = Math.min(gap, 7); i >= 1; i--){ var k = keyOf(addDays(fromKey(tk), -i)); if(k >= mem.meta.start) missed.push(k); }
     $('wMascot').innerHTML = mascotSVG('happy', 84);
-    $('wText').textContent = 'Você ficou ' + gap + ' dia' + (gap>1?'s':'') + ' sem abrir o app. Sem problema, a vida acontece! Quer lançar o que fez nesses dias?';
+    $('wText').textContent = 'Você ficou ' + gap + ' dia' + (gap>1?'s':'') + ' sem abrir o app. Sem problema, a vida acontece. Quer lançar o que fez nesses dias?';
     $('wDays').innerHTML = missed.map(function(k){
       var dt = fromKey(k), lb = dt.toLocaleDateString('pt-BR',{weekday:'long', day:'numeric', month:'short'});
       return '<button type="button" class="wday" data-edit="'+k+'"><span>'+lb.charAt(0).toUpperCase()+lb.slice(1)+'</span><b>Lançar ›</b></button>';
@@ -3401,7 +3508,7 @@ window.addEventListener('error', function(e){
     MEALS.forEach(function(x){
       var s = stats[x.k];
       if(s.l >= 3 && s.bad / s.l >= 0.6) out.push({tone:'warn', k:x.k, t:'O ' + MEAL_POSS[x.k] + ' é seu ponto fraco nos últimos dias. ' + MEAL_TIP[x.k]});
-      else if(s.l >= 3 && s.g / s.l >= 0.8) out.push({tone:'good', k:x.k, t:'Seus ' + MEAL_PLURAL[x.k] + ' estão quase sempre verdes. Mandou bem!'});
+      else if(s.l >= 3 && s.g / s.l >= 0.8) out.push({tone:'good', k:x.k, t:'Seus ' + MEAL_PLURAL[x.k] + ' estão quase sempre verdes. Mandou bem.'});
       if(skip7[x.k] >= 3) out.push({tone:'warn', k:x.k, t:'Você pulou o ' + MEAL_POSS[x.k] + ' ' + skip7[x.k] + ' vezes nesta semana. Ficar muito tempo sem comer costuma pesar depois.'});
     });
     if(wk.l >= 3 && wd.l >= 3 && (wk.g/wk.l) < (wd.g/wd.l) - 0.25) out.push({tone:'warn', k:'wk', t:'Nos fins de semana suas refeições pesam mais. Planejar uma refeição do sábado já ajuda.'});
@@ -3429,11 +3536,11 @@ window.addEventListener('error', function(e){
   }
 
   // ================= Primeira vitória do dia =================
-  var FIRST_LINES = ['Primeira vitória do dia.', 'O dia começou com o pé direito.', 'Um passo de cada vez. Esse foi o primeiro!', 'Começou! Agora é manter o ritmo.'];
+  var FIRST_LINES = ['Primeira vitória do dia.', 'O dia começou com o pé direito.', 'Um passo de cada vez. Esse foi o primeiro.', 'Começou. Agora é manter o ritmo.'];
   function firstWin(d){
     if(d.firstWin) return false;
     d.firstWin = true;
-    if(reduceMotion){ toast('Bom começo, Lucas!'); return true; }
+    if(reduceMotion){ toast('Bom começo, Lucas.'); return true; }
     $('fwMascot').innerHTML = mascotSVG('happy', 64);
     $('fwText').textContent = FIRST_LINES[doy() % FIRST_LINES.length];
     var el = $('firstWin'); el.hidden = true; void el.offsetWidth; el.hidden = false;
@@ -3443,17 +3550,17 @@ window.addEventListener('error', function(e){
 
   // ================= Mascote interativo =================
   var MASCOT_TAP = [
-    'Seu corpo é cerca de 60% água. Bora repor!',
+    'Seu corpo é cerca de 60% água. Bora repor.',
     'Até uma desidratação leve já dá cansaço e dor de cabeça.',
     'Beber água antes das refeições ajuda na saciedade.',
-    'Você é mais forte do que imagina, Lucas!',
+    'Você é mais forte do que imagina, Lucas.',
     'Cada garrafinha é um voto no seu Novo Eu.',
-    'Ei! Tô de olho na sua hidratação, hein.',
+    'Ei. Tô de olho na sua hidratação, hein.',
     'Disciplina hoje, orgulho amanhã.',
     'Sabia que o cérebro também precisa de água para focar?',
-    'Água gelada ou natural, o importante é beber!',
+    'Água gelada ou natural, o importante é beber.',
     'Hoje é um ótimo dia para ser constante.',
-    'Cócegas não! Hahaha. Bora pra próxima missão?',
+    'Cócegas não. Hahaha. Bora pra próxima missão?',
     'Músculo cresce no descanso, mas precisa de água também.'
   ];
   var tapIdx = Math.floor(Math.random()*MASCOT_TAP.length), bubbleT = null;
@@ -3477,7 +3584,7 @@ window.addEventListener('error', function(e){
     var s = weekStats(mon);
     mem.meta.pw = mem.meta.pw || {}; mem.meta.pw[keyOf(mon)] = todayKey(); saveMeta();
     $('pfMascot').innerHTML = mascotSVG('party', 96);
-    $('pfSub').textContent = shortDate(mon) + ' a ' + shortDate(addDays(mon, 6)) + '. Todas as missões, todos os dias. Isso é constância de verdade, Lucas!';
+    $('pfSub').textContent = shortDate(mon) + ' a ' + shortDate(addDays(mon, 6)) + '. Todas as missões, todos os dias. Isso é constância de verdade, Lucas.';
     $('pfStats').innerHTML = [
       ['7/7', 'dias com meta de água'], [s.gym + '', 'treinos'],
       [s.greenPct === null ? '—' : s.greenPct + '%', 'refeições verdes'],
@@ -3555,7 +3662,7 @@ window.addEventListener('error', function(e){
     var hit = 0, miss = 0, data = 0;
     for(var i=1;i<=5;i++){ var k = keyOf(addDays(fromKey(tk), -i)); if(k < mem.meta.start) break; var d = mem.days[k]; if(paused(k)) continue; if(d && waterOk(d)) hit++; if(i <= 3){ if(d && hasData(d)){ data++; if(!waterOk(d)) miss++; } } }
     var t = S().turns, base = (t.m||0) + (t.t||0) + (t.n||0);
-    if(hit >= 5 && base < 10) return {dir:1, txt:'Você bateu a meta de água 5 dias seguidos! Que tal subir 1 garrafinha (' + fmtL(bottle()) + ') na tarde?'};
+    if(hit >= 5 && base < 10) return {dir:1, txt:'Você bateu a meta de água 5 dias seguidos. Que tal subir 1 garrafinha (' + fmtL(bottle()) + ') na tarde?'};
     if(data >= 3 && miss >= 3 && base > 1) return {dir:-1, txt:'A meta de água ficou difícil nos últimos 3 dias. Que tal uma meta mais leve, com 1 garrafinha a menos, para pegar o ritmo?'};
     return null;
   }
@@ -3571,7 +3678,7 @@ window.addEventListener('error', function(e){
     if(dir > 0) t.t = (t.t||0) + 1;
     else { var big = ['t','m','n'].sort(function(a,b){ return (t[b]||0) - (t[a]||0); })[0]; t[big] = Math.max(0, (t[big]||0) - 1); }
     mem.meta.adjAt = todayKey(); saveMeta(); saveSettings(); renderToday();
-    toast(dir > 0 ? 'Meta nova: ' + fmtL(goal()) + '. Bora!' : 'Meta ajustada: ' + fmtL(goal()) + '. Passo a passo!');
+    toast(dir > 0 ? 'Meta nova: ' + fmtL(goal()) + '. Bora.' : 'Meta ajustada: ' + fmtL(goal()) + '. Passo a passo.');
   }
 
   // ================= v3: desafios =================
@@ -3595,7 +3702,7 @@ window.addEventListener('error', function(e){
     if(chDone(c) >= c.days){
       mem.meta.ch.active = mem.meta.ch.active.filter(function(x){ return x.id !== id; });
       mem.meta.ch.hist.unshift({id:c.id, name:c.name, days:c.days, got:c.days, end:todayKey(), ok:true, done:c.done});
-      saveMeta(); party('Desafio concluído!', c.name + ' · ' + c.days + ' dias', true, 'badge');
+      saveMeta(); party('Desafio concluído.', c.name + ' · ' + c.days + ' dias', true, 'badge');
     } else { saveMeta(); if(c.done[k]) toast('Desafio: ' + chDone(c) + ' de ' + c.days + ' dias'); }
     renderChallenges(); if(current === 'evo') renderEvo();
   }
@@ -3643,7 +3750,7 @@ window.addEventListener('error', function(e){
     if(ch) lines.push(ico('flag',18,'var(--yellow)') + '<span>Desafio: <b>' + esc(ch.name) + '</b> · dia ' + Math.min(ch.days, daysBetween(ch.start, tk) + 1) + ' de ' + ch.days + '</span>');
     var supp = (S().supps || []).length; if(supp) lines.push(ico('pill',18,'var(--purple)') + '<span>' + supp + ' suplemento' + (supp>1?'s':'') + ' para marcar hoje</span>');
     el.hidden = false;
-    el.innerHTML = '<div class="mascot sm">'+mascotSVG('happy', 48, true)+'</div><div style="flex:1"><b>'+c.greet+', Lucas!</b><div class="mlines">'+lines.map(function(l){ return '<p>'+l+'</p>'; }).join('')+'</div><small>Toque para fechar</small></div>';
+    el.innerHTML = '<div class="mascot sm">'+mascotSVG('happy', 48, true)+'</div><div style="flex:1"><b>'+c.greet+', Lucas.</b><div class="mlines">'+lines.map(function(l){ return '<p>'+l+'</p>'; }).join('')+'</div><small>Toque para fechar</small></div>';
   }
 
   // ================= v3: modo pausa =================
@@ -3662,12 +3769,12 @@ window.addEventListener('error', function(e){
     S().pauses = (S().pauses || []).filter(function(p){ return p.until < tk; });
     S().pauses.push({from: tk, until: until});
     saveSettings(); renderAll(); renderPerfil();
-    toast('Pausa até ' + shortDate(fromKey(until)) + '. Aproveite!');
+    toast('Pausa até ' + shortDate(fromKey(until)) + '. Aproveite.');
   }
   function endPause(){
     var tk = todayKey(), y = keyOf(addDays(fromKey(tk), -1));
     S().pauses = (S().pauses || []).map(function(p){ if(p.until < tk) return p; if(p.from >= tk) return null; return {from: p.from, until: y}; }).filter(Boolean);
-    saveSettings(); renderAll(); if(current === 'perfil') renderPerfil(); toast('Pausa encerrada. Bem-vindo de volta!');
+    saveSettings(); renderAll(); if(current === 'perfil') renderPerfil(); toast('Pausa encerrada. Bem-vindo de volta.');
   }
 
   // ================= v3: frase personalizada da semana =================
@@ -3677,13 +3784,13 @@ window.addEventListener('error', function(e){
     if(days.length < 3) return null;
     var opts = [];
     var morningAll = days.every(function(x){ return (S().turns.m||0) === 0 || x.d.water.m >= (S().turns.m||0) * bottle(); });
-    if(morningAll && (S().turns.m||0) > 0) opts.push('Você bateu a água de manhã todos os dias desta semana!');
-    var wAll = days.every(function(x){ return waterOk(x.d); }); if(wAll) opts.push('Água em dia todos os dias da semana. Que constância!');
-    var g = days.filter(function(x){ return x.d.gym; }).length; if(g >= 4) opts.push(g + ' treinos nesta semana. Isso é disciplina!');
-    var gl = 0, lg = 0; days.forEach(function(x){ gl += greenCount(x.d); lg += loggedCount(x.d); }); if(lg >= 6 && gl/lg >= 0.75) opts.push(Math.round(gl/lg*100) + '% das suas refeições foram verdes nesta semana!');
+    if(morningAll && (S().turns.m||0) > 0) opts.push('Você bateu a água de manhã todos os dias desta semana.');
+    var wAll = days.every(function(x){ return waterOk(x.d); }); if(wAll) opts.push('Água em dia todos os dias da semana. Que constância.');
+    var g = days.filter(function(x){ return x.d.gym; }).length; if(g >= 4) opts.push(g + ' treinos nesta semana. Isso é disciplina.');
+    var gl = 0, lg = 0; days.forEach(function(x){ gl += greenCount(x.d); lg += loggedCount(x.d); }); if(lg >= 6 && gl/lg >= 0.75) opts.push(Math.round(gl/lg*100) + '% das suas refeições foram verdes nesta semana.');
     var best = days.slice().sort(function(a,b){ return dayScore(b.d) - dayScore(a.d); })[0];
     if(best && missionCount(best.d) >= 2) opts.push(names[best.i].charAt(0).toUpperCase() + names[best.i].slice(1) + ' foi seu dia mais forte da semana.');
-    var c = days.filter(function(x){ return complete(x.d); }).length; if(c >= 3) opts.push(c + ' dias completos nesta semana. Orgulho, Lucas!');
+    var c = days.filter(function(x){ return complete(x.d); }).length; if(c >= 3) opts.push(c + ' dias completos nesta semana. Orgulho, Lucas.');
     if(!opts.length) opts.push('Semana de recomeço. Cada missão cumprida já é vitória.');
     return opts[doy() % opts.length];
   }
@@ -3733,7 +3840,7 @@ window.addEventListener('error', function(e){
     for(var j=1;j<120;j++){ var kk = keyOf(addDays(y, -j)); if(kk < mem.meta.start) break; if(complete(dayData(kk))){ had = true; break; } }
     if(!had) return false;
     mem.meta.comebacks.push(tk); saveMeta();
-    party('Conquista: Voltei!', 'Recomeçar também é vitória' + (mem.meta.comebacks.length > 1 ? ' · ' + mem.meta.comebacks.length + 'ª vez' : ''), true, 'badge');
+    party('Conquista: Voltei.', 'Recomeçar também é vitória' + (mem.meta.comebacks.length > 1 ? ' · ' + mem.meta.comebacks.length + 'ª vez' : ''), true, 'badge');
     return true;
   }
 
@@ -3777,9 +3884,9 @@ window.addEventListener('error', function(e){
     var S2 = [];
     S2.push({bg:'linear-gradient(160deg,#3B6CF5,#1E3A8A)', k:'Retrospectiva', big: r.name.charAt(0).toUpperCase() + r.name.slice(1), sub: r.active + ' dia' + (r.active===1?'':'s') + ' de Novo Eu neste mês. Bora ver como foi?', m:'party'});
     S2.push({bg:'linear-gradient(160deg,#1D4ED8,#0B1F5C)', k:'Água', big: fmtN(r.ml/1000, 1) + ' L', sub: '≈ ' + Math.round(r.ml/bottle()) + ' garrafinhas bebidas no mês.', m:'happy'});
-    S2.push({bg:'linear-gradient(160deg,#F97316,#7C2D12)', k:'Treinos', big: r.gyms + '', sub: r.gyms ? 'treinos feitos' + (r.topType ? ', mais ' + r.topType.n.toLowerCase() + ' ' + r.topType.e : '') + '.' : 'Mês de descanso. O próximo é seu!', m:'happy'});
+    S2.push({bg:'linear-gradient(160deg,#F97316,#7C2D12)', k:'Treinos', big: r.gyms + '', sub: r.gyms ? 'treinos feitos' + (r.topType ? ', mais ' + r.topType.n.toLowerCase() + ' ' + r.topType.e : '') + '.' : 'Mês de descanso. O próximo é seu.', m:'happy'});
     S2.push({bg:'linear-gradient(160deg,#16A34A,#14532D)', k:'Alimentação', big: r.greens + '', sub: 'refeições verdes' + (r.greenPct !== null ? ' · ' + r.greenPct + '% de tudo que você lançou' : '') + '.', m:'happy'});
-    if(r.wd !== null) S2.push({bg:'linear-gradient(160deg,#7C3AED,#3B0764)', k:'Peso', big: (r.wd > 0 ? '+' : (r.wd < 0 ? '−' : '')) + fmtN(Math.abs(r.wd), 1) + ' kg', sub: r.wd < 0 ? 'a menos na balança. Isso é resultado!' : 'O que importa é a tendência. Segue firme.', m: r.wd < 0 ? 'party' : 'happy'});
+    if(r.wd !== null) S2.push({bg:'linear-gradient(160deg,#7C3AED,#3B0764)', k:'Peso', big: (r.wd > 0 ? '+' : (r.wd < 0 ? '−' : '')) + fmtN(Math.abs(r.wd), 1) + ' kg', sub: r.wd < 0 ? 'a menos na balança. Isso é resultado.' : 'O que importa é a tendência. Segue firme.', m: r.wd < 0 ? 'party' : 'happy'});
     S2.push({bg:'linear-gradient(160deg,#0E1512,#1F2A25)', k:'Constância', big: r.comp + ' dia' + (r.comp===1?'':'s'), sub: 'completos' + (r.best > 1 ? ' · melhor sequência de ' + r.best + ' dias' : '') + '.', m:'happy'});
     S2.push({bg:'linear-gradient(160deg,#CA8A04,#713F12)', k:'Conquistas', big: r.badges.length ? r.badges.length + '' : '—', sub: r.badges.length ? r.badges.slice(0, 3).join(' · ') + (r.badges.length > 3 ? '…' : '') : 'As próximas conquistas estão chegando.', m:'party', share:true});
     return S2;
@@ -3834,7 +3941,7 @@ window.addEventListener('error', function(e){
       '<g transform="translate(90 110) scale(2.2)">' + mascotSVG(mc === 3 ? 'party' : 'happy', 64, true).replace(/^<svg[^>]*>/, '').replace(/<\/svg>$/, '') + '</g>' +
       '<text x="270" y="190" font-family="'+F+'" font-size="34" font-weight="800" fill="'+S3.acc+'" letter-spacing="3">NOVO EU · DIA '+dn+'</text>' +
       '<text x="270" y="250" font-family="'+F+'" font-size="40" font-weight="600" fill="'+S3.sub+'">'+esc(ds)+'</text>' +
-      '<text x="90" y="440" font-family="'+F+'" font-size="120" font-weight="800" fill="'+S3.ink+'">'+(mc === 3 ? 'Dia completo!' : mc + ' de 3 missões')+'</text>' +
+      '<text x="90" y="440" font-family="'+F+'" font-size="120" font-weight="800" fill="'+S3.ink+'">'+(mc === 3 ? 'Dia completo.' : mc + ' de 3 missões')+'</text>' +
       '<text x="90" y="520" font-family="'+F+'" font-size="44" font-weight="600" fill="'+S3.sub+'">'+(mc === 3 ? 'Água, treino e alimentação em dia.' : 'Um passo de cada vez.')+'</text>' +
       body + '<text x="540" y="1290" text-anchor="middle" font-family="'+F+'" font-size="34" font-weight="800" fill="'+S3.sub+'">#NovoEu</text></svg>';
   }
@@ -3855,7 +3962,7 @@ window.addEventListener('error', function(e){
   function doShareDay(){
     var k = shareK, d = dayData(k), mc = missionCount(d);
     mem.meta.shareSt = shareSt; saveMeta();
-    var text = (mc === 3 ? 'Dia completo no Novo Eu!' : mc + ' de 3 missões hoje no Novo Eu') + ' #NovoEu';
+    var text = (mc === 3 ? 'Dia completo no Novo Eu.' : mc + ' de 3 missões hoje no Novo Eu') + ' #NovoEu';
     svgToBlob(dayCardSVG(k, shareSt), 1080, 1350).then(function(blob){
       var file = blob ? new File([blob], 'novo-eu-dia.png', {type:'image/png'}) : null;
       if(!navigator.share){ toast('Por aqui não dá para compartilhar. Tenta pelo app instalado 📲'); return; }
@@ -4066,7 +4173,7 @@ window.addEventListener('error', function(e){
     mem.meta.phaseHist.unshift({name:p.name, start:p.start, end:phaseEnd(p), days:p.days, g:p.g, st:st, hits:hits});
     mem.meta.phase = null; mem.meta.phaseNew = 1; saveMeta();
     party('Fase concluída: ' + p.name, hits + ' de 3 metas batidas · ' + p.days + ' dias', hits >= 2, 'badge');
-    milestonePrompt('Fase concluída!', p.name + ' · ' + hits + ' de 3 metas em ' + p.days + ' dias', 'Fim de fase');
+    milestonePrompt('Fase concluída.', p.name + ' · ' + hits + ' de 3 metas em ' + p.days + ' dias', 'Fim de fase');
   }
   function renderPhase(){
     var el = $('phCard'); if(!el) return;
@@ -4152,7 +4259,7 @@ window.addEventListener('error', function(e){
     el.innerHTML = '<div class="row"><div class="ttl"><div class="ic" style="background:var(--yellow-soft)">'+ico('star',24,'var(--yellow)')+'</div><div><small class="kick">Há '+label+'</small><h2 style="margin:0">Olha o quanto você mudou</h2></div></div></div>' +
       (ph.length > 1 ? '<div class="memph"><figure><img src="'+mem.photos[ph[0].photo]+'" alt="Antes"><figcaption>'+shortDate(fromKey(ph[0].date))+'</figcaption></figure><figure><img src="'+mem.photos[ph[ph.length-1].photo]+'" alt="Agora"><figcaption>Agora</figcaption></figure></div>' : '') +
       '<div class="memtab"><div class="mh"><span></span><b>No começo</b><b>Agora</b></div>' + rows.map(function(r){ return '<div><span>'+r[0]+'</span><em>'+r[1]+'</em><strong>'+r[2]+'</strong></div>'; }).join('') + '</div>' +
-      '<button type="button" class="btn b-ghost" data-memo="'+m+'" style="flex:none;width:100%">Que orgulho! Fechar</button>';
+      '<button type="button" class="btn b-ghost" data-memo="'+m+'" style="flex:none;width:100%">Que orgulho. Fechar</button>';
   }
 
   // ================= v3.2: visão do ano =================
@@ -4201,7 +4308,7 @@ window.addEventListener('error', function(e){
     S2.push({bg:'linear-gradient(160deg,#16A34A,#14532D)', k:'Alimentação', big: cur.greenPct !== null ? cur.greenPct + '%' : '—', sub: 'das refeições foram verdes.' + (prev && cur.greenPct !== null ? dlt(cur.greenPct, prev.greenPct, ' pontos') : ''), m:'happy'});
     if(cur.wd !== null) S2.push({bg:'linear-gradient(160deg,#7C3AED,#3B0764)', k:'Peso', big: (cur.wd > 0 ? '+' : (cur.wd < 0 ? '−' : '')) + fmtN(Math.abs(cur.wd), 1) + ' kg', sub: cur.wd < 0 ? 'a menos no trimestre.' : 'O que importa é a tendência. Segue firme.', m: cur.wd < 0 ? 'party' : 'happy'});
     S2.push({bg:'linear-gradient(160deg,#0E1512,#1F2A25)', k:'Constância', big: cur.comp + ' dia' + (cur.comp===1?'':'s'), sub: 'completos' + (cur.best > 1 ? ' · melhor sequência de ' + cur.best + ' dias' : '') + '.' + (prev ? dlt(cur.comp, prev.comp) : ''), m:'happy'});
-    if(prev) S2.push({bg:'linear-gradient(160deg,#0F766E,#134E4A)', k:'Balanço', big: better.length ? 'Melhorou' : 'Mantenha o foco', sub: (better.length ? 'Evoluiu em ' + better.join(', ') + '.' : 'Nenhuma área subiu mais de 5%.') + (worse.length ? ' Atenção a ' + worse.join(', ') + '.' : ' Nada caiu. Muito bem!'), m: better.length ? 'party' : 'happy'});
+    if(prev) S2.push({bg:'linear-gradient(160deg,#0F766E,#134E4A)', k:'Balanço', big: better.length ? 'Melhorou' : 'Mantenha o foco', sub: (better.length ? 'Evoluiu em ' + better.join(', ') + '.' : 'Nenhuma área subiu mais de 5%.') + (worse.length ? ' Atenção a ' + worse.join(', ') + '.' : ' Nada caiu. Muito bem.'), m: better.length ? 'party' : 'happy'});
     S2.push({bg:'linear-gradient(160deg,#CA8A04,#713F12)', k:'Conquistas', big: cur.badges.length ? cur.badges.length + '' : '—', sub: cur.badges.length ? cur.badges.slice(0, 3).join(' · ') + (cur.badges.length > 3 ? '…' : '') : 'As próximas conquistas estão chegando.', m:'party', share:true});
     recap = {r: cur, s: S2, q: {y:y, q:q}}; recapIdx = 0;
     $('recap').hidden = false; document.body.style.overflow = 'hidden';
@@ -4647,7 +4754,7 @@ window.addEventListener('error', function(e){
     // itens por medalha
     ITEMS.forEach(function(it){ if(it.src === 'medal' && !(mem.meta.inv || {})[it.id] && itemOpen(it)){ grantItem(it.id, true); if(!first) got.push({kind:'item', id:it.id}); ch = true; } });
     // páginas do álbum
-    albumPages().forEach(function(p){ var key = 'pg_' + p.k; if(p.done && !(mem.meta.alb || {})[key]){ mem.meta.alb = mem.meta.alb || {}; mem.meta.alb[key] = tk; var it = rewardForPage(p.k); if(it){ grantItem(it, true); if(!first) got.push({kind:'item', id:it, why:'Página ' + p.n + ' completa!'}); } ch = true; } });
+    albumPages().forEach(function(p){ var key = 'pg_' + p.k; if(p.done && !(mem.meta.alb || {})[key]){ mem.meta.alb = mem.meta.alb || {}; mem.meta.alb[key] = tk; var it = rewardForPage(p.k); if(it){ grantItem(it, true); if(!first) got.push({kind:'item', id:it, why:'Página ' + p.n + ' completa.'}); } ch = true; } });
     memoC.c = {}; // XP mudou
     var L = playerLevel(), prevL = mem.meta.lvl || 0;
     if(L < prevL){ mem.meta.lvl = L; Object.keys(mem.meta.lvlHist || {}).forEach(function(l3){ if(+l3 > L) delete mem.meta.lvlHist[l3]; }); ch = true; }
@@ -4849,7 +4956,7 @@ window.addEventListener('error', function(e){
       case 'worried': return {e:'<circle cx="25" cy="39" r="3" fill="'+k+'"/><circle cx="39" cy="39" r="3" fill="'+k+'"/><path d="M20.5 33.5l6 1.6M43.5 33.5l-6 1.6" stroke="'+k+'" stroke-width="2" stroke-linecap="round"/>', m:'<path d="M27 49q5-3.5 10 0" stroke="'+k+'" stroke-width="2.2" fill="none" stroke-linecap="round"/>', x:'<path d="M48 27c1.6 2.4 2.4 3.9 2.4 5a2.4 2.4 0 0 1-4.8 0c0-1.1.8-2.6 2.4-5z" fill="#BFDBFE"/>'};
       case 'party': return {e:'<path d="M21.5 40q3.5-4.5 7 0M35.5 40q3.5-4.5 7 0" stroke="'+k+'" stroke-width="2.4" fill="none" stroke-linecap="round"/>', m:'<path d="M25 45.5h14a7 7 0 0 1-14 0z" fill="'+k+'"/><path d="M28.5 49.6a4 2.2 0 0 0 7 0" fill="#F87171"/>', x:'<circle cx="10" cy="20" r="2" fill="#FACC15"/><circle cx="55" cy="24" r="2" fill="#34D399"/><rect x="50" y="10" width="4" height="4" rx="1" fill="#FDBA74" transform="rotate(20 52 12)"/><rect x="9" y="8" width="4" height="4" rx="1" fill="#A78BFA" transform="rotate(-20 11 10)"/>'};
       case 'happy': return {e:EYE_N, m:'<path d="M26 46q6 5.5 12 0" stroke="'+k+'" stroke-width="2.4" fill="none" stroke-linecap="round"/>', x:''};
-      case 'bora': return {e:EYE_N + '<path d="M21 33.5l7.5 1.8M43 33.5l-7.5 1.8" stroke="'+k+'" stroke-width="2.2" stroke-linecap="round"/>', m:'<path d="M26.5 46.5q5.5 3.5 11 0" stroke="'+k+'" stroke-width="2.4" fill="none" stroke-linecap="round"/>', x:'<text x="47" y="22" font-size="11" font-weight="900" fill="#F97316" font-family="system-ui">!</text>'};
+      case 'bora': return {e:EYE_N + '<path d="M21 33.5l7.5 1.8M43 33.5l-7.5 1.8" stroke="'+k+'" stroke-width="2.2" stroke-linecap="round"/>', m:'<path d="M26.5 46.5q5.5 3.5 11 0" stroke="'+k+'" stroke-width="2.4" fill="none" stroke-linecap="round"/>', x:'<text x="47" y="22" font-size="11" font-weight="900" fill="#F97316" font-family="system-ui">.</text>'};
       case 'hug': return {e:'<path d="M21.5 40q3.5-3.5 7 0M35.5 40q3.5-3.5 7 0" stroke="'+k+'" stroke-width="2.4" fill="none" stroke-linecap="round"/>', m:'<path d="M27 46q5 4 10 0" stroke="'+k+'" stroke-width="2.2" fill="none" stroke-linecap="round"/>', x:'<path d="M51 22c-1.6-2.6-5.4-1-3.6 1.8L51 27l3.6-3.2c1.8-2.8-2-4.4-3.6-1.8z" fill="#F472B6"/>'};
       case 'laugh': return {e:'<path d="M21 37l6 2.5-6 2.5M43 37l-6 2.5 6 2.5" stroke="'+k+'" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>', m:'<path d="M25 45h14a7 7 0 0 1-14 0z" fill="'+k+'"/><path d="M28.5 49a4 2 0 0 0 7 0" fill="#F87171"/>', x:'<path d="M14 30q-3-3-6-1M50 30q3-3 6-1" stroke="#BFDBFE" stroke-width="1.6" fill="none" stroke-linecap="round"/>'};
       case 'dizzy': return {e:'<path d="M22 36l6 6M28 36l-6 6M36 36l6 6M42 36l-6 6" stroke="'+k+'" stroke-width="2.2" stroke-linecap="round"/>', m:'<path d="M26 48q3-3 6 0t6 0" stroke="'+k+'" stroke-width="2.2" fill="none" stroke-linecap="round"/>', x:'<path d="M14 12a6 3 0 1 0 12 0a6 3 0 1 0-12 0" stroke="#FACC15" stroke-width="1.4" fill="none"/><circle cx="15" cy="11" r="1.3" fill="#FACC15"/><circle cx="25" cy="13" r="1.3" fill="#FACC15"/>'};
@@ -4898,15 +5005,15 @@ window.addEventListener('error', function(e){
 
   // ---------- Humor da gotinha ----------
   var MASCOT_LINES = {
-    sleepy:['Bom dia… bora acordar com uma garrafinha?','Ainda acordando aqui. Um gole ajuda!'],
+    sleepy:['Bom dia… bora acordar com uma garrafinha?','Ainda acordando aqui. Um gole ajuda.'],
     sleepyN:['Tô ficando murchinha… falta água hoje.','Antes de dormir, que tal uma garrafinha?'],
-    worried:['Tô secando aqui! Falta água na {t}.','Ei, Lucas, a {t} está acabando e falta água!'],
-    happy:['Tá indo bem, Lucas!','Ritmo bom hoje. Continua assim!','Gostei de ver!'],
-    party:['Dia completo! Que orgulho!','Missão cumprida, Lucas!'],
+    worried:['Tô secando aqui. Falta água na {t}.','Ei, Lucas, a {t} está acabando e falta água.'],
+    happy:['Tá indo bem, Lucas.','Ritmo bom hoje. Continua assim.','Gostei de ver.'],
+    party:['Dia completo. Que orgulho.','Missão cumprida, Lucas.'],
     neutral:['Bora começar as missões?','Hoje é dia de cuidar de você.'],
-    bora:['E o treino de hoje, bora?','Tênis no pé! Ainda dá tempo de treinar.'],
+    bora:['E o treino de hoje, bora?','Tênis no pé. Ainda dá tempo de treinar.'],
     hug:['Ontem passou. Hoje é página nova 💙','Tô aqui com você. Um passo de cada vez.'],
-    wk:['Fim de semana também conta. Bora!','Sábado e domingo leves, mas no foco!']
+    wk:['Fim de semana também conta. Bora.','Sábado e domingo leves, mas no foco.']
   };
   function computeMood(){
     if(mascotMood) return mascotMood;
@@ -4927,7 +5034,7 @@ window.addEventListener('error', function(e){
     var deco = face + '|' + mascotForm() + '|' + (seasonal() || '') + '|' + lk.c + lk.a + lk.bg;
     if(el.getAttribute('data-mood') !== deco){ el.innerHTML = '<span class="scn">' + sceneSVG(lk.bg, 72, 72) + '</span>' + mascotSVG(face, 58, true); el.setAttribute('data-mood', deco); }
     var c = ctx(), wx = mem.meta.weather, hot = wx && wx.day === todayKey() && wx.max >= 30;
-    var lines = hot && (mood === 'neutral' || mood === 'happy') ? ['Dia quente hoje, Lucas! Capricha na água.', 'Calorão de ' + Math.round(wx.max) + '°! Garrafinha sempre por perto.'] : (c.wknd && mood === 'neutral' ? MASCOT_LINES.wk : MASCOT_LINES[mood]);
+    var lines = hot && (mood === 'neutral' || mood === 'happy') ? ['Dia quente hoje, Lucas. Capricha na água.', 'Calorão de ' + Math.round(wx.max) + '°. Garrafinha sempre por perto.'] : (c.wknd && mood === 'neutral' ? MASCOT_LINES.wk : MASCOT_LINES[mood]);
     var line = lines[doy() % lines.length].replace('{t}', {m:'manhã',t:'tarde',n:'noite'}[c.turn]);
     $('heroHint').textContent = line;
     if(mascotMood === 'party' && !mascotT){ mascotT = setTimeout(function(){ mascotMood = null; mascotT = null; renderMascot(); }, 4500); }
@@ -4952,10 +5059,10 @@ window.addEventListener('error', function(e){
     el.addEventListener('pointerup', function(e){
       clearTimeout(mi.hold); if(mi.held || !mi.down) return;
       var dy = e.clientY - mi.down.y; mi.down = null;
-      if(dy < -28){ mascotAnim('jump', 'party', 1200); bubbleSay('Wiii! 🦘'); miFound('jump'); return; }
+      if(dy < -28){ mascotAnim('jump', 'party', 1200); bubbleSay('Wiii. 🦘'); miFound('jump'); return; }
       mi.taps++; clearTimeout(mi.t);
       if(mi.taps === 10){ mi.taps = 0; mascotAnim('dizzy', 'dizzy', 2600); bubbleSay('Tô tontinha… 😵‍💫'); miFound('dizzy'); return; }
-      mi.t = setTimeout(function(){ var n = mi.taps; mi.taps = 0; if(n >= 3){ mascotAnim('tickle', 'laugh', 1600); bubbleSay('Cócegas não! Hahaha 🤭'); miFound('tickle'); } else tapMascot(); }, 380);
+      mi.t = setTimeout(function(){ var n = mi.taps; mi.taps = 0; if(n >= 3){ mascotAnim('tickle', 'laugh', 1600); bubbleSay('Cócegas não. Hahaha 🤭'); miFound('tickle'); } else tapMascot(); }, 380);
     });
     ['pointerleave','pointercancel'].forEach(function(ev){ el.addEventListener(ev, function(){ clearTimeout(mi.hold); }); });
     el.addEventListener('contextmenu', function(e){ e.preventDefault(); });
@@ -4995,10 +5102,10 @@ window.addEventListener('error', function(e){
   }
   function showDayOpen(){
     var yk = keyOf(addDays(now0(), -1)), yd = mem.days[yk], c = ctx(), bad = yd && hasData(yd) && missionCount(yd) <= 1;
-    var lines = yd && hasData(yd) ? '<div class="doy"><span>' + ico('drop', 16, '#93C5FD') + fmtL(totalOf(yd)) + '</span><span>' + ico('gym', 16, '#FDBA74') + (yd.gym ? 'Treinou' : 'Sem treino') + '</span><span>' + ico('food', 16, '#86EFAC') + greenCount(yd) + ' verdes</span><b>' + missionCount(yd) + '/3</b></div>' : '<div class="doy"><span>Ontem sem registros. Hoje é dia de recomeçar!</span></div>';
+    var lines = yd && hasData(yd) ? '<div class="doy"><span>' + ico('drop', 16, '#93C5FD') + fmtL(totalOf(yd)) + '</span><span>' + ico('gym', 16, '#FDBA74') + (yd.gym ? 'Treinou' : 'Sem treino') + '</span><span>' + ico('food', 16, '#86EFAC') + greenCount(yd) + ' verdes</span><b>' + missionCount(yd) + '/3</b></div>' : '<div class="doy"><span>Ontem sem registros. Hoje é dia de recomeçar.</span></div>';
     var ms = missionsFor(todayKey()).map(function(m){ return '<li>' + esc(m.t) + '<em>+' + m.xp + ' XP</em></li>'; }).join('');
     var why = doubleWhy(todayKey());
-    $('dayOpen').innerHTML = '<div class="doin"><div class="dom">' + mascotSVG(bad ? 'hug' : 'happy', 108, true, {pose:true}) + '</div><h2>' + c.greet + ', Lucas!</h2><p>' + (bad ? 'Ontem foi puxado. Hoje é página nova 💙' : 'Dia ' + dayNumber() + ' do seu Novo Eu.') + '</p>' +
+    $('dayOpen').innerHTML = '<div class="doin"><div class="dom">' + mascotSVG(bad ? 'hug' : 'happy', 108, true, {pose:true}) + '</div><h2>' + c.greet + ', Lucas.</h2><p>' + (bad ? 'Ontem foi puxado. Hoje é página nova 💙' : 'Dia ' + dayNumber() + ' do seu Novo Eu.') + '</p>' +
       (why ? '<div class="dox">⚡ XP em dobro hoje · ' + esc(why) + '</div>' : '') + '<small>Ontem</small>' + lines + '<small>Missões de hoje</small><ul class="doms">' + ms + '</ul><span class="dotap">Toque para começar</span><i class="dobar"></i></div>';
     var el = $('dayOpen'); el.hidden = false; document.body.style.overflow = 'hidden';
     var close = function(){ if(el.hidden) return; el.classList.add('out'); setTimeout(function(){ el.hidden = true; el.classList.remove('out'); document.body.style.overflow = ''; }, 260); };
@@ -5035,7 +5142,7 @@ window.addEventListener('error', function(e){
     var xp = totalXP(), L = levelOf(xp), a = lvlXP(L), b = lvlXP(L + 1), f = mascotForm(), why = doubleWhy(todayKey());
     var pct = L >= 50 ? 100 : Math.round((xp - a) / (b - a) * 100);
     return '<div class="lvc"><div class="lvm"><span class="scn">' + sceneSVG(look().bg, 84, 84) + '</span>' + mascotSVG('happy', 72, true) + '</div><div class="lvt"><small>Nível ' + L + ' · ' + FORMS[f].n + '</small><b>' + lvlTitle(L) + '</b>' +
-      '<div class="xpbar"><i style="width:' + pct + '%"></i></div><span>' + (L >= 50 ? fmtN(xp, 0) + ' XP · nível máximo!' : fmtN(xp - a, 0) + ' / ' + fmtN(b - a, 0) + ' XP para o nível ' + (L + 1)) + '</span></div></div>' +
+      '<div class="xpbar"><i style="width:' + pct + '%"></i></div><span>' + (L >= 50 ? fmtN(xp, 0) + ' XP · nível máximo.' : fmtN(xp - a, 0) + ' / ' + fmtN(b - a, 0) + ' XP para o nível ' + (L + 1)) + '</span></div></div>' +
       (why ? '<div class="xp2">⚡ XP em dobro hoje · ' + esc(why) + '</div>' : '') +
       '<div class="lvbtns"><button type="button" class="pill" data-cq="journey">' + ico('cal', 16) + ' Ver jornada</button><button type="button" class="pill" data-cq="forms">' + ico('star', 16) + ' Formas</button></div>';
   }
@@ -5108,7 +5215,7 @@ window.addEventListener('error', function(e){
     el.innerHTML = '<div class="row"><h2>Temporada</h2><p class="meta">edição limitada</p></div>' + list.map(function(s){
       var v = seasonVal(s), t = 0; s.t.forEach(function(x){ if(v >= x) t++; });
       var left = daysBetween(todayKey(), s.b), nx = t < 3 ? s.t[t] : s.t[2];
-      return '<div class="szrow"><span class="bi szs t' + t + '">' + s.e + '</span><div><b>' + esc(s.n) + '</b><span>' + (t < 3 ? v + ' / ' + nx + ' ' + s.u + ' · nível ' + (t + 1) : 'Completa! ' + v + ' ' + s.u) + '</span><i class="mb"><i style="width:' + Math.round(Math.min(1, v / nx) * 100) + '%"></i></i><em>' + (left > 0 ? 'Termina em ' + left + (left === 1 ? ' dia' : ' dias') : 'Último dia!') + (s.item && ITEM_BY[s.item] ? ' · prêmio: ' + ITEM_BY[s.item].n : '') + '</em></div></div>';
+      return '<div class="szrow"><span class="bi szs t' + t + '">' + s.e + '</span><div><b>' + esc(s.n) + '</b><span>' + (t < 3 ? v + ' / ' + nx + ' ' + s.u + ' · nível ' + (t + 1) : 'Completa. ' + v + ' ' + s.u) + '</span><i class="mb"><i style="width:' + Math.round(Math.min(1, v / nx) * 100) + '%"></i></i><em>' + (left > 0 ? 'Termina em ' + left + (left === 1 ? ' dia' : ' dias') : 'Último dia.') + (s.item && ITEM_BY[s.item] ? ' · prêmio: ' + ITEM_BY[s.item].n : '') + '</em></div></div>';
     }).join('') + (Object.keys(sz).filter(function(id){ return !list.some(function(s){ return s.id === id; }); }).length ? '<div class="szpast">' + Object.keys(sz).filter(function(id){ return !list.some(function(s){ return s.id === id; }); }).map(function(id){ var r = sz[id]; return '<span class="szchip t' + r.t.length + '">' + r.e + ' ' + esc(r.n) + ' · ' + r.t.length + '/3</span>'; }).join('') + '</div>' : '');
   }
 
@@ -5132,7 +5239,7 @@ window.addEventListener('error', function(e){
     var eta = medalETA(m, s);
     $('mdBody').innerHTML = '<div class="mdbig"><div class="tilt t' + s.t + '" id="mdTilt">' + medalSVG(m, s.t, 168) + '<i class="glare"></i></div></div>' +
       '<h2 class="mdn">' + esc(m.n) + '</h2><p class="mdt">' + (s.t ? tierName(m, s.t) : 'Ainda sem nível') + ' · ' + esc(m.d) + '</p>' +
-      (s.nx ? '<div class="mdprog"><div class="xpbar"><i style="width:' + Math.round(s.pct * 100) + '%"></i></div><b>' + fmtMV(m, s.v) + ' / ' + fmtMV(m, s.nx) + ' ' + esc(m.u === 'L' ? 'L' : m.u) + '</b><span>até o ' + tierName(m, s.t + 1) + '</span>' + (eta ? '<em>' + esc(eta) + '</em>' : '') + '</div>' : '<div class="mdprog"><b>Nível máximo! 🎉</b><span>' + fmtMV(m, s.v) + ' ' + esc(m.u) + '</span></div>') +
+      (s.nx ? '<div class="mdprog"><div class="xpbar"><i style="width:' + Math.round(s.pct * 100) + '%"></i></div><b>' + fmtMV(m, s.v) + ' / ' + fmtMV(m, s.nx) + ' ' + esc(m.u === 'L' ? 'L' : m.u) + '</b><span>até o ' + tierName(m, s.t + 1) + '</span>' + (eta ? '<em>' + esc(eta) + '</em>' : '') + '</div>' : '<div class="mdprog"><b>Nível máximo. 🎉</b><span>' + fmtMV(m, s.v) + ' ' + esc(m.u) + '</span></div>') +
       '<div class="mdtiers">' + m.t.map(function(x, i){ return '<span class="tdot2 t' + (i + 1) + (s.t > i ? ' on' : '') + '"><b>' + tierName(m, i + 1) + '</b>' + fmtMV(m, x) + '</span>'; }).join('') + '</div>' +
       (dates ? '<ul class="mddates">' + dates + '</ul>' : '') +
       '<div class="mdbtns">' + (s.t ? '<button type="button" class="btn b-ink" data-mdsh="' + m.id + '">' + ico('share', 18, '#fff') + ' Compartilhar</button>' : '') + (s.t ? '<button type="button" class="btn b-soft" data-vit="' + m.id + '">' + (vit.indexOf(m.id) >= 0 ? 'Tirar da vitrine' : 'Pôr na vitrine') + '</button>' : '') + '</div>';
@@ -5158,7 +5265,7 @@ window.addEventListener('error', function(e){
     var L = playerLevel(), xp = totalXP(), pct = L >= 50 ? 100 : Math.round((xp - lvlXP(L)) / (lvlXP(L + 1) - lvlXP(L)) * 100);
     el.innerHTML = '<div class="row"><div class="ttl"><div class="ic" style="background:var(--yellow-soft)">' + ico('star', 22, 'var(--yellow)') + '</div><h2 style="font-size:1rem">Missões do dia</h2></div><button type="button" class="lvpill" data-cq="gotoconq">Nv ' + L + '<i style="--p:' + pct + '%"></i></button></div>' +
       (why ? '<div class="xp2 sm">⚡ XP em dobro hoje · ' + esc(why) + '</div>' : '') + '<div class="mslist">' + rows + '</div>' + stamps +
-      '<p class="hint" style="margin:0">' + (bs.opened ? 'Caixa da semana aberta. Nova caixa na segunda!' : (bs.ready ? 'Sua caixa surpresa está pronta! Toque no presente.' : bs.st + ' de 7 carimbos · cada dia com 1 missão vale um carimbo')) + '</p>';
+      '<p class="hint" style="margin:0">' + (bs.opened ? 'Caixa da semana aberta. Nova caixa na segunda.' : (bs.ready ? 'Sua caixa surpresa está pronta. Toque no presente.' : bs.st + ' de 7 carimbos · cada dia com 1 missão vale um carimbo')) + '</p>';
   }
   function openBox(){
     var bs = boxState();
@@ -5183,14 +5290,14 @@ window.addEventListener('error', function(e){
   function closeReveal(){ var el = $('rvl'); el.classList.add('out'); setTimeout(function(){ el.hidden = true; el.className = 'rvl'; document.body.style.overflow = ''; revBusy = false; setTimeout(nextReveal, 250); if(current === 'evo') renderEvo(); renderToday(); }, 280); }
   function showReveal(g){
     var r = 'c', kick = '', vis = '', title = '', sub = '', share = null;
-    if(g.kind === 'medal'){ var m = medalById(g.id); if(!m){ revBusy = false; nextReveal(); return; } r = TIER_RAR[g.tier]; kick = g.tier === 1 ? 'Nova medalha!' : 'Subiu de nível!'; vis = '<div class="rvmed">' + (g.tier > 1 ? '<span class="old">' + medalSVG(m, g.tier - 1, 150) + '</span>' : '') + '<span class="new">' + medalSVG(m, g.tier, 150) + '</span></div>'; title = m.n + ' · ' + tierName(m, g.tier); sub = fmtMV(m, m.t[g.tier - 1]) + ' ' + m.u + ' · +' + TIER_XP[g.tier] + ' XP'; share = 'md:' + m.id; }
-    else if(g.kind === 'secret'){ var s = SECRETS.filter(function(x){ return x.id === g.id; })[0]; r = 'e'; kick = 'Conquista secreta!'; vis = '<div class="rvsec">' + s.e + '</div>'; title = s.n; sub = s.d + ' · +150 XP'; share = 'sec:' + s.id; }
-    else if(g.kind === 'season'){ var z = (mem.meta.sz || {})[g.id]; r = ['', 'r', 'e', 'l'][g.tier]; kick = 'Temporada · nível ' + g.tier; vis = '<div class="rvsec szs t' + g.tier + '">' + (z ? z.e : '🗓️') + '</div>'; title = z ? z.n : 'Temporada'; sub = '+' + [0, 200, 600, 1500][g.tier] + ' XP' + (g.tier === 3 ? ' · item de temporada liberado!' : ''); }
-    else if(g.kind === 'record'){ var R = RECORDS[g.id], rv = (mem.meta.rec || {})[g.id]; r = 'r'; kick = '🏆 Novo recorde!'; vis = '<div class="rvsec">' + R.e + '</div>'; title = R.f(rv.v); sub = R.n; share = 'rec:' + g.id; }
-    else if(g.kind === 'item' || g.kind === 'box'){ var it = ITEM_BY[g.id]; r = it ? it.r : 'c'; kick = g.kind === 'box' ? 'Caixa surpresa!' : (g.why || 'Item novo no armário!'); vis = it ? '<div class="rvitem">' + itemPreview(it) + '</div>' : '<div class="rvsec">⚡</div>'; title = it ? it.n : '+500 XP'; sub = it ? RAR[it.r].n + ' · ' + ITEM_T[it.t].replace(/s$/, '').replace('Acessório', 'Acessório').replace('Cenário', 'Cenário') + (g.kind === 'box' ? ' · +500 XP' : '') : 'Você já tem todos os itens da caixa!'; }
-    else if(g.kind === 'level'){ var f0 = formByLevel(g.from), f1 = formByLevel(g.to); r = f1 > f0 ? 'l' : (g.to % 5 === 0 ? 'e' : 'r'); kick = f1 > f0 ? 'O pinguim evoluiu!' : 'Subiu de nível!';
+    if(g.kind === 'medal'){ var m = medalById(g.id); if(!m){ revBusy = false; nextReveal(); return; } r = TIER_RAR[g.tier]; kick = g.tier === 1 ? 'Nova medalha.' : 'Subiu de nível.'; vis = '<div class="rvmed">' + (g.tier > 1 ? '<span class="old">' + medalSVG(m, g.tier - 1, 150) + '</span>' : '') + '<span class="new">' + medalSVG(m, g.tier, 150) + '</span></div>'; title = m.n + ' · ' + tierName(m, g.tier); sub = fmtMV(m, m.t[g.tier - 1]) + ' ' + m.u + ' · +' + TIER_XP[g.tier] + ' XP'; share = 'md:' + m.id; }
+    else if(g.kind === 'secret'){ var s = SECRETS.filter(function(x){ return x.id === g.id; })[0]; r = 'e'; kick = 'Conquista secreta.'; vis = '<div class="rvsec">' + s.e + '</div>'; title = s.n; sub = s.d + ' · +150 XP'; share = 'sec:' + s.id; }
+    else if(g.kind === 'season'){ var z = (mem.meta.sz || {})[g.id]; r = ['', 'r', 'e', 'l'][g.tier]; kick = 'Temporada · nível ' + g.tier; vis = '<div class="rvsec szs t' + g.tier + '">' + (z ? z.e : '🗓️') + '</div>'; title = z ? z.n : 'Temporada'; sub = '+' + [0, 200, 600, 1500][g.tier] + ' XP' + (g.tier === 3 ? ' · item de temporada liberado.' : ''); }
+    else if(g.kind === 'record'){ var R = RECORDS[g.id], rv = (mem.meta.rec || {})[g.id]; r = 'r'; kick = '🏆 Novo recorde.'; vis = '<div class="rvsec">' + R.e + '</div>'; title = R.f(rv.v); sub = R.n; share = 'rec:' + g.id; }
+    else if(g.kind === 'item' || g.kind === 'box'){ var it = ITEM_BY[g.id]; r = it ? it.r : 'c'; kick = g.kind === 'box' ? 'Caixa surpresa.' : (g.why || 'Item novo no armário.'); vis = it ? '<div class="rvitem">' + itemPreview(it) + '</div>' : '<div class="rvsec">⚡</div>'; title = it ? it.n : '+500 XP'; sub = it ? RAR[it.r].n + ' · ' + ITEM_T[it.t].replace(/s$/, '').replace('Acessório', 'Acessório').replace('Cenário', 'Cenário') + (g.kind === 'box' ? ' · +500 XP' : '') : 'Você já tem todos os itens da caixa.'; }
+    else if(g.kind === 'level'){ var f0 = formByLevel(g.from), f1 = formByLevel(g.to); r = f1 > f0 ? 'l' : (g.to % 5 === 0 ? 'e' : 'r'); kick = f1 > f0 ? 'O pinguim evoluiu.' : 'Subiu de nível.';
       vis = f1 > f0 ? '<div class="rvevo"><span class="old">' + mascotSVG('happy', 150, true, {form:f0}) + '</span><span class="new">' + mascotSVG('party', 150, true, {form:f1, pose:true}) + '</span></div>' : '<div class="rvlvl"><b>' + g.to + '</b>' + mascotSVG('party', 96, true, {pose:true}) + '</div>';
-      title = f1 > f0 ? FORMS[f1].n + ' · nível ' + g.to : 'Nível ' + g.to + ' · ' + lvlTitle(g.to); sub = f1 > f0 ? 'Nova forma desbloqueada. Os acessórios continuam servindo!' : (LVL_TITLES.some(function(x){ return x[0] === g.to; }) ? 'Novo título: ' + lvlTitle(g.to) : 'Continue somando XP!'); share = 'lvl:' + g.to; }
+      title = f1 > f0 ? FORMS[f1].n + ' · nível ' + g.to : 'Nível ' + g.to + ' · ' + lvlTitle(g.to); sub = f1 > f0 ? 'Nova forma desbloqueada. Os acessórios continuam servindo.' : (LVL_TITLES.some(function(x){ return x[0] === g.to; }) ? 'Novo título: ' + lvlTitle(g.to) : 'Continue somando XP.'); share = 'lvl:' + g.to; }
     var el = $('rvl'); el.className = 'rvl r-' + r; el.hidden = false; document.body.style.overflow = 'hidden';
     el.innerHTML = '<div class="rvbeam"></div><div class="rvin"><small>' + esc(kick) + '</small>' + vis + '<h2>' + esc(title) + '</h2><p>' + esc(sub) + '</p><em class="rvr">' + RAR[r].n + '</em><div class="rvbtns">' + (share ? '<button type="button" class="btn rvsh" data-rvsh="' + share + '">' + ico('share', 18) + ' Compartilhar</button>' : '') + '<button type="button" class="btn rvok">Continuar</button></div></div>';
     setTimeout(function(){ el.classList.add('go'); }, 30);
@@ -5207,7 +5314,7 @@ window.addEventListener('error', function(e){
     var meds = got.filter(function(g){ return g.kind === 'medal'; }), best = {};
     meds.forEach(function(g){ if(!best[g.id] || g.tier > best[g.id]) best[g.id] = g.tier; });
     var el = $('rvl'); el.className = 'rvl r-e rain'; el.hidden = false; document.body.style.overflow = 'hidden'; revBusy = true;
-    el.innerHTML = '<div class="rvin"><small>Medalhas novas!</small><div class="rainbox">' + Object.keys(best).map(function(id, i){ var m = medalById(id); return m ? '<span style="animation-delay:' + (i * 0.12) + 's">' + medalSVG(m, best[id], 58) + '</span>' : ''; }).join('') + '</div><h2>Você já tinha ' + n + ' conquista' + (n === 1 ? '' : 's') + '!</h2><p>Tudo o que você fez desde o início foi contado. Seu nível atual: ' + playerLevel() + ' · ' + lvlTitle(playerLevel()) + '.</p><div class="rvbtns"><button type="button" class="btn rvok">Ver minhas medalhas</button></div></div>';
+    el.innerHTML = '<div class="rvin"><small>Medalhas novas.</small><div class="rainbox">' + Object.keys(best).map(function(id, i){ var m = medalById(id); return m ? '<span style="animation-delay:' + (i * 0.12) + 's">' + medalSVG(m, best[id], 58) + '</span>' : ''; }).join('') + '</div><h2>Você já tinha ' + n + ' conquista' + (n === 1 ? '' : 's') + '.</h2><p>Tudo o que você fez desde o início foi contado. Seu nível atual: ' + playerLevel() + ' · ' + lvlTitle(playerLevel()) + '.</p><div class="rvbtns"><button type="button" class="btn rvok">Ver minhas medalhas</button></div></div>';
     el._goConq = true; setTimeout(function(){ el.classList.add('go'); }, 30); sfx('l'); setTimeout(function(){ fireworks(true, 'badge'); }, 500);
   }
 
@@ -5314,7 +5421,7 @@ window.addEventListener('error', function(e){
         var cy = top + (sq ? 400 : 290), r = sq ? 230 : 160;
         ringDraw(c, W / 2, cy, r, sq ? 46 : 34, mc / 3, mc === 3 ? '#22C55E' : (p.ink === '#0E1512' ? '#3B6CF5' : '#FDE68A'), p.ink === '#0E1512' ? '#E3E6E0' : 'rgba(255,255,255,.16)');
         T(c, Math.round(mc / 3 * 100) + '%', W / 2, cy + 30, sq ? 120 : 86, 900, p.ink, 'center');
-        T(c, mc === 3 ? 'Dia completo!' : mc + ' de 3 missões', W / 2, cy + r + (sq ? 130 : 100), sq ? 86 : 64, 900, p.ink, 'center');
+        T(c, mc === 3 ? 'Dia completo.' : mc + ' de 3 missões', W / 2, cy + r + (sq ? 130 : 100), sq ? 86 : 64, 900, p.ink, 'center');
         var B = bottle(), gt = d.gym ? (d.gymType && gtBy(d.gymType) ? gtBy(d.gymType).e + ' ' + gtBy(d.gymType).n : 'Treino feito') : 'Sem treino';
         var rows = [['💧 Água', fmtL(totalOf(d)), waterOk(d)], ['🏋️ Treino', gt, !!d.gym], ['🥗 Refeições', greenCount(d) + ' verde' + (greenCount(d) === 1 ? '' : 's'), foodOk(d)], ['🔥 Sequência', streakNE() + ' dias', streakNE() > 0]];
         if(!sq) rows = rows.slice(0, 3);
@@ -5389,7 +5496,7 @@ window.addEventListener('error', function(e){
       return go.then(function(){
         var y = cy + R + (sq ? 200 : 130);
         T(c, (o.sub || 'CONQUISTA').toUpperCase(), cx, y, 38, 800, '#F5C518', 'center', W - 160);
-        T(c, o.title || 'Conquista!', cx, y + (sq ? 120 : 90), sq ? 96 : 76, 900, '#fff', 'center', W - 140);
+        T(c, o.title || 'Conquista.', cx, y + (sq ? 120 : 90), sq ? 96 : 76, 900, '#fff', 'center', W - 140);
         if(o.line) wrapT(c, o.line, cx, y + (sq ? 210 : 160), 46, 600, 'rgba(255,255,255,.82)', 'center', W - 200, 60, 2);
         return footer(c, W, H, Object.assign({}, p, {sub:'rgba(255,255,255,.75)'}));
       });
@@ -5511,7 +5618,7 @@ window.addEventListener('error', function(e){
     p.then(function(blob){ if(!blob){ toast('Não consegui gerar o arquivo'); done(); return; } galAdd(s.kind, blob); done(); return shareBlob(blob, 'novo-eu-' + s.kind + (isVid ? (/mp4/.test(blob.type) ? '.mp4' : '.webm') : '.png'), shareText(s)); })
       .catch(function(e){ logError('share ' + (e && e.message)); toast('Não deu para gerar agora'); done(); });
   }
-  function shareText(s){ var d = today(), mc = missionCount(d); return ({dia: mc === 3 ? 'Dia completo no Novo Eu! 💪' : mc + ' de 3 missões hoje no Novo Eu', semana:'Minha semana no Novo Eu', cal:'Meus treinos no Novo Eu 🏋️', frase:'Frase do dia', antes:'Minha evolução no Novo Eu', prato:'Prato do dia 🥗', video:'Mais um dia de Novo Eu!'}[s.kind] || 'Novo Eu') + ' #NovoEu'; }
+  function shareText(s){ var d = today(), mc = missionCount(d); return ({dia: mc === 3 ? 'Dia completo no Novo Eu. 💪' : mc + ' de 3 missões hoje no Novo Eu', semana:'Minha semana no Novo Eu', cal:'Meus treinos no Novo Eu 🏋️', frase:'Frase do dia', antes:'Minha evolução no Novo Eu', prato:'Prato do dia 🥗', video:'Mais um dia de Novo Eu.'}[s.kind] || 'Novo Eu') + ' #NovoEu'; }
 
   // ---------- Vídeos (story animado e cortina) ----------
   function easeOut(t){ return 1 - Math.pow(1 - Math.min(1, Math.max(0, t)), 3); }
@@ -5535,7 +5642,7 @@ window.addEventListener('error', function(e){
     ringDraw(c, WW / 2, 640, 250, 50, ring, mc === 3 ? '#22C55E' : '#7FA6FF', 'rgba(255,255,255,.16)');
     T(c, Math.round(ring * 100) + '%', WW / 2, 680, 130, 900, p.ink, 'center');
     var a2 = easeOut((t - 1.6) / 1.2);
-    c.globalAlpha = a2; T(c, mc === 3 ? 'Dia completo!' : mc + ' de 3 missões', WW / 2, 1040, 92, 900, p.ink, 'center'); c.globalAlpha = 1;
+    c.globalAlpha = a2; T(c, mc === 3 ? 'Dia completo.' : mc + ' de 3 missões', WW / 2, 1040, 92, 900, p.ink, 'center'); c.globalAlpha = 1;
     var rows = [['💧', fmtL(totalOf(d) * easeOut((t - 1.9) / 1.4))], ['🏋️', d.gym ? 'Treino feito' : 'Sem treino'], ['🥗', Math.round(greenCount(d) * easeOut((t - 2.2) / 1.2)) + ' verdes'], ['🔥', Math.round(streakNE() * easeOut((t - 2.4) / 1.2)) + ' dias seguidos']];
     rows.forEach(function(r, i){ var ai = easeOut((t - 1.9 - i * 0.25) / 0.5); if(ai <= 0) return; c.globalAlpha = ai; var y = 1150 + i * 150 + (1 - ai) * 60; c.fillStyle = p.card; rr(c, 120, y, WW - 240, 124, 36); c.fill(); T(c, r[0] + '  ' + r[1], WW / 2, y + 80, 52, 800, p.ink, 'center'); c.globalAlpha = 1; });
     if(imgs[2]){ var bob = Math.sin(t * 5) * 12; c.drawImage(imgs[2], WW - 300, 90 + bob, 210, 210); }
@@ -5617,7 +5724,7 @@ window.addEventListener('error', function(e){
       var m = fr.querySelector('.km'); var go = Promise.resolve();
       if(m){ var mr = m.getBoundingClientRect(), frr = fr.getBoundingClientRect(); go = svgImg(mascotSVG('party', 64, true, {pose:true})).then(function(im){ if(im) c.drawImage(im, (mr.left - frr.left) * k, (mr.top - frr.top) * k, mr.width * k, mr.width * k); }); }
       return go.then(function(){ return canvasBlob(cv3, 'image/jpeg', 0.9); });
-    }).then(function(blob){ galAdd('treino', blob); return shareBlob(blob, 'novo-eu-treino.jpg', 'Treino feito! 💪 #NovoEu'); });
+    }).then(function(blob){ galAdd('treino', blob); return shareBlob(blob, 'novo-eu-treino.jpg', 'Treino feito. 💪 #NovoEu'); });
   }
   function closeSelfie(){ $('edScr').hidden = true; document.body.style.overflow = ''; sel = null; }
 
@@ -5654,7 +5761,7 @@ window.addEventListener('error', function(e){
     S2.push({bg:'linear-gradient(160deg,#1D4ED8,#0B1F5C)', k:'Água', big:fmtN(r.ml / 1000, 0) + ' L', sub:'≈ ' + Math.round(r.ml / bottle()) + ' garrafinhas no ano.', m:'happy'});
     S2.push({bg:'linear-gradient(160deg,#F97316,#7C2D12)', k:'Treinos', big:r.gyms + '', sub:'treinos' + (r.topType ? ', principalmente ' + r.topType.n.toLowerCase() + ' ' + r.topType.e : '') + '.', m:'happy'});
     S2.push({bg:'linear-gradient(160deg,#16A34A,#14532D)', k:'Alimentação', big:r.greens + '', sub:'refeições verdes' + (r.greenPct !== null ? ' · ' + r.greenPct + '% de tudo' : '') + '.', m:'happy'});
-    if(r.wd !== null) S2.push({bg:'linear-gradient(160deg,#7C3AED,#3B0764)', k:'Antes e depois', big:(r.wd > 0 ? '+' : (r.wd < 0 ? '−' : '')) + fmtN(Math.abs(r.wd), 1) + ' kg', sub:r.wd < 0 ? 'a menos neste ano. Que jornada!' : 'O corpo muda no tempo dele. Segue!', m:'party'});
+    if(r.wd !== null) S2.push({bg:'linear-gradient(160deg,#7C3AED,#3B0764)', k:'Antes e depois', big:(r.wd > 0 ? '+' : (r.wd < 0 ? '−' : '')) + fmtN(Math.abs(r.wd), 1) + ' kg', sub:r.wd < 0 ? 'a menos neste ano. Que jornada.' : 'O corpo muda no tempo dele. Segue.', m:'party'});
     S2.push({bg:'linear-gradient(160deg,#0E1512,#1F2A25)', k:'Constância', big:r.comp + ' dias', sub:'completos · melhor sequência de ' + r.best + ' dias.', m:'happy'});
     S2.push({bg:'linear-gradient(160deg,#CA8A04,#713F12)', k:'Conquistas do ano', big:lv + ' níveis', sub:'de medalha' + (sec ? ' e ' + sec + ' secreta' + (sec > 1 ? 's' : '') : '') + '. Nível ' + playerLevel() + ' · ' + lvlTitle(playerLevel()) + '.', m:'party', share:true});
     recap = {r:r, s:S2, year:true}; recapIdx = 0;
@@ -5691,7 +5798,7 @@ window.addEventListener('error', function(e){
     var t = qaToken();
     if(!t){ el.innerHTML = '<p class="meta" style="margin:0;font-weight:500">Registre água, treino, refeição e suplemento falando com a Siri ("E aí Siri, bebi água"), mesmo com o celular bloqueado ou pelo Apple Watch, sem abrir o app.</p><button type="button" class="btn b-blue" data-qa="new" style="flex:none;width:100%">Criar meus atalhos</button>'; return; }
     el.innerHTML = '<p class="meta" style="margin:0;font-weight:500">Cada link é pessoal e secreto. Toque em "Copiar" e siga o passo a passo abaixo.</p><div class="qalist">' + QA_ACTS.map(function(x){ return '<div class="qarow"><span class="bi">' + x[1] + '</span><div><b>' + x[2] + '</b><span>' + x[3] + '</span></div><button type="button" class="pill" data-qacp="' + x[0] + '">Copiar</button></div>'; }).join('') + '</div>' +
-      '<details class="qahow"><summary>Como criar o atalho no iPhone</summary><ol><li>Abra o app <b>Atalhos</b> e toque em <b>+</b>.</li><li>Toque em <b>Adicionar Ação</b>, busque <b>Obter Conteúdo de URL</b> e toque nela.</li><li>Cole o link copiado no campo URL.</li><li>Toque no nome do atalho no topo e escreva a frase, por exemplo <b>Bebi água</b>.</li><li>Pronto! Diga <b>"E aí Siri, bebi água"</b>. Funciona com o celular bloqueado e no Apple Watch.</li><li>Para o resumo, adicione depois a ação <b>Falar Texto</b> (ou <b>Mostrar Resultado</b>): a Siri lê "Hoje 2/3 · 2,4 de 3,2 L".</li><li>Dica: em Atalhos › Automação dá para rodar sozinho, por exemplo ao chegar na academia.</li></ol></details>' +
+      '<details class="qahow"><summary>Como criar o atalho no iPhone</summary><ol><li>Abra o app <b>Atalhos</b> e toque em <b>+</b>.</li><li>Toque em <b>Adicionar Ação</b>, busque <b>Obter Conteúdo de URL</b> e toque nela.</li><li>Cole o link copiado no campo URL.</li><li>Toque no nome do atalho no topo e escreva a frase, por exemplo <b>Bebi água</b>.</li><li>Pronto. Diga <b>"E aí Siri, bebi água"</b>. Funciona com o celular bloqueado e no Apple Watch.</li><li>Para o resumo, adicione depois a ação <b>Falar Texto</b> (ou <b>Mostrar Resultado</b>): a Siri lê "Hoje 2/3 · 2,4 de 3,2 L".</li><li>Dica: em Atalhos › Automação dá para rodar sozinho, por exemplo ao chegar na academia.</li></ol></details>' +
       '<button type="button" class="linkbtn" data-qa="new">Gerar links novos (os antigos param de funcionar)</button>';
   }
   function qaCopy(a){ var u = QA_URL + '?t=' + qaToken() + '&a=' + a; (navigator.clipboard ? navigator.clipboard.writeText(u) : Promise.reject()).then(function(){ toast('Link copiado ✓ Cole no app Atalhos'); }, function(){ prompt('Copie o link:', u); }); }
@@ -5788,7 +5895,7 @@ window.addEventListener('error', function(e){
   // ================= v3.4: tour interativo das novidades =================
   var TOUR = [
     {tab:'today', sel:'#msCard', t:'Missões do dia: 3 tarefas novas todo dia, que dão XP. Com 7 carimbos na semana, você abre uma caixa surpresa 🎁'},
-    {tab:'today', sel:'#mascot', t:'O pinguim tem humor e brincadeiras escondidas. Toque, faça cócegas, arraste para cima ou segure!'},
+    {tab:'today', sel:'#mascot', t:'O pinguim tem humor e brincadeiras escondidas. Toque, faça cócegas, arraste para cima ou segure.'},
     {tab:'evo', pane:'conq', sel:'#lvCard', t:'Seu nível (1 a 50) e a forma do pinguim, que evolui com o XP.'},
     {tab:'evo', pane:'conq', sel:'#cqHub', t:'Medalhas no estilo Pokémon GO: Bronze, Prata, Ouro e Platina, além do álbum de figurinhas e dos recordes.'},
     {tab:'evo', sel:'#shareTop', t:'Central de compartilhar: stories, vídeo animado, antes e depois e muito mais.'},
@@ -5805,7 +5912,7 @@ window.addEventListener('error', function(e){
       setTimeout(function(){
         var r = el.getBoundingClientRect(), pad = 10, sp = $('tourSpot'), bx = $('tourBox');
         sp.style.left = (r.left - pad) + 'px'; sp.style.top = (r.top - pad) + 'px'; sp.style.width = (r.width + pad * 2) + 'px'; sp.style.height = (r.height + pad * 2) + 'px';
-        bx.innerHTML = '<p>' + esc(s.t) + '</p><div><span>' + (tourI + 1) + ' de ' + TOUR.length + '</span><button type="button" class="linkbtn" data-tour="skip">Pular</button><button type="button" class="btn b-blue" data-tour="next">' + (tourI === TOUR.length - 1 ? 'Bora usar!' : 'Próximo') + '</button></div>';
+        bx.innerHTML = '<p>' + esc(s.t) + '</p><div><span>' + (tourI + 1) + ' de ' + TOUR.length + '</span><button type="button" class="linkbtn" data-tour="skip">Pular</button><button type="button" class="btn b-blue" data-tour="next">' + (tourI === TOUR.length - 1 ? 'Bora usar.' : 'Próximo') + '</button></div>';
         var below = r.bottom + 200 < innerHeight; bx.style.top = below ? (r.bottom + pad + 14) + 'px' : ''; bx.style.bottom = below ? '' : (innerHeight - r.top + pad + 14) + 'px';
       }, 320);
     }, 260);
@@ -5966,7 +6073,7 @@ window.addEventListener('error', function(e){
     else if(id === 'pfTilt'){ S().tilt = t.checked; saveSettings(); }
     else if(id === 'pfSig'){ var v = t.value.trim().slice(0, 30); S().shSig = v; saveSettings(); renderV34Perfil(); toast(v ? 'Assinatura salva ✓' : 'Assinatura removida'); }
     else if(id === 'pfWGoal'){ var g = parseFloat(t.value.replace(',', '.')); if(t.value.trim() === ''){ delete S().wGoal; } else if(!(g > 30 && g < 300)){ toast('Peso inválido'); return; } else S().wGoal = Math.round(g * 10) / 10; saveSettings(); memoC.c = {}; toast(S().wGoal ? 'Meta de ' + fmtKg(S().wGoal) + ' salva ✓' : 'Meta removida'); }
-    else if(id === 'pfBday'){ S().bday = t.value ? t.value.slice(5) : null; saveSettings(); toast(S().bday ? 'Anotado! XP em dobro no seu aniversário 🎂' : 'Aniversário removido'); }
+    else if(id === 'pfBday'){ S().bday = t.value ? t.value.slice(5) : null; saveSettings(); toast(S().bday ? 'Anotado. XP em dobro no seu aniversário 🎂' : 'Aniversário removido'); }
     else if(id === 'selfieIn'){ var f = t.files && t.files[0]; if(!f) return; compressImage(f).then(function(data){ mem.meta.selfie = todayKey(); saveMeta(); renderGymPhoto(); openSelfie(data); }); }
   });
   $('edCancel').addEventListener('click', closeSelfie);
@@ -5989,9 +6096,9 @@ window.addEventListener('error', function(e){
     BADGES.forEach(function(b){ if(!mem.meta.badges[b.id] && b.v() >= b.goal){ mem.meta.badges[b.id] = todayKey(); got.push(b); } });
     if(got.length){
       saveMeta();
-      if(got.length === 1) party('Nova conquista!', got[0].n, true, 'badge');
-      else party(got.length + ' novas conquistas!', got.map(function(b){ return b.n; }).slice(0,3).join(' · ') + (got.length > 3 ? '…' : ''), true, 'badge');
-      got.forEach(function(b){ if(MILESTONE_BADGES[b.id] && mem.meta.mdInit) milestonePrompt(b.n, b.id.indexOf('peso') === 0 ? 'A balança agradece o seu esforço!' : 'Dia ' + dayNumber() + ' do Novo Eu', 'Marco especial'); });
+      if(got.length === 1) party('Nova conquista.', got[0].n, true, 'badge');
+      else party(got.length + ' novas conquistas.', got.map(function(b){ return b.n; }).slice(0,3).join(' · ') + (got.length > 3 ? '…' : ''), true, 'badge');
+      got.forEach(function(b){ if(MILESTONE_BADGES[b.id] && mem.meta.mdInit) milestonePrompt(b.n, b.id.indexOf('peso') === 0 ? 'A balança agradece o seu esforço.' : 'Dia ' + dayNumber() + ' do Novo Eu', 'Marco especial'); });
     }
     progressCheck();
     if(got.length && current === 'evo') renderEvo();
@@ -6560,7 +6667,7 @@ window.addEventListener('error', function(e){
     if((b = t.closest('[data-sday]'))){ closeSheetEl('tlSheet'); var k = b.getAttribute('data-sday'); setTimeout(function(){ openDay(k); }, 300); return; }
     if(t.closest('#heroQuote')){ openShare('frase'); return; }
     if(t.closest('#errRetry')){ location.reload(); return; }
-    if(t.closest('#errSend')){ logError('errscr ' + ($('errMsg').textContent || '')); toast('Relatório enviado. Obrigado!'); return; }
+    if(t.closest('#errSend')){ logError('errscr ' + ($('errMsg').textContent || '')); toast('Relatório enviado. Obrigado.'); return; }
   }, true);
   document.addEventListener('change', function(e){ if(e.target.id === 'pfPName'){ S().pName = e.target.value.trim().slice(0, 20); saveSettings(); toast(S().pName ? 'Nome salvo: ' + S().pName : 'Nome removido'); } });
   function v36Today(){
@@ -6640,6 +6747,241 @@ window.addEventListener('error', function(e){
     whenIdle(function(){ if(!$('tour') || $('tour').hidden) openWhatsNew(); }, 1500);
   }
 
+  // ================= v3.8: refinamentos profissionais =================
+  // ---- Hoje: ordem fixa (anel → água → refeições → treino); o resto vai para "Mais de hoje" ----
+  function tidyToday(){
+    var more = $('moreBody'), ms = $('missions'); if(!more || !ms) return;
+    var msc = $('msCard'); if(msc && msc.parentNode !== more) more.insertBefore(msc, more.firstChild);
+    ALERTS.forEach(function(id){ var el = $(id); if(el && el.parentNode !== more) more.appendChild(el); });
+    ['morningCard','memCard','suppCard','chCard','tipCard'].forEach(function(id){ var el = $(id) || (id === 'tipCard' ? document.querySelector('#today .tipcard') : null); if(el && el.parentNode !== more) more.appendChild(el); });
+    ['cardAgua','cardFood','cardGym'].forEach(function(id){ var el = $(id); if(el) ms.appendChild(el); });
+    var n = Array.prototype.filter.call(more.children, function(e){ return !e.hidden; }).length;
+    $('moreCount').textContent = n ? n + (n === 1 ? ' item' : ' itens') : '';
+    $('moreToday').hidden = !n;
+  }
+  // ---- Linha do tempo enxuta: ícone + horário; toque mostra o detalhe ----
+  function dayTimelineHTML(k, d){
+    var ev = [];
+    (d.hist || []).forEach(function(h){ ev.push({t:h.t, i:'drop', s:'Garrafinha · ' + fmtL(h.ml)}); });
+    MEALS.forEach(function(m){ var r = mealsOf(d)[m.k]; if(r && r.t) ev.push({t:r.t, i:'food', s:m.n + (r.skip ? ' · não fez' : ' · ' + ({verde:'verde', amarelo:'amarela', vermelho:'vermelha'}[r.color] || '')) + (r.text && !r.skip ? ' · ' + r.text : '')}); });
+    if(d.gymAt) ev.push({t:d.gymAt, i:'gym', s:'Treino' + (d.gymType && gtBy(d.gymType) ? ' · ' + gtBy(d.gymType).n : '')});
+    mem.weights.list.filter(function(w){ return w.date === k; }).forEach(function(w){ if(w.t) ev.push({t:w.t, i:'scale', s:'Peso · ' + fmtKg(w.kg)}); });
+    if(!ev.length) return '';
+    ev.sort(function(a, b){ return a.t - b.t; });
+    var hm = function(t){ var dt = new Date(t); return ('0' + dt.getHours()).slice(-2) + ':' + ('0' + dt.getMinutes()).slice(-2); };
+    return '<div class="dtl2"><small>Linha do tempo</small><div class="dtlg">' + ev.map(function(e){ return '<button type="button" class="dtc" data-dtl="' + esc(hm(e.t) + ' · ' + e.s) + '">' + ico(e.i, 16) + '<time>' + hm(e.t) + '</time></button>'; }).join('') + '</div><p class="dtlx" hidden></p></div>';
+  }
+  // ---- Água: garrafa que enche ----
+  function bottleSVG(){
+    return '<svg viewBox="0 0 40 72" width="40" height="72" aria-hidden="true"><defs><clipPath id="wbClip"><path d="M15 2h10v7l3 4q4 5 4 11v40q0 6-6 6H14q-6 0-6-6V24q0-6 4-11l3-4z"/></clipPath></defs>' +
+      '<g clip-path="url(#wbClip)"><rect x="0" y="0" width="40" height="72" class="wbbg"/><g class="wbw" id="wbW"><path class="wbwave" d="M-40 6q5-4 10 0t10 0 10 0 10 0 10 0 10 0 10 0 10 0V90h-80z"/></g></g>' +
+      '<path d="M15 2h10v7l3 4q4 5 4 11v40q0 6-6 6H14q-6 0-6-6V24q0-6 4-11l3-4z" class="wbo"/><path d="M14 1.5h12" class="wbo" stroke-width="3"/><path d="M12.5 28v24" class="wbg"/></svg>';
+  }
+  function paintBottle(f){
+    var big = document.querySelector('#cardAgua .big'); if(!big) return;
+    var wrap = $('wBottle');
+    if(!wrap){ wrap = document.createElement('div'); wrap.id = 'wBottle'; wrap.className = 'wbottle'; wrap.innerHTML = bottleSVG(); big.parentNode.insertBefore(wrap, big); var row = document.createElement('div'); row.className = 'wbrow'; big.parentNode.insertBefore(row, wrap); row.appendChild(wrap); row.appendChild(big); }
+    var w = $('wbW'); if(w) w.style.transform = 'translateY(' + (8 + (1 - Math.max(0, Math.min(1, f))) * 62).toFixed(1) + 'px)';
+    wrap.classList.toggle('full', f >= 1);
+  }
+  // ---- Dia completo: anel dourado + selo ----
+  function paintDone(d){
+    var hero = $('hero'); if(!hero) return; var done = complete(d);
+    hero.classList.toggle('gold', done);
+    var seal = $('doneSeal'), top = hero.querySelector('.heroTop');
+    if(done && !seal && top){ seal = document.createElement('span'); seal.id = 'doneSeal'; seal.className = 'doneseal'; seal.innerHTML = ico('check', 14) + 'Dia completo'; hero.insertBefore(seal, top); }
+    if(seal) seal.hidden = !done;
+    document.querySelectorAll('#ringBtn .r3').forEach(function(c){ c.setAttribute('stroke', done ? 'url(#goldRing)' : ['#3B82F6','#F97316','#22C55E'][+c.getAttribute('data-i')]); });
+    var svg = document.querySelector('#ringBtn svg');
+    if(svg && !svg.querySelector('#goldRing')) svg.insertAdjacentHTML('afterbegin', '<defs><linearGradient id="goldRing" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#FDE68A"/><stop offset=".5" stop-color="#EAB308"/><stop offset="1" stop-color="#A16207"/></linearGradient></defs>');
+  }
+  function v38Today(){
+    var d = today(), G = dayGoal(d), tot = totalOf(d);
+    paintBottle(G ? tot / G : 0); paintDone(d); tidyToday();
+    var hr = document.querySelector('#today .hdrow'), hd = document.querySelector('#today header');
+    if(hr && hd && hr.parentNode !== hd.parentNode) hd.parentNode.insertBefore(hr, hd.nextSibling);
+  }
+  // ---- Pinguim reage ao registro ----
+  var _pgOld = penguinGesture;
+  penguinGesture = function(kind){
+    _pgOld(kind);
+    if(S().focus || reduceMotion || current !== 'today') return;
+    var prop = {agua:'<g class="rprop"><path d="M45 26h9l-1.2 14h-6.6z" fill="#BFDBFE" stroke="#60A5FA" stroke-width="1"/><path d="M46.2 31h6.6l-.8 9h-5z" fill="#3B82F6"/></g>',
+      gym:'<g class="rprop"><rect x="40" y="16" width="20" height="3" rx="1.5" fill="#6B7280"/><rect x="38" y="12" width="4" height="11" rx="1.5" fill="#374151"/><rect x="58" y="12" width="4" height="11" rx="1.5" fill="#374151"/></g>',
+      verde:'<g class="rprop"><circle cx="52" cy="22" r="7" fill="#22C55E"/><path d="M48.5 22l2.4 2.4 4.6-4.8" stroke="#fff" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></g>'}[kind];
+    if(!prop) return;
+    var pose = {agua:'gole', gym:'biceps', verde:'joinha'}[kind];
+    var el = $('pReact'); if(!el){ el = document.createElement('div'); el.id = 'pReact'; el.className = 'preact'; el.setAttribute('aria-hidden', 'true'); document.body.appendChild(el); }
+    el.innerHTML = mascotSVG('happy', 84, true, {pose:pose}).replace('</svg>', prop + '</svg>');
+    el.classList.remove('on'); void el.offsetWidth; el.classList.add('on');
+    clearTimeout(el._t); el._t = setTimeout(function(){ el.classList.remove('on'); }, 1500);
+  };
+  // ---- Abertura: anel carregando até a animação estar pronta; transição suave para o app ----
+  function bootLogo(){
+    var b = $('boot'); if(!b) return; bootT0 = Date.now();
+    b.addEventListener('click', function(){ bootT0 = 0; hideBoot(); });
+    b.innerHTML = '<div class="bload"><svg viewBox="0 0 48 48" width="48" height="48"><circle cx="24" cy="24" r="20" fill="none" stroke="rgba(255,255,255,.14)" stroke-width="3"/><circle cx="24" cy="24" r="20" fill="none" stroke="#3B82F6" stroke-width="3" stroke-linecap="round" stroke-dasharray="126" stroke-dashoffset="126" class="bring"/></svg></div>';
+    var im = new Image(); im.className = 'bvid'; im.alt = ''; im.decoding = 'async';
+    if(reduceMotion){ im.src = 'intro-poster.jpg'; b.innerHTML = ''; b.appendChild(im); bootT0 = Date.now() - 3800; return; }
+    var done = false;
+    im.onload = function(){ if(done) return; done = true; b.innerHTML = ''; b.appendChild(im); bootT0 = Date.now(); hideBoot(); };
+    im.onerror = function(){ done = true; bootT0 = 0; hideBoot(); };
+    setTimeout(function(){ if(!done){ done = true; bootT0 = 0; hideBoot(); } }, 6000);
+    im.src = 'intro.webp';
+  }
+  (function(){ var b = $('boot'); if(!b) return; new MutationObserver(function(){ if(b.classList.contains('gone')){ document.body.classList.add('appin'); setTimeout(function(){ document.body.classList.remove('appin'); }, 900); } }).observe(b, {attributes:true, attributeFilter:['class']}); })();
+  // ---- Troca de abas deslizando para o lado ----
+  var TAB_ORDER = ['today','semana','evo','perfil'];
+  document.querySelectorAll('#tabs button[data-tab]').forEach(function(btn){
+    btn.addEventListener('click', function(e){
+      var to = btn.getAttribute('data-tab'), a = TAB_ORDER.indexOf(current), z = TAB_ORDER.indexOf(to);
+      if(a < 0 || z < 0 || a === z) return;
+      e.stopImmediatePropagation(); show(to, z > a ? 'l' : 'r');
+    }, true);
+  });
+  // ---- Voltar deslizando da borda esquerda: fecha a janela aberta ----
+  (function(){
+    var x0 = null, y0 = 0;
+    document.addEventListener('touchstart', function(e){ var t = e.touches[0]; x0 = (t.clientX < 24 && openSheets.length) ? t.clientX : null; y0 = t.clientY; }, {passive:true});
+    document.addEventListener('touchend', function(e){ if(x0 === null) return; var t = e.changedTouches[0], dx = t.clientX - x0, dy = Math.abs(t.clientY - y0); x0 = null; if(dx > 70 && dy < 80 && openSheets.length) closeSheetEl(openSheets[openSheets.length - 1]); }, {passive:true});
+  })();
+  // ---- Puxar para atualizar com o pinguim ----
+  (function(){ var el = $('ptr'); if(el) el.innerHTML = '<span class="ptrp">' + mascotSVG('happy', 30, false) + '</span>'; })();
+  // ---- Retomar a última aba (até 10 min) ----
+  document.addEventListener('visibilitychange', function(){ if(document.hidden && TAB_ORDER.indexOf(current) >= 0){ try{ localStorage.setItem('ne_last', JSON.stringify({tab:current, t:Date.now()})); }catch(e){} } });
+  window.addEventListener('pagehide', function(){ if(TAB_ORDER.indexOf(current) >= 0){ try{ localStorage.setItem('ne_last', JSON.stringify({tab:current, t:Date.now()})); }catch(e){} } });
+  var resumeTried = false;
+  function tryResume(){
+    if(resumeTried) return; resumeTried = true;
+    try{ var l = JSON.parse(localStorage.getItem('ne_last') || 'null'); if(l && l.tab && l.tab !== 'today' && TAB_ORDER.indexOf(l.tab) >= 0 && Date.now() - l.t < 600000 && current === 'today') show(l.tab); }catch(e){}
+  }
+  // ---- Foto de perfil com recorte redondo e zoom ----
+  document.addEventListener('change', function(e){
+    if(e.target.id !== 'pfPhoto') return;
+    e.stopImmediatePropagation();
+    var f = e.target.files && e.target.files[0]; e.target.value = ''; if(!f) return;
+    var url = URL.createObjectURL(f), img = new Image();
+    img.onload = function(){ openCrop(img, url); };
+    img.onerror = function(){ URL.revokeObjectURL(url); toast('Não consegui abrir essa foto. Tente outra.'); };
+    img.src = url;
+  }, true);
+  function openCrop(img, url){
+    var S0 = 280, st = {z:1, x:0, y:0}, base = S0 / Math.min(img.naturalWidth, img.naturalHeight);
+    $('tlTitle').textContent = 'Ajustar foto';
+    $('tlBody').innerHTML = '<div class="crop" id="cropBox" data-noswipe><img id="cropImg" src="' + url + '" alt=""><i class="cropmask"></i></div>' +
+      '<label class="cropz">' + ico('search', 16) + '<input type="range" id="cropZ" min="1" max="3" step="0.01" value="1" aria-label="Zoom"></label>' +
+      '<p class="meta" style="text-align:center">Arraste para posicionar.</p><div class="mdbtns"><button type="button" class="btn b-soft" id="cropNo">Cancelar</button><button type="button" class="btn b-ink" id="cropOk">Salvar foto</button></div>';
+    openSheetEl('tlSheet');
+    var im = $('cropImg'), box = $('cropBox');
+    var clamp = function(){ var w = img.naturalWidth * base * st.z, h = img.naturalHeight * base * st.z, mx = (w - S0) / 2, my = (h - S0) / 2; st.x = Math.max(-mx, Math.min(mx, st.x)); st.y = Math.max(-my, Math.min(my, st.y)); };
+    var paint = function(){ clamp(); im.style.width = (img.naturalWidth * base * st.z) + 'px'; im.style.height = (img.naturalHeight * base * st.z) + 'px'; im.style.transform = 'translate(-50%,-50%) translate(' + st.x + 'px,' + st.y + 'px)'; };
+    paint();
+    var drag = null;
+    box.addEventListener('touchstart', function(e){ e.stopPropagation(); }, {passive:true});
+    box.addEventListener('pointerdown', function(e){ drag = {x:e.clientX, y:e.clientY, sx:st.x, sy:st.y}; box.setPointerCapture(e.pointerId); });
+    box.addEventListener('pointermove', function(e){ if(!drag) return; st.x = drag.sx + e.clientX - drag.x; st.y = drag.sy + e.clientY - drag.y; paint(); });
+    box.addEventListener('pointerup', function(){ drag = null; });
+    $('cropZ').addEventListener('input', function(){ st.z = +this.value; paint(); });
+    $('cropNo').onclick = function(){ closeSheetEl('tlSheet'); URL.revokeObjectURL(url); };
+    $('cropOk').onclick = function(){
+      var out = 480, c = document.createElement('canvas'); c.width = c.height = out; var g = c.getContext('2d'), k = out / S0;
+      var w = img.naturalWidth * base * st.z * k, h = img.naturalHeight * base * st.z * k;
+      g.fillStyle = '#fff'; g.fillRect(0, 0, out, out);
+      g.drawImage(img, out / 2 - w / 2 + st.x * k, out / 2 - h / 2 + st.y * k, w, h);
+      var q = .82, data = c.toDataURL('image/jpeg', q); while(data.length > 120000 && q > .4){ q -= .08; data = c.toDataURL('image/jpeg', q); }
+      mem.photos.avatar = data; persist(); queueCloud('photo_avatar'); renderAvatars(); URL.revokeObjectURL(url); closeSheetEl('tlSheet'); toast('Foto atualizada');
+    };
+  }
+  // ---- Medalha "Presença": dias seguidos abrindo o app ----
+  var _otOld = opensTick;
+  opensTick = function(){
+    var tk = todayKey(), o = mem.meta.ost = mem.meta.ost || {cur:0, best:0, last:null};
+    if(o.last !== tk){
+      if(!o.last){ var n = 0, dd = addDays(now0(), -1); while(n < 400){ var x = mem.days[keyOf(dd)]; if(!x || !hasData(x)) break; n++; dd = addDays(dd, -1); } o.cur = n + 1; }
+      else o.cur = (o.last === keyOf(addDays(now0(), -1))) ? o.cur + 1 : 1;
+      o.last = tk; o.best = Math.max(o.best || 0, o.cur);
+    }
+    _otOld(); grantDateItems(); saveMeta();
+  };
+  MEDALS.push({id:'presenca', c:'const', n:'Presença', e:'🔥', u:'dias seguidos', t:[7,30,100,365], v:function(){ return (mem.meta.ost || {}).best || 0; }, d:'Dias seguidos abrindo o app. Se a sequência quebrar, o recorde continua valendo.'});
+  BADGES.push({id:'dias180', c:'dias', n:'180 dias de Novo Eu', goal:180, v:dayNumber}, {id:'dias365', c:'dias', n:'365 dias de Novo Eu', goal:365, v:dayNumber});
+  // ---- Itens do armário ganhos em datas especiais ----
+  var DATE_ITEMS = [
+    {id:'a:coelho', t:'a', n:'Orelhas de coelho', r:'e', src:'date', how:'Abra o app na Páscoa', when:function(d){ var e = easterOf(d.getFullYear()), k = keyOf(d); return k >= keyOf(addDays(e, -3)) && k <= keyOf(addDays(e, 1)); }},
+    {id:'a:festa', t:'a', n:'Chapéu de festa', r:'e', src:'date', how:'Abra o app no seu aniversário ou no aniversário do Novo Eu', when:function(d){ var md = pad(d.getMonth() + 1) + '-' + pad(d.getDate()); return md === '07-24' || (mem.meta.start && md === mem.meta.start.slice(5) && keyOf(d) !== mem.meta.start); }},
+    {id:'a:oculosny', t:'a', n:'Óculos de Ano Novo', r:'e', src:'date', how:'Abra o app na virada do ano', when:function(d){ var md = pad(d.getMonth() + 1) + '-' + pad(d.getDate()); return md === '12-31' || md === '01-01'; }},
+    {id:'a:gorrinho2', t:'a', n:'Gorro de Natal com pompom', r:'e', src:'date', how:'Abra o app no Natal', when:function(d){ var md = pad(d.getMonth() + 1) + '-' + pad(d.getDate()); return md === '12-24' || md === '12-25'; }}
+  ];
+  DATE_ITEMS.forEach(function(it){ ITEMS.push(it); ITEM_BY[it.id] = it; });
+  HEAD_ACC.coelho = 1; HEAD_ACC.festa = 1; HEAD_ACC.gorrinho2 = 1;
+  var NEW_ACC = {
+    coelho:'<g><path d="M24 12Q19-8 25.5-9.5T29 11z" fill="#F3F4F6" stroke="#D1D5DB" stroke-width=".8"/><path d="M24.8 9Q22-4 25.6-5.6T27.6 9z" fill="#F9A8D4"/><path d="M35 11Q35.5-9.5 41-8.5T40 12z" fill="#F3F4F6" stroke="#D1D5DB" stroke-width=".8"/><path d="M36.4 9Q37-5 39.8-4.6T38.8 9.4z" fill="#F9A8D4"/></g>',
+    festa:'<g><path d="M24.5 11.5L33-13l8.5 24.5z" fill="#8B5CF6"/><path d="M27.3 3.4l11.4 0M29.6-3.2l6.8 0" stroke="#FDE68A" stroke-width="2.2"/><circle cx="33" cy="-13.5" r="3" fill="#FACC15"/><path d="M23.5 11.5h19" stroke="#6D28D9" stroke-width="2" stroke-linecap="round"/></g>',
+    oculosny:'<g><path d="M17.5 24.5h29" stroke="#CA8A04" stroke-width="1.6"/><path d="M26 18.2l1.9 3.9 4.3.6-3.1 3 .7 4.3-3.8-2-3.8 2 .7-4.3-3.1-3 4.3-.6z" fill="#FACC15" stroke="#A16207" stroke-width=".8" opacity=".95"/><path d="M38 18.2l1.9 3.9 4.3.6-3.1 3 .7 4.3-3.8-2-3.8 2 .7-4.3-3.1-3 4.3-.6z" fill="#FACC15" stroke="#A16207" stroke-width=".8" opacity=".95"/></g>',
+    gorrinho2:'<g><path d="M18 13Q24-6 46 0L44 9Z" fill="#DC2626"/><path d="M44 1q5 2 6 8" stroke="#DC2626" stroke-width="5" stroke-linecap="round" fill="none"/><rect x="16.5" y="9.5" width="31" height="6" rx="3" fill="#fff"/><circle cx="50.5" cy="11" r="3.6" fill="#fff"/></g>'
+  };
+  var _accOld = accSVG;
+  accSVG = function(a){ return NEW_ACC[a] || _accOld(a); };
+  var _howOld = itemHow;
+  itemHow = function(it){ return it && it.src === 'date' ? it.how : _howOld(it); };
+  function grantDateItems(){
+    var d = now0(), got = [];
+    DATE_ITEMS.forEach(function(it){ if(it.when(d) && grantItem(it.id, true)) got.push(it); });
+    if(got.length){ setTimeout(function(){ toast('Presente de hoje no armário: ' + got.map(function(x){ return x.n.toLowerCase(); }).join(', ')); }, 2600); }
+  }
+  // ---- Selos mensais de constância (80% dos dias com 2+ missões) ----
+  function monthSeals(){
+    var out = [], start = fromKey(mem.meta.start), tk = todayKey(), cur = new Date(start.getFullYear(), start.getMonth(), 1), end = now0();
+    while(cur <= end && out.length < 36){
+      var y = cur.getFullYear(), m = cur.getMonth(), last = new Date(y, m + 1, 0), n = 0, ok = 0;
+      for(var dd = new Date(y, m, 1); dd <= last; dd = addDays(dd, 1)){ var k = keyOf(dd); if(k < mem.meta.start || k > tk) continue; n++; var x = mem.days[k]; if(x && missionCount(x) >= 2) ok++; }
+      if(n) out.push({y:y, m:m, n:n, ok:ok, pct:ok / n, open:keyOf(last) >= tk});
+      cur = new Date(y, m + 1, 1);
+    }
+    return out;
+  }
+  var MES = ['jan','fev','mar','abr','mai','jun','jul','ago','set','out','nov','dez'];
+  function sealsHTML(){
+    var s = monthSeals(); if(!s.length) return '';
+    var got = s.filter(function(x){ return x.pct >= .8 && !x.open; }).length;
+    return '<h3 class="cqh">Selos mensais</h3><p class="meta">O mês ganha o selo quando 80% dos dias têm 2 ou mais missões. ' + got + (got === 1 ? ' selo conquistado.' : ' selos conquistados.') + '</p><div class="seals">' +
+      s.slice().reverse().map(function(x){ var on = x.pct >= .8, p = Math.round(x.pct * 100);
+        return '<div class="seal' + (on ? ' on' : '') + (x.open ? ' open' : '') + '"><svg viewBox="0 0 48 48" width="52" height="52" aria-hidden="true"><circle cx="24" cy="24" r="21" class="sbg"/><circle cx="24" cy="24" r="21" class="sfg" stroke-dasharray="' + (Math.min(1, x.pct / .8) * 132).toFixed(1) + ' 132" transform="rotate(-90 24 24)"/>' + (on ? '<path d="M17 24.5l4.6 4.6 9.4-9.6" class="sck"/>' : '<text x="24" y="28" text-anchor="middle" class="stx">' + p + '%</text>') + '</svg><b>' + MES[x.m] + (x.y !== new Date().getFullYear() ? ' ' + String(x.y).slice(2) : '') + '</b><span>' + x.ok + '/' + x.n + (x.open ? ' · em curso' : '') + '</span></div>'; }).join('') + '</div>';
+  }
+  var _rcOld = renderConq;
+  renderConq = function(){
+    _rcOld.apply(this, arguments);
+    if(cqTab === 'esp'){ var hub = $('cqHub'); if(hub && !hub.querySelector('.seals')){ var box = document.createElement('div'); box.className = 'sealbox'; box.innerHTML = sealsHTML(); var seg = hub.querySelector('.cqseg'); if(seg && seg.nextSibling) seg.parentNode.insertBefore(box, seg.nextSibling); else hub.appendChild(box); } }
+  };
+  // ---- Sobre o app, privacidade e termos ----
+  function openAbout(){
+    $('tlTitle').textContent = 'Sobre o Novo Eu';
+    var wn = (typeof WHATS_NEW !== 'undefined' ? WHATS_NEW : []).slice(0, 8).map(function(w){ return '<li>' + esc(w[1]) + '</li>'; }).join('');
+    $('tlBody').innerHTML = '<div class="about"><div class="abhead"><img src="icons/icon-192.png" alt="" width="64" height="64"><div><b>Novo Eu</b><span>Versão ' + APP_VERSION + '</span></div></div>' +
+      '<details open><summary>O que há de novo</summary><ul>' + wn + '</ul></details>' +
+      '<details><summary>Privacidade</summary><p>Seus registros (água, refeições, treinos, peso e fotos) ficam guardados no seu iPhone e numa cópia na nuvem, ligada à sua conta, para não se perderem se você trocar de aparelho.</p><p>Só você acessa esses dados. O app não tem anúncios, não usa rastreadores e não vende nem compartilha informações com ninguém.</p><p>A previsão do tempo usa sua localização aproximada só no momento da consulta, e ela não é guardada. As notificações passam pelo serviço da Apple e contêm apenas o texto do lembrete.</p></details>' +
+      '<details><summary>Termos de uso</summary><p>O Novo Eu é uma ferramenta pessoal de acompanhamento de hábitos. As sugestões de água, refeições e treino são gerais e não substituem a orientação de médicos, nutricionistas ou educadores físicos.</p><p>Antes de mudar sua dieta ou começar treinos mais intensos, converse com um profissional de saúde.</p></details>' +
+      '<p class="meta" style="text-align:center;margin-top:14px">Feito com cuidado para a sua melhor versão.</p></div>';
+    openSheetEl('tlSheet');
+  }
+  var _rpOld = renderPerfil;
+  renderPerfil = function(){
+    _rpOld.apply(this, arguments);
+    var host = document.querySelector('#perfil .main') || $('perfil'); if(!host || $('aboutRow')) return;
+    var b = document.createElement('button'); b.type = 'button'; b.id = 'aboutRow'; b.className = 'card aboutrow'; b.innerHTML = '<span>' + ico('info', 20) + '<b>Sobre, privacidade e termos</b></span><em>v' + APP_VERSION + ' ›</em>';
+    b.onclick = openAbout; host.appendChild(b);
+  };
+  if(!LICONS.info) LICONS.info = {l:'<circle cx="12" cy="12" r="9"/><path d="M12 11v5.5M12 7.6v.2"/>'};
+  if(!LICONS.check) LICONS.check = {l:'<path d="M5 12.5l4.5 4.5L19 7.5"/>'};
+  // ---- Eventos v3.8 ----
+  document.addEventListener('click', function(e){
+    var b = e.target.closest('.dtc'); if(!b) return;
+    var box = b.closest('.dtl2'), x = box && box.querySelector('.dtlx'); if(!x) return;
+    var on = b.classList.contains('on'); box.querySelectorAll('.dtc.on').forEach(function(z){ z.classList.remove('on'); });
+    if(on){ x.hidden = true; return; } b.classList.add('on'); x.textContent = b.getAttribute('data-dtl'); x.hidden = false;
+  });
+
+  setTimeout(tryResume, 900);
   // ================= Navegação =================
   var current = 'splash';
   function renderAll(){ renderToday(); if(current==='semana') renderWeek(); if(current==='evo') renderEvo(); if(current==='perfil') renderPerfil(); }
@@ -6705,7 +7047,7 @@ window.addEventListener('error', function(e){
 
   $('pfPhoto').addEventListener('change', function(){
     var f = $('pfPhoto').files && $('pfPhoto').files[0]; if(!f) return;
-    compressImage(f).then(function(data){ mem.photos.avatar = data; persist(); queueCloud('photo_avatar'); renderAvatars(); toast('Foto atualizada!'); })
+    compressImage(f).then(function(data){ mem.photos.avatar = data; persist(); queueCloud('photo_avatar'); renderAvatars(); toast('Foto atualizada.'); })
       .catch(function(){ toast('Ops, não consegui abrir essa foto. Tenta outra?'); });
     $('pfPhoto').value = '';
   });
@@ -6713,7 +7055,7 @@ window.addEventListener('error', function(e){
   function removeAvatar(){ delete mem.photos.avatar; persist(); queueCloud('photo_avatar'); renderAvatars(); toast('Foto removida'); }
   $('undo').addEventListener('click', function(){
     var d = today(); if(!d.hist.length){ toast('Nada para desfazer por aqui'); return; }
-    var last = d.hist.pop(); d.water[last.turn] = Math.max(0, d.water[last.turn]-last.ml); save(); renderToday(); toast('Desfeito! Tirei a última garrafinha');
+    var last = d.hist.pop(); d.water[last.turn] = Math.max(0, d.water[last.turn]-last.ml); save(); renderToday(); toast('Desfeito. Tirei a última garrafinha');
   });
   $('gym').addEventListener('click', function(){
     var d = today(); d.gym = !d.gym; if(d.gym){ delete d.gymJust; d.gymAt = Date.now(); expanded.gym = true; var hh0 = new Date().getHours(); if(hh0 < 8) d.gE = 1; if(hh0 < 7) d.gE7 = 1; setTimeout(function(){ penguinGesture('gym'); }, 400); } else { delete d.gymType; delete d.gymAt; }
@@ -6870,8 +7212,8 @@ window.addEventListener('error', function(e){
     $('evForm').hidden = true; $('evAddBtn').hidden = false;
     renderEvo();
     var before = Object.keys(mem.meta.badges).length; checkBadges(); var newBadge = Object.keys(mem.meta.badges).length > before;
-    if(wasEmpty) toast('Primeiro peso registrado. Bora!');
-    else if(prev !== null && kg < prev){ if(!newBadge) fireworks(false, 'peso'); toast('Menos ' + fmtN(prev - kg, 1) + ' kg. Isso, Lucas!'); }
+    if(wasEmpty) toast('Primeiro peso registrado. Bora.');
+    else if(prev !== null && kg < prev){ if(!newBadge) fireworks(false, 'peso'); toast('Menos ' + fmtN(prev - kg, 1) + ' kg. Isso, Lucas.'); }
     else toast(msg('peso'));
   });
   $('evList').addEventListener('click', function(e){
@@ -6934,7 +7276,7 @@ window.addEventListener('error', function(e){
     sbc.auth.updateUser({password: p1, data: {must_change: false}}).then(function(r){
       btn.disabled = false; btn.textContent = 'Salvar e entrar';
       if(r.error){ showLoginError('pwErr', 'Não consegui salvar: ' + r.error.message); return; }
-      sbUser = r.data.user; toast('Senha criada. Bem-vindo, Lucas!'); afterLogin();
+      sbUser = r.data.user; toast('Senha criada. Bem-vindo, Lucas.'); afterLogin();
     });
   });
   $('fgLink').addEventListener('click', function(){ $('lgForm').hidden = true; $('fgForm').hidden = false; $('fgEmail').value = $('lgEmail').value; showLoginError('fgErr', ''); $('fgOk').hidden = true; });
@@ -6953,7 +7295,7 @@ window.addEventListener('error', function(e){
   $('wxHeat').addEventListener('click', function(){ S().heatBoost = S().heatBoost === false; saveSettings(); var d = mem.days[todayKey()]; if(d){ d.goal = goal(); save(); } renderWeatherCard(); renderToday(); });
   $('wxChip').addEventListener('click', function(){ updateWeather(true); toast('Atualizando o clima…'); });
   $('updBtn').addEventListener('click', function(){ wantReload = true; $('updBtn').textContent = 'Atualizando…'; if(swWaiting) swWaiting.postMessage({type:'skip'}); else location.reload(); setTimeout(function(){ location.reload(); }, 2500); });
-  $('pfShare').addEventListener('click', function(){ shareAchievement('Semana perfeita!', '7 de 7 dias completos', 'Novo Eu'); });
+  $('pfShare').addEventListener('click', function(){ shareAchievement('Semana perfeita.', '7 de 7 dias completos', 'Novo Eu'); });
   $('nfOn').addEventListener('click', enablePush);
   $('nfTest').addEventListener('click', sendTestPush);
   $('nfToggle').addEventListener('click', function(){ S().notif = S().notif === false; saveSettings(); refreshPushStatus(); toast(S().notif === false ? 'Lembretes pausados' : 'Lembretes retomados'); });
@@ -6972,7 +7314,7 @@ window.addEventListener('error', function(e){
     if(j.meta){ var bd = mem.meta.badges || {}; mem.meta = Object.assign({}, j.meta, mem.meta); mem.meta.badges = Object.assign({}, j.meta.badges || {}, bd); if(j.meta.start && j.meta.start < mem.meta.start) mem.meta.start = j.meta.start; pending.meta = true; }
     if(j.photos){ Object.keys(j.photos).forEach(function(id){ mem.photos[id] = j.photos[id]; pending['photo_'+id] = true; }); }
     normalize(); persist(); flush(); renderAll(); renderPerfil();
-    $('imText').value = ''; toast('Dados importados! ' + Object.keys(j.days).length + ' dias trazidos.');
+    $('imText').value = ''; toast('Dados importados. ' + Object.keys(j.days).length + ' dias trazidos.');
   });
   // ================= Eventos v3 =================
   $('gymTypes').addEventListener('click', function(e){
@@ -7000,7 +7342,7 @@ window.addEventListener('error', function(e){
   }
   $('today').addEventListener('click', function(e){
     var sp = e.target.closest('[data-supp]');
-    if(sp){ var d = today(), id = sp.getAttribute('data-supp'); d.supp = d.supp || {}; if(d.supp[id]) delete d.supp[id]; else { d.supp[id] = 1; toast('Anotado! ✓'); } save(); renderSupps(); return; }
+    if(sp){ var d = today(), id = sp.getAttribute('data-supp'); d.supp = d.supp || {}; if(d.supp[id]) delete d.supp[id]; else { d.supp[id] = 1; toast('Anotado. ✓'); } save(); renderSupps(); return; }
     var ck = e.target.closest('[data-ch]'); if(ck){ chToggle(ck.getAttribute('data-ch'), todayKey()); return; }
     if(e.target.closest('[data-goch]')){ show('evo'); setPane('conq'); renderEvo(); return; }
     var aj = e.target.closest('[data-adj]');
@@ -7015,7 +7357,7 @@ window.addEventListener('error', function(e){
     var name = ($('chName').value || '').trim().slice(0, 60); if(!name){ toast('Escolha ou escreva um desafio'); return; }
     if(mem.meta.ch.active.length >= 3){ toast('Máximo de 3 desafios ao mesmo tempo'); return; }
     mem.meta.ch.active.push({id: 'c' + Date.now(), name: name, days: chDays, start: todayKey(), done: {}}); saveMeta();
-    closeSheetEl('chSheet'); renderChallenges(); toast('Desafio criado: ' + chDays + ' dias. Bora!');
+    closeSheetEl('chSheet'); renderChallenges(); toast('Desafio criado: ' + chDays + ' dias. Bora.');
   });
   $('wnClose').addEventListener('click', function(){ closeSheetEl('wnSheet'); });
   $('recap').addEventListener('click', function(e){
@@ -7092,7 +7434,7 @@ window.addEventListener('error', function(e){
       else if(a === 'edit') openPhSheet(true);
       else if(a === 'end'){ var p0 = mem.meta.phase; if(p0) confirmAsk('Encerrar a fase ' + p0.name + ' agora?', 'Encerrar').then(function(ok){ if(!ok) return; var p = mem.meta.phase; if(p){ var nd = daysBetween(p.start, todayKey()); if(nd < 1){ mem.meta.phase = null; saveMeta(); toast('Fase cancelada'); } else { p.days = nd; saveMeta(); phaseSweep(); } renderPhase(); } }); }
       return; }
-    if(e.target.closest('#plOk')){ mem.meta.plSkip = keyOf(addDays(now0(), 14)); saveMeta(); renderPlateau(); toast('Bora! Pequenos ajustes fazem diferença.'); return; }
+    if(e.target.closest('#plOk')){ mem.meta.plSkip = keyOf(addDays(now0(), 14)); saveMeta(); renderPlateau(); toast('Bora. Pequenos ajustes fazem diferença.'); return; }
     var lk = e.target.closest('[data-look]');
     if(lk){ if(lk.classList.contains('lock')){ toast('Bloqueado: ' + (lk.getAttribute('aria-label') || '').split('falta ')[1]); return; } var pr = lk.getAttribute('data-look').split(':'); mem.meta.look = mem.meta.look || {}; mem.meta.look[pr[0]] = pr[1]; saveMeta(); renderCloset(); renderMascot(); return; }
     var qr = e.target.closest('[data-qr]'); if(qr){ var x = qr.getAttribute('data-qr').split('-'); showQuarter(+x[0], +x[1]); }
@@ -7112,7 +7454,7 @@ window.addEventListener('error', function(e){
     var p = mem.meta.phase;
     if(p && $('phTitle').textContent === 'Editar fase'){ p.name = name; p.days = phDraft.days; p.g = phDraft.g; }
     else mem.meta.phase = {id:'p' + Date.now(), name:name, days:phDraft.days, start:todayKey(), g:phDraft.g};
-    mem.meta.phaseNew = 0; saveMeta(); closeSheetEl('phSheet'); renderPhase(); toast(name + ' · ' + phDraft.days + ' dias. Bora!');
+    mem.meta.phaseNew = 0; saveMeta(); closeSheetEl('phSheet'); renderPhase(); toast(name + ' · ' + phDraft.days + ' dias. Bora.');
   });
   $('today').addEventListener('click', function(e){
     var mb = e.target.closest('[data-memo]'); if(!mb) return;
@@ -7137,7 +7479,7 @@ window.addEventListener('error', function(e){
     var v = $('pfStart').value; if(!/^\d{4}-\d{2}-\d{2}$/.test(v)) return;
     var lim = keyOf(addDays(now0(), 60)); if(v > lim){ toast('Escolha uma data nos próximos 60 dias'); renderPerfil(); return; }
     mem.meta.start = v; mem.meta.startSet = true; saveMeta(); renderAll(); renderPerfil();
-    toast(daysToStart() ? 'Combinado! Seu Novo Eu começa em ' + shortDate(fromKey(v)) + '.' : 'Dia 1 ajustado para ' + shortDate(fromKey(v)) + '.');
+    toast(daysToStart() ? 'Combinado. Seu Novo Eu começa em ' + shortDate(fromKey(v)) + '.' : 'Dia 1 ajustado para ' + shortDate(fromKey(v)) + '.');
   });
   $('pfFace').addEventListener('click', function(){ if(lockCred()) confirmAsk('Desligar o bloqueio com Face ID?', 'Desligar').then(function(ok){ if(ok) disableFaceLock(); }); else enableFaceLock(); });
   $('lkFace').addEventListener('click', unlockFace);
@@ -7190,7 +7532,7 @@ window.addEventListener('error', function(e){
       if(hh.indexOf('error_description=') >= 0){ show('login'); showLoginError('lgErr', 'O link expirou ou já foi usado. Peça um novo.'); try{ history.replaceState(null, '', location.pathname); }catch(e){} return; }
       if(hh.indexOf('access_token=') >= 0){
         sbc.auth.fromHash(hh).then(function(res){ try{ history.replaceState(null, '', location.pathname); }catch(e){}
-          if(res && res.session && res.type !== 'recovery'){ sbUser = res.session.user; afterLogin(); toast('Bem-vindo de volta, Lucas!'); }
+          if(res && res.session && res.type !== 'recovery'){ sbUser = res.session.user; afterLogin(); toast('Bem-vindo de volta, Lucas.'); }
           else if(res && res.session){ sbUser = res.session.user; show('login'); $('lgForm').hidden = true; $('fgForm').hidden = true; $('pwForm').hidden = false; $('pwIntro').textContent = 'Crie uma nova senha para a sua conta.'; }
           else { show('login'); showLoginError('lgErr', 'Não consegui validar o link. Peça um novo.'); } });
         return;
