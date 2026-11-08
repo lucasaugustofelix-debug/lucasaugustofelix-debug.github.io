@@ -1411,6 +1411,89 @@ html.dark .screen .card:not(.hero){box-shadow:0 1px 2px rgba(0,0,0,.3)}
 .gal .empty3,.gal>.empty2{grid-column:1/-1}
 .gal:has(.empty3){display:block!important}.gal .empty3 .e3i{position:static!important}
 
+/* ================= v4.0 ================= */
+/* Espaço entre cartões e tipografia */
+.screen .main{gap:12px!important}
+#missions{gap:12px!important}
+.screen .card h2{font-size:1rem;font-weight:700;letter-spacing:-.01em}
+.big b,#wBottles,.prsum b,.stat b,.acc b,.dbv b,.kpis b{font-family:'NECond','Barlow Condensed','Plus Jakarta Sans',system-ui,sans-serif!important;letter-spacing:-.01em}
+/* Ícones dos cartões com cor leve */
+#cardAgua .ic{background:#DBEAFE!important;color:#1D4ED8!important}
+#cardFood .ic{background:#DCFCE7!important;color:#15803D!important}
+#cardGym .ic{background:#FFEDD5!important;color:#C2410C!important}
+html.dark #cardAgua .ic{background:rgba(59,130,246,.18)!important;color:#93C5FD!important}
+html.dark #cardFood .ic{background:rgba(34,197,94,.16)!important;color:#86EFAC!important}
+html.dark #cardGym .ic{background:rgba(249,115,22,.16)!important;color:#FDBA74!important}
+/* Água sem os segmentos; Alimentação sem a caixa de regra */
+#wSeg{display:none!important}
+#foodHint{display:none!important}
+.infoi{width:20px;height:20px;border-radius:50%;border:1.5px solid var(--line);background:none;color:var(--muted);font:800 11px/1 'Plus Jakarta Sans',system-ui,sans-serif;display:inline-flex;align-items:center;justify-content:center;margin-left:6px;padding:0;font-style:italic}
+/* Treino: laranja mais sóbrio, links menores */
+.b-orange,#gym.btn{background:linear-gradient(180deg,#B5532A,#9C4320)!important;box-shadow:0 6px 18px rgba(156,67,32,.22)!important}
+html.dark .b-orange,html.dark #gym.btn{background:linear-gradient(180deg,#B5532A,#8E3D1D)!important}
+#gymJust{font-size:.78rem!important;padding:4px 0!important;opacity:.8}
+#cardGym .week{transform:scale(.86);transform-origin:center top;margin-bottom:-8px}
+#cardGym .streak[hidden]{display:none!important}
+/* Extras do dia: máximo 4 */
+#moreBody .capped{display:none!important}
+/* Pinguim do cartão de missões maior e respirando */
+#mascot{width:72px!important;height:72px!important}
+#mascot svg{width:72px;height:72px;animation:breathe 4.2s ease-in-out infinite;transform-origin:50% 92%}
+@keyframes breathe{0%,100%{transform:scale(1)}50%{transform:scale(1.035,1.025)}}
+@media (prefers-reduced-motion:reduce){#mascot svg{animation:none}}
+/* Cartão de missões claro no tema claro */
+html:not(.dark) .hero{background:var(--card)!important;color:var(--text)!important;border:1px solid var(--line)!important;box-shadow:0 1px 2px rgba(14,21,18,.04),0 6px 20px rgba(14,21,18,.05)!important}
+html:not(.dark) .hero small,html:not(.dark) .hero span{color:var(--muted)!important}
+html:not(.dark) .hero strong{color:var(--text)!important}
+html:not(.dark) .hero .pct{color:var(--text)!important}
+html:not(.dark) .hero .doneseal{color:#3B2A05!important}
+html:not(.dark) .hero.gold{box-shadow:0 0 0 1px rgba(234,179,8,.5),0 10px 30px rgba(234,179,8,.16)!important}
+/* Dia completo: bloco dourado */
+.doneblock{display:block!important;text-align:left;font:inherit;border:0!important;cursor:pointer;background:linear-gradient(135deg,#FFFBEB,#FEF3C7)!important;box-shadow:0 0 0 1px rgba(234,179,8,.35),0 8px 24px rgba(234,179,8,.14)!important;color:#422006}
+html.dark .doneblock{background:linear-gradient(135deg,#2A2108,#1C1606)!important;color:#FDE68A}
+.doneblock .dbt{display:inline-flex;align-items:center;gap:6px;font:800 .74rem 'Plus Jakarta Sans',system-ui,sans-serif;letter-spacing:.08em;text-transform:uppercase;color:#A16207}
+html.dark .doneblock .dbt{color:#FACC15}
+.doneblock .dbv{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:10px}
+.doneblock small{display:block;font-size:.72rem;opacity:.7;font-weight:700}
+.doneblock b{display:block;font-size:1.25rem;line-height:1.1;margin-top:2px}
+.doneblock .dbm{display:block;font-style:normal;font-size:.76rem;opacity:.65;margin-top:10px}
+body.daydone:not(.showdone) #cardAgua,body.daydone:not(.showdone) #cardFood,body.daydone:not(.showdone) #cardGym{display:none!important}
+/* Histórico: um cartão só para a semana */
+.wkgroup{padding:0!important;gap:0!important;overflow:hidden}
+.wkgroup>.wkin{box-shadow:none!important;border:0!important;border-radius:0!important;margin:0!important;background:transparent!important}
+.wkgroup>.wkin+.wkin{border-top:1px solid var(--line)!important}
+/* Progresso: sem a frase solta */
+#prSum .kfoot{display:none!important}
+/* Perfil: cabeçalho centralizado e claro no tema claro */
+.pfhead.pfc{flex-direction:column!important;align-items:center!important;text-align:center;gap:10px!important;padding-top:24px!important}
+.pfhead.pfc>div{display:flex;flex-direction:column;align-items:center}
+.pfhead.pfc .pfstats2{justify-content:center}
+.pfhead.pfc .vitrine[hidden]{display:none!important}
+html:not(.dark) .pfhead{background:var(--card)!important;color:var(--text)!important;border:1px solid var(--line)!important}
+html:not(.dark) .pfhead h2{color:var(--text)!important}
+html:not(.dark) .pfhead p{color:var(--muted)!important}
+html:not(.dark) .pfhead .avatar{background:var(--chip)!important;color:var(--text)!important}
+html:not(.dark) .pfhead .cam{border-color:var(--card)!important}
+html:not(.dark) .pfhead .pfstats2 span{background:var(--chip)!important;color:var(--text)!important}
+html:not(.dark) .pfhead .vitrine small{color:var(--muted)!important}
+/* Boas-vindas: mesmo clima da abertura, pinguim pequeno no canto, frase em destaque */
+#splash{background:linear-gradient(180deg,#36424B 0%,#252E35 45%,#151B20 100%)!important}
+#splash .glow.two{opacity:.35}
+#splash .logo{position:absolute!important;top:calc(18px + env(safe-area-inset-top));right:22px;width:48px!important;height:48px!important;border-radius:14px!important}
+#splash .quote p{font-size:1.55rem!important;line-height:1.25!important;letter-spacing:-.01em}
+#splash .quote{padding:22px 20px!important}
+/* Anel voando da abertura */
+.ringfly{position:fixed;z-index:10000;pointer-events:none}
+.ringfly svg{width:100%;height:100%;display:block}
+/* Carregando */
+.screen.skel .main>*:not(header){position:relative;overflow:hidden}
+.screen.skel .main>*:not(header)>*{visibility:hidden}
+.screen.skel .main>*:not(header)::after{content:'';position:absolute;inset:14px;border-radius:12px;background:linear-gradient(90deg,var(--chip) 0%,var(--line) 50%,var(--chip) 100%);background-size:200% 100%;animation:skel 1s linear infinite}
+@keyframes skel{to{background-position:-200% 0}}
+/* Destaque ao chegar pela notificação */
+.flash2{animation:flash2 2.2s ease}
+@keyframes flash2{0%,100%{box-shadow:0 1px 2px rgba(14,21,18,.04),0 6px 20px rgba(14,21,18,.04)}20%,60%{box-shadow:0 0 0 3px rgba(59,130,246,.45),0 10px 30px rgba(59,130,246,.18)}}
+
 </style>
 </head>
 <body>
@@ -2277,8 +2360,9 @@ window.addEventListener('error', function(e){
   function nBottles(){ var t = S().turns; return (t.m||0) + (t.t||0) + (t.n||0) + heatExtra(); }
 
   // ================= v3: pausa, tema, som, versão =================
-  var APP_VERSION = '3.9';
+  var APP_VERSION = '4.0';
   var WHATS_NEW = [
+    ['star', 'Acabamento: cartões mais limpos, dia completo num bloco dourado, cartão de missões e perfil claros no tema claro, Histórico com um cartão só para a semana, notificações sem emoji e a abertura levando o anel até o cartão de missões.'],
     ['star', 'App mais simples: barra de abas sem o botão +, Hoje mais enxuto, Água compacta, refeições em uma linha, Histórico e Perfil mais curtos e uma tela própria para o pinguim e o armário.'],
     ['star', 'Tela Hoje mais limpa, com a próxima ação no topo, a garrafa que enche e o dia completo em dourado. Novos selos mensais, a medalha Presença, presentes de datas especiais no armário, recorte da foto de perfil e a página Sobre.'],
     ['star', 'Pinguim de verdade, preto e branco, em todo o app. As cores do armário agora vão no cachecol e na faixa. Abertura nova com o pinguim mergulhando.'],
@@ -2947,7 +3031,7 @@ window.addEventListener('error', function(e){
   function skyClass(h){ return h < 10 ? 'dawn' : (h < 17 ? 'day' : (h < 19 ? 'dusk' : 'night')); }
   function missionOrder(h){ return h < 12 ? ['agua','food','gym'] : (h < 18 ? ['food','agua','gym'] : ['gym','food','agua']); }
   function renderToday(){
-    renderMissionsCard(); renderSunShare(); renderGymPhoto(); Promise.resolve().then(function(){ tidyToday(); v36Today(); v38Today(); v39Today(); });
+    renderMissionsCard(); renderSunShare(); renderGymPhoto(); Promise.resolve().then(function(){ tidyToday(); v36Today(); v38Today(); v39Today(); v40Today(); });
     var c = ctx(), d = today(), B = bottle(), G = goal(), NB = nBottles();
     document.querySelectorAll('.js-greet').forEach(function(el){ el.textContent = c.wknd ? weekendGreet(c) : c.greet; });
     $('date').textContent = dateLong() + (daysToStart() ? ' · começa em ' + daysToStart() + (daysToStart() === 1 ? ' dia' : ' dias') : ' · Dia ' + dayNumber());
@@ -7124,6 +7208,116 @@ window.addEventListener('error', function(e){
       if(m && tx){ tx.textContent = 'até ' + hhmm(mealDue(mk)); tx.classList.add('mdue'); }
     });
   }
+
+  // ================= v4.0: acabamento =================
+  // ---- Cabeçalho do Hoje: data curta ----
+  function headerToday(){
+    var n = new Date(), wd = ['Dom','Seg','Ter','Qua','Qui','Sex','Sáb'][n.getDay()], mo = ['jan','fev','mar','abr','mai','jun','jul','ago','set','out','nov','dez'][n.getMonth()];
+    var dn = daysToStart() ? 'começa em ' + daysToStart() + 'd' : 'Dia ' + dayNumber();
+    $('date').textContent = wd + ', ' + n.getDate() + ' ' + mo + ' · ' + dn;
+    var h1 = document.querySelector('#today header h1'); if(h1 && !h1._v36){ h1._v36 = 1; h1.innerHTML = 'Hoje'; }
+    var g = $('greetSm'); if(g){ g.hidden = n.getHours() >= 12; g.textContent = ctx().greet + ', Lucas'; }
+  }
+  // ---- Primeira vitória do dia: aviso curto em vez da janela grande ----
+  function firstWin(d){
+    if(d.firstWin) return false;
+    d.firstWin = true;
+    toast(FIRST_LINES[doy() % FIRST_LINES.length]);
+    return true;
+  }
+  // ---- Perfil: cabeçalho centralizado; vitrine só com medalha fixada ----
+  var _pfh40 = renderPfHead;
+  renderPfHead = function(){
+    _pfh40.apply(this, arguments);
+    var h = $('pfHead'); if(!h) return; h.classList.add('pfc');
+    var v = h.querySelector('.vitrine'); if(v) v.hidden = !(mem.meta.vit || []).map(medalById).filter(Boolean).length;
+  };
+  // ---- Hoje: cartões, dia completo e próxima ação ----
+  var GYM_IC = null;
+  function v40Today(){
+    var d = today();
+    // próxima ação some quando não há nada pendente
+    var hr = document.querySelector('#today .hdrow'), ng = $('nextGo'); if(hr) hr.hidden = !ng || ng.hidden || !ng.textContent.trim();
+    // regra da alimentação num "i"
+    var ft = document.querySelector('#cardFood .ttl'); if(ft && !ft.querySelector('.infoi')){ var b = document.createElement('button'); b.type = 'button'; b.className = 'infoi'; b.setAttribute('aria-label', 'Como funciona'); b.textContent = 'i'; b.onclick = function(e){ e.stopPropagation(); toast('Missão completa quando todas as refeições feitas forem verdes'); }; ft.appendChild(b); }
+    // cartões concluídos: linha com valor e check
+    var pill = function(id, txt){ var p = document.querySelector('#' + id + ' .donepill'); if(p) p.textContent = txt + ' ✓'; };
+    pill('cardAgua', fmtL(totalOf(d)));
+    var gr = MEALS.filter(function(x){ var r = mealsOf(d)[x.k]; return r && !r.skip && r.color === 'verde'; }).length, fe = MEALS.filter(function(x){ var r = mealsOf(d)[x.k]; return r && !r.skip; }).length;
+    pill('cardFood', gr + ' de ' + fe + ' verdes');
+    pill('cardGym', d.gymType && gtBy(d.gymType) ? gtBy(d.gymType).n : 'Feito');
+    // streak só a partir de 2 dias
+    var st = document.querySelector('#cardGym .streak'), sv = parseInt(($('streak') || {}).textContent, 10) || 0; if(st) st.hidden = sv < 2;
+    // dia completo: um bloco dourado no lugar dos 3 cartões
+    var done = complete(d), blk = $('doneBlock'), ms = $('missions');
+    if(done && ms){
+      if(!blk){ blk = document.createElement('button'); blk.type = 'button'; blk.id = 'doneBlock'; blk.className = 'card doneblock'; ms.insertBefore(blk, ms.firstChild); blk.onclick = function(){ document.body.classList.toggle('showdone'); blk.classList.toggle('open', document.body.classList.contains('showdone')); }; }
+      var gt = d.gymType && gtBy(d.gymType) ? gtBy(d.gymType).n : 'Treino feito';
+      blk.innerHTML = '<span class="dbt">' + ico('check', 16) + 'Resumo de hoje</span><div class="dbv"><div><small>Água</small><b>' + fmtL(totalOf(d)) + '</b></div><div><small>Refeições</small><b>' + gr + '/' + fe + ' verdes</b></div><div><small>Treino</small><b>' + esc(gt) + '</b></div></div><em class="dbm">' + (document.body.classList.contains('showdone') ? 'Ocultar detalhes' : 'Ver detalhes') + '</em>';
+      blk.hidden = false; document.body.classList.add('daydone');
+    } else { if(blk) blk.hidden = true; document.body.classList.remove('daydone', 'showdone'); }
+  }
+  // ---- "Extras do dia": no máximo 4 itens ----
+  var _td40 = tidyToday;
+  tidyToday = function(){
+    _td40.apply(this, arguments);
+    var more = $('moreBody'); if(!more) return; var n = 0;
+    Array.prototype.forEach.call(more.children, function(e){ e.classList.remove('capped'); if(e.hidden) return; n++; if(n > 4) e.classList.add('capped'); });
+    var c = Math.min(n, 4); $('moreCount').textContent = c ? c + (c === 1 ? ' item' : ' itens') : ''; $('moreToday').hidden = !c;
+  };
+  // ---- Histórico: um cartão só para a semana ----
+  (function(){
+    var a = $('wkCardNav'), b = $('wkSum'), c = $('wkBest'); if(!a || !b) return;
+    var g = document.createElement('div'); g.className = 'card wkgroup'; a.parentNode.insertBefore(g, a);
+    [a, b, c].forEach(function(el){ if(el){ el.classList.add('wkin'); g.appendChild(el); } });
+  })();
+  // ---- Progresso: comparação no subtítulo ----
+  (function(){ var p = document.querySelector('#evo header .date'); if(p) p.textContent = 'Sua evolução · últimos 30 dias'; })();
+  // ---- Abertura → app: o anel azul "voa" até o anel do dia ----
+  (function(){
+    var b = $('boot'); if(!b || reduceMotion) return;
+    var flown = false;
+    new MutationObserver(function(){
+      if(flown || !b.classList.contains('gone')) return; flown = true;
+      var tgt = current === 'today' ? document.querySelector('#ringBtn svg') : document.querySelector('#splash .logo');
+      if(!tgt) return; var r = tgt.getBoundingClientRect(); if(!r.width) return;
+      var W = innerWidth, H = innerHeight, d0 = W * .62, x0 = W / 2, y0 = H * .52;
+      var f = document.createElement('div'); f.className = 'ringfly'; f.innerHTML = '<svg viewBox="0 0 100 100"><circle cx="50" cy="50" r="44" fill="none" stroke="#3B82F6" stroke-width="5"/></svg>';
+      f.style.width = f.style.height = d0 + 'px'; f.style.left = (x0 - d0 / 2) + 'px'; f.style.top = (y0 - d0 / 2) + 'px';
+      document.body.appendChild(f);
+      var s = r.width / d0, dx = r.left + r.width / 2 - x0, dy = r.top + r.height / 2 - y0;
+      var an = f.animate([{transform:'translate(0,0) scale(1,.3)', opacity:1}, {transform:'translate(' + dx * .6 + 'px,' + dy * .6 + 'px) scale(' + (s + (1 - s) * .4) + ',' + (.3 + .5 * .6) + ')', opacity:1, offset:.6}, {transform:'translate(' + dx + 'px,' + dy + 'px) scale(' + s + ')', opacity:0}], {duration:760, easing:'cubic-bezier(.5,0,.2,1)', fill:'forwards'});
+      an.onfinish = function(){ f.remove(); };
+    }).observe(b, {attributes:true, attributeFilter:['class']});
+  })();
+  // ---- Carregando: blocos cinza ao abrir Histórico e Progresso pela primeira vez ----
+  var skelDone = {};
+  var _show40 = show;
+  show = function(id, dir){
+    if((id === 'semana' || id === 'evo') && !skelDone[id] && !reduceMotion){ skelDone[id] = 1; var sc = $(id); if(sc){ sc.classList.add('skel'); setTimeout(function(){ sc.classList.remove('skel'); }, 420); } }
+    return _show40.apply(this, arguments);
+  };
+  // ---- Notificação: rolagem suave até o cartão, com destaque ----
+  var _hh40 = handleHash;
+  handleHash = function(){
+    var h = (location.hash || '').slice(1);
+    if(h === 'agua' || h === 'gym' || h === 'supp'){
+      if(!sbUser) return;
+      if(current === 'splash' || current === 'login') show('today');
+      var el = {agua:$('cardAgua'), gym:$('cardGym'), supp:$('suppCard')}[h];
+      setTimeout(function(){
+        if(!el) return;
+        if(h !== 'supp' && el.classList.contains('collapsed')){ expanded[h] = true; renderToday(); }
+        if(el.parentNode && el.parentNode.id === 'moreBody'){ var mt = $('moreToday'); if(mt) mt.open = true; }
+        document.body.classList.add('showdone');
+        el.scrollIntoView({behavior:'smooth', block:'center'});
+        el.classList.remove('flash2'); void el.offsetWidth; el.classList.add('flash2'); setTimeout(function(){ el.classList.remove('flash2'); }, 2400);
+        try{ history.replaceState(null, '', location.pathname); }catch(e){}
+      }, 380);
+      return;
+    }
+    return _hh40.apply(this, arguments);
+  };
 
   // ================= Navegação =================
   var current = 'splash';
