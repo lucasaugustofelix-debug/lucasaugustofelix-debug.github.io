@@ -1,5 +1,5 @@
 // Novo Eu — service worker: offline + notificações
-const CACHE = 'novo-eu-v28';
+const CACHE = 'novo-eu-v29';
 const CORE = [
   './',
   './index.html',
@@ -37,14 +37,20 @@ self.addEventListener('fetch', (event) => {
   // Nunca guardar respostas da API (dados, login e clima)
   if (url.hostname.endsWith('supabase.co') || url.hostname.endsWith('open-meteo.com')) return;
   if (req.mode === 'navigate') {
-    event.respondWith(
-      fetch(new Request(req.url, { cache: 'no-store', credentials: 'same-origin' })).then((res) => {
-        if (!res || !res.ok) throw new Error('nav');
-        const copy = res.clone();
-        caches.open(CACHE).then((c) => c.put('./index.html', copy));
-        return res;
-      }).catch(() => caches.match('./index.html'))
-    );
+    // Rede primeiro; se a internet estiver lenta (2,5 s), abre a cópia guardada e atualiza por trás
+    const net = fetch(new Request(req.url, { cache: 'no-store', credentials: 'same-origin' })).then((res) => {
+      if (!res || !res.ok) throw new Error('nav');
+      const copy = res.clone();
+      caches.open(CACHE).then((c) => c.put('./index.html', copy));
+      return res;
+    });
+    event.respondWith(new Promise((resolve) => {
+      let done = false;
+      const t = setTimeout(() => { caches.match('./index.html').then((c) => { if (c && !done) { done = true; resolve(c); } }); }, 2500);
+      net.then((r) => { if (!done) { done = true; clearTimeout(t); resolve(r); } })
+        .catch(() => caches.match('./index.html').then((c) => { if (!done) { done = true; clearTimeout(t); resolve(c || Response.error()); } }));
+    }));
+    event.waitUntil(net.catch(() => null));
     return;
   }
   event.respondWith(
@@ -66,8 +72,6 @@ self.addEventListener('push', (event) => {
     body: data.body || '',
     icon: './icons/icon-192.png',
     badge: './icons/badge-96.png',
-  './fonts/BarlowCondensed-Bold.ttf',
-  './fonts/BarlowCondensed-SemiBold.ttf',
     tag: data.tag || 'novo-eu',
     renotify: true,
     data: { url: data.url || './' }
