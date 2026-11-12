@@ -1,5 +1,5 @@
 // Novo Eu — service worker: offline + notificações
-const CACHE = 'novo-eu-v29';
+const CACHE = 'novo-eu-v30';
 const CORE = [
   './',
   './index.html',
@@ -34,6 +34,7 @@ self.addEventListener('fetch', (event) => {
   const req = event.request;
   if (req.method !== 'GET') return;
   const url = new URL(req.url);
+  if (url.pathname.endsWith('.mp4')) return;
   // Nunca guardar respostas da API (dados, login e clima)
   if (url.hostname.endsWith('supabase.co') || url.hostname.endsWith('open-meteo.com')) return;
   if (req.mode === 'navigate') {
