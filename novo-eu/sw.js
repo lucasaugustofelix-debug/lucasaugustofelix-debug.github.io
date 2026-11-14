@@ -1,5 +1,5 @@
 // Novo Eu — service worker: offline + notificações
-const CACHE = 'novo-eu-v37';
+const CACHE = 'novo-eu-v38';
 const CORE = [
   './',
   './index.html',
@@ -38,7 +38,7 @@ self.addEventListener('fetch', (event) => {
   // Nunca guardar respostas da API (dados, login e clima)
   if (url.hostname.endsWith('supabase.co') || url.hostname.endsWith('open-meteo.com')) return;
   if (req.mode === 'navigate') {
-    // Rede primeiro; se a internet estiver lenta (2,5 s), abre a cópia guardada e atualiza por trás
+    // Rede primeiro; se a internet estiver lenta (0,9 s), abre a cópia guardada e atualiza por trás
     const net = fetch(new Request(req.url, { cache: 'no-store', credentials: 'same-origin' })).then((res) => {
       if (!res || !res.ok) throw new Error('nav');
       const copy = res.clone();
@@ -47,7 +47,7 @@ self.addEventListener('fetch', (event) => {
     });
     event.respondWith(new Promise((resolve) => {
       let done = false;
-      const t = setTimeout(() => { caches.match('./index.html').then((c) => { if (c && !done) { done = true; resolve(c); } }); }, 2500);
+      const t = setTimeout(() => { caches.match('./index.html').then((c) => { if (c && !done) { done = true; resolve(c); } }); }, 900);
       net.then((r) => { if (!done) { done = true; clearTimeout(t); resolve(r); } })
         .catch(() => caches.match('./index.html').then((c) => { if (!done) { done = true; clearTimeout(t); resolve(c || Response.error()); } }));
     }));
