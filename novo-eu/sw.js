@@ -1,5 +1,5 @@
 // Novo Eu — service worker: offline + notificações
-const CACHE = 'novo-eu-v42';
+const CACHE = 'novo-eu-v43';
 const CORE = [
   './',
   './index.html',
@@ -78,6 +78,7 @@ self.addEventListener('push', (event) => {
     data: { url: data.url || './' }
   };
   const jobs = [self.registration.showNotification(title, opts)];
+  jobs.push(caches.open('ne-meta').then((c) => c.put('./__last-push', new Response(JSON.stringify({ t: Date.now(), title: title, tag: data.tag || '' }), { headers: { 'Content-Type': 'application/json' } }))).catch(() => {}));
   if (typeof data.badge === 'number' && self.navigator && 'setAppBadge' in self.navigator) jobs.push(data.badge > 0 ? self.navigator.setAppBadge(data.badge) : self.navigator.clearAppBadge());
   event.waitUntil(Promise.all(jobs).catch(() => null));
 });
